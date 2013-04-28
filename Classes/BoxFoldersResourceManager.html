@@ -1,0 +1,1073 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>BoxFoldersResourceManager Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">BoxSDK </a></h1>
+				<a id="developerHome" href="../index.html">Box</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BoxFoldersResourceManager Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/copyFolderWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- copyFolderWithID:requestBuilder:success:failure:</option>
+	
+	<option value="//api/name/createFolderWithRequestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- createFolderWithRequestBuilder:success:failure:</option>
+	
+	<option value="//api/name/deleteFolderFromTrashWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- deleteFolderFromTrashWithID:requestBuilder:success:failure:</option>
+	
+	<option value="//api/name/deleteFolderWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- deleteFolderWithID:requestBuilder:success:failure:</option>
+	
+	<option value="//api/name/editFolderWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- editFolderWithID:requestBuilder:success:failure:</option>
+	
+	<option value="//api/name/folderInfoFromTrashWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- folderInfoFromTrashWithID:requestBuilder:success:failure:</option>
+	
+	<option value="//api/name/folderInfoWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- folderInfoWithID:requestBuilder:success:failure:</option>
+	
+	<option value="//api/name/folderItemsWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- folderItemsWithID:requestBuilder:success:failure:</option>
+	
+	<option value="//api/name/restoreFolderFromTrashWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- restoreFolderFromTrashWithID:requestBuilder:success:failure:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_API calls">API calls</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/copyFolderWithID:requestBuilder:success:failure:">copyFolderWithID:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createFolderWithRequestBuilder:success:failure:">createFolderWithRequestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteFolderFromTrashWithID:requestBuilder:success:failure:">deleteFolderFromTrashWithID:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteFolderWithID:requestBuilder:success:failure:">deleteFolderWithID:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/editFolderWithID:requestBuilder:success:failure:">editFolderWithID:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/folderInfoFromTrashWithID:requestBuilder:success:failure:">folderInfoFromTrashWithID:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/folderInfoWithID:requestBuilder:success:failure:">folderInfoWithID:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/folderItemsWithID:requestBuilder:success:failure:">folderItemsWithID:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/restoreFolderFromTrashWithID:requestBuilder:success:failure:">restoreFolderFromTrashWithID:requestBuilder:success:failure:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="BoxFoldersResourceManager Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BoxFoldersResourceManager Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value"><a href="../Classes/BoxAPIResourceManager.html">BoxAPIResourceManager</a> : NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">BoxFoldersResourceManager.h<br />BoxFoldersResourceManager.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>BoxFoldersResourceManager allows you to access and manipulate folders via the Box API. This class is
+a concrete subclass of <a href="../Classes/BoxAPIResourceManager.html">BoxAPIResourceManager</a>. This class allows you to manipulate <a href="[BoxFolder]">BoxFolders</a>
+referred to by their <code>modelID</code>, which is an <code>NSString</code>.</p>
+
+<p>This class enables the following operations:</p>
+
+<ul>
+<li><a href="http://developers.box.com/docs/#folders-get-information-about-a-folder">Get a folder&rsquo;s information</a></li>
+<li><a href="http://developers.box.com/docs/#folders-retrieve-a-folders-items">Retreive a folder&rsquo;s child items</a></li>
+<li><a href="http://developers.box.com/docs/#folders-update-information-about-a-folder">Edit a folder&rsquo;s information</a></li>
+<li><a href="http://developers.box.com/docs/#folders-copy-a-folder">Copy a folder</a></li>
+<li><a href="http://developers.box.com/docs/#folders-create-a-new-folder">Create a new folder</a></li>
+<li><a href="http://developers.box.com/docs/#folders-delete-a-folder">Delete a folder</a></li>
+<li><a href="http://developers.box.com/docs/#folders-get-the-items-in-the-trash">Get a list of items in the trash</a></li>
+<li><a href="http://developers.box.com/docs/#folders-get-a-trashed-folder">Get a folder in the trash&rsquo;s information</a></li>
+<li><a href="http://developers.box.com/docs/#folders-restore-a-trashed-folder">Restore a folder in the trash</a></li>
+<li><a href="http://developers.box.com/docs/#folders-permanently-delete-a-trashed-folder">Permanently delete a trashed folder</a></li>
+</ul>
+
+
+<h1>Callbacks and typedefs</h1>
+
+<p>This class defines the <code>BoxFolderBlock</code> type for successful API calls that return a <a href="../Classes/BoxFolder.html">BoxFolder</a> object:</p>
+
+<pre><code>typedef void (^BoxFolderBlock)(BoxFolder * folder);</code></pre>
+
+
+<h1>Constants</h1>
+
+<p>This class exposes two additional constants:</p>
+
+<ul>
+<li><code>BoxAPIFolderIDRoot</code>, for referring to the root (All Files) folder.</li>
+<li><code>BoxAPIFolderIDTrash</code>, for referring to the trash.</li>
+</ul>
+
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="API calls" name="task_API calls"></a>
+						
+<h3 class="subsubtitle task-title">API calls</h3>
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/folderInfoWithID:requestBuilder:success:failure:">&ndash;&nbsp;folderInfoWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch a folder&rsquo;s information.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createFolderWithRequestBuilder:success:failure:">&ndash;&nbsp;createFolderWithRequestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to create a new folder.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/folderItemsWithID:requestBuilder:success:failure:">&ndash;&nbsp;folderItemsWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch a folder&rsquo;s child items.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/editFolderWithID:requestBuilder:success:failure:">&ndash;&nbsp;editFolderWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to edit a folder&rsquo;s information.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deleteFolderWithID:requestBuilder:success:failure:">&ndash;&nbsp;deleteFolderWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to delete a folder. In most cases this moves a folder to the trash.
+Behavior is dependent on enterprise settings.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/copyFolderWithID:requestBuilder:success:failure:">&ndash;&nbsp;copyFolderWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to copy a folder and all of its contents.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/folderInfoFromTrashWithID:requestBuilder:success:failure:">&ndash;&nbsp;folderInfoFromTrashWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch a folder&rsquo;s information.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/restoreFolderFromTrashWithID:requestBuilder:success:failure:">&ndash;&nbsp;restoreFolderFromTrashWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to restore a folder from the trash.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deleteFolderFromTrashWithID:requestBuilder:success:failure:">&ndash;&nbsp;deleteFolderFromTrashWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to permanently delete a folder from the trash.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/copyFolderWithID:requestBuilder:success:failure:" title="copyFolderWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">copyFolderWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to copy a folder and all of its contents.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)copyFolderWithID:(NSString *)<em>folderID</em> requestBuilder:(BoxFoldersRequestBuilder *)<em>builder</em> success:(BoxFolderBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>folderID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxFolder.html">BoxFolder</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxFoldersRequestBuilder.html">BoxFoldersRequestBuilder</a> instance that contains query parameters and body data for the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to copy a folder and all of its contents.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#folders-copy-a-folder">copying a folder</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFoldersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createFolderWithRequestBuilder:success:failure:" title="createFolderWithRequestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">createFolderWithRequestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to create a new folder.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)createFolderWithRequestBuilder:(BoxFoldersRequestBuilder *)<em>builder</em> success:(BoxFolderBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxFoldersRequestBuilder.html">BoxFoldersRequestBuilder</a> instance that contains query parameters and body data for the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to create a new folder.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#folders-create-a-new-folder">creating a new folder</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFoldersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deleteFolderFromTrashWithID:requestBuilder:success:failure:" title="deleteFolderFromTrashWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">deleteFolderFromTrashWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to permanently delete a folder from the trash.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)deleteFolderFromTrashWithID:(NSString *)<em>folderID</em> requestBuilder:(BoxFoldersRequestBuilder *)<em>builder</em> success:(BoxSuccessfulDeleteBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>folderID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxFolder.html">BoxFolder</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxFoldersRequestBuilder.html">BoxFoldersRequestBuilder</a> instance that contains query parameters and body data for the request.
+<strong>Note</strong>: Since this is a <code>DELETE</code> request, the builder&rsquo;s body will be ignored.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to permanently delete a folder from the trash.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#folders-permanently-delete-a-trashed-folder">permanently deleting a trashed folder</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFoldersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deleteFolderWithID:requestBuilder:success:failure:" title="deleteFolderWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">deleteFolderWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to delete a folder. In most cases this moves a folder to the trash.
+Behavior is dependent on enterprise settings.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)deleteFolderWithID:(NSString *)<em>folderID</em> requestBuilder:(BoxFoldersRequestBuilder *)<em>builder</em> success:(BoxSuccessfulDeleteBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>folderID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxFolder.html">BoxFolder</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxFoldersRequestBuilder.html">BoxFoldersRequestBuilder</a> instance that contains query parameters and body data for the request.
+<strong>Note</strong>: Since this is a <code>DELETE</code> request, the builder&rsquo;s body will be ignored.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to delete a folder. In most cases this moves a folder to the trash.
+Behavior is dependent on enterprise settings.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#folders-delete-a-folder">deleting a folder</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFoldersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/editFolderWithID:requestBuilder:success:failure:" title="editFolderWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">editFolderWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to edit a folder&rsquo;s information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)editFolderWithID:(NSString *)<em>folderID</em> requestBuilder:(BoxFoldersRequestBuilder *)<em>builder</em> success:(BoxFolderBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>folderID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxFolder.html">BoxFolder</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxFoldersRequestBuilder.html">BoxFoldersRequestBuilder</a> instance that contains query parameters and body data for the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to edit a folder&rsquo;s information.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#folders-update-information-about-a-folder">editing a folder&rsquo;s information</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFoldersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/folderInfoFromTrashWithID:requestBuilder:success:failure:" title="folderInfoFromTrashWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">folderInfoFromTrashWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch a folder&rsquo;s information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)folderInfoFromTrashWithID:(NSString *)<em>folderID</em> requestBuilder:(BoxFoldersRequestBuilder *)<em>builder</em> success:(BoxFolderBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>folderID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxFolder.html">BoxFolder</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxFoldersRequestBuilder.html">BoxFoldersRequestBuilder</a> instance that contains query parameters and body data for the request.
+<strong>Note</strong>: Since this is a <code>GET</code> request, the builder&rsquo;s body will be ignored.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch a folder&rsquo;s information.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#folders-get-a-trashed-folder">getting a folder in the trash&rsquo;s information</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFoldersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/folderInfoWithID:requestBuilder:success:failure:" title="folderInfoWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">folderInfoWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch a folder&rsquo;s information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)folderInfoWithID:(NSString *)<em>folderID</em> requestBuilder:(BoxFoldersRequestBuilder *)<em>builder</em> success:(BoxFolderBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>folderID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxFolder.html">BoxFolder</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxFoldersRequestBuilder.html">BoxFoldersRequestBuilder</a> instance that contains query parameters and body data for the request.
+<strong>Note</strong>: Since this is a <code>GET</code> request, the builder&rsquo;s body will be ignored.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch a folder&rsquo;s information.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#folders-get-information-about-a-folder">getting a folder&rsquo;s information</a>.</p>
+
+<p>Using <code>BoxAPIFolderIDTrash</code> as folderID allows viewing the contents of the trash.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFoldersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/folderItemsWithID:requestBuilder:success:failure:" title="folderItemsWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">folderItemsWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch a folder&rsquo;s child items.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)folderItemsWithID:(NSString *)<em>folderID</em> requestBuilder:(BoxFoldersRequestBuilder *)<em>builder</em> success:(BoxCollectionBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>folderID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxFolder.html">BoxFolder</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxFoldersRequestBuilder.html">BoxFoldersRequestBuilder</a> instance that contains query parameters and body data for the request.
+<strong>Note</strong>: Since this is a <code>GET</code> request, the builder&rsquo;s body will be ignored.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch a folder&rsquo;s child items.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#folders-retrieve-a-folders-items">retreiving a folder&rsquo;s child items</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFoldersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/restoreFolderFromTrashWithID:requestBuilder:success:failure:" title="restoreFolderFromTrashWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">restoreFolderFromTrashWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to restore a folder from the trash.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)restoreFolderFromTrashWithID:(NSString *)<em>folderID</em> requestBuilder:(BoxFoldersRequestBuilder *)<em>builder</em> success:(BoxFolderBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>folderID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxFolder.html">BoxFolder</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxFoldersRequestBuilder.html">BoxFoldersRequestBuilder</a> instance that contains query parameters and body data for the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to restore a folder from the trash.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#folders-restore-a-trashed-folder">restoring a folder in the trash</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFoldersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-04-28)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

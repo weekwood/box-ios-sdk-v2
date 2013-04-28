@@ -1,0 +1,1699 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>BoxAPIMultipartPiece Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">BoxSDK </a></h1>
+				<a id="developerHome" href="../index.html">Box</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BoxAPIMultipartPiece Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/bodyContentLength">&nbsp;&nbsp;&nbsp;&nbsp;bodyContentLength</option>
+	
+	<option value="//api/name/bodyInputStream">&nbsp;&nbsp;&nbsp;&nbsp;bodyInputStream</option>
+	
+	<option value="//api/name/endBoundaryInputStream">&nbsp;&nbsp;&nbsp;&nbsp;endBoundaryInputStream</option>
+	
+	<option value="//api/name/hasFinalBoundary">&nbsp;&nbsp;&nbsp;&nbsp;hasFinalBoundary</option>
+	
+	<option value="//api/name/hasInitialBoundary">&nbsp;&nbsp;&nbsp;&nbsp;hasInitialBoundary</option>
+	
+	<option value="//api/name/headers">&nbsp;&nbsp;&nbsp;&nbsp;headers</option>
+	
+	<option value="//api/name/headersInputStream">&nbsp;&nbsp;&nbsp;&nbsp;headersInputStream</option>
+	
+	<option value="//api/name/startBoundaryInputStream">&nbsp;&nbsp;&nbsp;&nbsp;startBoundaryInputStream</option>
+	
+	<option value="//api/name/state">&nbsp;&nbsp;&nbsp;&nbsp;state</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/close">&nbsp;&nbsp;&nbsp;&nbsp;- close</option>
+	
+	<option value="//api/name/contentLength">&nbsp;&nbsp;&nbsp;&nbsp;- contentLength</option>
+	
+	<option value="//api/name/endBoundaryData">&nbsp;&nbsp;&nbsp;&nbsp;- endBoundaryData</option>
+	
+	<option value="//api/name/hasBytesAvailable">&nbsp;&nbsp;&nbsp;&nbsp;- hasBytesAvailable</option>
+	
+	<option value="//api/name/headersData">&nbsp;&nbsp;&nbsp;&nbsp;- headersData</option>
+	
+	<option value="//api/name/initWithData:fieldName:filename:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithData:fieldName:filename:</option>
+	
+	<option value="//api/name/initWithData:fieldName:filename:MIMEType:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithData:fieldName:filename:MIMEType:</option>
+	
+	<option value="//api/name/initWithInputStream:fieldName:filename:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithInputStream:fieldName:filename:</option>
+	
+	<option value="//api/name/initWithInputStream:fieldName:filename:MIMEType:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithInputStream:fieldName:filename:MIMEType:</option>
+	
+	<option value="//api/name/initializeInputStreams">&nbsp;&nbsp;&nbsp;&nbsp;- initializeInputStreams</option>
+	
+	<option value="//api/name/read:maxLength:error:">&nbsp;&nbsp;&nbsp;&nbsp;- read:maxLength:error:</option>
+	
+	<option value="//api/name/startBoundaryData">&nbsp;&nbsp;&nbsp;&nbsp;- startBoundaryData</option>
+	
+	<option value="//api/name/transitionToNextState">&nbsp;&nbsp;&nbsp;&nbsp;- transitionToNextState</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_State">State</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initializers">Initializers</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Piece data">Piece data</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Stream interaction">Stream interaction</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bodyContentLength">bodyContentLength</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bodyInputStream">bodyInputStream</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endBoundaryInputStream">endBoundaryInputStream</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasFinalBoundary">hasFinalBoundary</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasInitialBoundary">hasInitialBoundary</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/headers">headers</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/headersInputStream">headersInputStream</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startBoundaryInputStream">startBoundaryInputStream</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/state">state</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/close">close</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/contentLength">contentLength</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endBoundaryData">endBoundaryData</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasBytesAvailable">hasBytesAvailable</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/headersData">headersData</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithData:fieldName:filename:">initWithData:fieldName:filename:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithData:fieldName:filename:MIMEType:">initWithData:fieldName:filename:MIMEType:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithInputStream:fieldName:filename:">initWithInputStream:fieldName:filename:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithInputStream:fieldName:filename:MIMEType:">initWithInputStream:fieldName:filename:MIMEType:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initializeInputStreams">initializeInputStreams</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/read:maxLength:error:">read:maxLength:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startBoundaryData">startBoundaryData</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/transitionToNextState">transitionToNextState</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="BoxAPIMultipartPiece Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BoxAPIMultipartPiece Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">BoxAPIMultipartToJSONOperation.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class encapsulates one multipart form parameter. It provides one
+interface to extract the data associated with this multipart piece that
+will ouput raw bytes from the underlying components that make up the piece.
+All components are represented as sreams. Components that are not streams
+are converted to streams.</p>
+
+<p>These components are:</p>
+
+<ul>
+<li>A form boundary (either initial or encapsulation)</li>
+<li>Headers included in the multipart piece (i.e.: Content-Type, Content-Disposition)</li>
+<li>The body data associated with this piece</li>
+<li>An optional final form boundary</li>
+</ul>
+
+
+<p>Clients of this class are expected to configure these components through the given
+properties before reading from the underlying components.</p>
+
+<p>Reading data from an instance of this class is implemented as a <a href="#//api/name/state">state</a> machine.
+Reading from each component is represented as a distinct <a href="#//api/name/state">state</a>. The read method
+will only read data from one component during a single invocation.</p>
+
+<p>The states are:
+&ndash; not open
+&ndash; initial boundary
+&ndash; <a href="#//api/name/headers">headers</a>
+&ndash; body data
+&ndash; final boundary
+&ndash; closed</p><div class="warning"><p><strong>Warning:</strong> This class is declared in a <code>.m</code> file and is used internally by BoxAPIMultipartTOJSONOperation
+to implement <a href="http://tools.ietf.org/rfc/rfc1867.txt">RFC 1876</a> compliant uploads.</p></div><div class="warning"><p><strong>Warning:</strong> This class presents an interface like an NSOutputStream, but it differs in several
+key ways.</p></div>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="State" name="task_State"></a>
+						<h3 class="subsubtitle task-title">State</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/headers">&nbsp;&nbsp;headers</a></code>
+		<span class="tooltip"><p>Headers associated with the multipart piece. These include Content-Disposition,
+Content-Length, and Content-Type.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/headersInputStream">&nbsp;&nbsp;headersInputStream</a></code>
+		<span class="tooltip"><p>An input stream generated from encoding <a href="#//api/name/headers">headers</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/bodyInputStream">&nbsp;&nbsp;bodyInputStream</a></code>
+		<span class="tooltip"><p>An input stream for the body of the piece.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/bodyContentLength">&nbsp;&nbsp;bodyContentLength</a></code>
+		<span class="tooltip"><p>The length of the data in <a href="#//api/name/bodyInputStream">bodyInputStream</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasInitialBoundary">&nbsp;&nbsp;hasInitialBoundary</a></code>
+		<span class="tooltip"><p>Whether this piece is the first piece in the request. Consumers of this class
+should set this property to <code>YES</code> on the first instance of this class
+written to a connection&rsquo;s input stream.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startBoundaryInputStream">&nbsp;&nbsp;startBoundaryInputStream</a></code>
+		<span class="tooltip"><p>An input stream generated from the first boundary of this piece. This boundary
+may either be an initial boundary or an encapsulation boundary.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasFinalBoundary">&nbsp;&nbsp;hasFinalBoundary</a></code>
+		<span class="tooltip"><p>Whether this piece is the last piece in the request. Consumers of this class
+should set this property to <code>YES</code> on the last instance of this class
+written to a connection&rsquo;s input stream.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/endBoundaryInputStream">&nbsp;&nbsp;endBoundaryInputStream</a></code>
+		<span class="tooltip"><p>An input stream generated from the end boundary of this piece. This boundary
+may either be empty or a final boundary.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/state">&nbsp;&nbsp;state</a></code>
+		<span class="tooltip"><p>Encapsulates the current input stream this piece is reading from.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Initializers" name="task_Initializers"></a>
+						<h3 class="subsubtitle task-title">Initializers</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithData:fieldName:filename:">&ndash;&nbsp;initWithData:fieldName:filename:</a></code>
+		<span class="tooltip"><p>Initialize a multipart piece with data as the body data</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithData:fieldName:filename:MIMEType:">&ndash;&nbsp;initWithData:fieldName:filename:MIMEType:</a></code>
+		<span class="tooltip"><p>Initialize a multipart piece with data as the body data</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithInputStream:fieldName:filename:">&ndash;&nbsp;initWithInputStream:fieldName:filename:</a></code>
+		<span class="tooltip"><p>Initialize a multipart piece with inputStream as the body data</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithInputStream:fieldName:filename:MIMEType:">&ndash;&nbsp;initWithInputStream:fieldName:filename:MIMEType:</a></code>
+		<span class="tooltip"><p>Initialize a multipart piece with inputStream as the body data</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Piece data" name="task_Piece data"></a>
+						<h3 class="subsubtitle task-title">Piece data</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/contentLength">&ndash;&nbsp;contentLength</a></code>
+		<span class="tooltip"><p>The length in bytes of all components of this piece.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startBoundaryData">&ndash;&nbsp;startBoundaryData</a></code>
+		<span class="tooltip"><p>The bytes representing the start boundary of this piece. This may be an encapsulation
+boundary or an initial boundary.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/endBoundaryData">&ndash;&nbsp;endBoundaryData</a></code>
+		<span class="tooltip"><p>The bytes representing the end boundary of this piece. This may be empty
+or a final boundary.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/headersData">&ndash;&nbsp;headersData</a></code>
+		<span class="tooltip"><p>The bytes representing the <a href="#//api/name/headers">headers</a> of this multipart piece.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Stream interaction" name="task_Stream interaction"></a>
+						<h3 class="subsubtitle task-title">Stream interaction</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/read:maxLength:error:">&ndash;&nbsp;read:maxLength:error:</a></code>
+		<span class="tooltip"><p>This method is the main interface of this class. It reads from the streams of the
+underlying piece components and places read bytes into outputData.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initializeInputStreams">&ndash;&nbsp;initializeInputStreams</a></code>
+		<span class="tooltip"><p>Create the streams of the underlying components for reading.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/transitionToNextState">&ndash;&nbsp;transitionToNextState</a></code>
+		<span class="tooltip"><p>Close the current stream and open the next one for reading.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasBytesAvailable">&ndash;&nbsp;hasBytesAvailable</a></code>
+		<span class="tooltip"><p>Whether the multipart piece still has data left to read. This method returns true as long
+as <a href="#//api/name/state">state</a> is not <code>BoxAPIMultipartPieceStateClosed</code></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/close">&ndash;&nbsp;close</a></code>
+		<span class="tooltip"><p>Closes all underlying component streams and advances <a href="#//api/name/state">state</a> to <code>BoxAPIMultipartPieceStateClosed</code>.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/bodyContentLength" title="bodyContentLength"></a>
+	<h3 class="subsubtitle method-title">bodyContentLength</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The length of the data in <a href="#//api/name/bodyInputStream">bodyInputStream</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) unsigned long long bodyContentLength</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The length of the data in <a href="#//api/name/bodyInputStream">bodyInputStream</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/bodyInputStream" title="bodyInputStream"></a>
+	<h3 class="subsubtitle method-title">bodyInputStream</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An input stream for the body of the piece.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSInputStream *bodyInputStream</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>An input stream for the body of the piece.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/endBoundaryInputStream" title="endBoundaryInputStream"></a>
+	<h3 class="subsubtitle method-title">endBoundaryInputStream</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An input stream generated from the end boundary of this piece. This boundary
+may either be empty or a final boundary.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSInputStream *endBoundaryInputStream</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>An input stream generated from the end boundary of this piece. This boundary
+may either be empty or a final boundary.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hasFinalBoundary" title="hasFinalBoundary"></a>
+	<h3 class="subsubtitle method-title">hasFinalBoundary</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Whether this piece is the last piece in the request. Consumers of this class
+should set this property to <code>YES</code> on the last instance of this class
+written to a connection&rsquo;s input stream.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) BOOL hasFinalBoundary</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Whether this piece is the last piece in the request. Consumers of this class
+should set this property to <code>YES</code> on the last instance of this class
+written to a connection&rsquo;s input stream.</p>
+
+<p>This property determines whether <a href="#//api/name/endBoundaryInputStream">endBoundaryInputStream</a> is empty or
+a final boundary.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hasInitialBoundary" title="hasInitialBoundary"></a>
+	<h3 class="subsubtitle method-title">hasInitialBoundary</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Whether this piece is the first piece in the request. Consumers of this class
+should set this property to <code>YES</code> on the first instance of this class
+written to a connection&rsquo;s input stream.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) BOOL hasInitialBoundary</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Whether this piece is the first piece in the request. Consumers of this class
+should set this property to <code>YES</code> on the first instance of this class
+written to a connection&rsquo;s input stream.</p>
+
+<p>This property determines whether <a href="#//api/name/startBoundaryInputStream">startBoundaryInputStream</a> is an encapsulation
+boundary or an initial boundary.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/headers" title="headers"></a>
+	<h3 class="subsubtitle method-title">headers</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Headers associated with the multipart piece. These include Content-Disposition,
+Content-Length, and Content-Type.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSMutableDictionary *headers</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Headers associated with the multipart piece. These include Content-Disposition,
+Content-Length, and Content-Type.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/headersInputStream" title="headersInputStream"></a>
+	<h3 class="subsubtitle method-title">headersInputStream</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An input stream generated from encoding <a href="#//api/name/headers">headers</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSInputStream *headersInputStream</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>An input stream generated from encoding <a href="#//api/name/headers">headers</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startBoundaryInputStream" title="startBoundaryInputStream"></a>
+	<h3 class="subsubtitle method-title">startBoundaryInputStream</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An input stream generated from the first boundary of this piece. This boundary
+may either be an initial boundary or an encapsulation boundary.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSInputStream *startBoundaryInputStream</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>An input stream generated from the first boundary of this piece. This boundary
+may either be an initial boundary or an encapsulation boundary.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/state" title="state"></a>
+	<h3 class="subsubtitle method-title">state</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Encapsulates the current input stream this piece is reading from.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) BoxAPIMultipartPieceState state</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Encapsulates the current input stream this piece is reading from.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/close" title="close"></a>
+	<h3 class="subsubtitle method-title">close</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Closes all underlying component streams and advances <a href="#//api/name/state">state</a> to <code>BoxAPIMultipartPieceStateClosed</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)close</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Closes all underlying component streams and advances <a href="#//api/name/state">state</a> to <code>BoxAPIMultipartPieceStateClosed</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/contentLength" title="contentLength"></a>
+	<h3 class="subsubtitle method-title">contentLength</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The length in bytes of all components of this piece.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (unsigned long long)contentLength</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The length in bytes of all components of this piece.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The length in bytes of all components of this piece.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/endBoundaryData" title="endBoundaryData"></a>
+	<h3 class="subsubtitle method-title">endBoundaryData</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The bytes representing the end boundary of this piece. This may be empty
+or a final boundary.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSData *)endBoundaryData</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The bytes representing the end boundary of this piece.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The bytes representing the end boundary of this piece. This may be empty
+or a final boundary.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/hasFinalBoundary">@property hasFinalBoundary</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hasBytesAvailable" title="hasBytesAvailable"></a>
+	<h3 class="subsubtitle method-title">hasBytesAvailable</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Whether the multipart piece still has data left to read. This method returns true as long
+as <a href="#//api/name/state">state</a> is not <code>BoxAPIMultipartPieceStateClosed</code></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)hasBytesAvailable</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Whether the multipart piece still has data left to read. This method returns true as long
+as <a href="#//api/name/state">state</a> is not <code>BoxAPIMultipartPieceStateClosed</code></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/headersData" title="headersData"></a>
+	<h3 class="subsubtitle method-title">headersData</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The bytes representing the <a href="#//api/name/headers">headers</a> of this multipart piece.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSData *)headersData</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The bytes representing the <a href="#//api/name/headers">headers</a> of this multipart piece.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The bytes representing the <a href="#//api/name/headers">headers</a> of this multipart piece.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithData:fieldName:filename:" title="initWithData:fieldName:filename:"></a>
+	<h3 class="subsubtitle method-title">initWithData:fieldName:filename:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initialize a multipart piece with data as the body data</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithData:(NSData *)<em>data</em> fieldName:(NSString *)<em>fieldName</em> filename:(NSString *)<em>filename</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>data</em></dt>
+			<dd><p>The data to be sent as the body of this multipart piece</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fieldName</em></dt>
+			<dd><p>The value of the name component of the Content-Disposition header for this piece.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>filename</em></dt>
+			<dd><p>If this piece is a file, the value of the filename parameter of the Content-Disposition
+header for this piece. filename should only be provided if this piece represents a file upload. Pass nil
+otherwise.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initialize a multipart piece with data as the body data</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithData:fieldName:filename:MIMEType:" title="initWithData:fieldName:filename:MIMEType:"></a>
+	<h3 class="subsubtitle method-title">initWithData:fieldName:filename:MIMEType:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initialize a multipart piece with data as the body data</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithData:(NSData *)<em>data</em> fieldName:(NSString *)<em>fieldName</em> filename:(NSString *)<em>filename</em> MIMEType:(NSString *)<em>MIMEType</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>data</em></dt>
+			<dd><p>The data to be sent as the body of this multipart piece</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fieldName</em></dt>
+			<dd><p>The value of the name component of the Content-Disposition header for this piece.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>filename</em></dt>
+			<dd><p>If this piece is a file, the value of the filename parameter of the Content-Disposition
+header for this piece. filename should only be provided if this piece represents a file upload. Pass nil
+otherwise.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>MIMEType</em></dt>
+			<dd><p>The MIME type of the provided data. This value will be included in this piece&rsquo;s Content-Type
+header. MIMEType is optional. Pass nil if you do not wish to provide it.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initialize a multipart piece with data as the body data</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithInputStream:fieldName:filename:" title="initWithInputStream:fieldName:filename:"></a>
+	<h3 class="subsubtitle method-title">initWithInputStream:fieldName:filename:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initialize a multipart piece with inputStream as the body data</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithInputStream:(NSInputStream *)<em>inputStream</em> fieldName:(NSString *)<em>fieldName</em> filename:(NSString *)<em>filename</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>inputStream</em></dt>
+			<dd><p>A stream containing the data to be sent as the body of this multipart piece</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fieldName</em></dt>
+			<dd><p>The value of the name component of the Content-Disposition header for this piece.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>filename</em></dt>
+			<dd><p>If this piece is a file, the value of the filename parameter of the Content-Disposition
+header for this piece. filename should only be provided if this piece represents a file upload. Pass nil
+otherwise.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initialize a multipart piece with inputStream as the body data</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithInputStream:fieldName:filename:MIMEType:" title="initWithInputStream:fieldName:filename:MIMEType:"></a>
+	<h3 class="subsubtitle method-title">initWithInputStream:fieldName:filename:MIMEType:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initialize a multipart piece with inputStream as the body data</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithInputStream:(NSInputStream *)<em>inputStream</em> fieldName:(NSString *)<em>fieldName</em> filename:(NSString *)<em>filename</em> MIMEType:(NSString *)<em>MIMEType</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>inputStream</em></dt>
+			<dd><p>A stream containing the data to be sent as the body of this multipart piece</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fieldName</em></dt>
+			<dd><p>The value of the name component of the Content-Disposition header for this piece.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>filename</em></dt>
+			<dd><p>If this piece is a file, the value of the filename parameter of the Content-Disposition
+header for this piece. filename should only be provided if this piece represents a file upload. Pass nil
+otherwise.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>MIMEType</em></dt>
+			<dd><p>The MIME type of the provided data. This value will be included in this piece&rsquo;s Content-Type
+header. MIMEType is optional. Pass nil if you do not wish to provide it.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initialize a multipart piece with inputStream as the body data</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initializeInputStreams" title="initializeInputStreams"></a>
+	<h3 class="subsubtitle method-title">initializeInputStreams</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create the streams of the underlying components for reading.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)initializeInputStreams</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create the streams of the underlying components for reading.</p>
+
+<p>This method should be called on the <a href="#//api/name/state">state</a> transition from <code>BoxAPIMultipartPieceStateNotOpen</code>
+to <code>BoxAPIMultipartPieceStateInitialBoundary</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/read:maxLength:error:" title="read:maxLength:error:"></a>
+	<h3 class="subsubtitle method-title">read:maxLength:error:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method is the main interface of this class. It reads from the streams of the
+underlying piece components and places read bytes into outputData.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSInteger)read:(NSMutableData **)<em>outputData</em> maxLength:(NSUInteger)<em>length</em> error:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>outputData</em></dt>
+			<dd><p>Data read from the underlying streams will be written into outputData&rsquo;s byte array</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>length</em></dt>
+			<dd><p>The maximum amount of data to read into outputData</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>an NSError pointer to be populated with a stream error if any. error will be populated if
+this method returns <code>-1</code>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The number of bytes written to outputData, or -1 on a stream error.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This method is the main interface of this class. It reads from the streams of the
+underlying piece components and places read bytes into outputData.</p>
+
+<p>This method returns -1 on failure to read from any of its underlying streams.</p><div class="warning"><p><strong>Warning:</strong> Unlike an NSInputStream, this method may return 0, yet still have data left to
+read. This occurs whenever the multipart piece is switching between its component
+input streams. To determine whether a piece has data left to read, use <a href="#//api/name/hasBytesAvailable">hasBytesAvailable</a>.</p></div><div class="warning"><p><strong>Warning:</strong> Neither outputData nor *outputData may be nil. If either are nil, an assertion
+failure will be raised.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/hasBytesAvailable">&ndash; hasBytesAvailable</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startBoundaryData" title="startBoundaryData"></a>
+	<h3 class="subsubtitle method-title">startBoundaryData</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The bytes representing the start boundary of this piece. This may be an encapsulation
+boundary or an initial boundary.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSData *)startBoundaryData</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The bytes representing the start boundary of this piece.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The bytes representing the start boundary of this piece. This may be an encapsulation
+boundary or an initial boundary.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/hasInitialBoundary">@property hasInitialBoundary</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/transitionToNextState" title="transitionToNextState"></a>
+	<h3 class="subsubtitle method-title">transitionToNextState</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Close the current stream and open the next one for reading.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)transitionToNextState</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Close the current stream and open the next one for reading.</p>
+
+<p>This method should be called when the input stream of one component reaches its end.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-04-28)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

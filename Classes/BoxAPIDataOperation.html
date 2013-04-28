@@ -1,0 +1,978 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>BoxAPIDataOperation Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">BoxSDK </a></h1>
+				<a id="developerHome" href="../index.html">Box</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BoxAPIDataOperation Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/failureBlock">&nbsp;&nbsp;&nbsp;&nbsp;failureBlock</option>
+	
+	<option value="//api/name/fileID">&nbsp;&nbsp;&nbsp;&nbsp;fileID</option>
+	
+	<option value="//api/name/outputStream">&nbsp;&nbsp;&nbsp;&nbsp;outputStream</option>
+	
+	<option value="//api/name/progressBlock">&nbsp;&nbsp;&nbsp;&nbsp;progressBlock</option>
+	
+	<option value="//api/name/successBlock">&nbsp;&nbsp;&nbsp;&nbsp;successBlock</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/encodeBody:">&nbsp;&nbsp;&nbsp;&nbsp;- encodeBody:</option>
+	
+	<option value="//api/name/initWithURL:HTTPMethod:body:queryParams:OAuth2Session:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithURL:HTTPMethod:body:queryParams:OAuth2Session:</option>
+	
+	<option value="//api/name/performCompletionCallback">&nbsp;&nbsp;&nbsp;&nbsp;- performCompletionCallback</option>
+	
+	<option value="//api/name/performProgressCallback">&nbsp;&nbsp;&nbsp;&nbsp;- performProgressCallback</option>
+	
+	<option value="//api/name/prepareAPIRequest">&nbsp;&nbsp;&nbsp;&nbsp;- prepareAPIRequest</option>
+	
+	<option value="//api/name/processResponseData:">&nbsp;&nbsp;&nbsp;&nbsp;- processResponseData:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Streams">Streams</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Callbacks">Callbacks</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Overridden methods">Overridden methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/failureBlock">failureBlock</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fileID">fileID</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/outputStream">outputStream</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/progressBlock">progressBlock</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/successBlock">successBlock</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/encodeBody:">encodeBody:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithURL:HTTPMethod:body:queryParams:OAuth2Session:">initWithURL:HTTPMethod:body:queryParams:OAuth2Session:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performCompletionCallback">performCompletionCallback</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performProgressCallback">performProgressCallback</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareAPIRequest">prepareAPIRequest</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/processResponseData:">processResponseData:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="BoxAPIDataOperation Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BoxAPIDataOperation Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value"><a href="../Classes/BoxAPIAuthenticatedOperation.html">BoxAPIAuthenticatedOperation</a> : <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> : NSOperation</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSStreamDelegate</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">BoxAPIDataOperation.h<br />BoxAPIDataOperation.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>BoxAPIDataOperation is a concrete subclass of <a href="../Classes/BoxAPIAuthenticatedOperation.html">BoxAPIAuthenticatedOperation</a>.
+This operation receives binary data from the Box API which may be in the form
+of downloads or thumbnails.</p>
+
+<p>API calls to Box may fail with a 202 Accepted with an
+empty body on Downloads of files and thumbnails.
+This indicates that a file has successfully been uploaded but
+is not yet available for download or has not yet been converted
+to the requested thumbnail representation. In these cases, retry
+after the period of time suggested in the Retry-After header</p>
+
+<h1>Callbacks and typedefs</h1>
+
+<p>This class defines a number of block types for use in callback blocks. These are:</p>
+
+<pre><code>typedef void (^BoxDownloadSuccessBlock)(NSString *fileID, long long expectedTotalBytes);
+typedef void (^BoxDownloadFailureBlock)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error);
+typedef void (^BoxAPIDataProgressBlock)(long long expectedTotalBytes, unsigned long long bytesReceived);</code></pre>
+
+
+<p><strong>Note</strong>: expectedTotalBytes may be <code>NSURLResponseUnknownLength</code> if the operation is unable to
+determine the Content-Length of the download.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Streams" name="task_Streams"></a>
+						<h3 class="subsubtitle task-title">Streams</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/outputStream">&nbsp;&nbsp;outputStream</a></code>
+		<span class="tooltip"><p>The output stream to write received bytes to. Received data is immediately written
+to this output stream if possible. Otherwise it is buffered in memory.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Callbacks" name="task_Callbacks"></a>
+						<h3 class="subsubtitle task-title">Callbacks</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/successBlock">&nbsp;&nbsp;successBlock</a></code>
+		<span class="tooltip"><p>Called when the API call completes successfully with a 2xx status code.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/failureBlock">&nbsp;&nbsp;failureBlock</a></code>
+		<span class="tooltip"><p>Called when the API call returns an error with a non-2xx status code.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/progressBlock">&nbsp;&nbsp;progressBlock</a></code>
+		<span class="tooltip"><p>Called when the API call successfully receives bytes from the <code>NSURLConnection</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/performCompletionCallback">&ndash;&nbsp;performCompletionCallback</a></code>
+		<span class="tooltip"><p>Call success or failure depending on whether or not an error has occurred during the request.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/performProgressCallback">&ndash;&nbsp;performProgressCallback</a></code>
+		<span class="tooltip"><p>When data is successfully received from <a href="../Classes/BoxAPIOperation.html#//api/name/connection">self.connection</a>,
+this method is called to trigger <a href="#//api/name/progressBlock">progressBlock</a>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fileID">&nbsp;&nbsp;fileID</a></code>
+		<span class="tooltip"><p>The fileID associated with this download request. This value is passed to <a href="#//api/name/progressBlock">progressBlock</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Overridden methods" name="task_Overridden methods"></a>
+						<h3 class="subsubtitle task-title">Overridden methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/prepareAPIRequest">&ndash;&nbsp;prepareAPIRequest</a></code>
+		<span class="tooltip"><p>In addition to calling <a href="../Classes/BoxAPIAuthenticatedOperation.html#//api/name/prepareAPIRequest">super</a>, schedule <a href="#//api/name/outputStream">outputStream</a>
+in the current run loop and set <code></code>outputStream<code>.delegate</code> to <code>self</code>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/encodeBody:">&ndash;&nbsp;encodeBody:</a></code>
+		<span class="tooltip"><p>BoxAPIDataOperation should only ever be GET requests so there should not be a body.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/processResponseData:">&ndash;&nbsp;processResponseData:</a></code>
+		<span class="tooltip"><p>This method is called with by <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> with the assumption that all
+data received from the <code>NSURLConnection</code> is buffered. This operation
+streams all received data to its output stream, so do nothing in this method.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithURL:HTTPMethod:body:queryParams:OAuth2Session:">&ndash;&nbsp;initWithURL:HTTPMethod:body:queryParams:OAuth2Session:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/failureBlock" title="failureBlock"></a>
+	<h3 class="subsubtitle method-title">failureBlock</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the API call returns an error with a non-2xx status code.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) BoxDownloadFailureBlock failureBlock</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called when the API call returns an error with a non-2xx status code.</p>
+
+<p><strong>Note</strong>: All callbacks are executed on the same queue as the <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> they are associated with.
+If you wish to interact with the UI in a callback block, dispatch to the main queue in the
+callback block.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIDataOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fileID" title="fileID"></a>
+	<h3 class="subsubtitle method-title">fileID</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The fileID associated with this download request. This value is passed to <a href="#//api/name/progressBlock">progressBlock</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *fileID</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The fileID associated with this download request. This value is passed to <a href="#//api/name/progressBlock">progressBlock</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/progressBlock">@property progressBlock</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIDataOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/outputStream" title="outputStream"></a>
+	<h3 class="subsubtitle method-title">outputStream</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The output stream to write received bytes to. Received data is immediately written
+to this output stream if possible. Otherwise it is buffered in memory.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSOutputStream *outputStream</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The output stream to write received bytes to. Received data is immediately written
+to this output stream if possible. Otherwise it is buffered in memory.</p>
+
+<p>All received data from the API call is directed to this output stream. This means
+that this operation does not processing of data once the connection terminates.</p>
+
+<p><strong>Note</strong>: Creating an output stream to a file can be done easily using <code>NSOutputStream</code>:</p>
+
+<pre><code>NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];</code></pre>
+<div class="warning"><p><strong>Warning:</strong> If you are manually reading from this output stream (for example with
+a <code>CFStreamCreateBoundPair</code>) do not let data sit in the stream or you risk causing
+a large file to buffer entirely in memory.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIDataOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/progressBlock" title="progressBlock"></a>
+	<h3 class="subsubtitle method-title">progressBlock</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the API call successfully receives bytes from the <code>NSURLConnection</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) BoxAPIDataProgressBlock progressBlock</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called when the API call successfully receives bytes from the <code>NSURLConnection</code>.</p>
+
+<p><strong>Note</strong>: All callbacks are executed on the same queue as the <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> they are associated with.
+If you wish to interact with the UI in a callback block, dispatch to the main queue in the
+callback block.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIDataOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/successBlock" title="successBlock"></a>
+	<h3 class="subsubtitle method-title">successBlock</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the API call completes successfully with a 2xx status code.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) BoxDownloadSuccessBlock successBlock</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called when the API call completes successfully with a 2xx status code.</p>
+
+<p><strong>Note</strong>: All callbacks are executed on the same queue as the <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> they are associated with.
+If you wish to interact with the UI in a callback block, dispatch to the main queue in the
+callback block.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIDataOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/encodeBody:" title="encodeBody:"></a>
+	<h3 class="subsubtitle method-title">encodeBody:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>BoxAPIDataOperation should only ever be GET requests so there should not be a body.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSData *)encodeBody:(NSDictionary *)<em>bodyDictionary</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>bodyDictionary</em></dt>
+			<dd><p>This should always be nil</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>nil</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>BoxAPIDataOperation should only ever be GET requests so there should not be a body.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIDataOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithURL:HTTPMethod:body:queryParams:OAuth2Session:" title="initWithURL:HTTPMethod:body:queryParams:OAuth2Session:"></a>
+	<h3 class="subsubtitle method-title">initWithURL:HTTPMethod:body:queryParams:OAuth2Session:</h3>
+	
+	
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithURL:(NSURL *)<em>URL</em> HTTPMethod:(NSString *)<em>HTTPMethod</em> body:(NSDictionary *)<em>body</em> queryParams:(NSDictionary *)<em>queryParams</em> OAuth2Session:(BoxOAuth2Session *)<em>OAuth2Session</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/performCompletionCallback" title="performCompletionCallback"></a>
+	<h3 class="subsubtitle method-title">performCompletionCallback</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Call success or failure depending on whether or not an error has occurred during the request.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)performCompletionCallback</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Call success or failure depending on whether or not an error has occurred during the request.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/successBlock">@property successBlock</a></p></code></li>
+			
+			<li><code><p><a href="#//api/name/failureBlock">@property failureBlock</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIDataOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/performProgressCallback" title="performProgressCallback"></a>
+	<h3 class="subsubtitle method-title">performProgressCallback</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>When data is successfully received from <a href="../Classes/BoxAPIOperation.html#//api/name/connection">self.connection</a>,
+this method is called to trigger <a href="#//api/name/progressBlock">progressBlock</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)performProgressCallback</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>When data is successfully received from <a href="../Classes/BoxAPIOperation.html#//api/name/connection">self.connection</a>,
+this method is called to trigger <a href="#//api/name/progressBlock">progressBlock</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/progressBlock">@property progressBlock</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIDataOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prepareAPIRequest" title="prepareAPIRequest"></a>
+	<h3 class="subsubtitle method-title">prepareAPIRequest</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>In addition to calling <a href="../Classes/BoxAPIAuthenticatedOperation.html#//api/name/prepareAPIRequest">super</a>, schedule <a href="#//api/name/outputStream">outputStream</a>
+in the current run loop and set <code></code>outputStream<code>.delegate</code> to <code>self</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)prepareAPIRequest</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>In addition to calling <a href="../Classes/BoxAPIAuthenticatedOperation.html#//api/name/prepareAPIRequest">super</a>, schedule <a href="#//api/name/outputStream">outputStream</a>
+in the current run loop and set <code></code>outputStream<code>.delegate</code> to <code>self</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIDataOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/processResponseData:" title="processResponseData:"></a>
+	<h3 class="subsubtitle method-title">processResponseData:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method is called with by <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> with the assumption that all
+data received from the <code>NSURLConnection</code> is buffered. This operation
+streams all received data to its output stream, so do nothing in this method.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)processResponseData:(NSData *)<em>data</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>data</em></dt>
+			<dd><p>This data should be empty.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This method is called with by <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> with the assumption that all
+data received from the <code>NSURLConnection</code> is buffered. This operation
+streams all received data to its output stream, so do nothing in this method.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIDataOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-04-28)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

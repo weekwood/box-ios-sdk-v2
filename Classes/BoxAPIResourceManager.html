@@ -1,0 +1,1042 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>BoxAPIResourceManager Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">BoxSDK </a></h1>
+				<a id="developerHome" href="../index.html">Box</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BoxAPIResourceManager Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/APIBaseURL">&nbsp;&nbsp;&nbsp;&nbsp;APIBaseURL</option>
+	
+	<option value="//api/name/APIVersion">&nbsp;&nbsp;&nbsp;&nbsp;APIVersion</option>
+	
+	<option value="//api/name/OAuth2Session">&nbsp;&nbsp;&nbsp;&nbsp;OAuth2Session</option>
+	
+	<option value="//api/name/queueManager">&nbsp;&nbsp;&nbsp;&nbsp;queueManager</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</option>
+	
+	<option value="//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:</option>
+	
+	<option value="//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:">&nbsp;&nbsp;&nbsp;&nbsp;- JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:</option>
+	
+	<option value="//api/name/URLWithResource:ID:subresource:subID:">&nbsp;&nbsp;&nbsp;&nbsp;- URLWithResource:ID:subresource:subID:</option>
+	
+	<option value="//api/name/initWithAPIBaseURL:OAuth2Session:queueManager:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAPIBaseURL:OAuth2Session:queueManager:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_API properties">API properties</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SDK properties">SDK properties</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initialization">Initialization</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_API call helper methods">API call helper methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/APIBaseURL">APIBaseURL</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/APIVersion">APIVersion</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/OAuth2Session">OAuth2Session</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queueManager">queueManager</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/URLWithResource:ID:subresource:subID:">URLWithResource:ID:subresource:subID:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAPIBaseURL:OAuth2Session:queueManager:">initWithAPIBaseURL:OAuth2Session:queueManager:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="BoxAPIResourceManager Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BoxAPIResourceManager Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">BoxAPIResourceManager.h<br />BoxAPIResourceManager.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>BoxAPIResourceManager is an abstract base class representing a Box API resource and
+the API calls you can make on that resource. In the Box API, a resource is the first
+of the API URL after the version number. For example, <a href="https://api.box.com/2.0/files/12345"><code>https://api.box.com/2.0/files/12345</code></a>
+represents an operation on the <a href="../Classes/BoxFilesResourceManager.html">files resource</a>. Because this is
+an abstract class, you should not instantiate it directly. Instead, instantiate one of its
+concrete subclasses:</p>
+
+<ul>
+<li><a href="../Classes/BoxFilesResourceManager.html">BoxFilesResourceManager</a></li>
+<li><a href="../Classes/BoxFoldersResourceManager.html">BoxFoldersResourceManager</a></li>
+</ul>
+
+
+<p>Subclasses of BoxAPIResourceManager should only issue authenticated API calls. This means
+they should only enqueue subclasses of <a href="../Classes/BoxAPIAuthenticatedOperation.html">BoxAPIAuthenticatedOperation</a>.</p>
+
+<p>This class provides helper methods to aid subclasses in issuing API calls.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="API properties" name="task_API properties"></a>
+						<h3 class="subsubtitle task-title">API properties</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/APIBaseURL">&nbsp;&nbsp;APIBaseURL</a></code>
+		<span class="tooltip"><p>The base URL for all API calls. This should be set on initialization.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/APIVersion">&nbsp;&nbsp;APIVersion</a></code>
+		<span class="tooltip"><p>The API version for all API calls. This should be set on initialization.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="SDK properties" name="task_SDK properties"></a>
+						<h3 class="subsubtitle task-title">SDK properties</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/OAuth2Session">&nbsp;&nbsp;OAuth2Session</a></code>
+		<span class="tooltip"><p>The <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a> to use to sign requests. This session is attached to
+all operations the resource manager enqueues.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/queueManager">&nbsp;&nbsp;queueManager</a></code>
+		<span class="tooltip"><p>The queue on which to enqueue API operations.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Initialization" name="task_Initialization"></a>
+						<h3 class="subsubtitle task-title">Initialization</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithAPIBaseURL:OAuth2Session:queueManager:">&ndash;&nbsp;initWithAPIBaseURL:OAuth2Session:queueManager:</a></code>
+		<span class="tooltip"><p>Designated initializer.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="API call helper methods" name="task_API call helper methods"></a>
+						<h3 class="subsubtitle task-title">API call helper methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/URLWithResource:ID:subresource:subID:">&ndash;&nbsp;URLWithResource:ID:subresource:subID:</a></code>
+		<span class="tooltip"><p>Returns a canonical URL for an API request given its components. Box API URLs are made up of four components.
+This helper uses <a href="#//api/name/APIBaseURL">APIBaseURL</a> and <a href="#//api/name/APIVersion">APIVersion</a> to construct the URL.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">&ndash;&nbsp;JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></code>
+		<span class="tooltip"><p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:">&ndash;&nbsp;JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:</a></code>
+		<span class="tooltip"><p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with. This wraps successBlock
+in a <code>BoxAPIJSONSuccessBlock</code> and delegates to
+<a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:">&ndash;&nbsp;JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:</a></code>
+		<span class="tooltip"><p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with. This wraps successBlock
+in a <code>BoxAPIJSONSuccessBlock</code> and delegates to
+<a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/APIBaseURL" title="APIBaseURL"></a>
+	<h3 class="subsubtitle method-title">APIBaseURL</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The base URL for all API calls. This should be set on initialization.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *APIBaseURL</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The base URL for all API calls. This should be set on initialization.</p>
+
+<p>In normal usage, this is <a href="https://api.box.com"><code>https://api.box.com</code></a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="../Classes/BoxSDK.html#//api/name/sharedSDK">[BoxSDK sharedSDK]</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/APIVersion" title="APIVersion"></a>
+	<h3 class="subsubtitle method-title">APIVersion</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The API version for all API calls. This should be set on initialization.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *APIVersion</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The API version for all API calls. This should be set on initialization.</p>
+
+<p>This should always be a 2.x version. This SDK works with the V2 API.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="../Classes/BoxSDK.html#//api/name/sharedSDK">[BoxSDK sharedSDK]</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/OAuth2Session" title="OAuth2Session"></a>
+	<h3 class="subsubtitle method-title">OAuth2Session</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a> to use to sign requests. This session is attached to
+all operations the resource manager enqueues.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, weak) BoxOAuth2Session *OAuth2Session</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a> to use to sign requests. This session is attached to
+all operations the resource manager enqueues.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/queueManager" title="queueManager"></a>
+	<h3 class="subsubtitle method-title">queueManager</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The queue on which to enqueue API operations.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, weak) BoxAPIQueueManager *queueManager</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The queue on which to enqueue API operations.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:" title="JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)JSONOperationWithURL:(NSURL *)<em>URL</em> HTTPMethod:(BoxAPIHTTPMethod *)<em>HTTPMethod</em> queryStringParameters:(NSDictionary *)<em>queryParameters</em> bodyDictionary:(NSDictionary *)<em>bodyDictionary</em> JSONSuccessBlock:(BoxAPIJSONSuccessBlock)<em>successBlock</em> failureBlock:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>URL</em></dt>
+			<dd><p>The canonical URL of the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>HTTPMethod</em></dt>
+			<dd><p>The HTTP method of the request. One of <code>BoxAPIHTTPMethodGET</code>, <code>BoxAPIHTTPMethodPOST</code>,
+<code>BoxAPIHTTPMethodPUT</code>, <code>BoxAPIHTTPMethodDELETE</code>, <code>BoxAPIHTTPMethodOPTIONS</code>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>queryParameters</em></dt>
+			<dd><p>Key value pairs to URL encode and include as the query string of the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>bodyDictionary</em></dt>
+			<dd><p>Key value pairs for the operation to encode and include as the HTTP body.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A <code>BoxAPIJSONSuccessBlock</code> to execute on a successful API call.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A <code>BoxAPIJSONFailureBlock</code> to execute on a failed API call.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:" title="JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with. This wraps successBlock
+in a <code>BoxAPIJSONSuccessBlock</code> and delegates to
+<a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)JSONOperationWithURL:(NSURL *)<em>URL</em> HTTPMethod:(BoxAPIHTTPMethod *)<em>HTTPMethod</em> queryStringParameters:(NSDictionary *)<em>queryParameters</em> bodyDictionary:(NSDictionary *)<em>bodyDictionary</em> collectionSuccessBlock:(BoxCollectionBlock)<em>successBlock</em> failureBlock:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>URL</em></dt>
+			<dd><p>The canonical URL of the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>HTTPMethod</em></dt>
+			<dd><p>The HTTP method of the request. One of <code>BoxAPIHTTPMethodGET</code>, <code>BoxAPIHTTPMethodPOST</code>,
+<code>BoxAPIHTTPMethodPUT</code>, <code>BoxAPIHTTPMethodDELETE</code>, <code>BoxAPIHTTPMethodOPTIONS</code>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>queryParameters</em></dt>
+			<dd><p>Key value pairs to URL encode and include as the query string of the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>bodyDictionary</em></dt>
+			<dd><p>Key value pairs for the operation to encode and include as the HTTP body.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A <code>BoxCollectionBlock</code> to execute on a successful API call.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A <code>BoxAPIJSONFailureBlock</code> to execute on a failed API call.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with. This wraps successBlock
+in a <code>BoxAPIJSONSuccessBlock</code> and delegates to
+<a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">&ndash; JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:" title="JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:"></a>
+	<h3 class="subsubtitle method-title">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with. This wraps successBlock
+in a <code>BoxAPIJSONSuccessBlock</code> and delegates to
+<a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)JSONOperationWithURL:(NSURL *)<em>URL</em> HTTPMethod:(BoxAPIHTTPMethod *)<em>HTTPMethod</em> queryStringParameters:(NSDictionary *)<em>queryParameters</em> bodyDictionary:(NSDictionary *)<em>bodyDictionary</em> deleteSuccessBlock:(BoxSuccessfulDeleteBlock)<em>successBlock</em> failureBlock:(BoxAPIJSONFailureBlock)<em>failureBlock</em> modelID:(NSString *)<em>modelID</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>URL</em></dt>
+			<dd><p>The canonical URL of the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>HTTPMethod</em></dt>
+			<dd><p>The HTTP method of the request. One of <code>BoxAPIHTTPMethodGET</code>, <code>BoxAPIHTTPMethodPOST</code>,
+<code>BoxAPIHTTPMethodPUT</code>, <code>BoxAPIHTTPMethodDELETE</code>, <code>BoxAPIHTTPMethodOPTIONS</code>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>queryParameters</em></dt>
+			<dd><p>Key value pairs to URL encode and include as the query string of the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>bodyDictionary</em></dt>
+			<dd><p>Key value pairs for the operation to encode and include as the HTTP body.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A <code>BoxSuccessfulDeleteBlock</code> to execute on a successful API call.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A <code>BoxAPIJSONFailureBlock</code> to execute on a failed API call.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>modelID</em></dt>
+			<dd><p>The ID of the model refered to by this API call. This is passed to successBlock.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with. This wraps successBlock
+in a <code>BoxAPIJSONSuccessBlock</code> and delegates to
+<a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">&ndash; JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/URLWithResource:ID:subresource:subID:" title="URLWithResource:ID:subresource:subID:"></a>
+	<h3 class="subsubtitle method-title">URLWithResource:ID:subresource:subID:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a canonical URL for an API request given its components. Box API URLs are made up of four components.
+This helper uses <a href="#//api/name/APIBaseURL">APIBaseURL</a> and <a href="#//api/name/APIVersion">APIVersion</a> to construct the URL.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSURL *)URLWithResource:(NSString *)<em>resource</em> ID:(NSString *)<em>ID</em> subresource:(NSString *)<em>subresource</em> subID:(NSString *)<em>subID</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>resource</em></dt>
+			<dd><p>The resource component of the URL.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>ID</em></dt>
+			<dd><p>The ID component of the URL. May be nil.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>subresource</em></dt>
+			<dd><p>The subresource component of the URL. May be nil.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>subID</em></dt>
+			<dd><p>The subresource ID component of the URL. May be nil.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The canonical URL of a request given the components.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a canonical URL for an API request given its components. Box API URLs are made up of four components.
+This helper uses APIBaseURL and APIVersion to construct the URL.</p>
+
+<p>A URL containing all components looks like the following:</p>
+
+<pre><code>https://api.box.com/files/12345/versions/current</code></pre>
+
+
+<p>The components are:</p>
+
+<ul>
+<li>resource: <code>files</code></li>
+<li>ID: <code>12345</code></li>
+<li>subresource: <code>versions</code></li>
+<li>subID: <code>current</code></li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithAPIBaseURL:OAuth2Session:queueManager:" title="initWithAPIBaseURL:OAuth2Session:queueManager:"></a>
+	<h3 class="subsubtitle method-title">initWithAPIBaseURL:OAuth2Session:queueManager:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Designated initializer.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithAPIBaseURL:(NSString *)<em>baseURL</em> OAuth2Session:(BoxOAuth2Session *)<em>OAuth2Session</em> queueManager:(BoxAPIQueueManager *)<em>queueManager</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>baseURL</em></dt>
+			<dd><p>The base URL to use when issuing API calls. Normally this should be <code>Box</code>APIBaseURL<code></code>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>OAuth2Session</em></dt>
+			<dd><p>The <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a> to pass through to <a href="../Classes/BoxAPIAuthenticatedOperation.html">BoxAPIAuthenticatedOperation</a> instances to sign requests.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>queueManager</em></dt>
+			<dd><p>The queue on which to schedule API requests.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An initialized BoxAPIResourceManager.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Designated initializer.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-04-28)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

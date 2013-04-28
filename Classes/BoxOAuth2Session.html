@@ -1,0 +1,1305 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>BoxOAuth2Session Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">BoxSDK </a></h1>
+				<a id="developerHome" href="../index.html">Box</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BoxOAuth2Session Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/APIBaseURLString">&nbsp;&nbsp;&nbsp;&nbsp;APIBaseURLString</option>
+	
+	<option value="//api/name/accessToken">&nbsp;&nbsp;&nbsp;&nbsp;accessToken</option>
+	
+	<option value="//api/name/accessTokenExpiration">&nbsp;&nbsp;&nbsp;&nbsp;accessTokenExpiration</option>
+	
+	<option value="//api/name/clientID">&nbsp;&nbsp;&nbsp;&nbsp;clientID</option>
+	
+	<option value="//api/name/clientSecret">&nbsp;&nbsp;&nbsp;&nbsp;clientSecret</option>
+	
+	<option value="//api/name/queueManager">&nbsp;&nbsp;&nbsp;&nbsp;queueManager</option>
+	
+	<option value="//api/name/refreshToken">&nbsp;&nbsp;&nbsp;&nbsp;refreshToken</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addAuthorizationParametersToRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- addAuthorizationParametersToRequest:</option>
+	
+	<option value="//api/name/authorizeURL">&nbsp;&nbsp;&nbsp;&nbsp;- authorizeURL</option>
+	
+	<option value="//api/name/grantTokensURL">&nbsp;&nbsp;&nbsp;&nbsp;- grantTokensURL</option>
+	
+	<option value="//api/name/initWithClientID:secret:APIBaseURL:queueManager:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithClientID:secret:APIBaseURL:queueManager:</option>
+	
+	<option value="//api/name/isAuthorized">&nbsp;&nbsp;&nbsp;&nbsp;- isAuthorized</option>
+	
+	<option value="//api/name/performAuthorizationCodeGrantWithReceivedURL:">&nbsp;&nbsp;&nbsp;&nbsp;- performAuthorizationCodeGrantWithReceivedURL:</option>
+	
+	<option value="//api/name/performRefreshTokenGrant">&nbsp;&nbsp;&nbsp;&nbsp;- performRefreshTokenGrant</option>
+	
+	<option value="//api/name/redirectURIString">&nbsp;&nbsp;&nbsp;&nbsp;- redirectURIString</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_SDK framework objects">SDK framework objects</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Service settings">Service settings</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_OAuth2 credentials">OAuth2 credentials</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initialization">Initialization</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Authorization">Authorization</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Token Refresh">Token Refresh</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/APIBaseURLString">APIBaseURLString</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/accessToken">accessToken</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/accessTokenExpiration">accessTokenExpiration</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clientID">clientID</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clientSecret">clientSecret</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queueManager">queueManager</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/refreshToken">refreshToken</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addAuthorizationParametersToRequest:">addAuthorizationParametersToRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/authorizeURL">authorizeURL</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/grantTokensURL">grantTokensURL</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithClientID:secret:APIBaseURL:queueManager:">initWithClientID:secret:APIBaseURL:queueManager:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isAuthorized">isAuthorized</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performAuthorizationCodeGrantWithReceivedURL:">performAuthorizationCodeGrantWithReceivedURL:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performRefreshTokenGrant">performRefreshTokenGrant</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/redirectURIString">redirectURIString</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="BoxOAuth2Session Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BoxOAuth2Session Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">BoxOAuth2Session.h<br />BoxOAuth2Session.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>BoxOAuth2Session is an abstract class you can use to encapsulate managing a set of OAuth2
+credentials, an access token and a refresh token. Because this class is abstract, you should
+not instantiate it directly. You can either use the provided <a href="../Classes/BoxSerialOAuth2Session.html">BoxSerialOAuth2Session</a> or implement your
+own subclass (see subclassing notes). This class does enforce its abstractness via calls to the
+<code>BOXAbstract</code> macro, which will raise an <code>NSAssert</code> when <code>DEBUG=1</code>.</p>
+
+<p>This class provides support for the <a href="http://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code Grant</a>
+and <a href="http://tools.ietf.org/html/rfc6749#section-6">refreshing an access token</a>. See
+<a href="http://tools.ietf.org/html/rfc6749">RFC 6749</a> for more information about the OAuth2 spec.</p>
+
+<p>The Authorization Code Grant requires a web view to allow the user to authenticate with Box and Authorize your
+application. Upon successful authorization, the webview will launch a custom URL scheme. Your app must capture
+this open in request in your App delegate and forward the URL to <a href="#//api/name/performAuthorizationCodeGrantWithReceivedURL:">performAuthorizationCodeGrantWithReceivedURL:</a>.</p>
+
+<h1>NSNotifications</h1>
+
+<p>An OAuth2 session will issue the following notifications when the authorization state changes:</p>
+
+<ul>
+<li><code>BoxOAuth2SessionDidBecomeAuthenticatedNotification</code> upon successfully exchanging an authorization code for a
+set of tokens.</li>
+<li><code>BoxOAuth2SessionDidReceiveAuthenricationErrorNotification</code> when the authorization code grant fails.</li>
+<li><code>BoxOAuth2SessionDidRefreshTokensNotification</code> upon successfully refreshing an access token.</li>
+<li><code>BoxOAuth2SessionDidReceiveRefreshErrorNotification</code> when a refresh attempt has failed (for example because
+the refresh token has been revoked or is expired).</li>
+</ul>
+
+
+<h1>Subclassing Notes</h1>
+
+<p>Subclasses must implement all abstract methods in this class. These include:</p>
+
+<ul>
+<li><a href="#//api/name/performAuthorizationCodeGrantWithReceivedURL:">performAuthorizationCodeGrantWithReceivedURL:</a></li>
+<li><a href="#//api/name/grantTokensURL">grantTokensURL</a></li>
+<li><a href="#//api/name/authorizeURL">authorizeURL</a></li>
+<li><a href="#//api/name/redirectURIString">redirectURIString</a></li>
+<li><a href="#//api/name/performRefreshTokenGrant">performRefreshTokenGrant</a></li>
+<li><a href="#//api/name/isAuthorized">isAuthorized</a></li>
+</ul>
+
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="SDK framework objects" name="task_SDK framework objects"></a>
+						<h3 class="subsubtitle task-title">SDK framework objects</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/APIBaseURLString">&nbsp;&nbsp;APIBaseURLString</a></code>
+		<span class="tooltip"><p>The base URL for API requests. This property is used to construct OAuth2 URLs.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/queueManager">&nbsp;&nbsp;queueManager</a></code>
+		<span class="tooltip"><p>The <a href="../Classes/BoxAPIQueueManager.html">BoxAPIQueueManager</a> on which to enqueue <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperations</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Service settings" name="task_Service settings"></a>
+						<h3 class="subsubtitle task-title">Service settings</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/clientID">&nbsp;&nbsp;clientID</a></code>
+		<span class="tooltip"><p>The client identifier described in <a href="http://tools.ietf.org/html/rfc6749#section-2.2">Section 2.2 of the OAuth2 spec</a></p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/clientSecret">&nbsp;&nbsp;clientSecret</a></code>
+		<span class="tooltip"><p>The client secret. This value is used during the authorization code grant and when refreshing tokens.
+This value should be a secret. DO NOT publish this value.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="OAuth2 credentials" name="task_OAuth2 credentials"></a>
+						<h3 class="subsubtitle task-title">OAuth2 credentials</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/accessToken">&nbsp;&nbsp;accessToken</a></code>
+		<span class="tooltip"><p>This token identifies a user on Box. This token is included in every request in the
+Authorization header as a Bearer token. Access tokens expire 60 minutes from when they are issued.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/refreshToken">&nbsp;&nbsp;refreshToken</a></code>
+		<span class="tooltip"><p>This token may be exchanged for a new access token and refresh token. Refresh tokens expire
+14 days from when they are issued.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/accessTokenExpiration">&nbsp;&nbsp;accessTokenExpiration</a></code>
+		<span class="tooltip"><p>When an access token is expected to expire. There is no guarantee the access token will be valid
+until this date. Tokens may be revoked by a user at any time.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Initialization" name="task_Initialization"></a>
+						<h3 class="subsubtitle task-title">Initialization</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithClientID:secret:APIBaseURL:queueManager:">&ndash;&nbsp;initWithClientID:secret:APIBaseURL:queueManager:</a></code>
+		<span class="tooltip"><p>Designated initializer. Returns a BoxOAuth2Session capable of authorizing a user and signing requests.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Authorization" name="task_Authorization"></a>
+						<h3 class="subsubtitle task-title">Authorization</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/performAuthorizationCodeGrantWithReceivedURL:">&ndash;&nbsp;performAuthorizationCodeGrantWithReceivedURL:</a></code>
+		<span class="tooltip"><p>Exchange an authorization code for an access token and a refresh token.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/grantTokensURL">&ndash;&nbsp;grantTokensURL</a></code>
+		<span class="tooltip"><p>Returns the URL to POST to for exchanging an authorization code or refresh token for a new set of tokens.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/authorizeURL">&ndash;&nbsp;authorizeURL</a></code>
+		<span class="tooltip"><p>Returns the URL to load in a webview to start the authentication and authorization flow with Box.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/redirectURIString">&ndash;&nbsp;redirectURIString</a></code>
+		<span class="tooltip"><p>Returns a string containing the URI to load after the user completes the webview authorization flow.
+This URI allows Box to redirect back to your app with an authorization code.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Token Refresh" name="task_Token Refresh"></a>
+						<h3 class="subsubtitle task-title">Token Refresh</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/performRefreshTokenGrant">&ndash;&nbsp;performRefreshTokenGrant</a></code>
+		<span class="tooltip"><p>This method exchanges a refresh token for a new access token and refresh token.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isAuthorized">&ndash;&nbsp;isAuthorized</a></code>
+		<span class="tooltip"><p>Compares <a href="../Classes/BoxOAuth2Session.html#//api/name/accessTokenExpiration">accessTokenExpiration</a> to the current time to determine if an access token may be valid.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addAuthorizationParametersToRequest:">&ndash;&nbsp;addAuthorizationParametersToRequest:</a></code>
+		<span class="tooltip"><p>Add the Authorization header to a request.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/APIBaseURLString" title="APIBaseURLString"></a>
+	<h3 class="subsubtitle method-title">APIBaseURLString</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The base URL for API requests. This property is used to construct OAuth2 URLs.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *APIBaseURLString</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The base URL for API requests. This property is used to construct OAuth2 URLs.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/grantTokensURL">&ndash; grantTokensURL</a></p></code></li>
+			
+			<li><code><p><a href="#//api/name/authorizeURL">&ndash; authorizeURL</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/accessToken" title="accessToken"></a>
+	<h3 class="subsubtitle method-title">accessToken</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This token identifies a user on Box. This token is included in every request in the
+Authorization header as a Bearer token. Access tokens expire 60 minutes from when they are issued.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *accessToken</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This token identifies a user on Box. This token is included in every request in the
+Authorization header as a Bearer token. Access tokens expire 60 minutes from when they are issued.</p>
+
+<p>accessToken is never stored by the SDK. If you choose to persist the access token, do so in
+secure storage such as the Keychain.</p>
+
+<p>An access token of <code>accesstoken</code> is transformed into the following Authorization header:</p>
+
+<pre><code>Authorization: Bearer accesstoken</code></pre>
+
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/addAuthorizationParametersToRequest:">&ndash; addAuthorizationParametersToRequest:</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/accessTokenExpiration" title="accessTokenExpiration"></a>
+	<h3 class="subsubtitle method-title">accessTokenExpiration</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>When an access token is expected to expire. There is no guarantee the access token will be valid
+until this date. Tokens may be revoked by a user at any time.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSDate *accessTokenExpiration</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>When an access token is expected to expire. There is no guarantee the access token will be valid
+until this date. Tokens may be revoked by a user at any time.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/clientID" title="clientID"></a>
+	<h3 class="subsubtitle method-title">clientID</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The client identifier described in <a href="http://tools.ietf.org/html/rfc6749#section-2.2">Section 2.2 of the OAuth2 spec</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *clientID</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The client identifier described in <a href="http://tools.ietf.org/html/rfc6749#section-2.2">Section 2.2 of the OAuth2 spec</a></p>
+
+<p>This is also known as an API key on Box. See the <a href="http://developers.box.com/oauth/">Box OAuth2 documentation</a> for
+information on where to find this value.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/clientSecret" title="clientSecret"></a>
+	<h3 class="subsubtitle method-title">clientSecret</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The client secret. This value is used during the authorization code grant and when refreshing tokens.
+This value should be a secret. DO NOT publish this value.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *clientSecret</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The client secret. This value is used during the authorization code grant and when refreshing tokens.
+This value should be a secret. DO NOT publish this value.</p>
+
+<p>See the <a href="http://developers.box.com/oauth/">Box OAuth2 documentation</a> for
+information on where to find this value.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/queueManager" title="queueManager"></a>
+	<h3 class="subsubtitle method-title">queueManager</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The <a href="../Classes/BoxAPIQueueManager.html">BoxAPIQueueManager</a> on which to enqueue <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperations</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, weak) BoxAPIQueueManager *queueManager</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The <a href="../Classes/BoxAPIQueueManager.html">BoxAPIQueueManager</a> on which to enqueue <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperations</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/refreshToken" title="refreshToken"></a>
+	<h3 class="subsubtitle method-title">refreshToken</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This token may be exchanged for a new access token and refresh token. Refresh tokens expire
+14 days from when they are issued.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *refreshToken</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This token may be exchanged for a new access token and refresh token. Refresh tokens expire
+14 days from when they are issued.</p>
+
+<p>refreshToken is never stored by the SDK. If you choose to persis the access token, do so in
+secure storage such as the Keychain.</p>
+
+<p>If a refresh token is expired, it cannot be exchanged for new tokens, and the user is effectively
+logged out of Box.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/performRefreshTokenGrant">&ndash; performRefreshTokenGrant</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addAuthorizationParametersToRequest:" title="addAuthorizationParametersToRequest:"></a>
+	<h3 class="subsubtitle method-title">addAuthorizationParametersToRequest:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Add the Authorization header to a request.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addAuthorizationParametersToRequest:(NSMutableURLRequest *)<em>request</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>request</em></dt>
+			<dd><p>the API request that should be modified with an Authorization header and Bearer token</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Add the Authorization header to a request.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/accessToken">@property accessToken</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/authorizeURL" title="authorizeURL"></a>
+	<h3 class="subsubtitle method-title">authorizeURL</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the URL to load in a webview to start the authentication and authorization flow with Box.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSURL *)authorizeURL</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The URL to load in a webview to start the authentication and authorization flow with Box.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the URL to load in a webview to start the authentication and authorization flow with Box.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/grantTokensURL" title="grantTokensURL"></a>
+	<h3 class="subsubtitle method-title">grantTokensURL</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the URL to POST to for exchanging an authorization code or refresh token for a new set of tokens.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSURL *)grantTokensURL</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The URL to POST to for exchanging an authorization code or refresh token for a new set of tokens.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the URL to POST to for exchanging an authorization code or refresh token for a new set of tokens.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithClientID:secret:APIBaseURL:queueManager:" title="initWithClientID:secret:APIBaseURL:queueManager:"></a>
+	<h3 class="subsubtitle method-title">initWithClientID:secret:APIBaseURL:queueManager:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Designated initializer. Returns a BoxOAuth2Session capable of authorizing a user and signing requests.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithClientID:(NSString *)<em>ID</em> secret:(NSString *)<em>secret</em> APIBaseURL:(NSString *)<em>baseURL</em> queueManager:(BoxAPIQueueManager *)<em>queueManager</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>ID</em></dt>
+			<dd><p>your client ID, also known as API key.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>secret</em></dt>
+			<dd><p>your client secret. DO NOT publish this secret.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>baseURL</em></dt>
+			<dd><p>The base URL String for accessing the Box API.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>queueManager</em></dt>
+			<dd><p>The queue manager on which to enqueue <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperations</a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxOAuth2Session capable of a  uthorizing a user and signing requests.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Designated initializer. Returns a BoxOAuth2Session capable of authorizing a user and signing requests.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isAuthorized" title="isAuthorized"></a>
+	<h3 class="subsubtitle method-title">isAuthorized</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Compares <a href="../Classes/BoxOAuth2Session.html#//api/name/accessTokenExpiration">accessTokenExpiration</a> to the current time to determine if an access token may be valid.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)isAuthorized</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BOOL indicating whether the access token may be valid.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Compares <a href="../Classes/BoxOAuth2Session.html#//api/name/accessTokenExpiration">accessTokenExpiration</a> to the current time to determine if an access token may be valid.</p>
+
+<p>This is not a guarantee that an access token is valid as it may have been revoked or already refreshed.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/performAuthorizationCodeGrantWithReceivedURL:" title="performAuthorizationCodeGrantWithReceivedURL:"></a>
+	<h3 class="subsubtitle method-title">performAuthorizationCodeGrantWithReceivedURL:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Exchange an authorization code for an access token and a refresh token.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)performAuthorizationCodeGrantWithReceivedURL:(NSURL *)<em>url</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>url</em></dt>
+			<dd><p>The URL received as a result of the OAuth2 server invoking the redirect URI. This URL will
+contain query string params needed to complete the authorization_code grant type.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Exchange an authorization code for an access token and a refresh token.</p>
+
+<p>This method should send the <code>BoxOAuth2SessionDidBecomeAuthenticatedNotification</code> notification when an
+authorization code is successfully exchanged for an access token and a refresh
+token.</p>
+
+<p>This method should send the <code>BoxOAuth2SessionDidReceiveAuthenricationErrorNotification</code> notification
+if an authorization code is not obtained from the authorization webview flow
+(for example if the user denies authorizing your application).</p><div class="warning"><p><strong>Warning:</strong> This method is intended to be called from your application delegate in response to
+<code>application:openURL:sourceApplication:annotation:</code>.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/performRefreshTokenGrant" title="performRefreshTokenGrant"></a>
+	<h3 class="subsubtitle method-title">performRefreshTokenGrant</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method exchanges a refresh token for a new access token and refresh token.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)performRefreshTokenGrant</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This method exchanges a refresh token for a new access token and refresh token.</p>
+
+<p>This method may be called automatically by the SDK framework upon a failed API call.</p>
+
+<p>This method should send the <code>BoxOAuth2SessionDidRefreshTokensNotification</code> notification upon successfully
+exchanging a refresh token for a new access token and refresh token.</p>
+
+<p>This method should send the <code>BoxOAuth2SessionDidReceiveRefreshErrorNotification</code> notification if a refresh
+token cannot be exchanged for a new set of tokens (for example if it has been revoked or is expired)</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/redirectURIString" title="redirectURIString"></a>
+	<h3 class="subsubtitle method-title">redirectURIString</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a string containing the URI to load after the user completes the webview authorization flow.
+This URI allows Box to redirect back to your app with an authorization code.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)redirectURIString</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Redirect URI string</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a string containing the URI to load after the user completes the webview authorization flow.
+This URI allows Box to redirect back to your app with an authorization code.</p><div class="warning"><p><strong>Warning:</strong> This should be a custom url scheme registered to your app.</p></div><div class="warning"><p><strong>Warning:</strong> Do not register a redirect URI in the Box developer settings pages.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-04-28)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
