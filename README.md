@@ -4,6 +4,21 @@ BoxSDK: Box API V2 iOS SDK
 This SDK provides access to the [Box V2 API](https://developers.box.com/docs/).
 It currently supports file and folder operations.
 
+## Add to your project
+
+The easiest way to add the Box SDK to your project is as a dependent XCode project.
+
+1. Clone this repository into your project's directory. You can use git submodules
+   if you want.
+2. Open your project in XCode.
+3. Drag BoxSDK.xcodeproj into the root of your project explorer.<br />![Dependent project](http://box.github.io/box-ios-sdk-private/readme-images/dependent-project.png)
+
+4. Add the BoxSDK project as a target dependency.<br />![Target dependency](http://box.github.io/box-ios-sdk-private/readme-images/target-dependency.png)
+
+5. Link with libBoxSDK.a<br />![Link with binary](http://box.github.io/box-ios-sdk-private/readme-images/link-with-binary.png)
+
+6. Add the `-ObjC` linker flag. This is needed to load categories defined in the SDK.<br />![Add linker flag](http://box.github.io/box-ios-sdk-private/readme-images/linker-flag.png)
+
 ## Quickstart
 
 ### Configure
