@@ -19,6 +19,8 @@ The easiest way to add the Box SDK to your project is as a dependent XCode proje
 
 6. Add the `-ObjC` linker flag. This is needed to load categories defined in the SDK.<br />![Add linker flag](http://box.github.io/box-ios-sdk-private/readme-images/linker-flag.png)
 
+7. `#import <BoxSDK/BoxSDK.h>`
+
 ## Quickstart
 
 ### Configure
