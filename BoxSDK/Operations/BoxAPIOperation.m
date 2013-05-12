@@ -27,6 +27,7 @@
 @implementation BoxAPIOperation
 
 @synthesize OAuth2Session = _OAuth2Session;
+@synthesize OAuth2AccessToken = _OAuth2AccessToken;
 
 // request properties
 @synthesize baseRequestURL = _baseRequestURL;
@@ -179,7 +180,12 @@
 #pragma mark - NSOperation main
 - (void)main
 {
-    [self prepareAPIRequest];
+    @synchronized(self.OAuth2Session)
+    {
+        [self prepareAPIRequest];
+        self.OAuth2AccessToken = self.OAuth2Session.accessToken;
+    }
+
     if (self.error == nil)
     {
         self.connection = [[NSURLConnection alloc] initWithRequest:self.APIRequest delegate:self];

@@ -94,6 +94,13 @@ typedef void (^BoxAPIDataFailureBlock)(NSURLRequest *request, NSHTTPURLResponse 
  */
 @property (nonatomic, readwrite, weak) BoxOAuth2Session *OAuth2Session;
 
+/**
+ * The OAuth2 access token this request was made with. This token is used to determine
+ * whether this operation failing due to an expired token should cause the tokens to
+ * be refreshed.
+ */
+@property (nonatomic, readwrite, strong) NSString *OAuth2AccessToken;
+
 /** @name Request properties */
 
 /**

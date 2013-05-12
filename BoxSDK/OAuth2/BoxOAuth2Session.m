@@ -9,6 +9,9 @@
 #import "BoxOAuth2Session.h"
 #import "BoxLog.h"
 #import "BoxSDKConstants.h"
+#import "BoxAPIOAuth2ToJSONOperation.h"
+#import "NSString+BoxURLHelper.h"
+#import "NSURL+BoxURLHelper.h"
 
 NSString *const BoxOAuth2SessionDidBecomeAuthenticatedNotification = @"BoxOAuth2SessionDidBecomeAuthenticated";
 NSString *const BoxOAuth2SessionDidReceiveAuthenricationErrorNotification = @"BoxOAuth2SessionDidReceiveAuthenticationError";
@@ -42,31 +45,83 @@ NSString *const BoxOAuth2AuthenticationErrorKey = @"BoxOAuth2AuthenticationError
 }
 
 #pragma mark - Authorization
-- (void)performAuthorizationCodeGrantWithReceivedURL:(NSURL *)url
+- (void)performAuthorizationCodeGrantWithReceivedURL:(NSURL *)URL
 {
-    BOXAbstract();
-}
+    NSDictionary *URLQueryParams = [URL queryDictionary];
+    NSString *authorizationCode = [URLQueryParams valueForKey:BoxOAuth2URLParameterAuthorizationCodeKey];
+    NSString *authorizationError = [URLQueryParams valueForKey:BoxOAuth2URLParameterErrorCodeKey];
 
-- (NSURL *)grantTokensURL
-{
-    BOXAbstract();
-    return nil;
+    if (authorizationError != nil)
+    {
+        NSDictionary *errorInfo = [NSDictionary dictionaryWithObject:authorizationError
+                                                              forKey:BoxOAuth2AuthenticationErrorKey];
+        [[NSNotificationCenter defaultCenter] postNotificationName:BoxOAuth2SessionDidReceiveAuthenricationErrorNotification
+                                                            object:self
+                                                          userInfo:errorInfo];
+        return;
+    }
+
+
+    NSDictionary *POSTParams = @{
+                                 BoxOAuth2TokenRequestGrantTypeKey : BoxOAuth2TokenRequestGrantTypeAuthorizationCode,
+                                 BoxOAuth2TokenRequestAuthorizationCodeKey : authorizationCode,
+                                 BoxOAuth2TokenRequestClientIDKey : self.clientID,
+                                 BoxOAuth2TokenRequestClientSecretKey : self.clientSecret,
+                                 BoxOAuth2TokenRequestRedirectURIKey : self.redirectURIString,
+                                 };
+
+    BoxAPIOAuth2ToJSONOperation *operation = [[BoxAPIOAuth2ToJSONOperation alloc] initWithURL:[self grantTokensURL]
+                                                                                   HTTPMethod:BoxAPIHTTPMethodPOST
+                                                                                         body:POSTParams
+                                                                                  queryParams:nil
+                                                                                OAuth2Session:self];
+
+    operation.success = ^(NSURLRequest *request, NSHTTPURLResponse *response, NSDictionary *JSONDictionary)
+    {
+        self.accessToken = [JSONDictionary valueForKey:BoxOAuth2TokenJSONAccessTokenKey];
+        self.refreshToken = [JSONDictionary valueForKey:BoxOAuth2TokenJSONRefreshTokenKey];
+
+        NSTimeInterval accessTokenExpiresIn = [[JSONDictionary valueForKey:BoxOAuth2TokenJSONExpiresInKey] integerValue];
+        BOXAssert(accessTokenExpiresIn >= 0, @"accessTokenExpiresIn value is negative");
+        self.accessTokenExpiration = [NSDate dateWithTimeIntervalSinceNow:accessTokenExpiresIn];
+
+        // send success notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:BoxOAuth2SessionDidBecomeAuthenticatedNotification object:self];
+    };
+
+    operation.failure = ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, NSDictionary *JSONDictionary)
+    {
+        NSDictionary *errorInfo = [NSDictionary dictionaryWithObject:error
+                                                              forKey:BoxOAuth2AuthenticationErrorKey];
+        [[NSNotificationCenter defaultCenter] postNotificationName:BoxOAuth2SessionDidReceiveAuthenricationErrorNotification
+                                                            object:self
+                                                          userInfo:errorInfo];
+    };
+
+    [self.queueManager enqueueOperation:operation];
 }
 
 - (NSURL *)authorizeURL
 {
-    BOXAbstract();
-    return nil;
+    NSString *encodedRedirectURI = [NSString stringWithString:self.redirectURIString URLEncoded:YES];
+    NSString *authorizeURLString = [NSString stringWithFormat:
+                                    @"%@/oauth2/authorize?response_type=code&client_id=%@&state=ok&redirect_uri=%@",
+                                    self.APIBaseURLString, self.clientID, encodedRedirectURI];
+    return [NSURL URLWithString:authorizeURLString];
+}
+
+- (NSURL *)grantTokensURL
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@/oauth2/token", self.APIBaseURLString]];
 }
 
 - (NSString *)redirectURIString
 {
-    BOXAbstract();
-    return nil;
+    return [NSString stringWithFormat:@"boxsdk-%@://boxsdkoauth2redirect", self.clientID];
 }
 
 #pragma mark - Token Refresh
-- (void)performRefreshTokenGrant
+- (void)performRefreshTokenGrant:(NSString *)expiredAccessToken
 {
     BOXAbstract();
 }
@@ -74,8 +129,8 @@ NSString *const BoxOAuth2AuthenticationErrorKey = @"BoxOAuth2AuthenticationError
 #pragma mark - Session info
 - (BOOL)isAuthorized
 {
-    BOXAbstract();
-    return NO;
+    NSDate *now = [NSDate date];
+    return [self.accessTokenExpiration timeIntervalSinceDate:now] > 0;
 }
 
 #pragma mark - Request Authorization

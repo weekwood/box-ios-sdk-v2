@@ -34,11 +34,11 @@
         // the circular reference between the queue manager and the OAuth2 session is necessary
         // because the OAuth2 session enqueues API operations to fetch access tokens and the queue
         // manager uses the OAuth2 session as a lock object when enqueuing operations.
-        sharedBoxSDK.queueManager = [[BoxSerialAPIQueueManager alloc] init];
-        sharedBoxSDK.OAuth2Session = [[BoxSerialOAuth2Session alloc] initWithClientID:nil
-                                                                               secret:nil
-                                                                           APIBaseURL:BoxAPIBaseURL
-                                                                         queueManager:sharedBoxSDK.queueManager];
+        sharedBoxSDK.queueManager = [[BoxParallelAPIQueueManager alloc] init];
+        sharedBoxSDK.OAuth2Session = [[BoxParallelOAuth2Session alloc] initWithClientID:nil
+                                                                                 secret:nil
+                                                                             APIBaseURL:BoxAPIBaseURL
+                                                                           queueManager:sharedBoxSDK.queueManager];
 
         sharedBoxSDK.queueManager.OAuth2Session = sharedBoxSDK.OAuth2Session;
 

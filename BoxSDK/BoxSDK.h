@@ -17,10 +17,12 @@
 #import "BoxAuthorizationViewController.h"
 #import "BoxOAuth2Session.h"
 #import "BoxSerialOAuth2Session.h"
+#import "BoxParallelOAuth2Session.h"
 
 // API Operation queues
 #import "BoxAPIQueueManager.h"
 #import "BoxSerialAPIQueueManager.h"
+#import "BoxParallelAPIQueueManager.h"
 
 // API Operations
 #import "BoxAPIOperation.h"

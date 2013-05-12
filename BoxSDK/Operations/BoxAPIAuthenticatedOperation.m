@@ -53,7 +53,7 @@
 
 - (void)handleExpiredOAuth2Token
 {
-    [self.OAuth2Session performRefreshTokenGrant];
+    [self.OAuth2Session performRefreshTokenGrant:self.OAuth2AccessToken];
 }
 
 #pragma mark - NSURLConnectionDataDelegate

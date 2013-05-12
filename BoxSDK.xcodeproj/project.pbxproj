@@ -12,13 +12,16 @@
 		E44A95D216E221B400356ADA /* BoxSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E470434316D41DC500FED29A /* BoxSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E44A95D616E221B400356ADA /* BoxLog.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C3289716D6F447002DC905 /* BoxLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E470433F16D41DC500FED29A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E470433E16D41DC500FED29A /* Foundation.framework */; };
-		E470434416D41DC500FED29A /* BoxSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E470434316D41DC500FED29A /* BoxSDK.h */; };
 		E470434616D41DC500FED29A /* BoxSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = E470434516D41DC500FED29A /* BoxSDK.m */; };
 		E470434E16D41DC500FED29A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E470434D16D41DC500FED29A /* SenTestingKit.framework */; };
 		E470435116D41DC500FED29A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E470433E16D41DC500FED29A /* Foundation.framework */; };
 		E470435416D41DC500FED29A /* libBoxSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E470433B16D41DC500FED29A /* libBoxSDK.a */; };
 		E470435A16D41DC500FED29A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E470435816D41DC500FED29A /* InfoPlist.strings */; };
 		E470435D16D41DC500FED29A /* BoxSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E470435C16D41DC500FED29A /* BoxSDKTests.m */; };
+		E4CA6F56173F13C10089680F /* BoxParallelAPIQueueManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E4CA6F54173F13C10089680F /* BoxParallelAPIQueueManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4CA6F57173F13C10089680F /* BoxParallelAPIQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CA6F55173F13C10089680F /* BoxParallelAPIQueueManager.m */; };
+		E4CA6F5E173F1C750089680F /* BoxParallelOAuth2Session.h in Headers */ = {isa = PBXBuildFile; fileRef = E4CA6F5C173F1C750089680F /* BoxParallelOAuth2Session.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4CA6F5F173F1C750089680F /* BoxParallelOAuth2Session.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CA6F5D173F1C750089680F /* BoxParallelOAuth2Session.m */; };
 		E4D5085816E80A2A001CE50A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D5085616E80667001CE50A /* libOCMock.a */; };
 		E4F4693617264EBE000CAD86 /* BoxSDKErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = E4F4693517264439000CAD86 /* BoxSDKErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4F4693B17268023000CAD86 /* BoxSDKTestsHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F4693A17268023000CAD86 /* BoxSDKTestsHelpers.m */; };
@@ -112,10 +115,9 @@
 		E470433916D41DC500FED29A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "include/${PRODUCT_NAME";
+			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				E470434416D41DC500FED29A /* BoxSDK.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +137,10 @@
 		E470435B16D41DC500FED29A /* BoxSDKTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxSDKTests.h; sourceTree = "<group>"; };
 		E470435C16D41DC500FED29A /* BoxSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxSDKTests.m; sourceTree = "<group>"; };
 		E4C3289716D6F447002DC905 /* BoxLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxLog.h; sourceTree = "<group>"; };
+		E4CA6F54173F13C10089680F /* BoxParallelAPIQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxParallelAPIQueueManager.h; sourceTree = "<group>"; };
+		E4CA6F55173F13C10089680F /* BoxParallelAPIQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxParallelAPIQueueManager.m; sourceTree = "<group>"; };
+		E4CA6F5C173F1C750089680F /* BoxParallelOAuth2Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxParallelOAuth2Session.h; sourceTree = "<group>"; };
+		E4CA6F5D173F1C750089680F /* BoxParallelOAuth2Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxParallelOAuth2Session.m; sourceTree = "<group>"; };
 		E4CF273516DC4A5100F5979E /* BoxSDKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxSDKConstants.h; sourceTree = "<group>"; };
 		E4D5085616E80667001CE50A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = vendor/lib/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		E4F4693517264439000CAD86 /* BoxSDKErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxSDKErrors.h; sourceTree = "<group>"; };
@@ -405,6 +411,8 @@
 				E4FAD999172CE2C50052AD11 /* BoxOAuth2Session.m */,
 				E4FAD99A172CE2C50052AD11 /* BoxSerialOAuth2Session.h */,
 				E4FAD99B172CE2C50052AD11 /* BoxSerialOAuth2Session.m */,
+				E4CA6F5C173F1C750089680F /* BoxParallelOAuth2Session.h */,
+				E4CA6F5D173F1C750089680F /* BoxParallelOAuth2Session.m */,
 			);
 			path = OAuth2;
 			sourceTree = "<group>";
@@ -435,6 +443,8 @@
 				E4FAD9AB172CE2C50052AD11 /* BoxAPIQueueManager.m */,
 				E4FAD9AC172CE2C50052AD11 /* BoxSerialAPIQueueManager.h */,
 				E4FAD9AD172CE2C50052AD11 /* BoxSerialAPIQueueManager.m */,
+				E4CA6F54173F13C10089680F /* BoxParallelAPIQueueManager.h */,
+				E4CA6F55173F13C10089680F /* BoxParallelAPIQueueManager.m */,
 			);
 			path = QueueManagers;
 			sourceTree = "<group>";
@@ -579,6 +589,8 @@
 				E4FAD9F4172CE2C50052AD11 /* BoxAPIResourceManager.h in Headers */,
 				E4FAD9F6172CE2C50052AD11 /* BoxFilesResourceManager.h in Headers */,
 				E4FAD9F8172CE2C50052AD11 /* BoxFoldersResourceManager.h in Headers */,
+				E4CA6F56173F13C10089680F /* BoxParallelAPIQueueManager.h in Headers */,
+				E4CA6F5E173F1C750089680F /* BoxParallelOAuth2Session.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +724,8 @@
 				E4FAD9F5172CE2C50052AD11 /* BoxAPIResourceManager.m in Sources */,
 				E4FAD9F7172CE2C50052AD11 /* BoxFilesResourceManager.m in Sources */,
 				E4FAD9F9172CE2C50052AD11 /* BoxFoldersResourceManager.m in Sources */,
+				E4CA6F57173F13C10089680F /* BoxParallelAPIQueueManager.m in Sources */,
+				E4CA6F5F173F1C750089680F /* BoxParallelOAuth2Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
