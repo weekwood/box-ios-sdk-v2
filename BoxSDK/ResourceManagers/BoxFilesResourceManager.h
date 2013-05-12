@@ -16,6 +16,13 @@
 
 typedef void (^BoxFileBlock)(BoxFile * folder);
 
+typedef enum {
+    BoxThumbnailSize32  = 32,
+    BoxThumbnailSize64  = 64,
+    BoxThumbnailSize128 = 128,
+    BoxThumbnailSize256 = 256
+} BoxThumbnailSize;
+
 /**
  * BoxFilesResourceManager allows you to access and manipulate files via the Box API. This class is
  * a concrete subclass of BoxAPIResourceManager. This class allows you to manipulate [BoxFiles]([BoxFile])
@@ -470,5 +477,30 @@ typedef void (^BoxFileBlock)(BoxFile * folder);
  */
 - (BoxAPIDataOperation *)downloadFileWithID:(NSString *)fileID outputStream:(NSOutputStream *)outputStream requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock progress:(BoxAPIDataProgressBlock)progressBlock;
 
+/**
+ * Return and enqueue an operation to download a file's thumbnail. Currently
+ * thumbnails are only available in .png format and will only be generated for
+ * [image file formats](http://en.wikipedia.org/wiki/Image_file_formats).
+ *
+ * To stream a download to disk, create an output stream as follows:
+ *
+ * <pre><code>NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];</code></pre>
+ *
+ * @param fileID The modelID of the file to download.
+ * @param outputStream The output stream of to write the download to.
+ * @param thumnailSize The minimum size of thumbnail in pixels.
+ *   One of:
+ *   
+ *   - BoxThumbnailSize32
+ *   - BoxThumbnailSize64
+ *   - BoxThumbnailSize128
+ *   - BoxThumbnailSize256
+ * @param successBlock A callback that is triggered if the API call completes successfully.
+ * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
+ *   A connection failure, or an API related error. Refer to `BoxSDKErrors.h` for error codes.
+ *
+ * @return An operation to download a file.
+ */
+- (BoxAPIDataOperation *)thumbnailForFileWithID:(NSString *)fileID outputStream:(NSOutputStream *)outputStream thumbnailSize:(BoxThumbnailSize)thumbnailSize success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock;
 
 @end

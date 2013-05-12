@@ -11,11 +11,15 @@
 #import "BoxFile.h"
 #import "BoxFilesRequestBuilder.h"
 
-#define BOX_API_FILES_RESOURCE (@"files")
-#define BOX_API_FILES_COPY     (@"copy")
-#define BOX_API_FILES_CONTENT  (@"content")
+#define BOX_API_FILES_RESOURCE  (@"files")
+#define BOX_API_FILES_COPY      (@"copy")
+#define BOX_API_FILES_CONTENT   (@"content")
+#define BOX_API_FILES_THUMBNAIL (@"thumbnail.png")
 
 #define BOX_API_MULTIPART_FILENAME_FIELD (@"file")
+
+#define BOX_THUMBNAIL_MIN_HEIGHT (@"min_height")
+#define BOX_THUMBNAIL_MIN_WIDTH  (@"min_width")
 
 @interface BoxFilesResourceManager ()
 
@@ -308,7 +312,7 @@
 
     BoxAPIDataOperation *operation = [[BoxAPIDataOperation alloc] initWithURL:URL
                                                                    HTTPMethod:BoxAPIHTTPMethodGET
-                                                                         body:builder.multipartBodyParameters
+                                                                         body:nil
                                                                   queryParams:builder.queryStringParameters
                                                                 OAuth2Session:self.OAuth2Session];
 
@@ -318,6 +322,32 @@
     operation.successBlock = successBlock;
     operation.failureBlock = failureBlock;
     operation.progressBlock = progressBlock;
+
+    [self.queueManager enqueueOperation:operation];
+
+    return operation;
+}
+
+- (BoxAPIDataOperation *)thumbnailForFileWithID:(NSString *)fileID outputStream:(NSOutputStream *)outputStream thumbnailSize:(BoxThumbnailSize)thumbnailSize success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock;
+{
+    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE ID:fileID subresource:BOX_API_FILES_THUMBNAIL subID:nil];
+
+    NSDictionary *thumbnailQueryParameters = @{
+        BOX_THUMBNAIL_MIN_HEIGHT : [NSNumber numberWithInt:thumbnailSize],
+        BOX_THUMBNAIL_MIN_WIDTH : [NSNumber numberWithInt:thumbnailSize]
+        };
+
+    BoxAPIDataOperation *operation = [[BoxAPIDataOperation alloc] initWithURL:URL
+                                                                   HTTPMethod:BoxAPIHTTPMethodGET
+                                                                         body:nil
+                                                                  queryParams:thumbnailQueryParameters
+                                                                OAuth2Session:self.OAuth2Session];
+
+    operation.outputStream = outputStream;
+
+    operation.fileID = fileID;
+    operation.successBlock = successBlock;
+    operation.failureBlock = failureBlock;
 
     [self.queueManager enqueueOperation:operation];
 
