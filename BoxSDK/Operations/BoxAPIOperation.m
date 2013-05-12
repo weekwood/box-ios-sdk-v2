@@ -12,6 +12,50 @@
 #import "BoxLog.h"
 #import "NSString+BoxURLHelper.h"
 
+typedef enum {
+    BoxAPIOperationStateReady = 1,
+    BoxAPIOperationStateExecuting,
+    BoxAPIOperationStateFinished
+} BoxAPIOperationState;
+
+static NSString * BoxOperationKeyPathForState(BoxAPIOperationState state) {
+    switch (state) {
+        case BoxAPIOperationStateReady:
+            return @"isReady";
+        case BoxAPIOperationStateExecuting:
+            return @"isExecuting";
+        case BoxAPIOperationStateFinished:
+            return @"isFinished";
+        default:
+            return @"state";
+    }
+}
+
+static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, BoxAPIOperationState toState, BOOL isCancelled) {
+    switch (fromState) {
+        case BoxAPIOperationStateReady:
+            switch (toState) {
+                case BoxAPIOperationStateExecuting:
+                    return YES;
+                case BoxAPIOperationStateFinished:
+                    return isCancelled;
+                default:
+                    return NO;
+            }
+        case BoxAPIOperationStateExecuting:
+            switch (toState) {
+                case BoxAPIOperationStateFinished:
+                    return YES;
+                default:
+                    return NO;
+            }
+        case BoxAPIOperationStateFinished:
+            return NO;
+        default:
+            return YES;
+    }
+}
+
 @interface BoxAPIOperation()
 
 #pragma mark - Thread keepalive
@@ -21,6 +65,10 @@
 
 - (void)startRunLoop;
 - (void)endRunLoop;
+
+@property (nonatomic, readwrite, assign) BoxAPIOperationState state;
+@property (nonatomic, readwrite, assign) BOOL cancelled;
+- (void)finish;
 
 @end
 
@@ -44,6 +92,9 @@
 @synthesize error = _error;
 
 @synthesize port = _port;
+
+@synthesize state = _state;
+@synthesize cancelled = _cancelled;
 
 - (NSString *)description
 {
@@ -79,9 +130,28 @@
         _APIRequest = APIRequest;
 
         _responseData = [NSMutableData data];
+
+        self.state = BoxAPIOperationStateReady;
+        _cancelled = NO;
     }
     
     return self;
+}
+
+- (void)setState:(BoxAPIOperationState)state
+{
+    if (!BoxOperationStateTransitionIsValid(self.state, state, [self isCancelled]))
+    {
+        return;
+    }
+    NSString *oldStateKey = BoxOperationKeyPathForState(self.state);
+    NSString *newStateKey = BoxOperationKeyPathForState(state);
+
+    [self willChangeValueForKey:newStateKey];
+    [self willChangeValueForKey:oldStateKey];
+    _state = state;
+    [self didChangeValueForKey:oldStateKey];
+    [self didChangeValueForKey:newStateKey];
 }
 
 #pragma mark - Accessors
@@ -177,26 +247,50 @@
     CFRunLoopStop(CFRunLoopGetCurrent());
 }
 
-#pragma mark - NSOperation main
+#pragma mark - NSOperation
+- (BOOL)isReady
+{
+    return self.state == BoxAPIOperationStateReady && [super isReady];
+}
+
+- (BOOL)isExecuting
+{
+    return self.state == BoxAPIOperationStateExecuting;
+}
+
+- (BOOL)isFinished
+{
+    return self.state == BoxAPIOperationStateFinished;
+}
+
 - (void)main
 {
-    @synchronized(self.OAuth2Session)
+    if ([self isReady] && ![self isCancelled])
     {
-        [self prepareAPIRequest];
-        self.OAuth2AccessToken = self.OAuth2Session.accessToken;
-    }
+        self.state = BoxAPIOperationStateExecuting;
 
-    if (self.error == nil)
-    {
-        self.connection = [[NSURLConnection alloc] initWithRequest:self.APIRequest delegate:self];
-        BOXLog(@"Starting %@", self);
-        [self startURLConnection];
+        @synchronized(self.OAuth2Session)
+        {
+            [self prepareAPIRequest];
+            self.OAuth2AccessToken = self.OAuth2Session.accessToken;
+        }
+
+        if (self.error == nil)
+        {
+            self.connection = [[NSURLConnection alloc] initWithRequest:self.APIRequest delegate:self];
+            BOXLog(@"Starting %@", self);
+            [self startURLConnection];
+        }
+        else
+        {
+            // if an error has already occured, do not attempt to start the API call.
+            // short circuit instead.
+            [self finish];
+        }
     }
-    else
+    else if ([self isReady] && [self isCancelled])
     {
-        // if an error has already occured, do not attempt to start the API call.
-        // short circuit instead.
-        [self performCompletionCallback];
+        [self finish];
     }
 }
 
@@ -204,7 +298,10 @@
 {
     if (![self isFinished] && ![self isCancelled])
     {
+        [self willChangeValueForKey:@"isCancelled"];
+        self.cancelled = YES;
         [super cancel];
+
         [self.connection cancel];
 
         // Simulate connection:didFailWithError:
@@ -215,7 +312,18 @@
         }
         self.error = [[NSError alloc] initWithDomain:NSURLErrorDomain code:NSURLErrorCancelled userInfo:errorInfo];
         [self connection:self.connection didFailWithError:self.error];
+
+        [self didChangeValueForKey:@"isCancelled"];
     }
+}
+
+- (void)finish
+{
+    [self endRunLoop];
+    [self performCompletionCallback];
+    self.connection = nil;
+
+    self.state = BoxAPIOperationStateFinished;
 }
 
 #pragma mark - NSURLConnectionDataDelegate
@@ -286,18 +394,14 @@
     {
         self.error = error;
     }
-    [self endRunLoop];
-    [self performCompletionCallback];
-    self.connection = nil;
+    [self finish];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [self endRunLoop];
     [self processResponseData:self.responseData];
-    [self performCompletionCallback];
-
-    self.connection = nil;
+    [self finish];
 }
 
 @end
