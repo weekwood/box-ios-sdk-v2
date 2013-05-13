@@ -10,9 +10,9 @@
 
 #import "BoxLog.h"
 
-BoxAPISharedObjectAccess const* BoxAPISharedObjectAccessOpen = @"open";
-BoxAPISharedObjectAccess const* BoxAPISharedObjectAccessCompany = @"company";
-BoxAPISharedObjectAccess const* BoxAPISharedObjectAccessCollaborators = @"collaborators";
+BoxAPISharedObjectAccess *const BoxAPISharedObjectAccessOpen = @"open";
+BoxAPISharedObjectAccess *const BoxAPISharedObjectAccessCompany = @"company";
+BoxAPISharedObjectAccess *const BoxAPISharedObjectAccessCollaborators = @"collaborators";
 
 @interface BoxSharedObjectBuilder ()
 

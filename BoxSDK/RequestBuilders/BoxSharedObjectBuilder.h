@@ -9,9 +9,9 @@
 #import "BoxAPIRequestBuilder.h"
 
 typedef NSString BoxAPISharedObjectAccess;
-extern BoxAPISharedObjectAccess const* BoxAPISharedObjectAccessOpen;
-extern BoxAPISharedObjectAccess const* BoxAPISharedObjectAccessCompany;
-extern BoxAPISharedObjectAccess const* BoxAPISharedObjectAccessCollaborators;
+extern BoxAPISharedObjectAccess *const BoxAPISharedObjectAccessOpen;
+extern BoxAPISharedObjectAccess *const BoxAPISharedObjectAccessCompany;
+extern BoxAPISharedObjectAccess *const BoxAPISharedObjectAccessCollaborators;
 
 typedef enum {
     BoxAPISharedObjectPermissionStateEnabled = -1,
