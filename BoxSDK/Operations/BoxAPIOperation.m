@@ -67,7 +67,7 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 - (void)endRunLoop;
 
 @property (nonatomic, readwrite, assign) BoxAPIOperationState state;
-@property (nonatomic, readwrite, assign) BOOL cancelled;
+@property (nonatomic, readwrite, assign, getter = isCancelled) BOOL cancelled;
 - (void)finish;
 
 @end
