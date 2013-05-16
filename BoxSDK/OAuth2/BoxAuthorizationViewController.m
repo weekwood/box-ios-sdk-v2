@@ -74,7 +74,7 @@
 	if (self.hasLoadedLoginPage == NO)
 	{
 		NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.authorizationURL];
-		
+
 		UIWebView *webView = (UIWebView *)self.view;
 		[webView loadRequest:request];
 	}
@@ -142,6 +142,11 @@
 
 	[self.delegate authorizationViewControllerDidStartLoading:self];
 
+	if (self.hasLoadedLoginPage == NO)
+	{
+		self.hasLoadedLoginPage = YES;
+	}
+
 	// Figure out whether the scheme of this request is the redirect scheme used at the end of the authentication process
 	BOOL requestIsForLoginRedirectScheme = NO;
 	if ([self.redirectURIString length] > 0)
@@ -149,12 +154,7 @@
 		requestIsForLoginRedirectScheme = [[[request URL] scheme] isEqualToString:[[NSURL URLWithString:self.redirectURIString] scheme]];
 	}
 
-	// If this is the first login page load or loading the authentication redirect
-	if (self.hasLoadedLoginPage == NO)
-	{
-		self.hasLoadedLoginPage = YES;
-	}
-	else if (requestIsForLoginRedirectScheme)
+	if (requestIsForLoginRedirectScheme)
 	{
 		if ([self.delegate respondsToSelector:@selector(authorizationViewController:shouldLoadReceivedOAuth2RedirectRequest:)])
 		{
@@ -444,11 +444,11 @@
 			}
 
 			BOXLog(@"Submitting credential for authentication challenge %@", self.authenticationChallenge);
+			self.connectionIsTrusted = YES;
 			[[self.authenticationChallenge sender] useCredential:[NSURLCredential credentialWithUser:[usernameField text]
 																							password:[passwordField text]
 																						 persistence:NSURLCredentialPersistenceNone]
 									  forAuthenticationChallenge:self.authenticationChallenge];
-			self.connectionIsTrusted = YES;
 		}
 	}
 	else if (alertView.tag == BOX_SSO_SERVER_TRUST_ALERT_TAG)
