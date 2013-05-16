@@ -38,7 +38,7 @@
 
 /**
  * Designated initializer.
- * @param URL The authorization URL to load
+ * @param authorizationURL The authorization URL to load
  * @param redirectURI The OAuth2 redirect URI string, used to detect the OAuth2
  *   redirect URL and make sure the redirection happens correctly
  */
@@ -51,6 +51,7 @@
  * object must implement to interact with the authorization interface. The methods of this
  * protocol notify your delegate when the authorization web view starts and stops loading
  * content, or the user cancels the authorization operation.
+ *
  * The delegate methods are responsible for showing any progress UI (such as a
  * UIActivityIndicatorView) and dismissing the controller when the operation is canceled.
  * To dismiss the controller, call the dismissViewControllerAnimated:completion: method
