@@ -39,7 +39,7 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/OAuth2Session">&nbsp;&nbsp;&nbsp;&nbsp;OAuth2Session</option>
+	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
 	
 	
 	
@@ -48,7 +48,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithOAuth2Session:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithOAuth2Session:</option>
+	<option value="//api/name/initWithAuthorizationURL:redirectURI:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAuthorizationURL:redirectURI:</option>
 	
 	
 	
@@ -66,7 +66,7 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_OAuth2">OAuth2</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Delegate">Delegate</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initializers">Initializers</a></span></li>
 	
@@ -78,7 +78,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/OAuth2Session">OAuth2Session</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
 	
 </ul></li>
 
@@ -88,7 +88,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithOAuth2Session:">initWithOAuth2Session:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAuthorizationURL:redirectURI:">initWithAuthorizationURL:redirectURI:</a></span></li>
 	
 </ul></li>
 
@@ -116,6 +116,9 @@
 	<td class="specification-title">Inherits from</td>
 	<td class="specification-value">UIViewController</td>
 </tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSURLConnectionDataDelegate<br />UIAlertViewDelegate<br />UIWebViewDelegate</td>
+</tr><tr>
 	<td class="specification-title">Declared in</td>
 	<td class="specification-value">BoxAuthorizationViewController.h<br />BoxAuthorizationViewController.m</td>
 </tr>
@@ -129,7 +132,14 @@
 						<h2 class="subtitle subtitle-overview">Overview</h2>
 						<p>BoxAuthorizationViewController is a UIViewController that displays a UIWebview
 that loads the OAuth2 authorize URL. An app may present this view controller to
-log a user in to Box.</p><div class="warning"><p><strong>Warning:</strong> This is the only part of the Box SDK that is specific to iOS. If you wish to
+log a user in to Box.</p>
+
+<p>This view controller also has extra logic to handle various Single Sign-ON (SSO)
+configurations which require special handling beyond what a web view provides.
+SSO is a session/user authentication process that allows a user to provide his
+or her credentials once in order to access multiple applications. It is widely
+used by corporations and institutions to secure and simplify the authentication
+process for their users.</p><div class="warning"><p><strong>Warning:</strong> This is the only part of the Box SDK that is specific to iOS. If you wish to
 include the Box SDK in an OS X project, remove this source file.</p></div>
 					</div>
 					
@@ -142,14 +152,14 @@ include the Box SDK in an OS X project, remove this source file.</p></div>
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						<a title="OAuth2" name="task_OAuth2"></a>
-						<h3 class="subsubtitle task-title">OAuth2</h3>
+						<a title="Delegate" name="task_Delegate"></a>
+						<h3 class="subsubtitle task-title">Delegate</h3>
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/OAuth2Session">&nbsp;&nbsp;OAuth2Session</a></code>
-		<span class="tooltip"><p>The <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a> to use for generating the authorization URL</p></span>
+		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+		<span class="tooltip"><p>The object that acts as the delegate of the receiving authorization view controller.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -163,7 +173,7 @@ include the Box SDK in an OS X project, remove this source file.</p></div>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithOAuth2Session:">&ndash;&nbsp;initWithOAuth2Session:</a></code>
+		<code><a href="#//api/name/initWithAuthorizationURL:redirectURI:">&ndash;&nbsp;initWithAuthorizationURL:redirectURI:</a></code>
 		<span class="tooltip"><p>Designated initializer.</p></span>
 	</span>
 	
@@ -182,18 +192,18 @@ include the Box SDK in an OS X project, remove this source file.</p></div>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/OAuth2Session" title="OAuth2Session"></a>
-	<h3 class="subsubtitle method-title">OAuth2Session</h3>
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="subsubtitle method-title">delegate</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a> to use for generating the authorization URL</p>
+		<p>The object that acts as the delegate of the receiving authorization view controller.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, weak) BoxOAuth2Session *OAuth2Session</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, weak) id&lt;BoxAuthorizationViewControllerDelegate&gt; delegate</code></div>
 
     
 	
@@ -205,7 +215,7 @@ include the Box SDK in an OS X project, remove this source file.</p></div>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a> to use for generating the authorization URL</p>
+		<p>The object that acts as the delegate of the receiving authorization view controller.</p>
 	</div>
 	
 	
@@ -233,8 +243,8 @@ include the Box SDK in an OS X project, remove this source file.</p></div>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithOAuth2Session:" title="initWithOAuth2Session:"></a>
-	<h3 class="subsubtitle method-title">initWithOAuth2Session:</h3>
+	<a name="//api/name/initWithAuthorizationURL:redirectURI:" title="initWithAuthorizationURL:redirectURI:"></a>
+	<h3 class="subsubtitle method-title">initWithAuthorizationURL:redirectURI:</h3>
 	
 	
 	
@@ -244,7 +254,7 @@ include the Box SDK in an OS X project, remove this source file.</p></div>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithOAuth2Session:(BoxOAuth2Session *)<em>OAuth2Session</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithAuthorizationURL:(NSURL *)<em>authorizationURL</em> redirectURI:(NSString *)<em>redirectURI</em></code></div>
 
     
 	
@@ -252,8 +262,14 @@ include the Box SDK in an OS X project, remove this source file.</p></div>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>OAuth2Session</em></dt>
-			<dd><p>The OAuth2 session to use for generating the authorization URL</p></dd>
+			<dt><em>authorizationURL</em></dt>
+			<dd><p>The authorization URL to load</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>redirectURI</em></dt>
+			<dd><p>The OAuth2 redirect URI string, used to detect the OAuth2
+redirect URL and make sure the redirection happens correctly</p></dd>
 		</dl>
 		
 	</div>
@@ -296,7 +312,7 @@ include the Box SDK in an OS X project, remove this source file.</p></div>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-04-28)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-05-15)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
