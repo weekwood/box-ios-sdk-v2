@@ -59,15 +59,15 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 @interface BoxAPIOperation()
 
 #pragma mark - Thread keepalive
-// these properties and methods will keep the thread running this NSOperation alive until
-// the NSURLConnection has completed
-@property (nonatomic, readwrite, strong) NSPort *port;
++ (NSThread *)globalAPIOperationNetworkThread;
++ (void)globalAPIOperationNetworkThreadEntryPoint:(id)sender;
 
-- (void)startRunLoop;
-- (void)endRunLoop;
+#pragma mark - Thread entry points for operation
+- (void)executeOperation;
+- (void)cancelConnection;
 
+#pragma mark - NSOperation state
 @property (nonatomic, readwrite, assign) BoxAPIOperationState state;
-@property (nonatomic, readwrite, assign, getter = isCancelled) BOOL cancelled;
 - (void)finish;
 
 @end
@@ -91,10 +91,7 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 // error handling
 @synthesize error = _error;
 
-@synthesize port = _port;
-
 @synthesize state = _state;
-@synthesize cancelled = _cancelled;
 
 - (NSString *)description
 {
@@ -132,7 +129,6 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
         _responseData = [NSMutableData data];
 
         self.state = BoxAPIOperationStateReady;
-        _cancelled = NO;
     }
     
     return self;
@@ -211,7 +207,6 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 
 - (void)startURLConnection
 {
-    [self startRunLoop];
     [self.connection start];
 }
 
@@ -228,23 +223,22 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 }
 
 #pragma mark - Thread keepalive
-// @TODO: convince rlopopolo and tcarpel that this is the best way to do this
-- (void)startRunLoop
+
++ (NSThread *)globalAPIOperationNetworkThread
 {
-    self.port = [NSPort port];
-    NSRunLoop *currentRunLoop = [NSRunLoop currentRunLoop];
-    // add an empty port to the current run loop to keep it from exiting
-    [currentRunLoop addPort:self.port forMode:NSDefaultRunLoopMode];
-    [self.connection scheduleInRunLoop:currentRunLoop forMode:NSDefaultRunLoopMode];
-    [currentRunLoop run];
+    static NSThread *boxAPIOperationNewtorkRequestThread = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        boxAPIOperationNewtorkRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(globalAPIOperationNetworkThreadEntryPoint:) object:nil];
+        [boxAPIOperationNewtorkRequestThread start];
+    });
+    return boxAPIOperationNewtorkRequestThread;
 }
 
-- (void)endRunLoop
++ (void)globalAPIOperationNetworkThreadEntryPoint:(id)sender
 {
-    NSRunLoop *currentRunLoop = [NSRunLoop currentRunLoop];
-    // remove empty port and stop current run loop
-    [currentRunLoop removePort:self.port forMode:NSDefaultRunLoopMode];
-    CFRunLoopStop(CFRunLoopGetCurrent());
+    [NSThread currentThread].name = @"Box API Operation Thread";
+    [[NSRunLoop currentRunLoop] run];
 }
 
 #pragma mark - NSOperation
@@ -263,8 +257,14 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
     return self.state == BoxAPIOperationStateFinished;
 }
 
-- (void)main
+- (void)start
 {
+    [self performSelector:@selector(executeOperation) onThread:[[self class] globalAPIOperationNetworkThread] withObject:nil waitUntilDone:NO];
+}
+
+- (void)executeOperation
+{
+    BOXLog(@"BoxAPIOperation %@ was started", self);
     if ([self isReady] && ![self isCancelled])
     {
         self.state = BoxAPIOperationStateExecuting;
@@ -275,7 +275,7 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
             self.OAuth2AccessToken = self.OAuth2Session.accessToken;
         }
 
-        if (self.error == nil)
+        if (self.error == nil && ![self isCancelled])
         {
             self.connection = [[NSURLConnection alloc] initWithRequest:self.APIRequest delegate:self];
             BOXLog(@"Starting %@", self);
@@ -290,40 +290,45 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
     }
     else if ([self isReady] && [self isCancelled])
     {
+        BOXLog(@"BoxAPIOperation %@ was cancelled -- short circuiting and not making API call", self);
+        self.state = BoxAPIOperationStateExecuting;
         [self finish];
+    }
+    else
+    {
+        BOXAssertFail(@"Operation was not ready but start was called");
     }
 }
 
 - (void)cancel
 {
-    if (![self isFinished] && ![self isCancelled])
+    [super cancel];
+    [self performSelector:@selector(cancelConnection) onThread:[[self class] globalAPIOperationNetworkThread] withObject:nil waitUntilDone:NO];
+    BOXLog(@"BoxAPIOperation %@ was cancelled", self);
+}
+
+- (void)cancelConnection
+{
+    NSDictionary *errorInfo = nil;
+    if (self.baseRequestURL)
     {
-        [self willChangeValueForKey:@"isCancelled"];
-        self.cancelled = YES;
-        [super cancel];
+        errorInfo = [NSDictionary dictionaryWithObject:self.baseRequestURL forKey:NSURLErrorFailingURLErrorKey];
+    }
+    self.error = [[NSError alloc] initWithDomain:NSURLErrorDomain code:NSURLErrorCancelled userInfo:errorInfo];
 
+    if (self.connection)
+    {
         [self.connection cancel];
-
-        // Simulate connection:didFailWithError:
-        NSDictionary *errorInfo = nil;
-        if (self.baseRequestURL)
-        {
-            errorInfo = [NSDictionary dictionaryWithObject:self.baseRequestURL forKey:NSURLErrorFailingURLErrorKey];
-        }
-        self.error = [[NSError alloc] initWithDomain:NSURLErrorDomain code:NSURLErrorCancelled userInfo:errorInfo];
         [self connection:self.connection didFailWithError:self.error];
-
-        [self didChangeValueForKey:@"isCancelled"];
     }
 }
 
 - (void)finish
 {
-    [self endRunLoop];
     [self performCompletionCallback];
     self.connection = nil;
-
     self.state = BoxAPIOperationStateFinished;
+    BOXLog(@"BoxAPIOperation %@ finished with state %d", self, self.state);
 }
 
 #pragma mark - NSURLConnectionDataDelegate
@@ -390,6 +395,7 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+    BOXLog(@"BoxAPIOperation %@ did fail with error %@", self, error);
     if (self.error == nil)
     {
         self.error = error;
@@ -399,7 +405,7 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [self endRunLoop];
+    BOXLog(@"BoxAPIOperation %@ did finsh loading", self);
     [self processResponseData:self.responseData];
     [self finish];
 }

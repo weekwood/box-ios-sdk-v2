@@ -42,7 +42,10 @@
 
         BOXLog(@"access token expired: %@", expiredAccessToken);
         BOXLog(@"refreshing tokens");
-        [self.expiredOAuth2Tokens addObject:expiredAccessToken];
+        if (expiredAccessToken)
+        {
+            [self.expiredOAuth2Tokens addObject:expiredAccessToken];
+        }
 
         NSDictionary *POSTParams = @{
             BoxOAuth2TokenRequestGrantTypeKey : BoxOAuth2TokenRequestGrantTypeRefreshToken,
