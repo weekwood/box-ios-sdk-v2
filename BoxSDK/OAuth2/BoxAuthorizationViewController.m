@@ -25,6 +25,7 @@
 
 - (void)cancel:(id)sender;
 - (void)completeServerTrustAuthenticationChallenge:(NSURLAuthenticationChallenge *)authenticationChallenge shouldTrust:(BOOL)trust;
+- (void)clearCookies;
 
 @end
 
@@ -65,6 +66,8 @@
 	webView.delegate = self;
 
 	self.view = webView;
+
+	[self clearCookies];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -99,6 +102,20 @@
 }
 
 #pragma mark - Private helper methods
+- (void)clearCookies
+{
+	BOXLog(@"Attempt to clear Box cookies");
+	NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+	for (NSHTTPCookie *cookie in cookies)
+	{
+		NSRange boxDomainRange = [cookie.domain rangeOfString:@".box.com"];
+		if (boxDomainRange.location != NSNotFound && cookie.domain.length == boxDomainRange.length + boxDomainRange.location)
+		{
+			[[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+			BOXLog(@"Clearing cookie with domain %@", cookie.domain);
+		}
+	}
+}
 
 - (void)completeServerTrustAuthenticationChallenge:(NSURLAuthenticationChallenge *)authenticationChallenge shouldTrust:(BOOL)trust
 {
