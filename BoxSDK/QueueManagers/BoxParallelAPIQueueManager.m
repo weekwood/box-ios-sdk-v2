@@ -76,6 +76,14 @@
                     [enqueuedOperation addDependency:operation];
                 }
             }
+            for (NSOperation *enqueuedOperation in self.downloadsQueue.operations)
+            {
+                [enqueuedOperation addDependency:operation];
+            }
+            for (NSOperation *enqueuedOperation in self.uploadsQueue.operations)
+            {
+                [enqueuedOperation addDependency:operation];
+            }
         }
         else
         {
