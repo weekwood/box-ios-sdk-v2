@@ -238,7 +238,13 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 + (void)globalAPIOperationNetworkThreadEntryPoint:(id)sender
 {
     [NSThread currentThread].name = @"Box API Operation Thread";
-    [[NSRunLoop currentRunLoop] run];
+    BOXLog(@"%@ started", [NSThread currentThread]);
+
+    // Run this thread forever
+    while (YES)
+    {
+        [[NSRunLoop currentRunLoop] run];
+    }
 }
 
 #pragma mark - NSOperation
