@@ -22,6 +22,9 @@
  * used by corporations and institutions to secure and simplify the authentication
  * process for their users.
  *
+ * *Important:* This controller performs valuable cookie-related operations on deallocation,
+ * as such it should not be kept it memory after it is dismissed.
+ *
  * @warning This is the only part of the Box SDK that is specific to iOS. If you wish to
  *   include the Box SDK in an OS X project, remove this source file.
  */
