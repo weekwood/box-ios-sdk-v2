@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40C7A49174BFDB500477760 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40C7A48174BFDB500477760 /* Security.framework */; };
+		E40C7A4A174BFDE400477760 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40C7A48174BFDB500477760 /* Security.framework */; };
 		E44A95B116E21C5100356ADA /* BoxSDKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E44A95B016E21C5100356ADA /* BoxSDKConstants.m */; };
 		E44A95D116E221B400356ADA /* BoxSDKConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = E4CF273516DC4A5100F5979E /* BoxSDKConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E44A95D216E221B400356ADA /* BoxSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E470434316D41DC500FED29A /* BoxSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -122,6 +124,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E40C7A48174BFDB500477760 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E44A95B016E21C5100356ADA /* BoxSDKConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxSDKConstants.m; sourceTree = "<group>"; };
 		E470433B16D41DC500FED29A /* libBoxSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBoxSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E470433E16D41DC500FED29A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -237,6 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40C7A49174BFDB500477760 /* Security.framework in Frameworks */,
 				E4FADA2B172CE35F0052AD11 /* UIKit.framework in Frameworks */,
 				E470433F16D41DC500FED29A /* Foundation.framework in Frameworks */,
 			);
@@ -246,6 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40C7A4A174BFDE400477760 /* Security.framework in Frameworks */,
 				E4FADA2C172CE3A60052AD11 /* UIKit.framework in Frameworks */,
 				E4D5085816E80A2A001CE50A /* libOCMock.a in Frameworks */,
 				E470434E16D41DC500FED29A /* SenTestingKit.framework in Frameworks */,
@@ -280,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				E4D5085616E80667001CE50A /* libOCMock.a */,
+				E40C7A48174BFDB500477760 /* Security.framework */,
 				E470433E16D41DC500FED29A /* Foundation.framework */,
 				E470434D16D41DC500FED29A /* SenTestingKit.framework */,
 				E4FADA2A172CE35F0052AD11 /* UIKit.framework */,
