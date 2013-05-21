@@ -23,6 +23,9 @@
 @property (nonatomic, readwrite, assign) BOOL connectionIsTrusted;
 @property (nonatomic, readwrite, assign) BOOL hasLoadedLoginPage;
 
+@property (nonatomic, readwrite, strong) NSArray *preexistingCookies;
+@property (nonatomic, readwrite, assign) NSHTTPCookieAcceptPolicy preexistingCookiePolicy;
+
 - (void)cancel:(id)sender;
 - (void)completeServerTrustAuthenticationChallenge:(NSURLAuthenticationChallenge *)authenticationChallenge shouldTrust:(BOOL)trust;
 - (void)clearCookies;
@@ -40,6 +43,8 @@
 @synthesize authenticationChallenge = _authenticationChallenge;
 @synthesize connectionIsTrusted = _connectionIsTrusted;
 @synthesize hasLoadedLoginPage = _hasLoadedLoginPage;
+@synthesize preexistingCookies = _preexistingCookies;
+@synthesize preexistingCookiePolicy = _preexistingCookiePolicy;
 
 - (id)initWithAuthorizationURL:(NSURL *)authorizationURL redirectURI:(NSString *)redirectURI
 {
@@ -53,21 +58,31 @@
 		_hasLoadedLoginPage = NO;
 
 		[self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)]];
+
+		NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+		_preexistingCookies = [[cookieStorage cookies] copy];
+		_preexistingCookiePolicy = [cookieStorage cookieAcceptPolicy];
 	}
 	
 	return self;
 }
 
+- (void)dealloc
+{
+	[self clearCookies];
+	[[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:_preexistingCookiePolicy];
+}
+
 - (void)loadView
 {
+	[[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
+
 	UIWebView *webView = [[UIWebView alloc] init];
 	[webView setScalesPageToFit:YES];
 	webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	webView.delegate = self;
 
 	self.view = webView;
-
-	[self clearCookies];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -102,26 +117,12 @@
 }
 
 #pragma mark - Private helper methods
-- (void)clearCookies
-{
-	BOXLog(@"Attempt to clear Box cookies");
-	NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
-	for (NSHTTPCookie *cookie in cookies)
-	{
-		NSRange boxDomainRange = [cookie.domain rangeOfString:@".box.com"];
-		if (boxDomainRange.location != NSNotFound && cookie.domain.length == boxDomainRange.length + boxDomainRange.location)
-		{
-			[[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
-			BOXLog(@"Clearing cookie with domain %@", cookie.domain);
-		}
-	}
-}
 
 - (void)completeServerTrustAuthenticationChallenge:(NSURLAuthenticationChallenge *)authenticationChallenge shouldTrust:(BOOL)trust
 {
 	if (trust)
 	{
-		NSLog(@"Trust the host.");
+		BOXLog(@"Trust the host.");
 		SecTrustRef serverTrust = [[authenticationChallenge protectionSpace] serverTrust];
 		NSURLCredential *serverTrustCredential = [NSURLCredential credentialForTrust:serverTrust];
 		[[authenticationChallenge sender] useCredential:serverTrustCredential
@@ -129,7 +130,7 @@
 	}
 	else
 	{
-		NSLog(@"Do not trust the host. Presenting an error to the user.");
+		BOXLog(@"Do not trust the host. Presenting an error to the user.");
 		UIAlertView *loginFailureAlertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Login Failure", @"Alert view title: Title for failed SSO login due to authentication issue")
 																		message:NSLocalizedString(@"Could not complete login because the SSO server is untrusted. Please contact your administrator for more information.", @"Alert view message: message for failed SSO login due to untrusted (for example: self signed) certificate")
 																	   delegate:nil
@@ -137,6 +138,21 @@
 															  otherButtonTitles:nil];
 
 		[loginFailureAlertView show];
+	}
+}
+
+- (void)clearCookies
+{
+	BOXLog(@"Attempt to clear cookies");
+	NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+	NSArray *cookies = [[cookieStorage cookies] copy];
+	for (NSHTTPCookie *cookie in cookies)
+	{
+		if ([self.preexistingCookies containsObject:cookie] == NO)
+		{
+			[cookieStorage deleteCookie:cookie];
+			BOXLog(@"Clearing cookie with domain %@, name %@", cookie.domain, cookie.name);
+		}
 	}
 }
 
@@ -379,7 +395,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-	BOXLog(@"connection %@ did fail with error %@", connection, error);
+	BOXLog(@"Connection %@ did fail with error %@", connection, error);
 	if ([error code] != NSURLErrorUserCancelledAuthentication)
 	{
 		self.connection = nil;
@@ -392,6 +408,8 @@
 															  cancelButtonTitle:NSLocalizedString(@"OK", @"Button title: Dismiss the alert view")
 															  otherButtonTitles:nil];
 		[loginFailureAlertView show];
+
+		[self.delegate authorizationViewControllerDidFinishLoading:self];
 	}
 }
 
@@ -410,16 +428,14 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-	BOXLog(@"Connection %@ did receive data %@", connection, data);
+	BOXLog(@"Connection %@ did receive %u bytes of data", connection, [data length]);
 	[self.connectionData appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-	BOXLog(@"connection %@ did finish loading", connection);
+	BOXLog(@"Connection %@ did finish loading. Requesting that the webview load the data (%u bytes) with reponse %@", connection, [self.connectionData length], self.connectionResponse);
 	self.connectionIsTrusted = YES;
-
-	BOXLog(@"Requesting that the webview load the data %@ with response %@", self.connectionData, self.connectionResponse);
 	[(UIWebView *)self.view loadData:self.connectionData
 							MIMEType:[self.connectionResponse MIMEType]
 					textEncodingName:[self.connectionResponse textEncodingName]
