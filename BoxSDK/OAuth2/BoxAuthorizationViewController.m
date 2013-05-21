@@ -75,7 +75,7 @@
 
 - (void)loadView
 {
-	[cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
+	[[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
 
 	UIWebView *webView = [[UIWebView alloc] init];
 	[webView setScalesPageToFit:YES];

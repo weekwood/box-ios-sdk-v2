@@ -22,7 +22,7 @@
  * used by corporations and institutions to secure and simplify the authentication
  * process for their users.
  *
- * *Important:* This controller performs valuable cookie-related operations on deallocation,
+ * **Important**: This controller performs valuable cookie-related operations on deallocation,
  * as such it should not be kept it memory after it is dismissed.
  *
  * @warning This is the only part of the Box SDK that is specific to iOS. If you wish to
@@ -95,6 +95,9 @@
  * Asks the delegate whether the view controller should load the OAuth2 redirect URL in the web view.
  *
  * If the delegate does not implement this method, the default is YES.
+ *
+ * If you wish to support iOS 5, you should implement this method and handle the OAuth2 redirect
+ * URL in it. Web views on iOS 5 do not support loading custom URL schemes.
  *
  * @param authorizationViewController The authorization view controller object managing the authorization process
  * @param request The OAuth2 redirect URL request which the authorization web view is requesting to load

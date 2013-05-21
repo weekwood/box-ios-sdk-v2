@@ -32,9 +32,9 @@ Set your client ID and client secret on the SDK client:
 [BoxSDK sharedSDK].OAuth2Session.clientSecret = @"YOUR_CLIENT_SECRET";
 ```
 
-The SDK requires your app to register a custom URL scheme in order to receive
-an OAuth2 authorization code. In your `Info.plist`, register the following URL
-scheme:
+One way to complete the OAuth2 flow is to have your app to register a
+custom URL scheme in order to receive an OAuth2 authorization code.
+In your `Info.plist`, register the following URL scheme:
 
 ```
 boxsdk-YOUR_CLIENT_ID
@@ -46,7 +46,7 @@ happens in a `UIWebView`. To get started, you can present the sample web view th
 SDK provides:
 
 ```objc
-UIViewController *authorizationController = [[BoxAuthorizationViewController alloc] initWithOAuth2Session:[BoxSDK sharedSDK].OAuth2Session];
+UIViewController *authorizationController = [[BoxAuthorizationViewController alloc] initWithAuthorizationURL:[[BoxSDK sharedSDK].OAuth2Session authorizeURL] redirectURI:nil];
 [self presentViewController:authorizationController animated:YES completion:nil];
 ```
 
