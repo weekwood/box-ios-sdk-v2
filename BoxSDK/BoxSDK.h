@@ -52,11 +52,6 @@
 #import "BoxUser.h"
 #import "BoxWebLink.h"
 
-// Folder Picker
-#import "BoxFolderPickerHelper.h"
-#import "BoxFolderPickerTableViewController.h"
-#import "BoxFolderPickerViewController.h"
-
 extern NSString *const BoxAPIBaseURL;
 
 /**
@@ -148,29 +143,5 @@ extern NSString *const BoxAPIBaseURL;
  *   https://api.box.com. This String should not include the API Version
  */
 - (void)setAPIBaseURL:(NSString *)APIBaseURL;
-
-
-#pragma mark - Folder Picker
-/** @name Folder Picker */
-
-/**
- * Initializes a folderPicker according to the caching options provided as parameters
- *
- * @param authorizationURL The authorization URL to load
- * @param redirectURI The OAuth2 redirect URI string, used to detect the OAuth2
- * @param folderID. The root folder where to start browsing.
- * @param thumbnailsEnabled. Enables/disables thumbnail management. If set to NO, only file icons will be displayed
- * @param cachedThumbnailsPath. The absolute path where the user wants to store the cached thumbnails. 
- *                              If set to nil, the folder picker will not cached the thumbnails, only download them on the fly.
- If not set to nil, the folder picker will cache the thumbnails at this path
- Not used if thumbnailsEnabled set to NO.
- * @return A BoxFolderPickerViewController.
- */
-
-- (BoxFolderPickerViewController *)folderPickerWithAuthorizationURL:(NSURL *)url
-                                                        redirectURI:(NSString *)redirectURI
-                                                       rootFolderID:(NSString *)rootFolderID 
-                                                   enableThumbnails:(BOOL)thumbnailsEnabled 
-                                               cachedThumbnailsPath:(NSString *)cachedThumbnailsPath;
 
 @end
