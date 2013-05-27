@@ -62,4 +62,13 @@
     self.foldersManager.APIBaseURL = APIBaseURL;
 }
 
+- (BoxFolderPickerViewController *)folderPickerWithAuthorizationURL:(NSURL *)url
+                                                        redirectURI:(NSString *)redirectURI
+                                                       rootFolderID:(NSString *)rootFolderID 
+                                                   enableThumbnails:(BOOL)thumbnailsEnabled 
+                                               cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
+{
+    return [[BoxFolderPickerViewController alloc] initWithAutorizationURL:url redirectURI:redirectURI rootFolderID:rootFolderID enableThumbnails:thumbnailsEnabled cachedThumbnailsPath:cachedThumbnailsPath];
+}
+
 @end
