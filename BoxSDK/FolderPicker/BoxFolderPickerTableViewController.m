@@ -6,8 +6,13 @@
 //  Copyright (c) 2013 Box Inc. All rights reserved.
 //
 
+#define kCellHeight 58.0
+
 #import "BoxFolderPickerTableViewController.h"
 #import "BoxSDK.h"
+#import "BoxOAuth2Session.h"
+#import "BoxFolderPickerCell.h"
+
 
 @implementation BoxFolderPickerTableViewController
 
@@ -18,34 +23,44 @@
 {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        
     }
     return self;
 }
 
-#pragma mark - View lifecycle
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    //UI Setup
+    // UI Setup
     self.tableView.alpha = 0.0;
-    self.tableView.rowHeight = 54.0;
+    self.tableView.rowHeight = kCellHeight;
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 }
 
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
     [[BoxFolderPickerHelper sharedHelper] cancelThumbnailOperations];
+    [super viewWillDisappear:animated];
 }
 
+#pragma mark - Data Management
 
-#pragma mark - Table view data source
+- (void)refreshData
+{
+    [self.tableView reloadData];
+    [UIView animateWithDuration:0.4 animations:^{
+        self.tableView.alpha = 1.0;
+    }];
+}
+
+#pragma mark - TableView DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -63,68 +78,52 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"BoxCell";
+    static NSString *FooterIdentifier = @"BoxFooterCell";
+    
+    BoxFolderPickerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[BoxFolderPickerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     if (indexPath.row < [self.delegate currentNumberOfItems])
     {
-        BoxItem *item = (BoxItem *)[self.delegate itemAtIndex:indexPath.row];
-
-        BoxThumbnailDownloadBlock thumbnailBlock = ^(UIImage *image, NSIndexPath *indexPath)
-        {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-                cell.imageView.image = image;
-                [cell setNeedsLayout];
-            });
-        };
         
-        if ([[BoxFolderPickerHelper sharedHelper] shouldDiplayThumbnailForItem:item] && [self.delegate areThumbnailsEnabled] && [self.delegate currentThumbnailPath])
-        {
-            // In this case, we download the thumbnails and cache them at the path provided by the user.
-            [[BoxFolderPickerHelper sharedHelper] thumbnailForFile:(BoxFile *)item cachePath:[self.delegate currentThumbnailPath] cached:thumbnailBlock refreshed:thumbnailBlock indexPath:indexPath];
+        BoxItem *item = [self.delegate itemAtIndex:indexPath.row];
+        
+        if (![self.delegate fileSelectionEnabled] && ![item isKindOfClass:[BoxFolder class]]) {
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.enabled = NO;
         }
-        else if ([[BoxFolderPickerHelper sharedHelper] shouldDiplayThumbnailForItem:item] && [self.delegate areThumbnailsEnabled] && ![self.delegate currentThumbnailPath])
-        {
-            // In this case, we download the thumbnail but not cache them
-            [[BoxFolderPickerHelper sharedHelper] thumbnailForFile:(BoxFile *)item cachePath:nil cached:thumbnailBlock refreshed:thumbnailBlock indexPath:indexPath];
-        }
-        else 
-        {
-            // No thumbnails
-            cell.imageView.image = [[BoxFolderPickerHelper sharedHelper] iconForItem:item];
+        else {
+            cell.enabled = YES;
         }
         
-        cell.textLabel.text = item.name;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - Last update : %@", [[BoxFolderPickerHelper sharedHelper] sizeForItem:item], [[BoxFolderPickerHelper sharedHelper] dateStringForItem:item]];
-        
-        if ([item isKindOfClass:[BoxFolder class]])
-        {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-        else 
-        {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
+        cell.cachePath = [self.delegate thumbnailPath];
+        cell.showThumbnails = [self.delegate thumbnailsEnabled];
+        cell.item = item;        
     }
     else 
     {
-        cell.textLabel.text =  @"Load more files ...";
-        cell.textLabel.textColor = [UIColor darkGrayColor];
-        cell.imageView.image = nil;
-        cell.detailTextLabel.text = nil;
+        UITableViewCell *footerCell = [tableView dequeueReusableCellWithIdentifier:FooterIdentifier];
+        if (!footerCell) {
+            footerCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FooterIdentifier];
+            footerCell.textLabel.textColor = [UIColor colorWithRed:86.0f/255.0f green:86.0f/255.0f blue:86.0f/255.0f alpha:1.0];
+        }
+        footerCell.textLabel.text =  NSLocalizedString(@"Load more files ...", @"Title : Cell allowing the user to load the next page of items");
+        footerCell.imageView.image = nil;
+        footerCell.detailTextLabel.text = nil;
+        
+        return footerCell;
     }
     
     
     return cell;
 }
 
-#pragma mark - Table view delegate
+#pragma mark - TableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -134,17 +133,18 @@
         
         if ([item isKindOfClass:[BoxFolder class]])
         {
-            BoxFolderPickerViewController *childFolderPicker = [[BoxFolderPickerViewController alloc] initWithAutorizationURL:[self.delegate currentAuthorizationURL] 
-                                                                                                                  redirectURI:[self.delegate currentRedirectURI] 
-                                                                                                                 rootFolderID:item.modelID enableThumbnails:[self.delegate areThumbnailsEnabled] 
-                                                                                                         cachedThumbnailsPath:[self.delegate currentThumbnailPath]];
+            BoxFolderPickerViewController *childFolderPicker = [[BoxFolderPickerViewController alloc] initWithSDK:[self.delegate currentSDK]
+                                                                                                     rootFolderID:item.modelID thumbnailsEnabled:[self.delegate thumbnailsEnabled] 
+                                                                                             cachedThumbnailsPath:[self.delegate thumbnailPath] fileSelectionEnabled:[self.delegate fileSelectionEnabled]];
             childFolderPicker.delegate = self.folderPicker.delegate;
             [self.navigationController pushViewController:childFolderPicker animated:YES];
         }
         else if ([item isKindOfClass:[BoxFile class]])
         {
-            [[BoxFolderPickerHelper sharedHelper] purgeInMemoryCache];
-            [self.folderPicker.delegate folderPickerDidSelectBoxFile:(BoxFile *)item];
+            if ([self.delegate fileSelectionEnabled]) {
+                [[BoxFolderPickerHelper sharedHelper] purgeInMemoryCache];
+                [self.folderPicker.delegate folderPickerController:self.folderPicker didSelectBoxItem:item];
+            }
         }
     }
     else 
@@ -154,16 +154,5 @@
         [self.delegate loadNextSetOfItems];
     }
 }
-
-
-- (void)refreshData
-{
-    [self.tableView reloadData];
-    [UIView animateWithDuration:0.4 animations:^{
-        self.tableView.alpha = 1.0;
-    }];
-}
-
-
 
 @end

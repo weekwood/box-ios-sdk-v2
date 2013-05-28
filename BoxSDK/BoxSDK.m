@@ -62,13 +62,25 @@
     self.foldersManager.APIBaseURL = APIBaseURL;
 }
 
-- (BoxFolderPickerViewController *)folderPickerWithAuthorizationURL:(NSURL *)url
-                                                        redirectURI:(NSString *)redirectURI
-                                                       rootFolderID:(NSString *)rootFolderID 
-                                                   enableThumbnails:(BOOL)thumbnailsEnabled 
-                                               cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
+- (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)rootFolderID 
+                                               thumbnailsEnabled:(BOOL)thumbnailsEnabled 
+                                           cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
+                                           fileSelectionEnabled:(BOOL)fileSelectionEnabled;
 {
-    return [[BoxFolderPickerViewController alloc] initWithAutorizationURL:url redirectURI:redirectURI rootFolderID:rootFolderID enableThumbnails:thumbnailsEnabled cachedThumbnailsPath:cachedThumbnailsPath];
+    return [[BoxFolderPickerViewController alloc] initWithSDK:self rootFolderID:rootFolderID thumbnailsEnabled:thumbnailsEnabled cachedThumbnailsPath:cachedThumbnailsPath fileSelectionEnabled:fileSelectionEnabled];
+}
+
+// Load the ressources bundle.
++ (NSBundle *)resourcesBundle
+{
+    static NSBundle* frameworkBundle = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        NSString* mainBundlePath = [[NSBundle mainBundle] resourcePath];
+        NSString* frameworkBundlePath = [mainBundlePath stringByAppendingPathComponent:@"BoxSDKResources.bundle"];
+        frameworkBundle = [NSBundle bundleWithPath:frameworkBundlePath];
+    });
+    return frameworkBundle;
 }
 
 @end

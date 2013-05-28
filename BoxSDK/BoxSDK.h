@@ -56,6 +56,8 @@
 #import "BoxFolderPickerHelper.h"
 #import "BoxFolderPickerTableViewController.h"
 #import "BoxFolderPickerViewController.h"
+#import "BoxFolderPickerNavigationController.h"
+
 
 extern NSString *const BoxAPIBaseURL;
 
@@ -156,21 +158,24 @@ extern NSString *const BoxAPIBaseURL;
 /**
  * Initializes a folderPicker according to the caching options provided as parameters
  *
- * @param authorizationURL The authorization URL to load
- * @param redirectURI The OAuth2 redirect URI string, used to detect the OAuth2
  * @param folderID. The root folder where to start browsing.
  * @param thumbnailsEnabled. Enables/disables thumbnail management. If set to NO, only file icons will be displayed
  * @param cachedThumbnailsPath. The absolute path where the user wants to store the cached thumbnails. 
  *                              If set to nil, the folder picker will not cached the thumbnails, only download them on the fly.
+ * @param enableFileSelection. Whether the user will be able to select a file or not while browser his account.
+ *
  If not set to nil, the folder picker will cache the thumbnails at this path
  Not used if thumbnailsEnabled set to NO.
  * @return A BoxFolderPickerViewController.
  */
+- (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)rootFolderID 
+                                               thumbnailsEnabled:(BOOL)thumbnailsEnabled 
+                                           cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
+                                           fileSelectionEnabled:(BOOL)fileSelectionEnabled;
 
-- (BoxFolderPickerViewController *)folderPickerWithAuthorizationURL:(NSURL *)url
-                                                        redirectURI:(NSString *)redirectURI
-                                                       rootFolderID:(NSString *)rootFolderID 
-                                                   enableThumbnails:(BOOL)thumbnailsEnabled 
-                                               cachedThumbnailsPath:(NSString *)cachedThumbnailsPath;
+#pragma mark - Ressources Bundle
+/** @name Ressources Bundle */
+
++ (NSBundle *)resourcesBundle;
 
 @end

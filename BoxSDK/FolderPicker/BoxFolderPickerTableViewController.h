@@ -11,6 +11,7 @@
 
 @class BoxFolderPickerViewController;
 @class BoxItem;
+@class BoxSDK;
 
 @protocol BoxFolderPickerTableViewControllerDelegate <NSObject>
 
@@ -37,22 +38,23 @@
 /**
  * Returns the path where thumbnails need to be stored. Can be nil.
  */
-- (NSString *)currentThumbnailPath;
+- (NSString *)thumbnailPath;
 
 /**
  * Returns whether the user wants to display thumbnails or not.
  */
-- (BOOL)areThumbnailsEnabled;
+- (BOOL)thumbnailsEnabled;
 
 /**
- * Returnes the OAuth2 Authorization URL
+ * Returns whether the user can select the files or not
  */
-- (NSURL *)currentAuthorizationURL;
+- (BOOL)fileSelectionEnabled;
 
 /**
- * Returnes the OAuth2 Redirection URI
+ * Returns the SDK currently used by the folder picker
  */
-- (NSString *)currentRedirectURI;
+- (BoxSDK *)currentSDK;
+
 
 @end
 

@@ -11,7 +11,7 @@
 
 #import "BoxFolderPickerTableViewController.h"
 #import "BoxAuthorizationViewController.h"
-
+#import "BoxSDK.h"
 
 @class BoxFolder;
 @class BoxFile;
@@ -20,20 +20,15 @@
 
 /**
  * The user has selected a file.
- * @param file. The file picked by the user. 
+ * @param controller. The BoxFolderPickerViewController used.
+ * @param item. The item picked by the user. 
  */
-- (void)folderPickerDidSelectBoxFile:(BoxFile *)file;
-
-/**
- * The user has selected a folder.
- * @param folder. The folder picked by the user. 
- */
-- (void)folderPickerDidSelectBoxFolder:(BoxFolder *)folder;
+- (void)folderPickerController:(BoxFolderPickerViewController *)controller didSelectBoxItem:(BoxItem *)item;
 
 /**
  * The user wants do dismiss the folderPicker
  */
-- (void)folderPickerWillClose;
+- (void)folderPickerControllerDidCancel:(BoxFolderPickerViewController *)controller;
 
 @end
 
@@ -57,18 +52,16 @@
  * @param thumbnailsEnabled. Enables/disables thumbnail management. If set to NO, only file icons will be displayed
  * @param cachedThumbnailsPath. The absolute path where the user wants to store the cached thumbnails. 
  *                              If set to nil, the folder picker will not cached the thumbnails, only download them on the fly.
- If not set to nil, the folder picker will cache the thumbnails at this path
- Not used if thumbnailsEnabled set to NO.
+ * @param enableFileSelection. Whether the user will be able to select a file or not while browser his account.
+ 
+ * If not set to nil, the folder picker will cache the thumbnails at this path
+ * Not used if thumbnailsEnabled set to NO.
  * @return A BoxFolderPickerViewController.
  */
-- (id)initWithAutorizationURL:(NSURL *)url 
-                  redirectURI:(NSString *)redirectURI
-                 rootFolderID:(NSString *)rootFolderID 
-             enableThumbnails:(BOOL)thumbnailsEnabled 
-         cachedThumbnailsPath:(NSString *)cachedThumbnailsPath;
+- (id)initWithSDK:(BoxSDK *)sdk rootFolderID:(NSString *)rootFolderID thumbnailsEnabled:(BOOL)thumbnailsEnabled cachedThumbnailsPath:(NSString *)cachedThumbnailsPath fileSelectionEnabled:(BOOL)fileSelectionEnabled;
 
 /**
- * Purges the cache folder precised in the cachedThumbnailsPath parameter of the initWithFolderID: enableThumbnails: cachedThumbnailsPath: method.
+ * Purges the cache folder specified in the cachedThumbnailsPath parameter of the initWithFolderID: enableThumbnails: cachedThumbnailsPath: method.
  */
 - (void)purgeCache;
 
