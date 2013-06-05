@@ -31,6 +31,9 @@
 
 #define kDisabledAlpha 0.3
 
+// @TODO: change this #define to NSLineBreakByTruncatingMiddle once iOS 7 SDK is released.
+#define BOX_LINE_BREAK_MODE (5) // UILineBreakModeMiddleTruncation and NSLineBreakByTruncatingMiddle
+
 @interface BoxFolderPickerCell ()
 
 @property (nonatomic, readwrite, strong) UIImageView *thumbnailImageView;
@@ -114,7 +117,7 @@
         r.size.width = rect.size.width - kImageToLabelOffsetX - kImageViewSide - kImageViewOffsetX - 24.0;
         
         [[UIColor colorWithRed:86.0f/255.0f green:86.0f/255.0f blue:86.0f/255.0f alpha:self.enabled ? 1.0 : kDisabledAlpha] set];
-        [self.item.name drawInRect:r withFont:[UIFont boldSystemFontOfSize:16.0] lineBreakMode:NSLineBreakByTruncatingMiddle];
+        [self.item.name drawInRect:r withFont:[UIFont boldSystemFontOfSize:16.0] lineBreakMode:BOX_LINE_BREAK_MODE];
     }
     
     r.origin.y += kPaddingNameDescription;
@@ -123,7 +126,7 @@
     
     if(desc){
         [[UIColor colorWithRed:174.0f/255.0f green:174.0f/255.0f blue:174.0f/255.0f alpha:self.enabled ? 1.0 : kDisabledAlpha] set];
-        [desc drawInRect:r withFont:[UIFont boldSystemFontOfSize:12.0] lineBreakMode:NSLineBreakByTruncatingMiddle];
+        [desc drawInRect:r withFont:[UIFont boldSystemFontOfSize:12.0] lineBreakMode:BOX_LINE_BREAK_MODE];
     }
     
     // If the item is a folder, draw the disclosure indicator
