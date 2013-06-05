@@ -14,7 +14,7 @@
 #import "NSURL+BoxURLHelper.h"
 
 NSString *const BoxOAuth2SessionDidBecomeAuthenticatedNotification = @"BoxOAuth2SessionDidBecomeAuthenticated";
-NSString *const BoxOAuth2SessionDidReceiveAuthenricationErrorNotification = @"BoxOAuth2SessionDidReceiveAuthenticationError";
+NSString *const BoxOAuth2SessionDidReceiveAuthenticationErrorNotification = @"BoxOAuth2SessionDidReceiveAuthenticationError";
 NSString *const BoxOAuth2SessionDidRefreshTokensNotification = @"BoxOAuth2SessionDidRefreshTokens";
 NSString *const BoxOAuth2SessionDidReceiveRefreshErrorNotification = @"BoxOAuth2SessionDidReceiveRefreshError";
 
@@ -55,7 +55,7 @@ NSString *const BoxOAuth2AuthenticationErrorKey = @"BoxOAuth2AuthenticationError
     {
         NSDictionary *errorInfo = [NSDictionary dictionaryWithObject:authorizationError
                                                               forKey:BoxOAuth2AuthenticationErrorKey];
-        [[NSNotificationCenter defaultCenter] postNotificationName:BoxOAuth2SessionDidReceiveAuthenricationErrorNotification
+        [[NSNotificationCenter defaultCenter] postNotificationName:BoxOAuth2SessionDidReceiveAuthenticationErrorNotification
                                                             object:self
                                                           userInfo:errorInfo];
         return;
@@ -93,7 +93,7 @@ NSString *const BoxOAuth2AuthenticationErrorKey = @"BoxOAuth2AuthenticationError
     {
         NSDictionary *errorInfo = [NSDictionary dictionaryWithObject:error
                                                               forKey:BoxOAuth2AuthenticationErrorKey];
-        [[NSNotificationCenter defaultCenter] postNotificationName:BoxOAuth2SessionDidReceiveAuthenricationErrorNotification
+        [[NSNotificationCenter defaultCenter] postNotificationName:BoxOAuth2SessionDidReceiveAuthenticationErrorNotification
                                                             object:self
                                                           userInfo:errorInfo];
     };

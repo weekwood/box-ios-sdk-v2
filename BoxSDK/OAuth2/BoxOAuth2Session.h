@@ -13,7 +13,7 @@
 
 // notifications
 extern NSString *const BoxOAuth2SessionDidBecomeAuthenticatedNotification;
-extern NSString *const BoxOAuth2SessionDidReceiveAuthenricationErrorNotification;
+extern NSString *const BoxOAuth2SessionDidReceiveAuthenticationErrorNotification;
 extern NSString *const BoxOAuth2SessionDidRefreshTokensNotification;
 extern NSString *const BoxOAuth2SessionDidReceiveRefreshErrorNotification;
 
