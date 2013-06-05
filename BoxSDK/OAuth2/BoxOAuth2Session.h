@@ -13,7 +13,7 @@
 
 // notifications
 extern NSString *const BoxOAuth2SessionDidBecomeAuthenticatedNotification;
-extern NSString *const BoxOAuth2SessionDidReceiveAuthenricationErrorNotification;
+extern NSString *const BoxOAuth2SessionDidReceiveAuthenticationErrorNotification;
 extern NSString *const BoxOAuth2SessionDidRefreshTokensNotification;
 extern NSString *const BoxOAuth2SessionDidReceiveRefreshErrorNotification;
 
@@ -118,7 +118,7 @@ extern NSString *const BoxOAuth2AuthenticationErrorKey;
  * If a refresh token is expired, it cannot be exchanged for new tokens, and the user is effectively
  * logged out of Box.
  *
- * @see performRefreshTokenGrant
+ * @see performRefreshTokenGrant:
  */
 @property (nonatomic, readwrite, strong) NSString *refreshToken;
 
@@ -157,13 +157,13 @@ extern NSString *const BoxOAuth2AuthenticationErrorKey;
  * if an authorization code is not obtained from the authorization webview flow
  * (for example if the user denies authorizing your application).
  *
- * @param url The URL received as a result of the OAuth2 server invoking the redirect URI. This URL will
+ * @param URL The URL received as a result of the OAuth2 server invoking the redirect URI. This URL will
  * contain query string params needed to complete the authorization_code grant type.
  *
  * @warning This method is intended to be called from your application delegate in response to
  * `application:openURL:sourceApplication:annotation:`.
  */
-- (void)performAuthorizationCodeGrantWithReceivedURL:(NSURL *)url;
+- (void)performAuthorizationCodeGrantWithReceivedURL:(NSURL *)URL;
 
 /**
  * Returns the URL to POST to for exchanging an authorization code or refresh token for a new set of tokens.
@@ -201,11 +201,13 @@ extern NSString *const BoxOAuth2AuthenticationErrorKey;
  *
  * This method should send the `BoxOAuth2SessionDidReceiveRefreshErrorNotification` notification if a refresh
  * token cannot be exchanged for a new set of tokens (for example if it has been revoked or is expired)
+ *
+ * @param expiredAccessToken The access token that expired.
  */
-- (void)performRefreshTokenGrant;
+- (void)performRefreshTokenGrant:(NSString *)expiredAccessToken;
 
 #pragma mark - Session info
-/** Session Information */
+/** @name Session Information */
 
 /**
  * Compares accessTokenExpiration to the current time to determine if an access token may be valid.
@@ -217,7 +219,7 @@ extern NSString *const BoxOAuth2AuthenticationErrorKey;
 - (BOOL)isAuthorized;
 
 #pragma mark - Request Authorization
-/** Request Signing */
+/** @name Request Signing */
 
 /**
  * Add the Authorization header to a request.

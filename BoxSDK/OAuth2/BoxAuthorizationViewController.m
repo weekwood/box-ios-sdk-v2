@@ -106,6 +106,11 @@
 	[self.connection cancel];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return (toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
 #pragma mark - Actions
 
 - (void)cancel:(id)sender

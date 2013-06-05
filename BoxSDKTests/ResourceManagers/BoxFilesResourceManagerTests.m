@@ -23,6 +23,7 @@
 #define FILES_RESOURCE     (@"files")
 #define FILES_COPY         (@"copy")
 #define FILES_CONTENT      (@"content")
+#define FILES_THUMBNAIL    (@"thumbnail.png")
 
 @implementation BoxFilesResourceManagerTests
 
@@ -867,6 +868,87 @@
 - (void)testThatDownloadFilePassesOAuth2SessionToOperation
 {
     BoxAPIDataOperation *operation = [filesManager downloadFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] requestBuilder:nil success:nil failure:nil progress:nil];
+    STAssertEquals(OAuth2Session, operation.OAuth2Session, @"operation should have the same OAuth2Session as the folders manager");
+}
+
+#pragma mark - Download thumbnail with NSOutputStream
+
+- (void)testThatDownloadFileThumbnailReturnsOperationWithHTTPGETMethod
+{
+    BoxAPIDataOperation *operation = [filesManager thumbnailForFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] thumbnailSize:BoxThumbnailSize256 success:nil failure:nil];
+
+    STAssertEqualObjects(BoxAPIHTTPMethodGET, operation.APIRequest.HTTPMethod, @"file thumbnail should be a GET request");
+}
+
+// @see developers.box.com/docs/
+- (void)testThatDownloadFileThumbnailReturnsOperationWithDocumentedURL
+{
+    BoxAPIDataOperation *operation = [filesManager thumbnailForFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] thumbnailSize:BoxThumbnailSize256 success:nil failure:nil];
+
+    NSString *expectedURLString = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", APIBaseURL, APIVersion, FILES_RESOURCE, fileID, FILES_THUMBNAIL];
+
+    NSString *urlWithoutQueryParameters = [[operation.APIRequest.URL.absoluteString componentsSeparatedByString:@"?"] objectAtIndex:0];
+
+    STAssertEqualObjects(expectedURLString, urlWithoutQueryParameters, @"file download URL should match docs");
+}
+
+- (void)testThatDownloadFileThumbnailIncludesQueryStringParametersFromThumbnailSize
+{
+    NSDictionary *const queryParametersDictionary = @{@"min_width" : @"256", @"min_height" : @"256"};
+    BoxAPIDataOperation *operation = [filesManager thumbnailForFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] thumbnailSize:BoxThumbnailSize256 success:nil failure:nil];
+
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from thumbnail size should be appended to the URL");
+}
+
+- (void)testThatDownloadFileDoesNotIncludeBodyDictionary
+{
+    BoxAPIDataOperation *operation = [filesManager thumbnailForFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] thumbnailSize:BoxThumbnailSize256 success:nil failure:nil];
+
+    STAssertNil(operation.APIRequest.HTTPBody, @"body parameters from builder should not be included with the request");
+}
+
+- (void)testThatDownloadFileThumbnailWrapsSuccessBlockInJSONSuccessBlockAndSetsItOnTheOperation
+{
+    __block BOOL blockCalled = NO;
+    BoxDownloadSuccessBlock successBlock = ^(NSString *fileID, long long expectedTotalBytes)
+    {
+        blockCalled = YES;
+    };
+    BoxAPIDataOperation *operation = [filesManager thumbnailForFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] thumbnailSize:BoxThumbnailSize256 success:successBlock failure:nil];
+
+    operation.successBlock(nil, 0l);
+
+    STAssertTrue(blockCalled, @"File block should be called when the operation's success block is called");
+}
+
+- (void)testThatDownloadFileThumbnailSetsFailureBlockOnTheOperation
+{
+    __block BOOL blockCalled = NO;
+    BoxDownloadFailureBlock failureBlock = ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error)
+    {
+        blockCalled = YES;
+    };
+    BoxAPIDataOperation *operation = [filesManager thumbnailForFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] thumbnailSize:BoxThumbnailSize256 success:nil failure:failureBlock];
+
+    operation.failureBlock(nil, nil, nil);
+
+    STAssertTrue(blockCalled, @"Failure block should be called when the operation's failure block is called");
+}
+
+- (void)testThatDownloadFileThumbnailEnqueuesOperationInQueueManager
+{
+    id queueManagerMock = [BoxWeakOCMockProxy mockForClass:[BoxSerialAPIQueueManager class]];
+    [[queueManagerMock expect] enqueueOperation:OCMOCK_ANY];
+    filesManager.queueManager = queueManagerMock;
+
+    __unused BoxAPIDataOperation *operation = [filesManager thumbnailForFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] thumbnailSize:BoxThumbnailSize256 success:nil failure:nil];
+
+    [queueManagerMock verify];
+}
+
+- (void)testThatDownloadFileThumnbailPassesOAuth2SessionToOperation
+{
+    BoxAPIDataOperation *operation = [filesManager thumbnailForFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] thumbnailSize:BoxThumbnailSize256 success:nil failure:nil];
     STAssertEquals(OAuth2Session, operation.OAuth2Session, @"operation should have the same OAuth2Session as the folders manager");
 }
 

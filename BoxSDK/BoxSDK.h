@@ -17,10 +17,12 @@
 #import "BoxAuthorizationViewController.h"
 #import "BoxOAuth2Session.h"
 #import "BoxSerialOAuth2Session.h"
+#import "BoxParallelOAuth2Session.h"
 
 // API Operation queues
 #import "BoxAPIQueueManager.h"
 #import "BoxSerialAPIQueueManager.h"
+#import "BoxParallelAPIQueueManager.h"
 
 // API Operations
 #import "BoxAPIOperation.h"
@@ -49,6 +51,13 @@
 #import "BoxFolder.h"
 #import "BoxUser.h"
 #import "BoxWebLink.h"
+
+// Folder Picker
+#import "BoxFolderPickerHelper.h"
+#import "BoxFolderPickerTableViewController.h"
+#import "BoxFolderPickerViewController.h"
+#import "BoxFolderPickerNavigationController.h"
+
 
 extern NSString *const BoxAPIBaseURL;
 
@@ -141,5 +150,35 @@ extern NSString *const BoxAPIBaseURL;
  *   https://api.box.com. This String should not include the API Version
  */
 - (void)setAPIBaseURL:(NSString *)APIBaseURL;
+
+
+#pragma mark - Folder Picker
+/** @name Folder Picker */
+
+/**
+ * Initializes a folderPicker according to the caching options provided as parameters
+ *
+ * @param rootFolderID The root folder where to start browsing.
+ * @param thumbnailsEnabled Enables/disables thumbnail management.
+ *   If set to NO, only file icons will be displayed
+ * @param cachedThumbnailsPath The absolute path for storing cached thumbnails.
+ *   If set to nil, the folder picker will not cache thumbnails, only download them on the fly.
+ * @param fileSelectionEnabled Whether the user will be able to select a file or not while
+ *   browsing his account. If not set to nil, the folder picker will cache the thumbnails at
+ *   this path. Not used if thumbnailsEnabled set to NO.
+ * @return A BoxFolderPickerViewController.
+ */
+- (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)rootFolderID 
+                                               thumbnailsEnabled:(BOOL)thumbnailsEnabled 
+                                           cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
+                                           fileSelectionEnabled:(BOOL)fileSelectionEnabled;
+
+#pragma mark - Ressources Bundle
+/** @name Ressources Bundle */
+
+/**
+ * The bundle containing SDK resource assets and icons.
+ */
++ (NSBundle *)resourcesBundle;
 
 @end

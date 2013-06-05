@@ -34,11 +34,11 @@
         // the circular reference between the queue manager and the OAuth2 session is necessary
         // because the OAuth2 session enqueues API operations to fetch access tokens and the queue
         // manager uses the OAuth2 session as a lock object when enqueuing operations.
-        sharedBoxSDK.queueManager = [[BoxSerialAPIQueueManager alloc] init];
-        sharedBoxSDK.OAuth2Session = [[BoxSerialOAuth2Session alloc] initWithClientID:nil
-                                                                               secret:nil
-                                                                           APIBaseURL:BoxAPIBaseURL
-                                                                         queueManager:sharedBoxSDK.queueManager];
+        sharedBoxSDK.queueManager = [[BoxParallelAPIQueueManager alloc] init];
+        sharedBoxSDK.OAuth2Session = [[BoxParallelOAuth2Session alloc] initWithClientID:nil
+                                                                                 secret:nil
+                                                                             APIBaseURL:BoxAPIBaseURL
+                                                                           queueManager:sharedBoxSDK.queueManager];
 
         sharedBoxSDK.queueManager.OAuth2Session = sharedBoxSDK.OAuth2Session;
 
@@ -60,6 +60,27 @@
     // managers
     self.filesManager.APIBaseURL = APIBaseURL;
     self.foldersManager.APIBaseURL = APIBaseURL;
+}
+
+- (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)rootFolderID 
+                                               thumbnailsEnabled:(BOOL)thumbnailsEnabled 
+                                           cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
+                                           fileSelectionEnabled:(BOOL)fileSelectionEnabled;
+{
+    return [[BoxFolderPickerViewController alloc] initWithSDK:self rootFolderID:rootFolderID thumbnailsEnabled:thumbnailsEnabled cachedThumbnailsPath:cachedThumbnailsPath fileSelectionEnabled:fileSelectionEnabled];
+}
+
+// Load the ressources bundle.
++ (NSBundle *)resourcesBundle
+{
+    static NSBundle* frameworkBundle = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        NSString* mainBundlePath = [[NSBundle mainBundle] resourcePath];
+        NSString* frameworkBundlePath = [mainBundlePath stringByAppendingPathComponent:@"BoxSDKResources.bundle"];
+        frameworkBundle = [NSBundle bundleWithPath:frameworkBundlePath];
+    });
+    return frameworkBundle;
 }
 
 @end

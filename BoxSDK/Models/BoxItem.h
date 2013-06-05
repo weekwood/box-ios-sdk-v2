@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "BoxModel.h"
 
 @class BoxFolder, BoxCollection, BoxUser;
