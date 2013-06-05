@@ -72,7 +72,7 @@
 	
 	<option value="//api/name/performAuthorizationCodeGrantWithReceivedURL:">&nbsp;&nbsp;&nbsp;&nbsp;- performAuthorizationCodeGrantWithReceivedURL:</option>
 	
-	<option value="//api/name/performRefreshTokenGrant">&nbsp;&nbsp;&nbsp;&nbsp;- performRefreshTokenGrant</option>
+	<option value="//api/name/performRefreshTokenGrant:">&nbsp;&nbsp;&nbsp;&nbsp;- performRefreshTokenGrant:</option>
 	
 	<option value="//api/name/redirectURIString">&nbsp;&nbsp;&nbsp;&nbsp;- redirectURIString</option>
 	
@@ -103,6 +103,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Authorization">Authorization</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Token Refresh">Token Refresh</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Session Information">Session Information</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Request Signing">Request Signing</a></span></li>
 	
 </ul></li>
 
@@ -146,7 +150,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performAuthorizationCodeGrantWithReceivedURL:">performAuthorizationCodeGrantWithReceivedURL:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performRefreshTokenGrant">performRefreshTokenGrant</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performRefreshTokenGrant:">performRefreshTokenGrant:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/redirectURIString">redirectURIString</a></span></li>
 	
@@ -224,7 +228,7 @@ the refresh token has been revoked or is expired).</li>
 <li><a href="#//api/name/grantTokensURL">grantTokensURL</a></li>
 <li><a href="#//api/name/authorizeURL">authorizeURL</a></li>
 <li><a href="#//api/name/redirectURIString">redirectURIString</a></li>
-<li><a href="#//api/name/performRefreshTokenGrant">performRefreshTokenGrant</a></li>
+<li>performRefreshTokenGrant</li>
 <li><a href="#//api/name/isAuthorized">isAuthorized</a></li>
 </ul>
 
@@ -374,19 +378,35 @@ This URI allows Box to redirect back to your app with an authorization code.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/performRefreshTokenGrant">&ndash;&nbsp;performRefreshTokenGrant</a></code>
+		<code><a href="#//api/name/performRefreshTokenGrant:">&ndash;&nbsp;performRefreshTokenGrant:</a></code>
 		<span class="tooltip"><p>This method exchanges a refresh token for a new access token and refresh token.</p></span>
 	</span>
 	
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Session Information" name="task_Session Information"></a>
+						<h3 class="subsubtitle task-title">Session Information</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/isAuthorized">&ndash;&nbsp;isAuthorized</a></code>
 		<span class="tooltip"><p>Compares <a href="#//api/name/accessTokenExpiration">accessTokenExpiration</a> to the current time to determine if an access token may be valid.</p></span>
 	</span>
 	
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Request Signing" name="task_Request Signing"></a>
+						<h3 class="subsubtitle task-title">Request Signing</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/addAuthorizationParametersToRequest:">&ndash;&nbsp;addAuthorizationParametersToRequest:</a></code>
 		<span class="tooltip"><p>Add the Authorization header to a request.</p></span>
@@ -735,7 +755,7 @@ logged out of Box.</p>
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/performRefreshTokenGrant">&ndash; performRefreshTokenGrant</a></p></code></li>
+			<li><code><p><a href="#//api/name/performRefreshTokenGrant:">&ndash; performRefreshTokenGrant:</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -1043,7 +1063,7 @@ logged out of Box.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)performAuthorizationCodeGrantWithReceivedURL:(NSURL *)<em>url</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)performAuthorizationCodeGrantWithReceivedURL:(NSURL *)<em>URL</em></code></div>
 
     
 	
@@ -1051,7 +1071,7 @@ logged out of Box.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>url</em></dt>
+			<dt><em>URL</em></dt>
 			<dd><p>The URL received as a result of the OAuth2 server invoking the redirect URI. This URL will
 contain query string params needed to complete the authorization_code grant type.</p></dd>
 		</dl>
@@ -1093,8 +1113,8 @@ if an authorization code is not obtained from the authorization webview flow
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/performRefreshTokenGrant" title="performRefreshTokenGrant"></a>
-	<h3 class="subsubtitle method-title">performRefreshTokenGrant</h3>
+	<a name="//api/name/performRefreshTokenGrant:" title="performRefreshTokenGrant:"></a>
+	<h3 class="subsubtitle method-title">performRefreshTokenGrant:</h3>
 	
 	
 	
@@ -1104,9 +1124,19 @@ if an authorization code is not obtained from the authorization webview flow
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)performRefreshTokenGrant</code></div>
+	<div class="method-subsection method-declaration"><code>- (void)performRefreshTokenGrant:(NSString *)<em>expiredAccessToken</em></code></div>
 
     
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>expiredAccessToken</em></dt>
+			<dd><p>The access token that expired.</p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
@@ -1202,7 +1232,7 @@ This URI allows Box to redirect back to your app with an authorization code.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-05-21)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-06-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

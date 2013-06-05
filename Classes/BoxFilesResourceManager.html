@@ -76,6 +76,8 @@
 	
 	<option value="//api/name/overwriteFileWithID:inputStream:contentLength:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- overwriteFileWithID:inputStream:contentLength:requestBuilder:success:failure:</option>
 	
+	<option value="//api/name/thumbnailForFileWithID:outputStream:thumbnailSize:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- thumbnailForFileWithID:outputStream:thumbnailSize:success:failure:</option>
+	
 	<option value="//api/name/uploadFileWithData:MIMEType:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- uploadFileWithData:MIMEType:requestBuilder:success:failure:</option>
 	
 	<option value="//api/name/uploadFileWithData:MIMEType:requestBuilder:success:failure:progress:">&nbsp;&nbsp;&nbsp;&nbsp;- uploadFileWithData:MIMEType:requestBuilder:success:failure:progress:</option>
@@ -161,6 +163,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/overwriteFileWithID:inputStream:contentLength:MIMEType:requestBuilder:success:failure:progress:">overwriteFileWithID:inputStream:contentLength:MIMEType:requestBuilder:success:failure:progress:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/overwriteFileWithID:inputStream:contentLength:requestBuilder:success:failure:">overwriteFileWithID:inputStream:contentLength:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailForFileWithID:outputStream:thumbnailSize:success:failure:">thumbnailForFileWithID:outputStream:thumbnailSize:success:failure:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/uploadFileWithData:MIMEType:requestBuilder:success:failure:">uploadFileWithData:MIMEType:requestBuilder:success:failure:</a></span></li>
 	
@@ -429,6 +433,15 @@ This helper uses <a href="#//api/name/uploadBaseURL">uploadBaseURL</a> and <a hr
 	<span class="tooltip">
 		<code><a href="#//api/name/downloadFileWithID:outputStream:requestBuilder:success:failure:progress:">&ndash;&nbsp;downloadFileWithID:outputStream:requestBuilder:success:failure:progress:</a></code>
 		<span class="tooltip"><p>Return and enqueue an operation to download a file.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/thumbnailForFileWithID:outputStream:thumbnailSize:success:failure:">&ndash;&nbsp;thumbnailForFileWithID:outputStream:thumbnailSize:success:failure:</a></code>
+		<span class="tooltip"><p>Return and enqueue an operation to download a file&rsquo;s thumbnail. Currently
+thumbnails are only available in .png format and will only be generated for
+<a href="[http://en.wikipedia.org/wiki/Image](http://en.wikipedia.org/wiki/Image">image file formats</a>_file_formats).</p></span>
 	</span>
 	
 	
@@ -1676,6 +1689,101 @@ A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</co
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/thumbnailForFileWithID:outputStream:thumbnailSize:success:failure:" title="thumbnailForFileWithID:outputStream:thumbnailSize:success:failure:"></a>
+	<h3 class="subsubtitle method-title">thumbnailForFileWithID:outputStream:thumbnailSize:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Return and enqueue an operation to download a file&rsquo;s thumbnail. Currently
+thumbnails are only available in .png format and will only be generated for
+<a href="[http://en.wikipedia.org/wiki/Image](http://en.wikipedia.org/wiki/Image">image file formats</a>_file_formats).</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIDataOperation *)thumbnailForFileWithID:(NSString *)<em>fileID</em> outputStream:(NSOutputStream *)<em>outputStream</em> thumbnailSize:(BoxThumbnailSize)<em>thumbnailSize</em> success:(BoxDownloadSuccessBlock)<em>successBlock</em> failure:(BoxDownloadFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fileID</em></dt>
+			<dd><p>The modelID of the file to download.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>outputStream</em></dt>
+			<dd><p>The output stream of to write the download to.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>thumbnailSize</em></dt>
+			<dd><p>The minimum size of thumbnail in pixels.
+One of:</p>
+
+<ul>
+<li>BoxThumbnailSize32</li>
+<li>BoxThumbnailSize64</li>
+<li>BoxThumbnailSize128</li>
+<li>BoxThumbnailSize256</li>
+</ul>
+</dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An operation to download a file.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Return and enqueue an operation to download a file&rsquo;s thumbnail. Currently
+thumbnails are only available in .png format and will only be generated for
+<a href="[http://en.wikipedia.org/wiki/Image](http://en.wikipedia.org/wiki/Image">image file formats</a>_file_formats).</p>
+
+<p>To stream a download to disk, create an output stream as follows:</p>
+
+<pre><code>NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];</code></pre>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFilesResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/uploadFileWithData:MIMEType:requestBuilder:success:failure:" title="uploadFileWithData:MIMEType:requestBuilder:success:failure:"></a>
 	<h3 class="subsubtitle method-title">uploadFileWithData:MIMEType:requestBuilder:success:failure:</h3>
 	
@@ -2334,7 +2442,7 @@ the following:</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-05-21)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-06-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

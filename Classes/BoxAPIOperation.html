@@ -43,6 +43,8 @@
 	
 	<option value="//api/name/HTTPResponse">&nbsp;&nbsp;&nbsp;&nbsp;HTTPResponse</option>
 	
+	<option value="//api/name/OAuth2AccessToken">&nbsp;&nbsp;&nbsp;&nbsp;OAuth2AccessToken</option>
+	
 	<option value="//api/name/OAuth2Session">&nbsp;&nbsp;&nbsp;&nbsp;OAuth2Session</option>
 	
 	<option value="//api/name/baseRequestURL">&nbsp;&nbsp;&nbsp;&nbsp;baseRequestURL</option>
@@ -127,6 +129,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/APIRequest">APIRequest</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/HTTPResponse">HTTPResponse</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/OAuth2AccessToken">OAuth2AccessToken</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/OAuth2Session">OAuth2Session</a></span></li>
 	
@@ -290,6 +294,15 @@ in a callback, do so inside of a <code>dispatch_sync</code> block on the main th
 	</span>
 	<span class="task-item-suffix">property</span>
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/OAuth2AccessToken">&nbsp;&nbsp;OAuth2AccessToken</a></code>
+		<span class="tooltip"><p>The OAuth2 access token this request was made with. This token is used to determine
+whether this operation failing due to an expired token should cause the tokens to
+be refreshed.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
 </li>
 						</ul>
 						
@@ -385,7 +398,7 @@ designated initializer.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/initWithURL:HTTPMethod:body:queryParams:OAuth2Session:">&ndash;&nbsp;initWithURL:HTTPMethod:body:queryParams:OAuth2Session:</a></code>
-		
+		<span class="tooltip"><p>Designated initializer. This initializer sets up <a href="../Classes/BoxAPIOperation.html#//api/name/APIRequest">APIRequest</a> based on its input parameters</p></span>
 	</span>
 	
 	
@@ -445,7 +458,7 @@ Such representations may include JSON, multipart form data, or form urlencoded d
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/startURLConnection">&ndash;&nbsp;startURLConnection</a></code>
-		<span class="tooltip"><p>Prepare the BoxAPIOperation to receive delegate callbacks for <a href="#//api/name/connection">connection</a> and start <a href="#//api/name/connection">connection</a>.</p></span>
+		<span class="tooltip"><p>Prepare the BoxAPIOperation to receive delegate callbacks for <a href="#//api/name/connection">connection</a> and <a href="#//api/name/start">start</a> <a href="#//api/name/connection">connection</a>.</p></span>
 	</span>
 	
 	
@@ -562,6 +575,51 @@ designated initializer.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>The HTTP response. Includes headers and status code. This object is received before any <a href="#//api/name/responseData">responseData</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/OAuth2AccessToken" title="OAuth2AccessToken"></a>
+	<h3 class="subsubtitle method-title">OAuth2AccessToken</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The OAuth2 access token this request was made with. This token is used to determine
+whether this operation failing due to an expired token should cause the tokens to
+be refreshed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *OAuth2AccessToken</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The OAuth2 access token this request was made with. This token is used to determine
+whether this operation failing due to an expired token should cause the tokens to
+be refreshed.</p>
 	</div>
 	
 	
@@ -1043,17 +1101,61 @@ Such representations may include JSON, multipart form data, or form urlencoded d
 	
 	
 	
+	<div class="method-subsection brief-description">
+		<p>Designated initializer. This initializer sets up <a href="../Classes/BoxAPIOperation.html#//api/name/APIRequest">APIRequest</a> based on its input parameters</p>
+	</div>		
+	
     
 
 	<div class="method-subsection method-declaration"><code>- (id)initWithURL:(NSURL *)<em>URL</em> HTTPMethod:(BoxAPIHTTPMethod *)<em>HTTPMethod</em> body:(NSDictionary *)<em>body</em> queryParams:(NSDictionary *)<em>queryParams</em> OAuth2Session:(BoxOAuth2Session *)<em>OAuth2Session</em></code></div>
 
     
 	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>URL</em></dt>
+			<dd><p>the <a href="../Classes/BoxAPIOperation.html#//api/name/baseRequestURL">baseRequestURL</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>HTTPMethod</em></dt>
+			<dd><p>one of GET, POST, PUT, DELETE, OPTIONS. Used to configure <a href="../Classes/BoxAPIOperation.html#//api/name/APIRequest">APIRequest</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>body</em></dt>
+			<dd><p>Key value pairs to be encoded as the request <a href="../Classes/BoxAPIOperation.html#//api/name/body">body</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>queryParams</em></dt>
+			<dd><p>Key value pairs to be encoded as part of the query string</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>OAuth2Session</em></dt>
+			<dd><p>used for signing requests</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An initialized BoxAPIOperation</p>
+	</div>
 	
 	
 	
 	
 	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Designated initializer. This initializer sets up <a href="../Classes/BoxAPIOperation.html#//api/name/APIRequest">APIRequest</a> based on its input parameters</p>
+	</div>
 	
 	
 	
@@ -1287,7 +1389,7 @@ in <a href="#//api/name/performCompletionCallback">performCompletionCallback</a>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Prepare the BoxAPIOperation to receive delegate callbacks for <a href="#//api/name/connection">connection</a> and start <a href="#//api/name/connection">connection</a>.</p>
+		<p>Prepare the BoxAPIOperation to receive delegate callbacks for <a href="#//api/name/connection">connection</a> and <a href="#//api/name/start">start</a> <a href="#//api/name/connection">connection</a>.</p>
 	</div>		
 	
     
@@ -1304,7 +1406,7 @@ in <a href="#//api/name/performCompletionCallback">performCompletionCallback</a>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Prepare the BoxAPIOperation to receive delegate callbacks for <a href="#//api/name/connection">connection</a> and start <a href="#//api/name/connection">connection</a>.</p>
+		<p>Prepare the BoxAPIOperation to receive delegate callbacks for <a href="#//api/name/connection">connection</a> and <a href="#//api/name/start">start</a> <a href="#//api/name/connection">connection</a>.</p>
 	</div>
 	
 	
@@ -1334,7 +1436,7 @@ in <a href="#//api/name/performCompletionCallback">performCompletionCallback</a>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-05-21)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-06-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

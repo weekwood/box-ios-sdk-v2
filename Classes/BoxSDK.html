@@ -54,12 +54,16 @@
 	
 	<option value="class_methods">Class Methods</option>
 	
+	<option value="//api/name/resourcesBundle">&nbsp;&nbsp;&nbsp;&nbsp;+ resourcesBundle</option>
+	
 	<option value="//api/name/sharedSDK">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedSDK</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/folderPickerWithRootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;- folderPickerWithRootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:</option>
 	
 	<option value="//api/name/setAPIBaseURL:">&nbsp;&nbsp;&nbsp;&nbsp;- setAPIBaseURL:</option>
 	
@@ -87,6 +91,10 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Setters">Setters</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Folder Picker">Folder Picker</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Ressources Bundle">Ressources Bundle</a></span></li>
+	
 </ul></li>
 
 
@@ -111,6 +119,8 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resourcesBundle">resourcesBundle</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedSDK">sharedSDK</a></span></li>
 	
 </ul></li>
@@ -118,6 +128,8 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/folderPickerWithRootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:">folderPickerWithRootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setAPIBaseURL:">setAPIBaseURL:</a></span></li>
 	
@@ -270,6 +282,36 @@ and managing the trash.</p></span>
 	<span class="tooltip">
 		<code><a href="#//api/name/setAPIBaseURL:">&ndash;&nbsp;setAPIBaseURL:</a></code>
 		<span class="tooltip"><p>Sets the SDK client API base URL and sets the URL on <a href="#//api/name/OAuth2Session">OAuth2Session</a> and instances of <a href="../Classes/BoxAPIResourceManager.html">BoxAPIResourceManager</a></p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Folder Picker" name="task_Folder Picker"></a>
+						<h3 class="subsubtitle task-title">Folder Picker</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/folderPickerWithRootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:">&ndash;&nbsp;folderPickerWithRootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:</a></code>
+		<span class="tooltip"><p>Initializes a folderPicker according to the caching options provided as parameters</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Ressources Bundle" name="task_Ressources Bundle"></a>
+						<h3 class="subsubtitle task-title">Ressources Bundle</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resourcesBundle">+&nbsp;resourcesBundle</a></code>
+		<span class="tooltip"><p>The bundle containing SDK resource assets and icons.</p></span>
 	</span>
 	
 	
@@ -514,6 +556,47 @@ calls) and the <a href="#//api/name/filesManager">filesManager</a> and <a href="
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/resourcesBundle" title="resourcesBundle"></a>
+	<h3 class="subsubtitle method-title">resourcesBundle</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The bundle containing SDK resource assets and icons.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSBundle *)resourcesBundle</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The bundle containing SDK resource assets and icons.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxSDK.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/sharedSDK" title="sharedSDK"></a>
 	<h3 class="subsubtitle method-title">sharedSDK</h3>
 	
@@ -583,6 +666,81 @@ configure the SDK in your application&rsquo;s App Delegate like so:</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/folderPickerWithRootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:" title="folderPickerWithRootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:"></a>
+	<h3 class="subsubtitle method-title">folderPickerWithRootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a folderPicker according to the caching options provided as parameters</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)<em>rootFolderID</em> thumbnailsEnabled:(BOOL)<em>thumbnailsEnabled</em> cachedThumbnailsPath:(NSString *)<em>cachedThumbnailsPath</em> fileSelectionEnabled:(BOOL)<em>fileSelectionEnabled</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rootFolderID</em></dt>
+			<dd><p>The root folder where to start browsing.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>thumbnailsEnabled</em></dt>
+			<dd><p>Enables/disables thumbnail management.
+If set to NO, only file icons will be displayed</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>cachedThumbnailsPath</em></dt>
+			<dd><p>The absolute path for storing cached thumbnails.
+If set to nil, the folder picker will not cache thumbnails, only download them on the fly.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fileSelectionEnabled</em></dt>
+			<dd><p>Whether the user will be able to select a file or not while
+browsing his account. If not set to nil, the folder picker will cache the thumbnails at
+this path. Not used if thumbnailsEnabled set to NO.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <a href="../Classes/BoxFolderPickerViewController.html">BoxFolderPickerViewController</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializes a folderPicker according to the caching options provided as parameters</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxSDK.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/setAPIBaseURL:" title="setAPIBaseURL:"></a>
 	<h3 class="subsubtitle method-title">setAPIBaseURL:</h3>
 	
@@ -648,7 +806,7 @@ configure the SDK in your application&rsquo;s App Delegate like so:</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-05-21)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-06-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

@@ -1,0 +1,1343 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>BoxFolderPickerViewController Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">BoxSDK </a></h1>
+				<a id="developerHome" href="../index.html">Box</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BoxFolderPickerViewController Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/fileSelectionEnabled">&nbsp;&nbsp;&nbsp;&nbsp;fileSelectionEnabled</option>
+	
+	<option value="//api/name/numberOfItemsPerPage">&nbsp;&nbsp;&nbsp;&nbsp;numberOfItemsPerPage</option>
+	
+	<option value="//api/name/thumbnailPath">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailPath</option>
+	
+	<option value="//api/name/thumbnailsEnabled">&nbsp;&nbsp;&nbsp;&nbsp;thumbnailsEnabled</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/authorizationViewController:shouldLoadReceivedOAuth2RedirectRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- authorizationViewController:shouldLoadReceivedOAuth2RedirectRequest:</option>
+	
+	<option value="//api/name/authorizationViewControllerDidCancel:">&nbsp;&nbsp;&nbsp;&nbsp;- authorizationViewControllerDidCancel:</option>
+	
+	<option value="//api/name/authorizationViewControllerDidFinishLoading:">&nbsp;&nbsp;&nbsp;&nbsp;- authorizationViewControllerDidFinishLoading:</option>
+	
+	<option value="//api/name/authorizationViewControllerDidStartLoading:">&nbsp;&nbsp;&nbsp;&nbsp;- authorizationViewControllerDidStartLoading:</option>
+	
+	<option value="//api/name/currentNumberOfItems">&nbsp;&nbsp;&nbsp;&nbsp;- currentNumberOfItems</option>
+	
+	<option value="//api/name/currentSDK">&nbsp;&nbsp;&nbsp;&nbsp;- currentSDK</option>
+	
+	<option value="//api/name/fileSelectionEnabled">&nbsp;&nbsp;&nbsp;&nbsp;- fileSelectionEnabled</option>
+	
+	<option value="//api/name/initWithSDK:rootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithSDK:rootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:</option>
+	
+	<option value="//api/name/itemAtIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- itemAtIndex:</option>
+	
+	<option value="//api/name/loadNextSetOfItems">&nbsp;&nbsp;&nbsp;&nbsp;- loadNextSetOfItems</option>
+	
+	<option value="//api/name/purgeCache">&nbsp;&nbsp;&nbsp;&nbsp;- purgeCache</option>
+	
+	<option value="//api/name/thumbnailPath">&nbsp;&nbsp;&nbsp;&nbsp;- thumbnailPath</option>
+	
+	<option value="//api/name/thumbnailsEnabled">&nbsp;&nbsp;&nbsp;&nbsp;- thumbnailsEnabled</option>
+	
+	<option value="//api/name/totalNumberOfItems">&nbsp;&nbsp;&nbsp;&nbsp;- totalNumberOfItems</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Closing the Authorization View Controller">Closing the Authorization View Controller</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fileSelectionEnabled">fileSelectionEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberOfItemsPerPage">numberOfItemsPerPage</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailPath">thumbnailPath</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailsEnabled">thumbnailsEnabled</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/authorizationViewController:shouldLoadReceivedOAuth2RedirectRequest:">authorizationViewController:shouldLoadReceivedOAuth2RedirectRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/authorizationViewControllerDidCancel:">authorizationViewControllerDidCancel:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/authorizationViewControllerDidFinishLoading:">authorizationViewControllerDidFinishLoading:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/authorizationViewControllerDidStartLoading:">authorizationViewControllerDidStartLoading:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentNumberOfItems">currentNumberOfItems</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSDK">currentSDK</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fileSelectionEnabled">fileSelectionEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithSDK:rootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:">initWithSDK:rootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/itemAtIndex:">itemAtIndex:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loadNextSetOfItems">loadNextSetOfItems</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/purgeCache">purgeCache</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailPath">thumbnailPath</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/thumbnailsEnabled">thumbnailsEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/totalNumberOfItems">totalNumberOfItems</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="BoxFolderPickerViewController Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BoxFolderPickerViewController Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">UIViewController</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value"><a href="../Protocols/BoxAuthorizationViewControllerDelegate.html">BoxAuthorizationViewControllerDelegate</a><br /><a href="../Protocols/BoxFolderPickerTableViewControllerDelegate.html">BoxFolderPickerTableViewControllerDelegate</a></td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">BoxFolderPickerViewController.h<br />BoxFolderPickerViewController.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>BoxFolderPickerViewController is a UI widget that allows quick and easy integration with Box.
+Displaying a BoxFolderPickerViewController provides a file browser and enables users to select
+a file or folder from their Box account.</p>
+
+<p>The BoxFolderPickerViewController handles OAuth2 authentication by itself if you do not wish
+to authenticate users independently.</p>
+
+<p>The BoxFolderPickerViewController makes extensive use of thumbnail support in the Box V2 API.
+Additionally, it can display assets from the BoxSDKResources bundle and if you wish to use
+the folder picker, you should include this bundle in your app.</p>
+
+<p>Selection events are handled by the <a href="../Protocols/BoxFolderPickerDelegate.html">BoxFolderPickerDelegate</a> delegate protocol.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/numberOfItemsPerPage">&nbsp;&nbsp;numberOfItemsPerPage</a></code>
+		<span class="tooltip"><p>Allows you to customize the number of <a href="#//api/name/items">items</a> that will be downloaded in a row.
+Default value in 100.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithSDK:rootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:">&ndash;&nbsp;initWithSDK:rootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:</a></code>
+		<span class="tooltip"><p>Initializes a folderPicker according to the caching options provided as parameters. This
+<a href="#//api/name/folder">folder</a> picker is bound to one instance of the <a href="../Classes/BoxSDK.html">BoxSDK</a> and thus, one <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/purgeCache">&ndash;&nbsp;purgeCache</a></code>
+		<span class="tooltip"><p>Purges the cache <a href="#//api/name/folder">folder</a> specified in the cachedThumbnailsPath parameter of the
+initWithFolderID:enableThumbnails:cachedThumbnailsPath: method.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Closing the Authorization View Controller" name="task_Closing the Authorization View Controller"></a>
+						<h3 class="subsubtitle task-title">Closing the Authorization View Controller</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentNumberOfItems">&ndash;&nbsp;currentNumberOfItems</a></code>
+		<span class="tooltip"><p>Returns the number of items that needs to be displayed</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/totalNumberOfItems">&ndash;&nbsp;totalNumberOfItems</a></code>
+		<span class="tooltip"><p>Returns the number of items in the current folder (can be more that <a href="../Protocols/BoxFolderPickerTableViewControllerDelegate.html#//api/name/currentNumberOfItems">currentNumberOfItems</a> because of the pagination).</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/itemAtIndex:">&ndash;&nbsp;itemAtIndex:</a></code>
+		<span class="tooltip"><p>Returns the item that needs to be displayed at the specified row</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/loadNextSetOfItems">&ndash;&nbsp;loadNextSetOfItems</a></code>
+		<span class="tooltip"><p>Starts downloading the next page of items</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/thumbnailPath">&ndash;&nbsp;thumbnailPath</a></code>
+		<span class="tooltip"><p>Returns the path where thumbnails need to be stored. Can be nil.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/thumbnailsEnabled">&ndash;&nbsp;thumbnailsEnabled</a></code>
+		<span class="tooltip"><p>Returns whether the user wants to display thumbnails or not.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fileSelectionEnabled">&ndash;&nbsp;fileSelectionEnabled</a></code>
+		<span class="tooltip"><p>Returns whether the user can select the files or not</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSDK">&ndash;&nbsp;currentSDK</a></code>
+		<span class="tooltip"><p>Returns the SDK currently used by the folder picker</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/authorizationViewControllerDidCancel:">&ndash;&nbsp;authorizationViewControllerDidCancel:</a></code>
+		<span class="tooltip"><p>Tells the delegate that the user cancelled the authorization operation.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/authorizationViewControllerDidFinishLoading:">&ndash;&nbsp;authorizationViewControllerDidFinishLoading:</a></code>
+		<span class="tooltip"><p>Sent after the autorization view controller&rsquo;s web view finishes loading a frame.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/authorizationViewControllerDidStartLoading:">&ndash;&nbsp;authorizationViewControllerDidStartLoading:</a></code>
+		<span class="tooltip"><p>Sent after the autorization view controller&rsquo;s web view starts loading a new frame.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/authorizationViewController:shouldLoadReceivedOAuth2RedirectRequest:">&ndash;&nbsp;authorizationViewController:shouldLoadReceivedOAuth2RedirectRequest:</a></code>
+		<span class="tooltip"><p>Asks the delegate whether the view controller should load the OAuth2 redirect URL in the web view.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/thumbnailPath">&nbsp;&nbsp;thumbnailPath</a></code>
+		<span class="tooltip"><p>Returns the path where thumbnails need to be stored. Can be nil.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/thumbnailsEnabled">&nbsp;&nbsp;thumbnailsEnabled</a></code>
+		<span class="tooltip"><p>Returns whether the user wants to display thumbnails or not.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fileSelectionEnabled">&nbsp;&nbsp;fileSelectionEnabled</a></code>
+		<span class="tooltip"><p>Returns whether the user can select the files or not</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/fileSelectionEnabled" title="fileSelectionEnabled"></a>
+	<h3 class="subsubtitle method-title">fileSelectionEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether the user can select the files or not</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) BOOL fileSelectionEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns whether the user can select the files or not</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/numberOfItemsPerPage" title="numberOfItemsPerPage"></a>
+	<h3 class="subsubtitle method-title">numberOfItemsPerPage</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Allows you to customize the number of <a href="#//api/name/items">items</a> that will be downloaded in a row.
+Default value in 100.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) NSUInteger numberOfItemsPerPage</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Allows you to customize the number of <a href="#//api/name/items">items</a> that will be downloaded in a row.
+Default value in 100.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/thumbnailPath" title="thumbnailPath"></a>
+	<h3 class="subsubtitle method-title">thumbnailPath</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the path where thumbnails need to be stored. Can be nil.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *thumbnailPath</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the path where thumbnails need to be stored. Can be nil.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/thumbnailsEnabled" title="thumbnailsEnabled"></a>
+	<h3 class="subsubtitle method-title">thumbnailsEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether the user wants to display thumbnails or not.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) BOOL thumbnailsEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns whether the user wants to display thumbnails or not.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/authorizationViewController:shouldLoadReceivedOAuth2RedirectRequest:" title="authorizationViewController:shouldLoadReceivedOAuth2RedirectRequest:"></a>
+	<h3 class="subsubtitle method-title">authorizationViewController:shouldLoadReceivedOAuth2RedirectRequest:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Asks the delegate whether the view controller should load the OAuth2 redirect URL in the web view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)authorizationViewController:(BoxAuthorizationViewController *)<em>authorizationViewController</em> shouldLoadReceivedOAuth2RedirectRequest:(NSURLRequest *)<em>request</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>authorizationViewController</em></dt>
+			<dd><p>The authorization view controller object managing the authorization process</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>request</em></dt>
+			<dd><p>The OAuth2 redirect URL request which the authorization web view is requesting to load</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>YES if the redirect URL should be loaded, NO if it should not be.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Asks the delegate whether the view controller should load the OAuth2 redirect URL in the web view.</p>
+
+<p>If the delegate does not implement this method, the default is YES.</p>
+
+<p>If you wish to support iOS 5, you should implement this method and handle the OAuth2 redirect
+URL in it. Web views on iOS 5 do not support loading custom URL schemes.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAuthorizationViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/authorizationViewControllerDidCancel:" title="authorizationViewControllerDidCancel:"></a>
+	<h3 class="subsubtitle method-title">authorizationViewControllerDidCancel:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells the delegate that the user cancelled the authorization operation.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)authorizationViewControllerDidCancel:(BoxAuthorizationViewController *)<em>authorizationViewController</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>authorizationViewController</em></dt>
+			<dd><p>The authorization view controller object managing the authorization process</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells the delegate that the user cancelled the authorization operation.</p>
+
+<p>Your delegate’s implementation of this method should dismiss the authorization view by calling the
+dismissViewControllerAnimated:completion: method of the presenting view controller.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAuthorizationViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/authorizationViewControllerDidFinishLoading:" title="authorizationViewControllerDidFinishLoading:"></a>
+	<h3 class="subsubtitle method-title">authorizationViewControllerDidFinishLoading:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sent after the autorization view controller&rsquo;s web view finishes loading a frame.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)authorizationViewControllerDidFinishLoading:(BoxAuthorizationViewController *)<em>authorizationViewController</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>authorizationViewController</em></dt>
+			<dd><p>The authorization view controller whose web view has finished loading</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sent after the autorization view controller&rsquo;s web view finishes loading a frame.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAuthorizationViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/authorizationViewControllerDidStartLoading:" title="authorizationViewControllerDidStartLoading:"></a>
+	<h3 class="subsubtitle method-title">authorizationViewControllerDidStartLoading:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sent after the autorization view controller&rsquo;s web view starts loading a new frame.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)authorizationViewControllerDidStartLoading:(BoxAuthorizationViewController *)<em>authorizationViewController</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>authorizationViewController</em></dt>
+			<dd><p>The authorization view controller whose web view has begun loading a new frame</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sent after the autorization view controller&rsquo;s web view starts loading a new frame.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAuthorizationViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentNumberOfItems" title="currentNumberOfItems"></a>
+	<h3 class="subsubtitle method-title">currentNumberOfItems</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the number of items that needs to be displayed</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)currentNumberOfItems</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the number of items that needs to be displayed</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSDK" title="currentSDK"></a>
+	<h3 class="subsubtitle method-title">currentSDK</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the SDK currently used by the folder picker</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxSDK *)currentSDK</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the SDK currently used by the folder picker</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fileSelectionEnabled" title="fileSelectionEnabled"></a>
+	<h3 class="subsubtitle method-title">fileSelectionEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether the user can select the files or not</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)fileSelectionEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns whether the user can select the files or not</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithSDK:rootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:" title="initWithSDK:rootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:"></a>
+	<h3 class="subsubtitle method-title">initWithSDK:rootFolderID:thumbnailsEnabled:cachedThumbnailsPath:fileSelectionEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a folderPicker according to the caching options provided as parameters. This
+<a href="#//api/name/folder">folder</a> picker is bound to one instance of the <a href="../Classes/BoxSDK.html">BoxSDK</a> and thus, one <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithSDK:(BoxSDK *)<em>sdk</em> rootFolderID:(NSString *)<em>rootFolderID</em> thumbnailsEnabled:(BOOL)<em>thumbnailsEnabled</em> cachedThumbnailsPath:(NSString *)<em>cachedThumbnailsPath</em> fileSelectionEnabled:(BOOL)<em>fileSelectionEnabled</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sdk</em></dt>
+			<dd><p>The SDK which the <a href="#//api/name/folder">folder</a> picker uses to perform API calls.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rootFolderID</em></dt>
+			<dd><p>The root <a href="#//api/name/folder">folder</a> where to start browsing.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>thumbnailsEnabled</em></dt>
+			<dd><p>Enables/disables thumbnail management. If set to NO, only file icons will be displayed.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>cachedThumbnailsPath</em></dt>
+			<dd><p>The absolute path where the user wants to store the cached thumbnails.
+If set to nil, the <a href="#//api/name/folder">folder</a> picker will not cache the thumbnails, only download them on the fly.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fileSelectionEnabled</em></dt>
+			<dd><p>Whether the user will be able to select a file or not while browsing his account.
+If not set to nil, the <a href="#//api/name/folder">folder</a> picker will cache the thumbnails at this path
+Not used if <a href="#//api/name/thumbnailsEnabled">thumbnailsEnabled</a> set to NO.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxFolderPickerViewController.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializes a folderPicker according to the caching options provided as parameters. This
+<a href="#//api/name/folder">folder</a> picker is bound to one instance of the <a href="../Classes/BoxSDK.html">BoxSDK</a> and thus, one <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/itemAtIndex:" title="itemAtIndex:"></a>
+	<h3 class="subsubtitle method-title">itemAtIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the item that needs to be displayed at the specified row</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxItem *)itemAtIndex:(NSUInteger)<em>index</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the item that needs to be displayed at the specified row</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/loadNextSetOfItems" title="loadNextSetOfItems"></a>
+	<h3 class="subsubtitle method-title">loadNextSetOfItems</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Starts downloading the next page of items</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)loadNextSetOfItems</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Starts downloading the next page of items</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/purgeCache" title="purgeCache"></a>
+	<h3 class="subsubtitle method-title">purgeCache</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Purges the cache <a href="#//api/name/folder">folder</a> specified in the cachedThumbnailsPath parameter of the
+initWithFolderID:enableThumbnails:cachedThumbnailsPath: method.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)purgeCache</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Purges the cache <a href="#//api/name/folder">folder</a> specified in the cachedThumbnailsPath parameter of the
+initWithFolderID:enableThumbnails:cachedThumbnailsPath: method.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/thumbnailPath" title="thumbnailPath"></a>
+	<h3 class="subsubtitle method-title">thumbnailPath</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the path where thumbnails need to be stored. Can be nil.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)thumbnailPath</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the path where thumbnails need to be stored. Can be nil.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/thumbnailsEnabled" title="thumbnailsEnabled"></a>
+	<h3 class="subsubtitle method-title">thumbnailsEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether the user wants to display thumbnails or not.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)thumbnailsEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns whether the user wants to display thumbnails or not.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/totalNumberOfItems" title="totalNumberOfItems"></a>
+	<h3 class="subsubtitle method-title">totalNumberOfItems</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the number of items in the current folder (can be more that <a href="../Protocols/BoxFolderPickerTableViewControllerDelegate.html#//api/name/currentNumberOfItems">currentNumberOfItems</a> because of the pagination).</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)totalNumberOfItems</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the number of items in the current folder (can be more that <a href="../Protocols/BoxFolderPickerTableViewControllerDelegate.html#//api/name/currentNumberOfItems">currentNumberOfItems</a> because of the pagination).</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxFolderPickerTableViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-06-04)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>BoxSerialAPIQueueManager Class Reference</title>
+		<title>BoxParallelOAuth2Session Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">BoxSerialAPIQueueManager Class Reference</h1>
+				<h1 class="hideInXcode">BoxParallelOAuth2Session Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -37,20 +37,15 @@
 	
 	
 	
-	<option value="properties">Properties</option>
-	
-	<option value="//api/name/globalQueue">&nbsp;&nbsp;&nbsp;&nbsp;globalQueue</option>
-	
-	
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/enqueueOperation:">&nbsp;&nbsp;&nbsp;&nbsp;- enqueueOperation:</option>
+	<option value="//api/name/initWithClientID:secret:APIBaseURL:queueManager:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithClientID:secret:APIBaseURL:queueManager:</option>
 	
-	<option value="//api/name/initWithOAuth2Session:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithOAuth2Session:</option>
+	<option value="//api/name/performRefreshTokenGrant:">&nbsp;&nbsp;&nbsp;&nbsp;- performRefreshTokenGrant:</option>
 	
 	
 	
@@ -68,23 +63,11 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_NSOperationQueues">NSOperationQueues</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Designated initializer">Designated initializer</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Enqueue Operations">Enqueue Operations</a></span></li>
-	
 </ul></li>
 
 
 
 
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/globalQueue">globalQueue</a></span></li>
-	
-</ul></li>
 
 
 
@@ -92,9 +75,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/enqueueOperation:">enqueueOperation:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithClientID:secret:APIBaseURL:queueManager:">initWithClientID:secret:APIBaseURL:queueManager:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithOAuth2Session:">initWithOAuth2Session:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performRefreshTokenGrant:">performRefreshTokenGrant:</a></span></li>
 	
 </ul></li>
 
@@ -103,7 +86,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="BoxSerialAPIQueueManager Class Reference" name="top"></a>
+				<a title="BoxParallelOAuth2Session Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -112,7 +95,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">BoxSerialAPIQueueManager Class Reference</h1>
+						<h1 class="title title-header">BoxParallelOAuth2Session Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -120,10 +103,10 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value"><a href="../Classes/BoxAPIQueueManager.html">BoxAPIQueueManager</a> : NSObject</td>
+	<td class="specification-value"><a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a> : NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">BoxSerialAPIQueueManager.h<br />BoxSerialAPIQueueManager.m</td>
+	<td class="specification-value">BoxParallelOAuth2Session.h<br />BoxParallelOAuth2Session.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -133,15 +116,16 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>BoxSerialAPIQueueManager is an implementation of the abstract class <a href="../Classes/BoxAPIQueueManager.html">BoxAPIQueueManager</a>.
-This queue manager allows only one concurrent operation at a time. This means that at any
-given time, only one API call will be in progress.</p>
+						<p>BoxParallelOAuth2Session is an implementation of the abstract class <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a>.
+This OAuth2 session assumes there are many concurrent operations at a time. This means
+that at any given time, only several API calls may be in progress.</p>
 
-<p>This class is intended to be used in conjunction with a <a href="../Classes/BoxSerialOAuth2Session.html">BoxSerialOAuth2Session</a>. Both classes
-assume one concurrent <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a>. This assumption enables the locking strategy with regard
-to OAuth2 token refresh to be simplified. Whenever any <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperation</a> is enqueued,
-it is added as a dependency to all currently enqueued operations as well as operations enqueued
-before the OAuth2 operation completes.</p>
+<p>BoxParallelOAuth2Session is intended to be used in conjunction with a <a href="../Classes/BoxParallelAPIQueueManager.html">BoxParallelAPIQueueManager</a>.
+Both classes assume many concurrent <a href="[BoxAPIOperation]">BoxAPIOperations</a>s. To ensure that the
+tokens will not get thrashed by concurrent refreshes of the same token, BoxParallelOAuth2Session
+stores a set of all access tokens that have triggered a token refresh. All <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> instances
+hold a copy of the token they were signed with and pass that to the OAuth2 session when attempting a
+refresh. This prevents multiple refresh attempts from the same set of tokens.</p>
 					</div>
 					
 					
@@ -153,45 +137,21 @@ before the OAuth2 operation completes.</p>
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						<a title="NSOperationQueues" name="task_NSOperationQueues"></a>
-						<h3 class="subsubtitle task-title">NSOperationQueues</h3>
+						
+						
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/globalQueue">&nbsp;&nbsp;globalQueue</a></code>
-		<span class="tooltip"><p>The NSOperationQueue on which all BoxAPIOperations are enqueued. This queue is configured
-with <code>maxConcurrentOperationCount = 1</code>.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-						
-						<a title="Designated initializer" name="task_Designated initializer"></a>
-						<h3 class="subsubtitle task-title">Designated initializer</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/initWithOAuth2Session:">&ndash;&nbsp;initWithOAuth2Session:</a></code>
-		<span class="tooltip"><p>In addition to calling super, this method sets <code></code>globalQueue<code>.maxConcurrentOperationCount</code> to <code>1</code></p></span>
+		<code><a href="#//api/name/initWithClientID:secret:APIBaseURL:queueManager:">&ndash;&nbsp;initWithClientID:secret:APIBaseURL:queueManager:</a></code>
+		<span class="tooltip"><p>Designated initializer. Returns a BoxOAuth2Session capable of authorizing a user and signing requests.</p></span>
 	</span>
 	
 	
-</li>
-						</ul>
-						
-						
-						<a title="Enqueue Operations" name="task_Enqueue Operations"></a>
-						<h3 class="subsubtitle task-title">Enqueue Operations</h3>
-
-						<ul class="task-list">
-							<li>
+</li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/enqueueOperation:">&ndash;&nbsp;enqueueOperation:</a></code>
-		<span class="tooltip"><p>Enqueues operation on globalQueue to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p></span>
+		<code><a href="#//api/name/performRefreshTokenGrant:">&ndash;&nbsp;performRefreshTokenGrant:</a></code>
+		<span class="tooltip"><p>This method exchanges a refresh token for a new access token and refresh token.</p></span>
 	</span>
 	
 	
@@ -203,55 +163,6 @@ with <code>maxConcurrentOperationCount = 1</code>.</p></span>
 					
 					
 					
-					
-					<div class="section section-methods">
-						<a title="Properties" name="properties"></a>
-						<h2 class="subtitle subtitle-methods">Properties</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/globalQueue" title="globalQueue"></a>
-	<h3 class="subsubtitle method-title">globalQueue</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The NSOperationQueue on which all BoxAPIOperations are enqueued. This queue is configured
-with <code>maxConcurrentOperationCount = 1</code>.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSOperationQueue *globalQueue</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The NSOperationQueue on which all BoxAPIOperations are enqueued. This queue is configured
-with <code>maxConcurrentOperationCount = 1</code>.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSerialAPIQueueManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
 					
 					
 					
@@ -262,18 +173,18 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/enqueueOperation:" title="enqueueOperation:"></a>
-	<h3 class="subsubtitle method-title">enqueueOperation:</h3>
+	<a name="//api/name/initWithClientID:secret:APIBaseURL:queueManager:" title="initWithClientID:secret:APIBaseURL:queueManager:"></a>
+	<h3 class="subsubtitle method-title">initWithClientID:secret:APIBaseURL:queueManager:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Enqueues operation on globalQueue to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p>
+		<p>Designated initializer. Returns a BoxOAuth2Session capable of authorizing a user and signing requests.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (BOOL)enqueueOperation:(BoxAPIOperation *)<em>operation</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithClientID:(NSString *)<em>ID</em> secret:(NSString *)<em>secret</em> APIBaseURL:(NSString *)<em>baseURL</em> queueManager:(BoxAPIQueueManager *)<em>queueManager</em></code></div>
 
     
 	
@@ -281,13 +192,33 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>operation</em></dt>
-			<dd><p>The <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> to be enqueued for execution</p></dd>
+			<dt><em>ID</em></dt>
+			<dd><p>your client ID, also known as API key.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>secret</em></dt>
+			<dd><p>your client secret. DO NOT publish this secret.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>baseURL</em></dt>
+			<dd><p>The base URL String for accessing the Box API.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>queueManager</em></dt>
+			<dd><p>The queue manager on which to enqueue <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperations</a>.</p></dd>
 		</dl>
 		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxOAuth2Session capable of a  uthorizing a user and signing requests.</p>
+	</div>
 	
 	
 	
@@ -295,9 +226,7 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Enqueues operation on globalQueue to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p>
-
-<p>This method synchronizes on OAuth2Session.</p>
+		<p>Designated initializer. Returns a BoxOAuth2Session capable of authorizing a user and signing requests.</p>
 	</div>
 	
 	
@@ -308,25 +237,25 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSerialAPIQueueManager.h</code><br />
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithOAuth2Session:" title="initWithOAuth2Session:"></a>
-	<h3 class="subsubtitle method-title">initWithOAuth2Session:</h3>
+	<a name="//api/name/performRefreshTokenGrant:" title="performRefreshTokenGrant:"></a>
+	<h3 class="subsubtitle method-title">performRefreshTokenGrant:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>In addition to calling super, this method sets <code></code>globalQueue<code>.maxConcurrentOperationCount</code> to <code>1</code></p>
+		<p>This method exchanges a refresh token for a new access token and refresh token.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithOAuth2Session:(BoxOAuth2Session *)<em>OAuth2Session</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)performRefreshTokenGrant:(NSString *)<em>expiredAccessToken</em></code></div>
 
     
 	
@@ -334,8 +263,8 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>OAuth2Session</em></dt>
-			<dd><p>This object is needed for locking</p></dd>
+			<dt><em>expiredAccessToken</em></dt>
+			<dd><p>The access token that expired.</p></dd>
 		</dl>
 		
 	</div>
@@ -348,7 +277,15 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>In addition to calling super, this method sets <code></code>globalQueue<code>.maxConcurrentOperationCount</code> to <code>1</code></p>
+		<p>This method exchanges a refresh token for a new access token and refresh token.</p>
+
+<p>This method may be called automatically by the SDK framework upon a failed API call.</p>
+
+<p>This method should send the <code>BoxOAuth2SessionDidRefreshTokensNotification</code> notification upon successfully
+exchanging a refresh token for a new access token and refresh token.</p>
+
+<p>This method should send the <code>BoxOAuth2SessionDidReceiveRefreshErrorNotification</code> notification if a refresh
+token cannot be exchanged for a new set of tokens (for example if it has been revoked or is expired)</p>
 	</div>
 	
 	
@@ -359,7 +296,7 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSerialAPIQueueManager.h</code><br />
+		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
 	</div>				
 	
 	

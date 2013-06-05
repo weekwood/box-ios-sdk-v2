@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>BoxSerialAPIQueueManager Class Reference</title>
+		<title>BoxParallelAPIQueueManager Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">BoxSerialAPIQueueManager Class Reference</h1>
+				<h1 class="hideInXcode">BoxParallelAPIQueueManager Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -39,7 +39,11 @@
 	
 	<option value="properties">Properties</option>
 	
+	<option value="//api/name/downloadsQueue">&nbsp;&nbsp;&nbsp;&nbsp;downloadsQueue</option>
+	
 	<option value="//api/name/globalQueue">&nbsp;&nbsp;&nbsp;&nbsp;globalQueue</option>
+	
+	<option value="//api/name/uploadsQueue">&nbsp;&nbsp;&nbsp;&nbsp;uploadsQueue</option>
 	
 	
 	
@@ -82,7 +86,11 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/downloadsQueue">downloadsQueue</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/globalQueue">globalQueue</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/uploadsQueue">uploadsQueue</a></span></li>
 	
 </ul></li>
 
@@ -103,7 +111,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="BoxSerialAPIQueueManager Class Reference" name="top"></a>
+				<a title="BoxParallelAPIQueueManager Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -112,7 +120,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">BoxSerialAPIQueueManager Class Reference</h1>
+						<h1 class="title title-header">BoxParallelAPIQueueManager Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -123,7 +131,7 @@
 	<td class="specification-value"><a href="../Classes/BoxAPIQueueManager.html">BoxAPIQueueManager</a> : NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">BoxSerialAPIQueueManager.h<br />BoxSerialAPIQueueManager.m</td>
+	<td class="specification-value">BoxParallelAPIQueueManager.h<br />BoxParallelAPIQueueManager.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -133,15 +141,19 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>BoxSerialAPIQueueManager is an implementation of the abstract class <a href="../Classes/BoxAPIQueueManager.html">BoxAPIQueueManager</a>.
-This queue manager allows only one concurrent operation at a time. This means that at any
-given time, only one API call will be in progress.</p>
+						<p>BoxParallelAPIQueueManager is an implementation of the abstract class <a href="../Classes/BoxAPIQueueManager.html">BoxAPIQueueManager</a>.
+This queue manager allows many concurrent operations at a time. This means that at any
+given time, only many API calls may be in progress.</p>
 
-<p>This class is intended to be used in conjunction with a <a href="../Classes/BoxSerialOAuth2Session.html">BoxSerialOAuth2Session</a>. Both classes
-assume one concurrent <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a>. This assumption enables the locking strategy with regard
-to OAuth2 token refresh to be simplified. Whenever any <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperation</a> is enqueued,
-it is added as a dependency to all currently enqueued operations as well as operations enqueued
-before the OAuth2 operation completes.</p>
+<p>BoxParallelAPIQueueManager is intended to be used in conjunction with a <a href="../Classes/BoxParallelOAuth2Session.html">BoxParallelOAuth2Session</a>.
+Both classes assume many concurrent <a href="[BoxAPIOperation]">BoxAPIOperations</a>s. To ensure that the
+tokens will not get thrashed by concurrent refreshes of the same token, <a href="../Classes/BoxParallelOAuth2Session.html">BoxParallelOAuth2Session</a>
+stores a set of all access tokens that have triggered a token refresh. All <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> instances
+hold a copy of the token they were signed with and pass that to the OAuth2 session when attempting a
+refresh. This prevents multiple refresh attempts from the same set of tokens.</p>
+
+<p>BoxParallelAPIQueueManager allows 10 concurrent download operations, 10 concurrent upload operations
+and 1 concurrent operation for all other API calls.</p>
 					</div>
 					
 					
@@ -160,8 +172,27 @@ before the OAuth2 operation completes.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/globalQueue">&nbsp;&nbsp;globalQueue</a></code>
-		<span class="tooltip"><p>The NSOperationQueue on which all BoxAPIOperations are enqueued. This queue is configured
+		<span class="tooltip"><p>The NSOperationQueue on which all BoxAPIOperations other than uploads
+and downloads are enqueued. This queue is configured
 with <code>maxConcurrentOperationCount = 1</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/downloadsQueue">&nbsp;&nbsp;downloadsQueue</a></code>
+		<span class="tooltip"><p>The NSOperationQueue on which all BoxAPIDataOperations
+are enqueued. This queue is configured
+with <code>maxConcurrentOperationCount = 10</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/uploadsQueue">&nbsp;&nbsp;uploadsQueue</a></code>
+		<span class="tooltip"><p>The NSOperationQueue on which all BoxAPIMultipartToJSONOperations
+are enqueued. This queue is configured
+with <code>maxConcurrentOperationCount = 10</code>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -191,7 +222,7 @@ with <code>maxConcurrentOperationCount = 1</code>.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/enqueueOperation:">&ndash;&nbsp;enqueueOperation:</a></code>
-		<span class="tooltip"><p>Enqueues operation on globalQueue to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p></span>
+		<span class="tooltip"><p>Enqueues operation to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p></span>
 	</span>
 	
 	
@@ -209,13 +240,59 @@ with <code>maxConcurrentOperationCount = 1</code>.</p></span>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/downloadsQueue" title="downloadsQueue"></a>
+	<h3 class="subsubtitle method-title">downloadsQueue</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The NSOperationQueue on which all BoxAPIDataOperations
+are enqueued. This queue is configured
+with <code>maxConcurrentOperationCount = 10</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSOperationQueue *downloadsQueue</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The NSOperationQueue on which all BoxAPIDataOperations
+are enqueued. This queue is configured
+with <code>maxConcurrentOperationCount = 10</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxParallelAPIQueueManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/globalQueue" title="globalQueue"></a>
 	<h3 class="subsubtitle method-title">globalQueue</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The NSOperationQueue on which all BoxAPIOperations are enqueued. This queue is configured
+		<p>The NSOperationQueue on which all BoxAPIOperations other than uploads
+and downloads are enqueued. This queue is configured
 with <code>maxConcurrentOperationCount = 1</code>.</p>
 	</div>		
 	
@@ -233,7 +310,8 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The NSOperationQueue on which all BoxAPIOperations are enqueued. This queue is configured
+		<p>The NSOperationQueue on which all BoxAPIOperations other than uploads
+and downloads are enqueued. This queue is configured
 with <code>maxConcurrentOperationCount = 1</code>.</p>
 	</div>
 	
@@ -245,7 +323,52 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSerialAPIQueueManager.h</code><br />
+		<code class="declared-in-ref">BoxParallelAPIQueueManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/uploadsQueue" title="uploadsQueue"></a>
+	<h3 class="subsubtitle method-title">uploadsQueue</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The NSOperationQueue on which all BoxAPIMultipartToJSONOperations
+are enqueued. This queue is configured
+with <code>maxConcurrentOperationCount = 10</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSOperationQueue *uploadsQueue</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The NSOperationQueue on which all BoxAPIMultipartToJSONOperations
+are enqueued. This queue is configured
+with <code>maxConcurrentOperationCount = 10</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxParallelAPIQueueManager.h</code><br />
 	</div>				
 	
 	
@@ -268,7 +391,7 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Enqueues operation on globalQueue to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p>
+		<p>Enqueues operation to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p>
 	</div>		
 	
     
@@ -295,7 +418,7 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Enqueues operation on globalQueue to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p>
+		<p>Enqueues operation to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p>
 
 <p>This method synchronizes on OAuth2Session.</p>
 	</div>
@@ -308,7 +431,7 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSerialAPIQueueManager.h</code><br />
+		<code class="declared-in-ref">BoxParallelAPIQueueManager.h</code><br />
 	</div>				
 	
 	
@@ -359,7 +482,7 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSerialAPIQueueManager.h</code><br />
+		<code class="declared-in-ref">BoxParallelAPIQueueManager.h</code><br />
 	</div>				
 	
 	

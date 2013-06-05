@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>BoxSerialAPIQueueManager Class Reference</title>
+		<title>BoxFolderPickerDelegate Protocol Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">BoxSerialAPIQueueManager Class Reference</h1>
+				<h1 class="hideInXcode">BoxFolderPickerDelegate Protocol Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -37,20 +37,15 @@
 	
 	
 	
-	<option value="properties">Properties</option>
-	
-	<option value="//api/name/globalQueue">&nbsp;&nbsp;&nbsp;&nbsp;globalQueue</option>
-	
-	
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/enqueueOperation:">&nbsp;&nbsp;&nbsp;&nbsp;- enqueueOperation:</option>
+	<option value="//api/name/folderPickerController:didSelectBoxItem:">&nbsp;&nbsp;&nbsp;&nbsp;- folderPickerController:didSelectBoxItem:</option>
 	
-	<option value="//api/name/initWithOAuth2Session:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithOAuth2Session:</option>
+	<option value="//api/name/folderPickerControllerDidCancel:">&nbsp;&nbsp;&nbsp;&nbsp;- folderPickerControllerDidCancel:</option>
 	
 	
 	
@@ -68,23 +63,11 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_NSOperationQueues">NSOperationQueues</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Designated initializer">Designated initializer</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Enqueue Operations">Enqueue Operations</a></span></li>
-	
 </ul></li>
 
 
 
 
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/globalQueue">globalQueue</a></span></li>
-	
-</ul></li>
 
 
 
@@ -92,9 +75,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/enqueueOperation:">enqueueOperation:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/folderPickerController:didSelectBoxItem:">folderPickerController:didSelectBoxItem:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithOAuth2Session:">initWithOAuth2Session:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/folderPickerControllerDidCancel:">folderPickerControllerDidCancel:</a></span></li>
 	
 </ul></li>
 
@@ -103,7 +86,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="BoxSerialAPIQueueManager Class Reference" name="top"></a>
+				<a title="BoxFolderPickerDelegate Protocol Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -112,18 +95,18 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">BoxSerialAPIQueueManager Class Reference</h1>
+						<h1 class="title title-header">BoxFolderPickerDelegate Protocol Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Inherits from</td>
-	<td class="specification-value"><a href="../Classes/BoxAPIQueueManager.html">BoxAPIQueueManager</a> : NSObject</td>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">BoxSerialAPIQueueManager.h<br />BoxSerialAPIQueueManager.m</td>
+	<td class="specification-value">BoxFolderPickerViewController.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -133,15 +116,12 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>BoxSerialAPIQueueManager is an implementation of the abstract class <a href="../Classes/BoxAPIQueueManager.html">BoxAPIQueueManager</a>.
-This queue manager allows only one concurrent operation at a time. This means that at any
-given time, only one API call will be in progress.</p>
+						<p>The BoxFolderPickerDelegate protocol allows your application to interact with a
+<a href="../Classes/BoxFolderPickerViewController.html">BoxFolderPickerViewController</a> and respond to the user selecting an item from
+their Box account.</p>
 
-<p>This class is intended to be used in conjunction with a <a href="../Classes/BoxSerialOAuth2Session.html">BoxSerialOAuth2Session</a>. Both classes
-assume one concurrent <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a>. This assumption enables the locking strategy with regard
-to OAuth2 token refresh to be simplified. Whenever any <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperation</a> is enqueued,
-it is added as a dependency to all currently enqueued operations as well as operations enqueued
-before the OAuth2 operation completes.</p>
+<p>The folder picker returns <a href="../Classes/BoxModel.html">BoxModel</a> objects to your delegate, which you can then
+use to make API calls with the SDK.</p>
 					</div>
 					
 					
@@ -153,48 +133,24 @@ before the OAuth2 operation completes.</p>
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						<a title="NSOperationQueues" name="task_NSOperationQueues"></a>
-						<h3 class="subsubtitle task-title">NSOperationQueues</h3>
+						
+						
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/globalQueue">&nbsp;&nbsp;globalQueue</a></code>
-		<span class="tooltip"><p>The NSOperationQueue on which all BoxAPIOperations are enqueued. This queue is configured
-with <code>maxConcurrentOperationCount = 1</code>.</p></span>
+		<code><a href="#//api/name/folderPickerController:didSelectBoxItem:">&ndash;&nbsp;folderPickerController:didSelectBoxItem:</a></code>
+		<span class="tooltip"><p>The user has selected a file.</p></span>
 	</span>
-	<span class="task-item-suffix">property</span>
 	
-</li>
-						</ul>
-						
-						
-						<a title="Designated initializer" name="task_Designated initializer"></a>
-						<h3 class="subsubtitle task-title">Designated initializer</h3>
-
-						<ul class="task-list">
-							<li>
+	<span class="task-item-suffix">required method</span>
+</li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithOAuth2Session:">&ndash;&nbsp;initWithOAuth2Session:</a></code>
-		<span class="tooltip"><p>In addition to calling super, this method sets <code></code>globalQueue<code>.maxConcurrentOperationCount</code> to <code>1</code></p></span>
+		<code><a href="#//api/name/folderPickerControllerDidCancel:">&ndash;&nbsp;folderPickerControllerDidCancel:</a></code>
+		<span class="tooltip"><p>The user wants do dismiss the folderPicker</p></span>
 	</span>
 	
-	
-</li>
-						</ul>
-						
-						
-						<a title="Enqueue Operations" name="task_Enqueue Operations"></a>
-						<h3 class="subsubtitle task-title">Enqueue Operations</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/enqueueOperation:">&ndash;&nbsp;enqueueOperation:</a></code>
-		<span class="tooltip"><p>Enqueues operation on globalQueue to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p></span>
-	</span>
-	
-	
+	<span class="task-item-suffix">required method</span>
 </li>
 						</ul>
 						
@@ -203,55 +159,6 @@ with <code>maxConcurrentOperationCount = 1</code>.</p></span>
 					
 					
 					
-					
-					<div class="section section-methods">
-						<a title="Properties" name="properties"></a>
-						<h2 class="subtitle subtitle-methods">Properties</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/globalQueue" title="globalQueue"></a>
-	<h3 class="subsubtitle method-title">globalQueue</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The NSOperationQueue on which all BoxAPIOperations are enqueued. This queue is configured
-with <code>maxConcurrentOperationCount = 1</code>.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSOperationQueue *globalQueue</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The NSOperationQueue on which all BoxAPIOperations are enqueued. This queue is configured
-with <code>maxConcurrentOperationCount = 1</code>.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSerialAPIQueueManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
 					
 					
 					
@@ -262,18 +169,18 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/enqueueOperation:" title="enqueueOperation:"></a>
-	<h3 class="subsubtitle method-title">enqueueOperation:</h3>
+	<a name="//api/name/folderPickerController:didSelectBoxItem:" title="folderPickerController:didSelectBoxItem:"></a>
+	<h3 class="subsubtitle method-title">folderPickerController:didSelectBoxItem:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Enqueues operation on globalQueue to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p>
+		<p>The user has selected a file.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (BOOL)enqueueOperation:(BoxAPIOperation *)<em>operation</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)folderPickerController:(BoxFolderPickerViewController *)<em>controller</em> didSelectBoxItem:(BoxItem *)<em>item</em></code></div>
 
     
 	
@@ -281,8 +188,13 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>operation</em></dt>
-			<dd><p>The <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a> to be enqueued for execution</p></dd>
+			<dt><em>controller</em></dt>
+			<dd><p>The <a href="../Classes/BoxFolderPickerViewController.html">BoxFolderPickerViewController</a> used.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>item</em></dt>
+			<dd><p>The item picked by the user.</p></dd>
 		</dl>
 		
 	</div>
@@ -295,9 +207,7 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Enqueues operation on globalQueue to be executed. This method calls <a href="../Classes/BoxAPIQueueManager.html#//api/name/enqueueOperation:">[BoxAPIQueueManager enqueueOperation:]</a>.</p>
-
-<p>This method synchronizes on OAuth2Session.</p>
+		<p>The user has selected a file.</p>
 	</div>
 	
 	
@@ -308,25 +218,25 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSerialAPIQueueManager.h</code><br />
+		<code class="declared-in-ref">BoxFolderPickerViewController.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithOAuth2Session:" title="initWithOAuth2Session:"></a>
-	<h3 class="subsubtitle method-title">initWithOAuth2Session:</h3>
+	<a name="//api/name/folderPickerControllerDidCancel:" title="folderPickerControllerDidCancel:"></a>
+	<h3 class="subsubtitle method-title">folderPickerControllerDidCancel:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>In addition to calling super, this method sets <code></code>globalQueue<code>.maxConcurrentOperationCount</code> to <code>1</code></p>
+		<p>The user wants do dismiss the folderPicker</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithOAuth2Session:(BoxOAuth2Session *)<em>OAuth2Session</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)folderPickerControllerDidCancel:(BoxFolderPickerViewController *)<em>controller</em></code></div>
 
     
 	
@@ -334,8 +244,8 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>OAuth2Session</em></dt>
-			<dd><p>This object is needed for locking</p></dd>
+			<dt><em>controller</em></dt>
+			<dd><p>The controller that was cancelled.</p></dd>
 		</dl>
 		
 	</div>
@@ -348,7 +258,7 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>In addition to calling super, this method sets <code></code>globalQueue<code>.maxConcurrentOperationCount</code> to <code>1</code></p>
+		<p>The user wants do dismiss the folderPicker</p>
 	</div>
 	
 	
@@ -359,7 +269,7 @@ with <code>maxConcurrentOperationCount = 1</code>.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSerialAPIQueueManager.h</code><br />
+		<code class="declared-in-ref">BoxFolderPickerViewController.h</code><br />
 	</div>				
 	
 	
