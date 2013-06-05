@@ -11,13 +11,13 @@ The easiest way to add the Box SDK to your project is as a dependent XCode proje
 1. Clone this repository into your project's directory. You can use git submodules
    if you want.
 2. Open your project in XCode.
-3. Drag BoxSDK.xcodeproj into the root of your project explorer.<br />![Dependent project](http://box.github.io/box-ios-sdk-private/readme-images/dependent-project.png)
+3. Drag BoxSDK.xcodeproj into the root of your project explorer.<br />![Dependent project](http://box.github.io/box-ios-sdk-v2/readme-images/dependent-project.png)
 
-4. Add the BoxSDK project as a target dependency.<br />![Target dependency](http://box.github.io/box-ios-sdk-private/readme-images/target-dependency.png)
+4. Add the BoxSDK project as a target dependency.<br />![Target dependency](http://box.github.io/box-ios-sdk-v2/readme-images/target-dependency.png)
 
-5. Link with libBoxSDK.a<br />![Link with binary](http://box.github.io/box-ios-sdk-private/readme-images/link-with-binary.png)
+5. Link with libBoxSDK.a<br />![Link with binary](http://box.github.io/box-ios-sdk-v2/readme-images/link-with-binary.png)
 
-6. Add the `-ObjC` linker flag. This is needed to load categories defined in the SDK.<br />![Add linker flag](http://box.github.io/box-ios-sdk-private/readme-images/linker-flag.png)
+6. Add the `-ObjC` linker flag. This is needed to load categories defined in the SDK.<br />![Add linker flag](http://box.github.io/box-ios-sdk-v2/readme-images/linker-flag.png)
 
 7. `#import <BoxSDK/BoxSDK.h>`
 
@@ -194,14 +194,14 @@ such as buttons [here](https://cloud.box.com/picker-assets/).
 
 The folder picker looks like this:
 
-![Folder picker](http://box.github.io/box-ios-sdk-private/readme-images/folder-picker.png)
+![Folder picker](http://box.github.io/box-ios-sdk-v2/readme-images/folder-picker.png)
 
 #### Setup steps
 In addition to the installation steps above, you must do two more things in XCode to
 include the folder picker assets and icons in your app.
 
-1. Add BoxSDKResources as a dependent target.<br />![Resource bundle dependency](http://box.github.io/box-ios-sdk-private/readme-images/resource-bundle-dependency.png)
-2. Copy the resource bundle during your app's copy files build phase.<br />![Resource bundle copy](http://box.github.io/box-ios-sdk-private/readme-images/copy-bundle.png)
+1. Add BoxSDKResources as a dependent target.<br />![Resource bundle dependency](http://box.github.io/box-ios-sdk-v2/readme-images/resource-bundle-dependency.png)
+2. Copy the resource bundle during your app's copy files build phase.<br />![Resource bundle copy](http://box.github.io/box-ios-sdk-v2/readme-images/copy-bundle.png)
 
 ## Tests
 
