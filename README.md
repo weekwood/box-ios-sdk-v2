@@ -189,7 +189,8 @@ BoxAPIDataProgressBlock progressBlock = ^(long long expectedTotalBytes, unsigned
 An easy way to integrate Box into your app is to use the folder picker
 widget included in the SDK. The folder picker provides a folder browser
 that users can use to select a file or folder from their account. You can
-use this folder to then make API calls.
+use this folder to then make API calls.  You can find folder picker brand assets 
+such as buttons [here](https://cloud.box.com/picker-assets/).
 
 The folder picker looks like this:
 
