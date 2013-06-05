@@ -185,6 +185,23 @@ BoxAPIDataProgressBlock progressBlock = ^(long long expectedTotalBytes, unsigned
 [[BoxSDK sharedSDK].filesManager downloadFileWithID:fileID outputStream:outputStream requestBuilder:nil success:successBlock failure:failureBlock progress:progressBlock];
 ```
 
+### Folder Picker
+An easy way to integrate Box into your app is to use the folder picker
+widget included in the SDK. The folder picker provides a folder browser
+that users can use to select a file or folder from their account. You can
+use this folder to then make API calls.
+
+The folder picker looks like this:
+
+![Folder picker](http://box.github.io/box-ios-sdk-private/readme-images/folder-picker.png)
+
+#### Setup steps
+In addition to the installation steps above, you must do two more things in XCode to
+include the folder picker assets and icons in your app.
+
+1. Add BoxSDKResources as a dependent target.<br />![Resource bundle dependency](http://box.github.io/box-ios-sdk-private/readme-images/resource-bundle-dependency.png)
+2. Copy the resource bundle during your app's copy files build phase.<br />![Resource bundle copy](http://box.github.io/box-ios-sdk-private/readme-images/copy-bundle.png)
+
 ## Tests
 
 This SDK contains unit tests that are runnable with `./bin/test.sh`.
