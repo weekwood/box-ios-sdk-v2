@@ -243,8 +243,8 @@
 
     // observer mock
     id observerMock = [OCMockObject observerMock];
-    [[NSNotificationCenter defaultCenter] addMockObserver:observerMock name:BoxOAuth2SessionDidReceiveAuthenricationErrorNotification object:nil];
-    [[observerMock expect] notificationWithName:BoxOAuth2SessionDidReceiveAuthenricationErrorNotification object:OAuth2 userInfo:@{
+    [[NSNotificationCenter defaultCenter] addMockObserver:observerMock name:BoxOAuth2SessionDidReceiveAuthenticationErrorNotification object:nil];
+    [[observerMock expect] notificationWithName:BoxOAuth2SessionDidReceiveAuthenticationErrorNotification object:OAuth2 userInfo:@{
            BoxOAuth2AuthenticationErrorKey : dummyError,
      }];
 

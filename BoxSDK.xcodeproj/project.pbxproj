@@ -15,7 +15,6 @@
 		C5152D0317541B66007A5C0A /* BoxFolderPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5152CFD17541B66007A5C0A /* BoxFolderPickerViewController.m */; };
 		C5152D0617541B6E007A5C0A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5152D0517541B6E007A5C0A /* Security.framework */; };
 		C5152D0717541B74007A5C0A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5152D0517541B6E007A5C0A /* Security.framework */; };
-		C5152E0617542536007A5C0A /* BoxFolderPickerHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5152E0517542536007A5C0A /* BoxFolderPickerHelperTests.m */; };
 		C54BBF6D17584F9300F5DAD8 /* BoxFolderPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C54BBF6B17584F9200F5DAD8 /* BoxFolderPickerCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54BBF6E17584F9300F5DAD8 /* BoxFolderPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BBF6C17584F9200F5DAD8 /* BoxFolderPickerCell.m */; };
 		C54BBF701758539E00F5DAD8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54BBF6F1758539E00F5DAD8 /* QuartzCore.framework */; };
@@ -99,6 +98,8 @@
 		E4081E231758732800F6D6AA /* xml@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4081DDF1758732800F6D6AA /* xml@2x.png */; };
 		E4081E331758832C00F6D6AA /* BoxFolderPickerNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = E4081E311758832C00F6D6AA /* BoxFolderPickerNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4081E341758832C00F6D6AA /* BoxFolderPickerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4081E321758832C00F6D6AA /* BoxFolderPickerNavigationController.m */; };
+		E4081E4C175EF18800F6D6AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54BBF6F1758539E00F5DAD8 /* QuartzCore.framework */; };
+		E4081E4E175EF1B900F6D6AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4081E4D175EF1B900F6D6AA /* CoreGraphics.framework */; };
 		E44A95B116E21C5100356ADA /* BoxSDKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E44A95B016E21C5100356ADA /* BoxSDKConstants.m */; };
 		E44A95D116E221B400356ADA /* BoxSDKConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = E4CF273516DC4A5100F5979E /* BoxSDKConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E44A95D216E221B400356ADA /* BoxSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E470434316D41DC500FED29A /* BoxSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -223,8 +224,6 @@
 		C5152CFC17541B66007A5C0A /* BoxFolderPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFolderPickerViewController.h; sourceTree = "<group>"; };
 		C5152CFD17541B66007A5C0A /* BoxFolderPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFolderPickerViewController.m; sourceTree = "<group>"; };
 		C5152D0517541B6E007A5C0A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		C5152E0417542536007A5C0A /* BoxFolderPickerHelperTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoxFolderPickerHelperTests.h; path = FolderPicker/BoxFolderPickerHelperTests.h; sourceTree = "<group>"; };
-		C5152E0517542536007A5C0A /* BoxFolderPickerHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoxFolderPickerHelperTests.m; path = FolderPicker/BoxFolderPickerHelperTests.m; sourceTree = "<group>"; };
 		C54BBF6B17584F9200F5DAD8 /* BoxFolderPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFolderPickerCell.h; sourceTree = "<group>"; };
 		C54BBF6C17584F9200F5DAD8 /* BoxFolderPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFolderPickerCell.m; sourceTree = "<group>"; };
 		C54BBF6F1758539E00F5DAD8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -311,6 +310,7 @@
 		E4081DDF1758732800F6D6AA /* xml@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xml@2x.png"; sourceTree = "<group>"; };
 		E4081E311758832C00F6D6AA /* BoxFolderPickerNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFolderPickerNavigationController.h; sourceTree = "<group>"; };
 		E4081E321758832C00F6D6AA /* BoxFolderPickerNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFolderPickerNavigationController.m; sourceTree = "<group>"; };
+		E4081E4D175EF1B900F6D6AA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E44A95B016E21C5100356ADA /* BoxSDKConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxSDKConstants.m; sourceTree = "<group>"; };
 		E470433B16D41DC500FED29A /* libBoxSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBoxSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E470433E16D41DC500FED29A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -449,6 +449,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4081E4E175EF1B900F6D6AA /* CoreGraphics.framework in Frameworks */,
+				E4081E4C175EF18800F6D6AA /* QuartzCore.framework in Frameworks */,
 				C5152D0717541B74007A5C0A /* Security.framework in Frameworks */,
 				E4FADA2C172CE3A60052AD11 /* UIKit.framework in Frameworks */,
 				E4D5085816E80A2A001CE50A /* libOCMock.a in Frameworks */,
@@ -476,15 +478,6 @@
 				E4081E321758832C00F6D6AA /* BoxFolderPickerNavigationController.m */,
 			);
 			path = FolderPicker;
-			sourceTree = "<group>";
-		};
-		C5152E021754250B007A5C0A /* FolderPicker */ = {
-			isa = PBXGroup;
-			children = (
-				C5152E0417542536007A5C0A /* BoxFolderPickerHelperTests.h */,
-				C5152E0517542536007A5C0A /* BoxFolderPickerHelperTests.m */,
-			);
-			name = FolderPicker;
 			sourceTree = "<group>";
 		};
 		C58BC265175EDF7C0071BF37 /* ODRefreshControl */ = {
@@ -622,6 +615,7 @@
 		E470433D16D41DC500FED29A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4081E4D175EF1B900F6D6AA /* CoreGraphics.framework */,
 				C54BBF6F1758539E00F5DAD8 /* QuartzCore.framework */,
 				C5152D0517541B6E007A5C0A /* Security.framework */,
 				E4D5085616E80667001CE50A /* libOCMock.a */,
@@ -636,9 +630,9 @@
 		E470434016D41DC500FED29A /* BoxSDK */ = {
 			isa = PBXGroup;
 			children = (
-				C5152CF717541B66007A5C0A /* FolderPicker */,
 				E4FAD97B172CE2C50052AD11 /* Categories */,
 				E4FAD980172CE2C50052AD11 /* External */,
+				C5152CF717541B66007A5C0A /* FolderPicker */,
 				E4FAD986172CE2C50052AD11 /* Models */,
 				E4FAD995172CE2C50052AD11 /* OAuth2 */,
 				E4FAD99C172CE2C50052AD11 /* Operations */,
