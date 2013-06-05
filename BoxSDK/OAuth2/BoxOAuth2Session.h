@@ -118,7 +118,7 @@ extern NSString *const BoxOAuth2AuthenticationErrorKey;
  * If a refresh token is expired, it cannot be exchanged for new tokens, and the user is effectively
  * logged out of Box.
  *
- * @see performRefreshTokenGrant
+ * @see performRefreshTokenGrant:
  */
 @property (nonatomic, readwrite, strong) NSString *refreshToken;
 

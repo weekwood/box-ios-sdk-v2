@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * The BoxAdditions category on UIImage provides a method for loading
+ * images from the BoxSDK resources bundle.
+ */
 @interface UIImage (BoxAdditions)
 
 /**
  * Retrieves assets embedded in the ressource bundle.
+ *
+ * @param string Image name.
  */
 + (UIImage *)imageFromBoxSDKResourcesBundleWithName:(NSString *)string;
 

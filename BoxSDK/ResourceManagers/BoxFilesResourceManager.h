@@ -488,7 +488,7 @@ typedef enum {
  *
  * @param fileID The modelID of the file to download.
  * @param outputStream The output stream of to write the download to.
- * @param thumnailSize The minimum size of thumbnail in pixels.
+ * @param thumbnailSize The minimum size of thumbnail in pixels.
  *   One of:
  *   
  *   - BoxThumbnailSize32

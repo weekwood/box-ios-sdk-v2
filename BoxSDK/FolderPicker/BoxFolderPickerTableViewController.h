@@ -13,6 +13,10 @@
 @class BoxItem;
 @class BoxSDK;
 
+/**
+ * The BoxFolderPickerTableViewControllerDelegate interface provides methods
+ * for indicating the current state of a BoxFolderPickerTableViewController.
+ */
 @protocol BoxFolderPickerTableViewControllerDelegate <NSObject>
 
 /**
@@ -58,6 +62,10 @@
 
 @end
 
+/**
+ * BoxFolderPickerTableViewController is a paged UITableView that can load
+ * BoxItems in batches.
+ */
 @interface BoxFolderPickerTableViewController : UITableViewController
 
 @property (nonatomic, readwrite, weak) BoxFolderPickerViewController *folderPicker;

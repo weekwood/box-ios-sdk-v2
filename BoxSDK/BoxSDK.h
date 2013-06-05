@@ -158,14 +158,14 @@ extern NSString *const BoxAPIBaseURL;
 /**
  * Initializes a folderPicker according to the caching options provided as parameters
  *
- * @param folderID. The root folder where to start browsing.
- * @param thumbnailsEnabled. Enables/disables thumbnail management. If set to NO, only file icons will be displayed
- * @param cachedThumbnailsPath. The absolute path where the user wants to store the cached thumbnails. 
- *                              If set to nil, the folder picker will not cached the thumbnails, only download them on the fly.
- * @param enableFileSelection. Whether the user will be able to select a file or not while browser his account.
- *
- If not set to nil, the folder picker will cache the thumbnails at this path
- Not used if thumbnailsEnabled set to NO.
+ * @param rootFolderID The root folder where to start browsing.
+ * @param thumbnailsEnabled Enables/disables thumbnail management.
+ *   If set to NO, only file icons will be displayed
+ * @param cachedThumbnailsPath The absolute path for storing cached thumbnails.
+ *   If set to nil, the folder picker will not cache thumbnails, only download them on the fly.
+ * @param fileSelectionEnabled Whether the user will be able to select a file or not while
+ *   browsing his account. If not set to nil, the folder picker will cache the thumbnails at
+ *   this path. Not used if thumbnailsEnabled set to NO.
  * @return A BoxFolderPickerViewController.
  */
 - (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)rootFolderID 
@@ -176,6 +176,9 @@ extern NSString *const BoxAPIBaseURL;
 #pragma mark - Ressources Bundle
 /** @name Ressources Bundle */
 
+/**
+ * The bundle containing SDK resource assets and icons.
+ */
 + (NSBundle *)resourcesBundle;
 
 @end
