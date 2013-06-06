@@ -74,11 +74,59 @@
     [self setNeedsDisplay];
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    [self setNeedsDisplay];
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    [super setHighlighted:highlighted animated:animated];
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
+    CGRect r;
     
-    CGRect r = self.thumbnailImageView.frame;
+    if (self.selected || self.isHighlighted) {
+         CGContextRef context = UIGraphicsGetCurrentContext();      
+        
+        r.origin.y = rect.size.height ;
+        CGContextSetRGBFillColor(context, 250.0f/255.0f, 250.0f/255.0f, 250.0f/255.0f, 1);
+        CGContextFillRect(context, r);
+        
+        CGColorSpaceRef rgbColorspace = CGColorSpaceCreateDeviceRGB();
+        size_t num_locations = 2;
+        CGFloat locations[2] = { 0.0, 1.0 };
+        
+        // step 1, step 2 - start by drawing top gradient, light to dark, draw it after the end location
+        
+        // can we replace rect.size.width / 2 with 0?
+        CGPoint startPoint = CGPointMake(rect.size.width / 2, 0);
+        CGPoint endPoint = CGPointMake(rect.size.width / 2, 3);
+        
+        CGFloat topGradientComponents[8] = {205.0f/255.0f, 205.0f/255.0f, 205.0f/255.0f, 1, 218.0f/255.0f, 218.0f/255.0f, 218.0f/255.0f, 1};
+        CGGradientRef topGradient = CGGradientCreateWithColorComponents(rgbColorspace, topGradientComponents, locations, num_locations);
+        CGContextDrawLinearGradient(context, topGradient, startPoint, endPoint, kCGGradientDrawsAfterEndLocation);
+        
+        // step 2 - bottom gradient, light to dark
+        startPoint = CGPointMake(rect.size.width / 2, rect.size.height - 4);
+        endPoint = CGPointMake(rect.size.width / 2, rect.size.height - 1);
+        
+        CGFloat bottomGradientComponents[8] = {218.0f/255.0f, 218.0f/255.0f, 218.0f/255.0f, 1, 205.0f/255.0f, 205.0f/255.0f, 205.0f/255.0f, 1};
+        CGGradientRef bottomGradient = CGGradientCreateWithColorComponents(rgbColorspace, bottomGradientComponents, locations, num_locations);
+        CGContextDrawLinearGradient(context, bottomGradient, startPoint, endPoint, 0);
+        
+        // release all allocations
+        CGGradientRelease(topGradient);    
+        CGGradientRelease(bottomGradient);
+        CGColorSpaceRelease(rgbColorspace);
+    }
+    
+    r = self.thumbnailImageView.frame;
     
     NSString *cachedThumbnailPath = [self.cachePath stringByAppendingPathComponent:self.item.modelID];
     

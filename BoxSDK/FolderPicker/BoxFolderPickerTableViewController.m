@@ -87,6 +87,7 @@
     {
         cell = [[BoxFolderPickerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if (indexPath.row < [self.delegate currentNumberOfItems])
     {
@@ -94,7 +95,6 @@
         BoxItem *item = [self.delegate itemAtIndex:indexPath.row];
         
         if (![self.delegate fileSelectionEnabled] && ![item isKindOfClass:[BoxFolder class]]) {
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.enabled = NO;
         }
         else {
