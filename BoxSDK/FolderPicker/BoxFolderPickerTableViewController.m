@@ -18,12 +18,14 @@
 
 @synthesize folderPicker = _folderPicker;
 @synthesize delegate = _delegate;
+@synthesize helper = _helper;
 
-- (id)init
+- (id)initWithFolderPickerHelper:(BoxFolderPickerHelper *)helper
 {
     self = [super initWithStyle:UITableViewStylePlain];
-    if (self) {
-        
+    if (self != nil)
+    {
+        _helper = helper;
     }
     return self;
 }
@@ -46,7 +48,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [[BoxFolderPickerHelper sharedHelper] cancelThumbnailOperations];
+    [self.helper cancelThumbnailOperations];
     [super viewWillDisappear:animated];
 }
 
@@ -88,6 +90,7 @@
         cell = [[BoxFolderPickerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.helper = self.helper;
     
     if (indexPath.row < [self.delegate currentNumberOfItems])
     {
@@ -142,7 +145,7 @@
         else if ([item isKindOfClass:[BoxFile class]])
         {
             if ([self.delegate fileSelectionEnabled]) {
-                [[BoxFolderPickerHelper sharedHelper] purgeInMemoryCache];
+                [self.helper purgeInMemoryCache];
                 [self.folderPicker.delegate folderPickerController:self.folderPicker didSelectBoxItem:item];
             }
         }

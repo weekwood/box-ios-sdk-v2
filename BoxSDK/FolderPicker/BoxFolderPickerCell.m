@@ -42,6 +42,7 @@
 
 @implementation BoxFolderPickerCell
 
+@synthesize helper = _helper;
 @synthesize thumbnailImageView = _thumbnailImageView;
 @synthesize item = _item;
 @synthesize cachePath = _cachePath;
@@ -130,16 +131,16 @@
     
     NSString *cachedThumbnailPath = [self.cachePath stringByAppendingPathComponent:self.item.modelID];
     
-    [[BoxFolderPickerHelper sharedHelper] itemNeedsAPICall:self.item cachePath:cachedThumbnailPath completion:^(BOOL needsAPICall, UIImage *cachedImage) {
+    [self.helper itemNeedsAPICall:self.item cachePath:cachedThumbnailPath completion:^(BOOL needsAPICall, UIImage *cachedImage) {
         
         self.thumbnailImageView.image = cachedImage;
         
         // Checking if we need to download the thumbnail for the current item 
-        if ([[BoxFolderPickerHelper sharedHelper] shouldDiplayThumbnailForItem:self.item] && needsAPICall && showThumbnails) {
+        if ([self.helper shouldDiplayThumbnailForItem:self.item] && needsAPICall && showThumbnails) {
             __block BoxFolderPickerCell *cell = self;
             __block BoxItem *currentItem = self.item;
             
-            [[BoxFolderPickerHelper sharedHelper] thumbnailForItem:self.item cachePath:self.cachePath refreshed:^(UIImage *image) {
+            [self.helper thumbnailForItem:self.item cachePath:self.cachePath refreshed:^(UIImage *image) {
                 if (image && cell.item == currentItem) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [cell.thumbnailImageView setImage:image];
@@ -170,7 +171,7 @@
     
     r.origin.y += kPaddingNameDescription;
     
-    NSString * desc = [NSString stringWithFormat:@"%@ - Last update : %@", [NSString humanReadableStringForByteSize:self.item.size], [[BoxFolderPickerHelper sharedHelper] dateStringForItem:self.item]];
+    NSString * desc = [NSString stringWithFormat:@"%@ - Last update : %@", [NSString humanReadableStringForByteSize:self.item.size], [self.helper dateStringForItem:self.item]];
     
     if(desc){
         [[UIColor colorWithRed:174.0f/255.0f green:174.0f/255.0f blue:174.0f/255.0f alpha:self.enabled ? 1.0 : kDisabledAlpha] set];

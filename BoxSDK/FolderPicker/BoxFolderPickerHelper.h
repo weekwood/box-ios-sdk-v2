@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class BoxSDK;
 @class BoxItem;
 @class BoxFile;
 
@@ -25,10 +26,9 @@ typedef void (^BoxNeedsAPICallCompletionBlock)(BOOL needsAPICall, UIImage *cache
  */
 @interface BoxFolderPickerHelper : NSObject
 
-/**
- * A shared instance of the folder picker helper.
- */
-+ (BoxFolderPickerHelper *)sharedHelper;
+@property (nonatomic, readwrite, weak) BoxSDK *SDK;
+
+- (id)initWithSDK:(BoxSDK *)SDK;
 
 /**
  * Returns a readable string of the last update date of the item.

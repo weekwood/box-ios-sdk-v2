@@ -31,6 +31,8 @@
 
 @implementation BoxFolderPickerHelper
 
+@synthesize SDK = _SDK;
+
 @synthesize datesStrings = _datesStrings;
 @synthesize updateDateFormatter = _updateDateFormatter;
 @synthesize currentOperations = _currentOperations;
@@ -38,24 +40,28 @@
 @synthesize inMemoryCache = _inMemoryCache;
 @synthesize failedOperationsArguments = _failedOperationsArguments;
 
-+ (BoxFolderPickerHelper *)sharedHelper
+- (id)initWithSDK:(BoxSDK *)SDK
 {
     static dispatch_once_t pred;
-    static BoxFolderPickerHelper *sharedHelper;
-    
-    dispatch_once(&pred, ^{
-        sharedHelper = [[BoxFolderPickerHelper alloc] init];
-        sharedHelper.datesStrings = [NSMutableDictionary dictionary];
-        sharedHelper.currentOperations = [NSMutableDictionary dictionary];
-        sharedHelper.failedOperationsArguments = [NSMutableArray array];
-        sharedHelper.inMemoryCache = [NSMutableDictionary dictionary];
-        
-        sharedHelper.updateDateFormatter = [[NSDateFormatter alloc] init];
-        sharedHelper.updateDateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
-        
-    });
-    
-    return sharedHelper;
+    static NSDateFormatter *dateFormatter;
+
+    self = [super init];
+    if (self != nil)
+    {
+        _SDK = SDK;
+        _datesStrings = [NSMutableDictionary dictionary];
+        _currentOperations = [NSMutableDictionary dictionary];
+        _failedOperationsArguments = [NSMutableArray array];
+        _inMemoryCache = [NSMutableDictionary dictionary];
+
+        dispatch_once(&pred, ^{
+            dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
+        });
+        _updateDateFormatter = dateFormatter;
+    }
+
+    return self;
 }
 
 #pragma mark - Helper Methods
@@ -109,9 +115,9 @@
 
 #pragma mark - Thumbnail Caching Management
 
-- (void)thumbnailForItem:(BoxItem *)item 
+- (void)thumbnailForItem:(BoxItem *)item
                cachePath:(NSString *)cachePath
-               refreshed:(BoxThumbnailDownloadBlock)refreshed 
+               refreshed:(BoxThumbnailDownloadBlock)refreshed
 {
     BOXAssert([item isKindOfClass:[BoxFile class]], @"We only fetch thumbnails for files, not folders.");
     
@@ -192,7 +198,7 @@
     };
     
     BoxThumbnailSize size = B0X_IS_RETINA ? BoxThumbnailSize64 : BoxThumbnailSize32;
-    BoxAPIDataOperation *operation  = [[BoxSDK sharedSDK].filesManager thumbnailForFileWithID:item.modelID outputStream:outputStream thumbnailSize:size success:successBlock failure:infoFailure];
+    BoxAPIDataOperation *operation  = [self.SDK.filesManager thumbnailForFileWithID:item.modelID outputStream:outputStream thumbnailSize:size success:successBlock failure:infoFailure];
     [self.currentOperations setObject:operation forKey:item.modelID];
 }
 

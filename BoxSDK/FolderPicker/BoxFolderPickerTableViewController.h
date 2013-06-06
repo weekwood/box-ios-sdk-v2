@@ -12,6 +12,7 @@
 @class BoxFolderPickerViewController;
 @class BoxItem;
 @class BoxSDK;
+@class BoxFolderPickerHelper;
 
 /**
  * The BoxFolderPickerTableViewControllerDelegate interface provides methods
@@ -70,6 +71,9 @@
 
 @property (nonatomic, readwrite, weak) BoxFolderPickerViewController *folderPicker;
 @property (nonatomic, readwrite, weak) id<BoxFolderPickerTableViewControllerDelegate> delegate;
+@property (nonatomic, readwrite, strong) BoxFolderPickerHelper *helper;
+
+- (id)initWithFolderPickerHelper:(BoxFolderPickerHelper *)helper;
 
 - (void)refreshData;
 

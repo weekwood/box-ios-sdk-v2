@@ -46,6 +46,8 @@
 
 @property (nonatomic, readwrite, strong) BoxODRefreshControl *customRefreshControl;
 
+@property (nonatomic, readwrite, strong) BoxFolderPickerHelper *helper;
+
 - (void)populateFolderPicker;
 
 @end
@@ -70,6 +72,7 @@
 @synthesize fileSelectionEnabled = _fileSelectionEnabled;
 @synthesize interuptedAPIOperations = _interuptedAPIOperations;
 @synthesize customRefreshControl = _customRefreshControl;
+@synthesize helper = _helper;
 
 
 - (id)initWithSDK:(BoxSDK *)sdk rootFolderID:(NSString *)rootFolderID thumbnailsEnabled:(BOOL)thumbnailsEnabled cachedThumbnailsPath:(NSString *)cachedThumbnailsPath fileSelectionEnabled:(BOOL)fileSelectionEnabled
@@ -103,6 +106,7 @@
         _fileSelectionEnabled = fileSelectionEnabled;
         
         _sdk = sdk;
+        _helper = [[BoxFolderPickerHelper alloc] initWithSDK:_sdk];
     }
     return self;
 }
@@ -118,7 +122,7 @@
 {
     if (!_tableViewPicker)
     {
-        _tableViewPicker = [[BoxFolderPickerTableViewController alloc] init];
+        _tableViewPicker = [[BoxFolderPickerTableViewController alloc] initWithFolderPickerHelper:self.helper];
         _tableViewPicker.folderPicker = self;
         _tableViewPicker.delegate = self;
     }
@@ -342,8 +346,8 @@
 - (void)closeTouched:(id)sender
 {
     // Purge the in memory cache and cancel all pending download operations before dismiss notify the delegate.
-    [[BoxFolderPickerHelper sharedHelper] purgeInMemoryCache];
-    [[BoxFolderPickerHelper sharedHelper] cancelThumbnailOperations];
+    [self.helper purgeInMemoryCache];
+    [self.helper cancelThumbnailOperations];
     
     [self.delegate folderPickerControllerDidCancel:self];
 }
@@ -351,8 +355,8 @@
 - (void)selectTouched:(id)sender
 {
     // Purge the in memory cache and cancel all pending download operations before dismiss notify the delegate.
-    [[BoxFolderPickerHelper sharedHelper] purgeInMemoryCache];
-    [[BoxFolderPickerHelper sharedHelper] cancelThumbnailOperations];
+    [self.helper purgeInMemoryCache];
+    [self.helper cancelThumbnailOperations];
     
     [self.delegate folderPickerController:self didSelectBoxItem:self.folder];
 }
@@ -435,7 +439,7 @@
 
 - (void)boxSessionsDidRefreshToken:(NSNotification *)notification
 {
-    [[BoxFolderPickerHelper sharedHelper] retryOperationsAfterTokenRefresh];
+    [self.helper retryOperationsAfterTokenRefresh];
 }
 
 - (void)boxAuthenticationDidFailed:(NSNotification *)notification
@@ -486,7 +490,7 @@
 
 - (BOOL)authorizationViewController:(BoxAuthorizationViewController *)authorizationViewController shouldLoadReceivedOAuth2RedirectRequest:(NSURLRequest *)request
 {
-    [[BoxSDK sharedSDK].OAuth2Session performAuthorizationCodeGrantWithReceivedURL:request.URL];
+    [self.sdk.OAuth2Session performAuthorizationCodeGrantWithReceivedURL:request.URL];
     
     return NO;
 }
