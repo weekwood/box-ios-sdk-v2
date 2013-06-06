@@ -83,17 +83,17 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(boxSessionDidBecameAuthenticated:)
                                                      name:BoxOAuth2SessionDidBecomeAuthenticatedNotification
-                                                   object:[BoxSDK sharedSDK].OAuth2Session];
+                                                   object:sdk.OAuth2Session];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(boxSessionsDidRefreshToken:)
                                                      name:BoxOAuth2SessionDidRefreshTokensNotification
-                                                   object:[BoxSDK sharedSDK].OAuth2Session];
+                                                   object:sdk.OAuth2Session];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(boxAuthenticationDidFailed:)
                                                      name:BoxOAuth2SessionDidReceiveAuthenticationErrorNotification
-                                                   object:[BoxSDK sharedSDK].OAuth2Session];        
+                                                   object:sdk.OAuth2Session];
         
         _folderID = rootFolderID;
         _currentPage = 1;
