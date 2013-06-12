@@ -701,6 +701,7 @@ static BOOL is_leap_year(NSUInteger year);
 		unparsingFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
 		unparsingFormatter.dateFormat = dateFormat;
 		unparsingFormatter.calendar = unparsingCalendar;
+		unparsingFormatter.timeZone = timeZone;
 	}
 
 	NSString *str = [unparsingFormatter stringForObjectValue:date];
