@@ -4,6 +4,8 @@ BoxSDK: Box API V2 iOS SDK
 This SDK provides access to the [Box V2 API](https://developers.box.com/docs/).
 It currently supports file and folder operations.
 
+We have built [several sample applications with the V2 SDK](https://github.com/box/box-ios-sdk-sample-app).
+
 ## Add to your project
 
 The easiest way to add the Box SDK to your project is as a dependent XCode project.
@@ -20,6 +22,9 @@ The easiest way to add the Box SDK to your project is as a dependent XCode proje
 6. Add the `-ObjC` linker flag. This is needed to load categories defined in the SDK.<br />![Add linker flag](http://box.github.io/box-ios-sdk-v2/readme-images/linker-flag.png)
 
 7. `#import <BoxSDK/BoxSDK.h>`
+
+See our [sample applications](https://github.com/box/box-ios-sdk-sample-app) for examples of integrating
+the V2 SDK.
 
 ## Quickstart
 
@@ -195,6 +200,8 @@ such as buttons [here](https://cloud.box.com/picker-assets/).
 The folder picker looks like this:
 
 ![Folder picker](http://box.github.io/box-ios-sdk-v2/readme-images/folder-picker.png)
+
+See our [sample app that utilizes the folder picker](https://github.com/box/box-ios-sdk-sample-app/tree/master/FolderPicker-SampleApp).
 
 #### Setup steps
 In addition to the installation steps above, you must do two more things in XCode to
