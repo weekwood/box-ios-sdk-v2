@@ -348,20 +348,21 @@
 																 otherButtonTitles:NSLocalizedString(@"Continue", @"Alert view button: button title for when the user would like to continue with their action"), nil];
 			serverTrustAlertView.tag = BOX_SSO_SERVER_TRUST_ALERT_TAG;
 			[serverTrustAlertView show];
-			return;
 		}
-
-		// By default, allow a certificate if its status was evaluated successfully and the result is
-		// that it should be trusted
-		BOOL shouldTrustServer = (status == errSecSuccess && (trustResult == kSecTrustResultProceed || trustResult == kSecTrustResultUnspecified));
-		[self completeServerTrustAuthenticationChallenge:challenge shouldTrust:shouldTrustServer];
+		else
+		{
+			// By default, allow a certificate if its status was evaluated successfully and the result is
+			// that it should be trusted
+			BOOL shouldTrustServer = (status == errSecSuccess && (trustResult == kSecTrustResultProceed || trustResult == kSecTrustResultUnspecified));
+			[self completeServerTrustAuthenticationChallenge:challenge shouldTrust:shouldTrustServer];
+		}
 	}
 	else
 	{
 		BOXLog(@"Authentication challenge of type %@", [[challenge protectionSpace] authenticationMethod]);
 
-		// Handle the authentication challenge as a basic HTTP authentication challenge
-		// (certificate-based, among other methods, is not currently supported).
+		// Handle the authentication challenge
+		// (certificate-based, among other methods, is not currently supported)
 		if ([challenge previousFailureCount] > 0)
 		{
 			BOXLog(@"Have %d previous failures", [challenge previousFailureCount]);
@@ -379,21 +380,31 @@
 		}
 		else
 		{
-			BOXLog(@"Presenting modal username and password window");
+			// For certificate based auth, try the default handling
+			if ([[[challenge protectionSpace] authenticationMethod] isEqualToString:NSURLAuthenticationMethodClientCertificate])
+			{
+				BOXLog(@"Client certificate authentication challenge, not currently supported, trying the default handling");
+				[[challenge sender] performDefaultHandlingForAuthenticationChallenge:challenge];
+			}
+			else
+			{
+				// Otherwise assume the challenge should be handled the same as HTTP Basic Authentication
+				BOXLog(@"Presenting modal username and password window");
 
-			self.authenticationChallenge = challenge;
+				self.authenticationChallenge = challenge;
 
-			// Create the alert view
-			UIAlertView *challengeAlertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"This page requires you to log in", @"Alert view title: title for SSO authentication challenge")
-																		 message:nil
-																		delegate:self
-															   cancelButtonTitle:NSLocalizedString(@"Cancel", @"Button title: cancel action")
-															   otherButtonTitles:NSLocalizedString(@"Submit", @"Alert view button: submit button for SSO authentication challenge"), nil];
-			challengeAlertView.tag = BOX_SSO_CREDENTIALS_ALERT_TAG;
-			challengeAlertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
-			// Change the login text field's placeholder text to Username (it defaults to Login).
-			[[challengeAlertView textFieldAtIndex:0] setPlaceholder:NSLocalizedString(@"Username", @"Alert view text placeholder: Placeholder for where to enter user name for SSO authentication challenge")];
-			[challengeAlertView show];
+				// Create the alert view
+				UIAlertView *challengeAlertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"This page requires you to log in", @"Alert view title: title for SSO authentication challenge")
+																			 message:nil
+																			delegate:self
+																   cancelButtonTitle:NSLocalizedString(@"Cancel", @"Button title: cancel action")
+																   otherButtonTitles:NSLocalizedString(@"Submit", @"Alert view button: submit button for SSO authentication challenge"), nil];
+				challengeAlertView.tag = BOX_SSO_CREDENTIALS_ALERT_TAG;
+				challengeAlertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+				// Change the login text field's placeholder text to Username (it defaults to Login).
+				[[challengeAlertView textFieldAtIndex:0] setPlaceholder:NSLocalizedString(@"Username", @"Alert view text placeholder: Placeholder for where to enter user name for SSO authentication challenge")];
+				[challengeAlertView show];
+			}
 		}
 	}
 }
