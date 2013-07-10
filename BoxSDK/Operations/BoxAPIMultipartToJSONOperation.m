@@ -783,11 +783,32 @@ typedef enum {
 
 #pragma mark - NSStream Delegate
 
+/**
+ *This retry works around a nasty problem in which mutli-part uploads
+ * will fail due to the stream delegate being sent a `NSStreamEventHasSpaceAvailable`
+ * event before the input stream has finished opening. This workaround simply replays
+ * the event after allowing the run-loop to cycle, providing enough time for the input
+ * stream to finish opening. It appears that this bug is in the CFNetwork layer.
+ * (See https://github.com/AFNetworking/AFNetworking/issues/948)
+ */
+- (void)retryWrite:(NSStream *)stream
+{
+    [self stream:stream handleEvent:NSStreamEventHasSpaceAvailable];
+}
+
 - (void)stream:(NSStream *)theStream handleEvent:(NSStreamEvent)streamEvent
 {
     if (streamEvent & NSStreamEventHasSpaceAvailable)
     {
-        [self writeDataToOutputStream];
+        if (self.inputStream.streamStatus < NSStreamStatusOpen)
+        {
+            // See comments in `retryWrite:` for details
+            [self performSelector:@selector(retryWrite:) withObject:theStream afterDelay:0.1];
+        }
+        else
+        {
+            [self writeDataToOutputStream];
+        }
     }
 }
 
