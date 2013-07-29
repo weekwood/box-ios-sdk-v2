@@ -38,6 +38,11 @@ typedef void (^BoxAPIDataProgressBlock)(long long expectedTotalBytes, unsigned l
  *
  * **Note**: expectedTotalBytes may be `NSURLResponseUnknownLength` if the operation is unable to
  * determine the Content-Length of the download.
+ *
+ * @warning Because BoxAPIDataOperation holds references to `NSStream`s, it cannot be copied. Because it
+ * cannot be copied, BoxAPIDataOperation instances cannot be automatically retried by the SDK in the event
+ * of an expired OAuth2 access token. In this case, the operation will fail with error code
+ * `BoxSDKOAuth2ErrorAccessTokenExpiredOperationCannotBeReenqueued`.
  */
 @interface BoxAPIDataOperation : BoxAPIAuthenticatedOperation <NSStreamDelegate>
 
