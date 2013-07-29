@@ -4,6 +4,7 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>BoxAPIMultipartToJSONOperation Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.1 (build 840)" />
@@ -62,6 +63,8 @@
 	
 	<option value="//api/name/prepareAPIRequest">&nbsp;&nbsp;&nbsp;&nbsp;- prepareAPIRequest</option>
 	
+	<option value="//api/name/retryWrite:">&nbsp;&nbsp;&nbsp;&nbsp;- retryWrite:</option>
+	
 	
 	
 </select>
@@ -115,6 +118,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performProgressCallback">performProgressCallback</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareAPIRequest">prepareAPIRequest</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/retryWrite:">retryWrite:</a></span></li>
 	
 </ul></li>
 
@@ -172,7 +177,10 @@ Each piece is isolated from others in the request using multipart form boundarie
 <p>This operation defines a new callback type for upload progress callbacks:</p>
 
 <pre><code>typedef void (^BoxAPIMultipartProgressBlock)(unsigned long long totalBytes, unsigned long long bytesSent);</code></pre>
-
+<div class="warning"><p><strong>Warning:</strong> Because BoxAPIMultipartToJSONOperation holds references to <code>NSStream</code>s, it cannot be copied. Because it
+cannot be copied, BoxAPIMultipartToJSONOperation instances cannot be automatically retried by the SDK in the event
+of an expired OAuth2 access token. In this case, the operation will fail with error code
+<code>BoxSDKOAuth2ErrorAccessTokenExpiredOperationCannotBeReenqueued</code>.</p></div>
 					</div>
 					
 					
@@ -271,6 +279,18 @@ to the request with a stream</p></span>
 	<span class="tooltip">
 		<code><a href="#//api/name/initWithURL:HTTPMethod:body:queryParams:OAuth2Session:">&ndash;&nbsp;initWithURL:HTTPMethod:body:queryParams:OAuth2Session:</a></code>
 		<span class="tooltip"><p>Designated initializer. This initializer sets up <a href="../Classes/BoxAPIOperation.html#//api/name/APIRequest">APIRequest</a> based on its input parameters</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/retryWrite:">&ndash;&nbsp;retryWrite:</a></code>
+		<span class="tooltip"><p>This retry works around a nasty problem in which mutli-part uploads
+will fail due to the stream delegate being sent a <code>NSStreamEventHasSpaceAvailable</code>
+event before the input stream has finished opening. This workaround simply replays
+the event after allowing the run-loop to cycle, providing enough time for the input
+stream to finish opening. It appears that this bug is in the CFNetwork layer.
+(See <a href="https://github.com/AFNetworking/AFNetworking/issues/948">https://github.com/AFNetworking/AFNetworking/issues/948)</a>)</p></span>
 	</span>
 	
 	
@@ -770,6 +790,67 @@ for the request, notably Content-Length, and set the connection&rsquo;s HTTPBody
 	
 </div>
 						
+						<div class="section-method">
+	<a name="//api/name/retryWrite:" title="retryWrite:"></a>
+	<h3 class="subsubtitle method-title">retryWrite:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This retry works around a nasty problem in which mutli-part uploads
+will fail due to the stream delegate being sent a <code>NSStreamEventHasSpaceAvailable</code>
+event before the input stream has finished opening. This workaround simply replays
+the event after allowing the run-loop to cycle, providing enough time for the input
+stream to finish opening. It appears that this bug is in the CFNetwork layer.
+(See <a href="https://github.com/AFNetworking/AFNetworking/issues/948">https://github.com/AFNetworking/AFNetworking/issues/948)</a>)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)retryWrite:(NSStream *)<em>stream</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>stream</em></dt>
+			<dd><p>The stream to resend a <code>NSStreamEventHasSpaceAvailable</code> event to</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This retry works around a nasty problem in which mutli-part uploads
+will fail due to the stream delegate being sent a <code>NSStreamEventHasSpaceAvailable</code>
+event before the input stream has finished opening. This workaround simply replays
+the event after allowing the run-loop to cycle, providing enough time for the input
+stream to finish opening. It appears that this bug is in the CFNetwork layer.
+(See <a href="https://github.com/AFNetworking/AFNetworking/issues/948">https://github.com/AFNetworking/AFNetworking/issues/948)</a>)</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIMultipartToJSONOperation.m</code><br />
+	</div>				
+	
+	
+</div>
+						
 					</div>
 					
 					
@@ -783,7 +864,7 @@ for the request, notably Content-Length, and set the connection&rsquo;s HTTPBody
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-06-04)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-07-28)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
