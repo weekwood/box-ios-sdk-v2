@@ -134,7 +134,9 @@ extern NSString *const BoxAPIBaseURL;
  * [BoxSDK sharedSDK].OAuth2Session.clientID = @"your_client_ID";
  * [BoxSDK sharedSDK].OAuth2Session.clientSecret = @"your_client_secret";</pre></code>
  *
- * *Note*: sharedSDK returns a BoxSDK configured with a BoxSerialOAuth2Session and a BoxSerialAPIQueueManager.
+ * *Note*: sharedSDK returns a BoxSDK configured with a BoxParallelOAuth2Session and a BoxParallelAPIQueueManager.
+ *   These allow for up to 10 parallel uploads and 10 parallel downloads, while still providing threadsafe
+ *   OAuth2 tokens.
  * @return a preconfigured SDK client
  */
 + (BoxSDK *)sharedSDK;
