@@ -28,6 +28,10 @@ typedef void (^BoxAPIMultipartProgressBlock)(unsigned long long totalBytes, unsi
  *
  * <pre><code>typedef void (^BoxAPIMultipartProgressBlock)(unsigned long long totalBytes, unsigned long long bytesSent);</code></pre>
  *
+ * @warning Because BoxAPIMultipartToJSONOperation holds references to `NSStream`s, it cannot be copied. Because it
+ * cannot be copied, BoxAPIMultipartToJSONOperation instances cannot be automatically retried by the SDK in the event
+ * of an expired OAuth2 access token. In this case, the operation will fail with error code
+ * `BoxSDKOAuth2ErrorAccessTokenExpiredOperationCannotBeReenqueued`.
  */
 @interface BoxAPIMultipartToJSONOperation : BoxAPIJSONOperation <NSStreamDelegate>
 

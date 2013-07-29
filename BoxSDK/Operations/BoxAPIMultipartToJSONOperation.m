@@ -790,6 +790,8 @@ typedef enum {
  * the event after allowing the run-loop to cycle, providing enough time for the input
  * stream to finish opening. It appears that this bug is in the CFNetwork layer.
  * (See https://github.com/AFNetworking/AFNetworking/issues/948)
+ *
+ * @param stream The stream to resend a `NSStreamEventHasSpaceAvailable` event to
  */
 - (void)retryWrite:(NSStream *)stream
 {

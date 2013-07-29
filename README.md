@@ -45,6 +45,10 @@ In your `Info.plist`, register the following URL scheme:
 boxsdk-YOUR_CLIENT_ID
 ```
 
+**Note**: When setting up your service on Box, leave the OAuth2 reditrect URI blank.
+The SDK will provide a custom redirect URI when issuing OAuth2 calls; doing so requires
+that no redirect URI be set in your service settings.
+
 ### Authenticate
 To authenticate your app with Box, you need to use OAuth2. The authorization flow
 happens in a `UIWebView`. To get started, you can present the sample web view the
