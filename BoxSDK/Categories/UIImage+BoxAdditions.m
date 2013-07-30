@@ -8,7 +8,6 @@
 
 #import "UIImage+BoxAdditions.h"
 #import "BoxSDK.h"
-#import <UIKit/UIKit.h>
 
 @implementation UIImage (BoxAdditions)
 
