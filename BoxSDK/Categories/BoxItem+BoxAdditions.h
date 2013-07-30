@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
-#import <BoxSDK/BoxSDK.h>
+#import "BoxItem.h"
+#import <UIKit/UIKit.h>
 
 /**
  * BoxAdditions exposes the ability to grab icons for the files. These icons are pulled out of the resource bundle

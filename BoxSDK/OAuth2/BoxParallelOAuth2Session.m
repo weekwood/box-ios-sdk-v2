@@ -7,6 +7,9 @@
 //
 
 #import "BoxParallelOAuth2Session.h"
+#import "BoxAPIOAuth2ToJSONOperation.h"
+#import "BoxLog.h"
+#import "BoxSDKConstants.h"
 
 @interface BoxParallelOAuth2Session ()
 

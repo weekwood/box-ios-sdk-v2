@@ -8,6 +8,7 @@
 
 #import "BoxItem+BoxAdditions.h"
 #import "UIImage+BoxAdditions.h"
+#import "BoxFolder.h"
 
 @implementation BoxItem (BoxAdditions)
 

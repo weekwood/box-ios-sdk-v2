@@ -7,6 +7,8 @@
 //
 
 #import "BoxWebLink.h"
+#import "BoxSDKConstants.h"
+#import "BoxLog.h"
 
 @implementation BoxWebLink
 

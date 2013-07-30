@@ -8,6 +8,11 @@
 
 #import "BoxParallelAPIQueueManager.h"
 
+#import "BoxAPIDataOperation.h"
+#import "BoxAPIOAuth2ToJSONOperation.h"
+#import "BoxAPIMultipartToJSONOperation.h"
+#import "BoxLog.h"
+
 @interface BoxParallelAPIQueueManager ()
 
 @property (atomic, readwrite, assign) BOOL currentAccessTokenHasExpired;
