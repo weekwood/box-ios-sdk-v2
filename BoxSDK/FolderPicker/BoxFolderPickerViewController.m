@@ -221,7 +221,7 @@
     
     // Content View Controller
     [self addChildViewController:self.tableViewPicker];
-    self.tableViewPicker.view.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
+    self.tableViewPicker.view.frame = self.view.frame;
     [self.view addSubview:self.tableViewPicker.view];
     [self.tableViewPicker didMoveToParentViewController:self];
     
@@ -419,6 +419,8 @@
 {
     [self.view endEditing:YES];
     [self addChildViewController:self.tableViewPicker];
+    self.tableViewPicker.view.frame = self.view.frame;
+    [self.view addSubview:self.tableViewPicker.view];
     [self.authorizationViewController willMoveToParentViewController:nil];
     
     [self transitionFromViewController:self.authorizationViewController
@@ -428,6 +430,7 @@
                             animations:nil
                             completion:^(BOOL finished)
      {
+         [self.authorizationViewController.view removeFromSuperview];
          [self.authorizationViewController removeFromParentViewController];
          [self.tableViewPicker didMoveToParentViewController:self];
          // do not hold a reference to the authorization view controller. It should
@@ -449,6 +452,7 @@
     // We only want to do the transition once.
     if (self.tableViewPicker.parentViewController) {
         [self addChildViewController:self.authorizationViewController];
+        self.authorizationViewController.view.frame = self.view.frame;
         [self.view addSubview:self.authorizationViewController.view];
         [self.tableViewPicker willMoveToParentViewController:nil];
         
@@ -459,6 +463,7 @@
                                 animations:nil
                                 completion:^(BOOL finished)
          {
+             [self.tableViewPicker.view removeFromSuperview];
              [self.tableViewPicker removeFromParentViewController];
              [self.authorizationViewController didMoveToParentViewController:self];
          }];
