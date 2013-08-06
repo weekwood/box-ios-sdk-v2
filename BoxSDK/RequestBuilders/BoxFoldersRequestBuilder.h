@@ -14,6 +14,8 @@ extern BoxAPIFolderUploadEmailAccess *const BoxAPIFolderUploadEmailAccessCollabo
 extern BoxAPIFolderUploadEmailAccess *const BoxAPIFolderUploadEmailAccessOpen;
 extern BoxAPIFolderUploadEmailAccess *const BoxAPIFolderUploadEmailAccessDisable;
 
+extern NSString *const BoxAPIFolderRecursiveQueryParameter;
+
 /**
  * BoxFoldersRequestBuilder is an request builder for folder operations.
  *

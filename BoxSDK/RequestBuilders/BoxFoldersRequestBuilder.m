@@ -15,6 +15,8 @@ BoxAPIFolderUploadEmailAccess *const BoxAPIFolderUploadEmailAccessCollaborators 
 BoxAPIFolderUploadEmailAccess *const BoxAPIFolderUploadEmailAccessOpen = @"open";
 BoxAPIFolderUploadEmailAccess *const BoxAPIFolderUploadEmailAccessDisable = @"disabled";
 
+NSString *const BoxAPIFolderRecursiveQueryParameter = @"recursive";
+
 // Use an instance of NSNull because nil cannot be inserted into a collection and
 // we want to ensure that the value of folder_upload_email is JSON encoded as
 // null
@@ -71,11 +73,11 @@ static NSDictionary *JSONStructures;
 
     if (recursive)
     {
-        queryParameters = @{@"recursive" : @"true"};
+        queryParameters = @{BoxAPIFolderRecursiveQueryParameter : BoxAPIQueryStringValueTrue};
     }
     else
     {
-        queryParameters = @{@"recursive" : @"false"};
+        queryParameters = @{BoxAPIFolderRecursiveQueryParameter : BoxAPIQueryStringValueFalse};
     }
 
     self = [self initWithQueryStringParameters:queryParameters];

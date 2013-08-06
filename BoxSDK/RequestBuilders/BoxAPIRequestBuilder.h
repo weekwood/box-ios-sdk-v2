@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const BoxAPIQueryStringValueTrue;
+extern NSString *const BoxAPIQueryStringValueFalse;
+
 /**
  * BoxAPIRequestBuilder is an abstract base class for request builder objects. Because
  * it is an abstract class, you should not instantiate it directly. This class enforces
