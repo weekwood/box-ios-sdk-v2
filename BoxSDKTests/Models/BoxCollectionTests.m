@@ -57,7 +57,7 @@
 
 - (void)testThatCollectionReturnsTotalItemsInPageItRepresents
 {
-    STAssertEquals(COLLECTION_PAGE_ITEM_COUNT, collection.numberOfEntries, @"collection returned incorrect number of entries");
+    STAssertEquals((NSUInteger)COLLECTION_PAGE_ITEM_COUNT, collection.numberOfEntries, @"collection returned incorrect number of entries");
 }
 
 - (void)testThatCollectionReturnsABoxFileForEntryZero

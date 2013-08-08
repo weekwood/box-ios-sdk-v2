@@ -39,7 +39,7 @@
     [OAuth2 addAuthorizationParametersToRequest:request];
 
     NSDictionary *actualHeaders = [request allHTTPHeaderFields];
-    STAssertEquals(1U, actualHeaders.count, @"OAuth2 should add only one header to request");
+    STAssertEquals((NSUInteger)1U, actualHeaders.count, @"OAuth2 should add only one header to request");
 }
 
 @end
