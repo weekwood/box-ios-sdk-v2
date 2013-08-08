@@ -10,6 +10,7 @@
 #import "BoxSDKTestsHelpers.h"
 
 #import "BoxWebLink.h"
+#import "BoxSDKConstants.h"
 
 @implementation BoxWebLinkTests
 

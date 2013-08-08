@@ -8,6 +8,11 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+@class BoxCocoaSDK;
+
 @interface BoxCocoaSDKTests : SenTestCase
+{
+    BoxCocoaSDK *SDK;
+}
 
 @end

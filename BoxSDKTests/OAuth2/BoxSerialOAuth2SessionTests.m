@@ -9,7 +9,10 @@
 #import "BoxSerialOAuth2SessionTests.h"
 #import "BoxSDKTestsHelpers.h"
 
-#import "BoxSDK.h"
+#import "BoxSerialOAuth2Session.h"
+#import "BoxAPIOAuth2ToJSONOperation.h"
+#import "BoxSerialAPIQueueManager.h"
+#import "BoxSDKConstants.h"
 #import "NSString+BoxURLHelper.h"
 #import "NSURL+BoxURLHelper.h"
 

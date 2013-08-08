@@ -7,7 +7,12 @@
 //
 
 #import "BoxSerialAPIQueueManagerTests.h"
-#import "BoxSDK.h"
+
+#import "BoxAPIOAuth2ToJSONOperation.h"
+#import "BoxSerialAPIQueueManager.h"
+#import "BoxAPIJSONOperation.h"
+#import "BoxAPIMultipartToJSONOperation.h"
+#import "BoxAPIDataOperation.h"
 
 #import <OCMock/OCMock.h>
 

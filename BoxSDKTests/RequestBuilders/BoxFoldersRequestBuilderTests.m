@@ -8,6 +8,8 @@
 
 #import "BoxFoldersRequestBuilderTests.h"
 
+#import "BoxSDKConstants.h"
+
 @implementation BoxFoldersRequestBuilderTests
 
 - (void)setUp

@@ -8,25 +8,41 @@
 
 #import "BoxCocoaSDKTests.h"
 
+#import "BoxCocoaSDK.h"
+
 @implementation BoxCocoaSDKTests
 
 - (void)setUp
 {
-    [super setUp];
-    
-    // Set-up code here.
+    SDK = [[BoxCocoaSDK alloc] init];
+    SDK.OAuth2Session = [[BoxSerialOAuth2Session alloc] init];
+    SDK.APIBaseURL = BoxAPIBaseURL;
 }
 
-- (void)tearDown
+- (void)testThatSDKURLAndOAuth2URLAreKeptInSyncBySetter
 {
-    // Tear-down code here.
+    NSString *APIBaseURL = @"https://dick.in.a.box.com/api";
     
-    [super tearDown];
+    // precondition
+    STAssertFalse([SDK.OAuth2Session.APIBaseURLString isEqualToString:APIBaseURL], @"OAuth2 base URL is not different from test target URL");
+    
+    SDK.APIBaseURL = APIBaseURL;
+    
+    STAssertEqualObjects(SDK.APIBaseURL, SDK.OAuth2Session.APIBaseURLString, @"Shared SDK and OAuth2 base URLs are not in sync");
+    
 }
 
-- (void)testExample
+- (void)testThatSDKAndOAuth2SessionAreConstructedWithSameAPIUrl
 {
-    STFail(@"Unit tests are not implemented yet in BoxCocoaSDKTests");
+    STAssertEquals([BoxCocoaSDK sharedSDK].APIBaseURL, [BoxCocoaSDK sharedSDK].OAuth2Session.APIBaseURLString, @"BoxSDK and OAuth2Session were not constructed with the same API base URL");
+}
+
+- (void)testThatSingletonSDKIsOnlyInstantiatedOnce
+{
+    BoxCocoaSDK *firstSingletonSDK = [BoxCocoaSDK sharedSDK];
+    BoxCocoaSDK *secondSingletonSDK = [BoxCocoaSDK sharedSDK];
+    
+    STAssertTrue(firstSingletonSDK == secondSingletonSDK, @"multiple invocations of [BoxSDK sharedSDK] should refer to the same object");
 }
 
 @end

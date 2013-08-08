@@ -7,7 +7,8 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import <BoxSDK/BoxSDK.h>
+
+#import "BoxFilesRequestBuilder.h"
 
 @interface BoxFilesRequestBuilderTests : SenTestCase
 {

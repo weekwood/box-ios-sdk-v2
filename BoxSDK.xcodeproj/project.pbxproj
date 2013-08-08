@@ -192,6 +192,24 @@
 		E4FADA29172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA1B172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.m */; };
 		E4FADA2B172CE35F0052AD11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FADA2A172CE35F0052AD11 /* UIKit.framework */; };
 		E4FADA2C172CE3A60052AD11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FADA2A172CE35F0052AD11 /* UIKit.framework */; };
+		F042767217A8839600EB3419 /* BoxSDKTestsHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F4693A17268023000CAD86 /* BoxSDKTestsHelpers.m */; };
+		F05F80E417B3FD2A001182FB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E5E36217A78DEF00153646 /* Security.framework */; };
+		F05F80E617B3FD46001182FB /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F05F80E517B3FD46001182FB /* OCMock.framework */; };
+		F05F80E917B3FE33001182FB /* NSString+BoxURLHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FAD9FC172CE2DF0052AD11 /* NSString+BoxURLHelperTests.m */; };
+		F05F80EA17B3FE33001182FB /* NSURL+BoxURLHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FAD9FE172CE2DF0052AD11 /* NSURL+BoxURLHelperTests.m */; };
+		F05F80EC17B40168001182FB /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F05F80E517B3FD46001182FB /* OCMock.framework */; };
+		F05F80ED17B4021C001182FB /* BoxCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA01172CE2DF0052AD11 /* BoxCollectionTests.m */; };
+		F05F80EE17B4021C001182FB /* BoxFileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA03172CE2DF0052AD11 /* BoxFileTests.m */; };
+		F05F80EF17B4021C001182FB /* BoxFolderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA05172CE2DF0052AD11 /* BoxFolderTests.m */; };
+		F05F80F017B4021C001182FB /* BoxModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA07172CE2DF0052AD11 /* BoxModelTests.m */; };
+		F05F80F117B4021C001182FB /* BoxWebLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA09172CE2DF0052AD11 /* BoxWebLinkTests.m */; };
+		F05F80F217B40493001182FB /* BoxOAuth2SessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA0C172CE2DF0052AD11 /* BoxOAuth2SessionTests.m */; };
+		F05F80F317B40493001182FB /* BoxSerialOAuth2SessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA0E172CE2DF0052AD11 /* BoxSerialOAuth2SessionTests.m */; };
+		F05F80F917B40730001182FB /* BoxSerialAPIQueueManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA11172CE2DF0052AD11 /* BoxSerialAPIQueueManagerTests.m */; };
+		F05F80FA17B40764001182FB /* BoxFilesRequestBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA14172CE2DF0052AD11 /* BoxFilesRequestBuilderTests.m */; };
+		F05F80FB17B40764001182FB /* BoxFoldersRequestBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA16172CE2DF0052AD11 /* BoxFoldersRequestBuilderTests.m */; };
+		F05F80FC17B40850001182FB /* BoxFilesResourceManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA19172CE2DF0052AD11 /* BoxFilesResourceManagerTests.m */; };
+		F05F80FD17B40850001182FB /* BoxFoldersResourceManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADA1B172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.m */; };
 		F0E5E2F717A78AEF00153646 /* BoxCocoaSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5E2F617A78AEF00153646 /* BoxCocoaSDK.m */; };
 		F0E5E2FE17A78AEF00153646 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E470434D16D41DC500FED29A /* SenTestingKit.framework */; };
 		F0E5E30217A78AEF00153646 /* BoxCocoaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E5E2E717A78AEF00153646 /* BoxCocoaSDK.framework */; };
@@ -297,6 +315,16 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F05F80EB17B40159001182FB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				F05F80EC17B40168001182FB /* OCMock.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +443,7 @@
 		E4CA6F5C173F1C750089680F /* BoxParallelOAuth2Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxParallelOAuth2Session.h; sourceTree = "<group>"; };
 		E4CA6F5D173F1C750089680F /* BoxParallelOAuth2Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxParallelOAuth2Session.m; sourceTree = "<group>"; };
 		E4CF273516DC4A5100F5979E /* BoxSDKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxSDKConstants.h; sourceTree = "<group>"; };
-		E4D5085616E80667001CE50A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = vendor/lib/OCMock/libOCMock.a; sourceTree = "<group>"; };
+		E4D5085616E80667001CE50A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = vendor/iOS/lib/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		E4F4693517264439000CAD86 /* BoxSDKErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxSDKErrors.h; sourceTree = "<group>"; };
 		E4F469391726784B000CAD86 /* BoxSDKTestsHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxSDKTestsHelpers.h; sourceTree = "<group>"; };
 		E4F4693A17268023000CAD86 /* BoxSDKTestsHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxSDKTestsHelpers.m; sourceTree = "<group>"; };
@@ -509,6 +537,7 @@
 		E4FADA1B172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFoldersResourceManagerTests.m; sourceTree = "<group>"; };
 		E4FADA2A172CE35F0052AD11 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E4FADA2D172CE9DC0052AD11 /* CHANGES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGES.md; sourceTree = "<group>"; };
+		F05F80E517B3FD46001182FB /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = vendor/OSX/Frameworks/OCMock.framework; sourceTree = "<group>"; };
 		F0E5E2E717A78AEF00153646 /* BoxCocoaSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoxCocoaSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E5E2F017A78AEF00153646 /* BoxCocoaSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BoxCocoaSDK-Info.plist"; sourceTree = "<group>"; };
 		F0E5E2F417A78AEF00153646 /* BoxCocoaSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BoxCocoaSDK-Prefix.pch"; sourceTree = "<group>"; };
@@ -577,6 +606,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05F80E617B3FD46001182FB /* OCMock.framework in Frameworks */,
+				F05F80E417B3FD2A001182FB /* Security.framework in Frameworks */,
 				F0E5E2FE17A78AEF00153646 /* SenTestingKit.framework in Frameworks */,
 				F0E5E30217A78AEF00153646 /* BoxCocoaSDK.framework in Frameworks */,
 			);
@@ -716,9 +747,6 @@
 		E470433216D41DC500FED29A = {
 			isa = PBXGroup;
 			children = (
-				F0E5E36217A78DEF00153646 /* Security.framework */,
-				F0E5E36017A78DE000153646 /* Foundation.framework */,
-				F0E5E35E17A78DB400153646 /* Cocoa.framework */,
 				E470434016D41DC500FED29A /* BoxSDK */,
 				E470435516D41DC500FED29A /* BoxSDKTests */,
 				E4081D901758728900F6D6AA /* BoxSDKResources */,
@@ -744,14 +772,9 @@
 		E470433D16D41DC500FED29A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E4081E4D175EF1B900F6D6AA /* CoreGraphics.framework */,
-				C54BBF6F1758539E00F5DAD8 /* QuartzCore.framework */,
-				E4D5085616E80667001CE50A /* libOCMock.a */,
-				E40C7A48174BFDB500477760 /* Security.framework */,
-				E470433E16D41DC500FED29A /* Foundation.framework */,
+				F05F80E817B3FD9C001182FB /* OSX */,
+				F05F80E717B3FD8C001182FB /* iOS */,
 				E470434D16D41DC500FED29A /* SenTestingKit.framework */,
-				E4FADA2A172CE35F0052AD11 /* UIKit.framework */,
-				E4081D8E1758728900F6D6AA /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1020,6 +1043,31 @@
 			path = ResourceManagers;
 			sourceTree = "<group>";
 		};
+		F05F80E717B3FD8C001182FB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E4081D8E1758728900F6D6AA /* CoreFoundation.framework */,
+				E4FADA2A172CE35F0052AD11 /* UIKit.framework */,
+				E470433E16D41DC500FED29A /* Foundation.framework */,
+				E40C7A48174BFDB500477760 /* Security.framework */,
+				E4D5085616E80667001CE50A /* libOCMock.a */,
+				C54BBF6F1758539E00F5DAD8 /* QuartzCore.framework */,
+				E4081E4D175EF1B900F6D6AA /* CoreGraphics.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		F05F80E817B3FD9C001182FB /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				F0E5E35E17A78DB400153646 /* Cocoa.framework */,
+				F0E5E36017A78DE000153646 /* Foundation.framework */,
+				F0E5E36217A78DEF00153646 /* Security.framework */,
+				F05F80E517B3FD46001182FB /* OCMock.framework */,
+			);
+			name = OSX;
+			sourceTree = "<group>";
+		};
 		F0E5E2EE17A78AEF00153646 /* BoxCocoaSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1250,6 +1298,7 @@
 				F0E5E2F817A78AEF00153646 /* Sources */,
 				F0E5E2F917A78AEF00153646 /* Frameworks */,
 				F0E5E2FA17A78AEF00153646 /* Resources */,
+				F05F80EB17B40159001182FB /* CopyFiles */,
 				F0E5E2FB17A78AEF00153646 /* ShellScript */,
 			);
 			buildRules = (
@@ -1549,7 +1598,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05F80FD17B40850001182FB /* BoxFoldersResourceManagerTests.m in Sources */,
 				F0E5E30B17A78AEF00153646 /* BoxCocoaSDKTests.m in Sources */,
+				F042767217A8839600EB3419 /* BoxSDKTestsHelpers.m in Sources */,
+				F05F80E917B3FE33001182FB /* NSString+BoxURLHelperTests.m in Sources */,
+				F05F80EA17B3FE33001182FB /* NSURL+BoxURLHelperTests.m in Sources */,
+				F05F80ED17B4021C001182FB /* BoxCollectionTests.m in Sources */,
+				F05F80EE17B4021C001182FB /* BoxFileTests.m in Sources */,
+				F05F80EF17B4021C001182FB /* BoxFolderTests.m in Sources */,
+				F05F80F017B4021C001182FB /* BoxModelTests.m in Sources */,
+				F05F80F117B4021C001182FB /* BoxWebLinkTests.m in Sources */,
+				F05F80F217B40493001182FB /* BoxOAuth2SessionTests.m in Sources */,
+				F05F80F317B40493001182FB /* BoxSerialOAuth2SessionTests.m in Sources */,
+				F05F80F917B40730001182FB /* BoxSerialAPIQueueManagerTests.m in Sources */,
+				F05F80FA17B40764001182FB /* BoxFilesRequestBuilderTests.m in Sources */,
+				F05F80FB17B40764001182FB /* BoxFoldersRequestBuilderTests.m in Sources */,
+				F05F80FC17B40850001182FB /* BoxFilesResourceManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1723,12 +1787,12 @@
 				GCC_PREFIX_HEADER = "BoxSDK/BoxSDK-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/vendor/include\"",
+					"\"$(SRCROOT)/vendor/iOS/include\"",
 				);
 				INFOPLIST_FILE = "BoxSDKTests/BoxSDKTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/vendor/lib/OCMock\"",
+					"\"$(SRCROOT)/vendor/iOS/lib/OCMock\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1748,12 +1812,12 @@
 				GCC_PREFIX_HEADER = "BoxSDK/BoxSDK-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/vendor/include\"",
+					"\"$(SRCROOT)/vendor/iOS/include\"",
 				);
 				INFOPLIST_FILE = "BoxSDKTests/BoxSDKTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/vendor/lib/OCMock\"",
+					"\"$(SRCROOT)/vendor/iOS/lib/OCMock\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1819,7 +1883,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/vendor/OSX/Frameworks\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BoxCocoaSDK/BoxCocoaSDK-Prefix.pch";
@@ -1839,7 +1906,10 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/vendor/OSX/Frameworks\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BoxCocoaSDK/BoxCocoaSDK-Prefix.pch";
