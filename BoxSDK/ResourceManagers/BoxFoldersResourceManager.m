@@ -14,20 +14,20 @@
 NSString *const BoxAPIFolderIDRoot = @"0";
 NSString *const BoxAPIFolderIDTrash = @"trash";
 
-#define BOX_API_FOLDERS_RESOURCE  (@"folders")
-#define BOX_API_FOLDERS_ITEMS     (@"items")
-#define BOX_API_FOLDERS_COPY      (@"copy")
-#define BOX_API_FOLDERS_TRASH     (@"trash")
+#define BOX_API_FOLDERS_RESOURCE              (@"folders")
+#define BOX_API_FOLDERS_SUBRESOURCE_ITEMS     (@"items")
+#define BOX_API_FOLDERS_SUBRESOURCE_COPY      (@"copy")
+#define BOX_API_FOLDERS_SUBRESOURCE_TRASH     (@"trash")
 
 @interface BoxFoldersResourceManager ()
 
-- (BoxAPIJSONOperation *)JSONOperationWithURL:(NSURL *)URL HTTPMethod:(BoxAPIHTTPMethod *)HTTPMethod queryStringParameters:(NSDictionary *)queryParameters bodyDictionary:(NSDictionary *)bodyDictionary fileSuccessBlock:(BoxFolderBlock)success failureBlock:(BoxAPIJSONFailureBlock)failure mini:(BOOL)mini;
+- (BoxAPIJSONOperation *)JSONOperationWithURL:(NSURL *)URL HTTPMethod:(BoxAPIHTTPMethod *)HTTPMethod queryStringParameters:(NSDictionary *)queryParameters bodyDictionary:(NSDictionary *)bodyDictionary folderSuccessBlock:(BoxFolderBlock)success failureBlock:(BoxAPIJSONFailureBlock)failure mini:(BOOL)mini;
 
 @end
 
 @implementation BoxFoldersResourceManager
 
-- (BoxAPIJSONOperation *)JSONOperationWithURL:(NSURL *)URL HTTPMethod:(BoxAPIHTTPMethod *)HTTPMethod queryStringParameters:(NSDictionary *)queryParameters bodyDictionary:(NSDictionary *)bodyDictionary fileSuccessBlock:(BoxFolderBlock)success failureBlock:(BoxAPIJSONFailureBlock)failure mini:(BOOL)mini
+- (BoxAPIJSONOperation *)JSONOperationWithURL:(NSURL *)URL HTTPMethod:(BoxAPIHTTPMethod *)HTTPMethod queryStringParameters:(NSDictionary *)queryParameters bodyDictionary:(NSDictionary *)bodyDictionary folderSuccessBlock:(BoxFolderBlock)success failureBlock:(BoxAPIJSONFailureBlock)failure mini:(BOOL)mini
 {
     BoxAPIJSONSuccessBlock JSONSuccessBlock = ^(NSURLRequest *request, NSHTTPURLResponse *response, NSDictionary *JSONDictionary)
     {
@@ -52,7 +52,7 @@ NSString *const BoxAPIFolderIDTrash = @"trash";
                                                      HTTPMethod:BoxAPIHTTPMethodGET
                                           queryStringParameters:builder.queryStringParameters
                                                  bodyDictionary:nil
-                                               fileSuccessBlock:successBlock
+                                               folderSuccessBlock:successBlock
                                                    failureBlock:failureBlock
                                                            mini:NO];
 
@@ -72,7 +72,7 @@ NSString *const BoxAPIFolderIDTrash = @"trash";
                                                      HTTPMethod:BoxAPIHTTPMethodPOST
                                           queryStringParameters:builder.queryStringParameters
                                                  bodyDictionary:builder.bodyParameters
-                                               fileSuccessBlock:successBlock
+                                               folderSuccessBlock:successBlock
                                                    failureBlock:failureBlock
                                                            mini:NO];
 
@@ -85,7 +85,7 @@ NSString *const BoxAPIFolderIDTrash = @"trash";
 {
     NSURL *URL = [self URLWithResource:BOX_API_FOLDERS_RESOURCE
                                     ID:folderID
-                           subresource:BOX_API_FOLDERS_ITEMS
+                           subresource:BOX_API_FOLDERS_SUBRESOURCE_ITEMS
                                  subID:nil];
 
     BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL
@@ -111,7 +111,7 @@ NSString *const BoxAPIFolderIDTrash = @"trash";
                                                      HTTPMethod:BoxAPIHTTPMethodPUT
                                           queryStringParameters:builder.queryStringParameters
                                                  bodyDictionary:builder.bodyParameters
-                                               fileSuccessBlock:successBlock
+                                               folderSuccessBlock:successBlock
                                                    failureBlock:failureBlock
                                                            mini:NO];
 
@@ -144,14 +144,14 @@ NSString *const BoxAPIFolderIDTrash = @"trash";
 {
     NSURL *URL = [self URLWithResource:BOX_API_FOLDERS_RESOURCE
                                     ID:folderID
-                           subresource:BOX_API_FOLDERS_COPY
+                           subresource:BOX_API_FOLDERS_SUBRESOURCE_COPY
                                  subID:nil];
 
     BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL
                                                      HTTPMethod:BoxAPIHTTPMethodPOST
                                           queryStringParameters:builder.queryStringParameters
                                                  bodyDictionary:builder.bodyParameters
-                                               fileSuccessBlock:successBlock
+                                               folderSuccessBlock:successBlock
                                                    failureBlock:failureBlock
                                                            mini:NO];
 
@@ -164,14 +164,14 @@ NSString *const BoxAPIFolderIDTrash = @"trash";
 {
     NSURL *URL = [self URLWithResource:BOX_API_FOLDERS_RESOURCE
                                     ID:folderID
-                           subresource:BOX_API_FOLDERS_TRASH
+                           subresource:BOX_API_FOLDERS_SUBRESOURCE_TRASH
                                  subID:nil];
 
     BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL
                                                      HTTPMethod:BoxAPIHTTPMethodGET
                                           queryStringParameters:builder.queryStringParameters
                                                  bodyDictionary:nil
-                                               fileSuccessBlock:successBlock
+                                               folderSuccessBlock:successBlock
                                                    failureBlock:failureBlock
                                                            mini:NO];
 
@@ -191,7 +191,7 @@ NSString *const BoxAPIFolderIDTrash = @"trash";
                                                      HTTPMethod:BoxAPIHTTPMethodPOST
                                           queryStringParameters:builder.queryStringParameters
                                                  bodyDictionary:builder.bodyParameters
-                                               fileSuccessBlock:successBlock
+                                               folderSuccessBlock:successBlock
                                                    failureBlock:failureBlock
                                                            mini:NO];
 
@@ -205,7 +205,7 @@ NSString *const BoxAPIFolderIDTrash = @"trash";
 {
     NSURL *URL = [self URLWithResource:BOX_API_FOLDERS_RESOURCE
                                     ID:folderID
-                           subresource:BOX_API_FOLDERS_TRASH
+                           subresource:BOX_API_FOLDERS_SUBRESOURCE_TRASH
                                  subID:nil];
 
     BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL
