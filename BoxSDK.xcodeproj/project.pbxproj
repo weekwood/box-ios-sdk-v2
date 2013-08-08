@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF6E06A817AE66AF0039F17D /* BoxModelComparators.h in Headers */ = {isa = PBXBuildFile; fileRef = AF6E06A617AE66AF0039F17D /* BoxModelComparators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF6E06A917AE66AF0039F17D /* BoxModelComparators.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E06A717AE66AF0039F17D /* BoxModelComparators.m */; };
+		AF6E06AC17AE6C240039F17D /* BoxModelComparatorsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E06AB17AE6C240039F17D /* BoxModelComparatorsTest.m */; };
 		C5152CFE17541B66007A5C0A /* BoxFolderPickerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C5152CF817541B66007A5C0A /* BoxFolderPickerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5152CFF17541B66007A5C0A /* BoxFolderPickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5152CF917541B66007A5C0A /* BoxFolderPickerHelper.m */; };
 		C5152D0017541B66007A5C0A /* BoxFolderPickerTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C5152CFA17541B66007A5C0A /* BoxFolderPickerTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -217,6 +220,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF6E06A617AE66AF0039F17D /* BoxModelComparators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxModelComparators.h; sourceTree = "<group>"; };
+		AF6E06A717AE66AF0039F17D /* BoxModelComparators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxModelComparators.m; sourceTree = "<group>"; };
+		AF6E06AA17AE6C240039F17D /* BoxModelComparatorsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxModelComparatorsTest.h; sourceTree = "<group>"; };
+		AF6E06AB17AE6C240039F17D /* BoxModelComparatorsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxModelComparatorsTest.m; sourceTree = "<group>"; };
 		C5152CF817541B66007A5C0A /* BoxFolderPickerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFolderPickerHelper.h; sourceTree = "<group>"; };
 		C5152CF917541B66007A5C0A /* BoxFolderPickerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFolderPickerHelper.m; sourceTree = "<group>"; };
 		C5152CFA17541B66007A5C0A /* BoxFolderPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFolderPickerTableViewController.h; sourceTree = "<group>"; };
@@ -740,6 +747,8 @@
 				E4FAD992172CE2C50052AD11 /* BoxUser.m */,
 				E4FAD993172CE2C50052AD11 /* BoxWebLink.h */,
 				E4FAD994172CE2C50052AD11 /* BoxWebLink.m */,
+				AF6E06A617AE66AF0039F17D /* BoxModelComparators.h */,
+				AF6E06A717AE66AF0039F17D /* BoxModelComparators.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -845,6 +854,8 @@
 				E4FADA07172CE2DF0052AD11 /* BoxModelTests.m */,
 				E4FADA08172CE2DF0052AD11 /* BoxWebLinkTests.h */,
 				E4FADA09172CE2DF0052AD11 /* BoxWebLinkTests.m */,
+				AF6E06AA17AE6C240039F17D /* BoxModelComparatorsTest.h */,
+				AF6E06AB17AE6C240039F17D /* BoxModelComparatorsTest.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -942,6 +953,7 @@
 				C5C11A44175DACCE0001EC88 /* UIImage+BoxAdditions.h in Headers */,
 				C58BC262175EDD670071BF37 /* BoxItem+BoxAdditions.h in Headers */,
 				C58BC268175EDF7C0071BF37 /* BoxODRefreshControl.h in Headers */,
+				AF6E06A817AE66AF0039F17D /* BoxModelComparators.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1187,6 +1199,7 @@
 				C5C11A45175DACCE0001EC88 /* UIImage+BoxAdditions.m in Sources */,
 				C58BC263175EDD670071BF37 /* BoxItem+BoxAdditions.m in Sources */,
 				C58BC269175EDF7C0071BF37 /* BoxODRefreshControl.m in Sources */,
+				AF6E06A917AE66AF0039F17D /* BoxModelComparators.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1210,6 +1223,7 @@
 				E4FADA27172CE2DF0052AD11 /* BoxFoldersRequestBuilderTests.m in Sources */,
 				E4FADA28172CE2DF0052AD11 /* BoxFilesResourceManagerTests.m in Sources */,
 				E4FADA29172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.m in Sources */,
+				AF6E06AC17AE6C240039F17D /* BoxModelComparatorsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

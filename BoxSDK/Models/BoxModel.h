@@ -88,4 +88,16 @@
  */
 - (NSDate *)dateWithISO8601String:(NSString *)timestamp;
 
+/** @name Comparison */
+
+/**
+ * Compare this model to another model object using the supplied comparator.
+ * Several comparators are provided in BoxModelComparators
+ *
+ * @param model Model object to compare to this one.
+ * @param comparator Comparator to use for the comparison.
+ * @return NSComparisonResult
+ */
+- (NSComparisonResult)compare:(BoxModel *)model usingComparator:(NSComparator)comparator;
+
 @end

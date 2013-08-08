@@ -49,6 +49,11 @@
     return returnDate;
 }
 
+- (NSComparisonResult)compare:(BoxModel *)model usingComparator:(NSComparator)comparator
+{
+    return comparator(self, model);
+}
+
 - (NSString *)type
 {
     id type = [self.rawResponseJSON objectForKey:BoxAPIObjectKeyType];

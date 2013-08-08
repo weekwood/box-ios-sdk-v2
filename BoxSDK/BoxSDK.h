@@ -45,6 +45,7 @@
 
 // API models
 #import "BoxModel.h"
+#import "BoxModelComparators.h"
 #import "BoxCollection.h"
 #import "BoxItem.h"
 #import "BoxFile.h"
