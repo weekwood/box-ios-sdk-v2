@@ -34,7 +34,7 @@
 
 - (void)testThatSDKAndOAuth2SessionAreConstructedWithSameAPIUrl
 {
-    STAssertEquals([BoxCocoaSDK sharedSDK].APIBaseURL, [BoxCocoaSDK sharedSDK].OAuth2Session.APIBaseURLString, @"BoxSDK and OAuth2Session were not constructed with the same API base URL");
+    STAssertEquals([BoxCocoaSDK sharedSDK].APIBaseURL, [BoxCocoaSDK sharedSDK].OAuth2Session.APIBaseURLString, @"BoxCocoaSDK and OAuth2Session were not constructed with the same API base URL");
 }
 
 - (void)testThatSingletonSDKIsOnlyInstantiatedOnce
@@ -42,7 +42,7 @@
     BoxCocoaSDK *firstSingletonSDK = [BoxCocoaSDK sharedSDK];
     BoxCocoaSDK *secondSingletonSDK = [BoxCocoaSDK sharedSDK];
     
-    STAssertTrue(firstSingletonSDK == secondSingletonSDK, @"multiple invocations of [BoxSDK sharedSDK] should refer to the same object");
+    STAssertTrue(firstSingletonSDK == secondSingletonSDK, @"multiple invocations of [BoxCocoaSDK sharedSDK] should refer to the same object");
 }
 
 @end
