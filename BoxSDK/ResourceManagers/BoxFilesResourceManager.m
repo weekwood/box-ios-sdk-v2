@@ -11,10 +11,10 @@
 #import "BoxFile.h"
 #import "BoxFilesRequestBuilder.h"
 
-#define BOX_API_FILES_RESOURCE  (@"files")
-#define BOX_API_FILES_COPY      (@"copy")
-#define BOX_API_FILES_CONTENT   (@"content")
-#define BOX_API_FILES_THUMBNAIL (@"thumbnail.png")
+#define BOX_API_FILES_RESOURCE              (@"files")
+#define BOX_API_FILES_SUBRESOURCE_COPY      (@"copy")
+#define BOX_API_FILES_SUBRESOURCE_CONTENT   (@"content")
+#define BOX_API_FILES_SUBRESOURCE_THUMBNAIL (@"thumbnail.png")
 
 #define BOX_API_MULTIPART_FILENAME_FIELD (@"file")
 
@@ -80,15 +80,29 @@
         }
     };
 
-    return [self JSONOperationWithURL:URL HTTPMethod:HTTPMethod queryStringParameters:queryParameters bodyDictionary:bodyDictionary JSONSuccessBlock:JSONSuccessBlock failureBlock:failure];
+    return [self JSONOperationWithURL:URL
+                           HTTPMethod:HTTPMethod
+                queryStringParameters:queryParameters
+                       bodyDictionary:bodyDictionary
+                     JSONSuccessBlock:JSONSuccessBlock
+                         failureBlock:failure];
 
 }
 
 - (BoxAPIJSONOperation *)fileInfoWithID:(NSString *)fileID requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
 {
-    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE ID:fileID subresource:nil subID:nil];
+    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE
+                                    ID:fileID
+                           subresource:nil
+                                 subID:nil];
 
-    BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL HTTPMethod:BoxAPIHTTPMethodGET queryStringParameters:builder.queryStringParameters bodyDictionary:nil fileSuccessBlock:successBlock failureBlock:failureBlock mini:NO];
+    BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL
+                                                     HTTPMethod:BoxAPIHTTPMethodGET
+                                          queryStringParameters:builder.queryStringParameters
+                                                 bodyDictionary:nil
+                                               fileSuccessBlock:successBlock
+                                                   failureBlock:failureBlock
+                                                           mini:NO];
 
     [self.queueManager enqueueOperation:operation];
 
@@ -97,9 +111,18 @@
 
 - (BoxAPIJSONOperation *)editFileWithID:(NSString *)fileID requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
 {
-    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE ID:fileID subresource:nil subID:nil];
+    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE
+                                    ID:fileID
+                           subresource:nil
+                                 subID:nil];
 
-    BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL HTTPMethod:BoxAPIHTTPMethodPUT queryStringParameters:builder.queryStringParameters bodyDictionary:builder.bodyParameters fileSuccessBlock:successBlock failureBlock:failureBlock mini:NO];
+    BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL
+                                                     HTTPMethod:BoxAPIHTTPMethodPUT
+                                          queryStringParameters:builder.queryStringParameters
+                                                 bodyDictionary:builder.bodyParameters
+                                               fileSuccessBlock:successBlock
+                                                   failureBlock:failureBlock
+                                                           mini:NO];
 
     [self.queueManager enqueueOperation:operation];
 
@@ -108,9 +131,18 @@
 
 - (BoxAPIJSONOperation *)copyFileWithID:(NSString *)fileID requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
 {
-    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE ID:fileID subresource:BOX_API_FILES_COPY subID:nil];
+    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE
+                                    ID:fileID
+                           subresource:BOX_API_FILES_SUBRESOURCE_COPY
+                                 subID:nil];
 
-    BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL HTTPMethod:BoxAPIHTTPMethodPOST queryStringParameters:builder.queryStringParameters bodyDictionary:builder.bodyParameters fileSuccessBlock:successBlock failureBlock:failureBlock mini:NO];
+    BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL
+                                                     HTTPMethod:BoxAPIHTTPMethodPOST
+                                          queryStringParameters:builder.queryStringParameters
+                                                 bodyDictionary:builder.bodyParameters
+                                               fileSuccessBlock:successBlock
+                                                   failureBlock:failureBlock
+                                                           mini:NO];
 
     [self.queueManager enqueueOperation:operation];
 
@@ -119,9 +151,18 @@
 
 - (BoxAPIJSONOperation *)deleteFileWithID:(NSString *)fileID requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxSuccessfulDeleteBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
 {
-    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE ID:fileID subresource:nil subID:nil];
+    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE
+                                    ID:fileID
+                           subresource:nil
+                                 subID:nil];
 
-    BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL HTTPMethod:BoxAPIHTTPMethodDELETE queryStringParameters:builder.queryStringParameters bodyDictionary:nil deleteSuccessBlock:successBlock failureBlock:failureBlock modelID:fileID];
+    BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL
+                                                     HTTPMethod:BoxAPIHTTPMethodDELETE
+                                          queryStringParameters:builder.queryStringParameters
+                                                 bodyDictionary:nil
+                                             deleteSuccessBlock:successBlock
+                                                   failureBlock:failureBlock
+                                                        modelID:fileID];
 
     [self.queueManager enqueueOperation:operation];
 
@@ -141,7 +182,9 @@
 
 - (BoxAPIMultipartToJSONOperation *)uploadFileWithData:(NSData *)data MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock
 {
-    NSURL *URL = [self uploadURLWithResource:BOX_API_FILES_RESOURCE ID:BOX_API_FILES_CONTENT subresource:nil];
+    NSURL *URL = [self uploadURLWithResource:BOX_API_FILES_RESOURCE
+                                          ID:BOX_API_FILES_SUBRESOURCE_CONTENT
+                                 subresource:nil];
 
     BoxAPIMultipartToJSONOperation *operation = [[BoxAPIMultipartToJSONOperation alloc] initWithURL:URL
                                                                                          HTTPMethod:BoxAPIHTTPMethodPOST
@@ -149,7 +192,10 @@
                                                                                         queryParams:builder.queryStringParameters
                                                                                       OAuth2Session:self.OAuth2Session];
 
-    [operation appendMultipartPieceWithData:data fieldName:BOX_API_MULTIPART_FILENAME_FIELD filename:builder.name MIMEType:MIMEType];
+    [operation appendMultipartPieceWithData:data
+                                  fieldName:BOX_API_MULTIPART_FILENAME_FIELD
+                                   filename:builder.name
+                                   MIMEType:MIMEType];
 
     BoxAPIJSONSuccessBlock JSONSuccessBlock = ^(NSURLRequest *request, NSHTTPURLResponse *response, NSDictionary *JSONDictionary)
     {
@@ -182,7 +228,9 @@
 
 - (BoxAPIMultipartToJSONOperation *)uploadFileWithInputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock
 {
-    NSURL *URL = [self uploadURLWithResource:BOX_API_FILES_RESOURCE ID:BOX_API_FILES_CONTENT subresource:nil];
+    NSURL *URL = [self uploadURLWithResource:BOX_API_FILES_RESOURCE
+                                          ID:BOX_API_FILES_SUBRESOURCE_CONTENT
+                                 subresource:nil];
 
     BoxAPIMultipartToJSONOperation *operation = [[BoxAPIMultipartToJSONOperation alloc] initWithURL:URL
                                                                                          HTTPMethod:BoxAPIHTTPMethodPOST
@@ -227,7 +275,9 @@
 
 - (BoxAPIMultipartToJSONOperation *)overwriteFileWithID:(NSString *)fileID data:(NSData *)data MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock
 {
-    NSURL *URL = [self uploadURLWithResource:BOX_API_FILES_RESOURCE ID:fileID subresource:BOX_API_FILES_CONTENT];
+    NSURL *URL = [self uploadURLWithResource:BOX_API_FILES_RESOURCE
+                                          ID:fileID
+                                 subresource:BOX_API_FILES_SUBRESOURCE_CONTENT];
 
     BoxAPIMultipartToJSONOperation *operation = [[BoxAPIMultipartToJSONOperation alloc] initWithURL:URL
                                                                                          HTTPMethod:BoxAPIHTTPMethodPOST
@@ -235,7 +285,10 @@
                                                                                         queryParams:builder.queryStringParameters
                                                                                       OAuth2Session:self.OAuth2Session];
 
-    [operation appendMultipartPieceWithData:data fieldName:BOX_API_MULTIPART_FILENAME_FIELD filename:builder.name MIMEType:MIMEType];
+    [operation appendMultipartPieceWithData:data
+                                  fieldName:BOX_API_MULTIPART_FILENAME_FIELD
+                                   filename:builder.name
+                                   MIMEType:MIMEType];
 
     BoxAPIJSONSuccessBlock JSONSuccessBlock = ^(NSURLRequest *request, NSHTTPURLResponse *response, NSDictionary *JSONDictionary)
     {
@@ -268,7 +321,9 @@
 
 - (BoxAPIMultipartToJSONOperation *)overwriteFileWithID:(NSString *)fileID inputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock
 {
-    NSURL *URL = [self uploadURLWithResource:BOX_API_FILES_RESOURCE ID:fileID subresource:BOX_API_FILES_CONTENT];
+    NSURL *URL = [self uploadURLWithResource:BOX_API_FILES_RESOURCE
+                                          ID:fileID
+                                 subresource:BOX_API_FILES_SUBRESOURCE_CONTENT];
 
     BoxAPIMultipartToJSONOperation *operation = [[BoxAPIMultipartToJSONOperation alloc] initWithURL:URL
                                                                                          HTTPMethod:BoxAPIHTTPMethodPOST
@@ -308,7 +363,10 @@
 
 - (BoxAPIDataOperation *)downloadFileWithID:(NSString *)fileID outputStream:(NSOutputStream *)outputStream requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock progress:(BoxAPIDataProgressBlock)progressBlock
 {
-    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE ID:fileID subresource:BOX_API_FILES_CONTENT subID:nil];
+    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE
+                                    ID:fileID
+                           subresource:BOX_API_FILES_SUBRESOURCE_CONTENT
+                                 subID:nil];
 
     BoxAPIDataOperation *operation = [[BoxAPIDataOperation alloc] initWithURL:URL
                                                                    HTTPMethod:BoxAPIHTTPMethodGET
@@ -330,12 +388,15 @@
 
 - (BoxAPIDataOperation *)thumbnailForFileWithID:(NSString *)fileID outputStream:(NSOutputStream *)outputStream thumbnailSize:(BoxThumbnailSize)thumbnailSize success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock;
 {
-    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE ID:fileID subresource:BOX_API_FILES_THUMBNAIL subID:nil];
+    NSURL *URL = [self URLWithResource:BOX_API_FILES_RESOURCE
+                                    ID:fileID
+                           subresource:BOX_API_FILES_SUBRESOURCE_THUMBNAIL
+                                 subID:nil];
 
     NSDictionary *thumbnailQueryParameters = @{
         BOX_THUMBNAIL_MIN_HEIGHT : [NSNumber numberWithInt:thumbnailSize],
         BOX_THUMBNAIL_MIN_WIDTH : [NSNumber numberWithInt:thumbnailSize]
-        };
+    };
 
     BoxAPIDataOperation *operation = [[BoxAPIDataOperation alloc] initWithURL:URL
                                                                    HTTPMethod:BoxAPIHTTPMethodGET

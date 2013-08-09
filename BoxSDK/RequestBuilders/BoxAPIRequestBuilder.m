@@ -11,6 +11,9 @@
 #import "BoxISO8601DateFormatter.h"
 #import "BoxLog.h"
 
+NSString *const BoxAPIQueryStringValueTrue = @"true";
+NSString *const BoxAPIQueryStringValueFalse = @"false";
+
 @implementation BoxAPIRequestBuilder
 
 @synthesize queryStringParameters = _queryStringParameters;
