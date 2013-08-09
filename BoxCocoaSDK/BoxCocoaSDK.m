@@ -2,7 +2,7 @@
 //  BoxCocoaSDK.m
 //  BoxCocoaSDK
 //
-//  Created by Ryan Knotts on 7/29/13.
+//  Created on 7/29/13.
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
