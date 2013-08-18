@@ -15,17 +15,7 @@
 
 - (NSString *)SHA1
 {
-    id SHA1 = [self.rawResponseJSON objectForKey:BoxAPIObjectKeySHA1];
-    if (SHA1 == nil)
-    {
-        return nil;
-    }
-    else if (![SHA1 isKindOfClass:[NSString class]])
-    {
-        BOXAssertFail(@"sha1 should be a string");
-        return nil;
-    }
-    return (NSString *)SHA1;
+    return extract_key_from_json_and_cast_to_type(BoxAPIObjectKeySHA1, NSString);
 }
 
 @end

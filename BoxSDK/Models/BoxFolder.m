@@ -16,51 +16,24 @@
 
 - (id)folderUploadEmail
 {
-    id folderUploadEmail = [self.rawResponseJSON objectForKey:BoxAPIObjectKeyFolderUploadEmail];
-    if ([folderUploadEmail isEqual:[NSNull null]])
-    {
-        return [NSNull null];
-    }
-    else if (folderUploadEmail == nil)
-    {
-        return nil;
-    }
-    else if (![folderUploadEmail isKindOfClass:[NSDictionary class]])
-    {
-        BOXAssertFail(@"folder_upload_email should be a dictionary");
-        return nil;
-    }
-    return (NSDictionary *)folderUploadEmail;
+    return extract_nullable_key_from_json_and_cast_to_type(BoxAPIObjectKeyFolderUploadEmail, NSDictionary);
 }
 
 - (BoxCollection *)itemCollection
 {
-    id itemCollection = [self.rawResponseJSON objectForKey:BoxAPIObjectKeyItemCollection];
-    if (itemCollection == nil)
+    NSDictionary *itemCollectionJSON = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyItemCollection, NSDictionary);
+
+    BoxCollection *itemCollection = nil;
+    if (itemCollectionJSON != nil)
     {
-        return nil;
+        itemCollection = [[BoxCollection alloc] initWithResponseJSON:itemCollectionJSON mini:YES];
     }
-    else if (![itemCollection isKindOfClass:[NSDictionary class]])
-    {
-        BOXAssertFail(@"item_collection should be a dictionary");
-        return nil;
-    }
-    return [[BoxCollection alloc] initWithResponseJSON:(NSDictionary *)itemCollection mini:YES];
+    return itemCollection;
 }
 
 - (NSString *)syncState
 {
-    id syncState = [self.rawResponseJSON objectForKey:BoxAPIObjectKeySyncState];
-    if (syncState == nil)
-    {
-        return nil;
-    }
-    else if (![syncState isKindOfClass:[NSString class]])
-    {
-        BOXAssertFail(@"sync_state should be a string");
-        return nil;
-    }
-    return (NSString *)syncState;
+    return extract_key_from_json_and_cast_to_type(BoxAPIObjectKeySyncState, NSString);
 }
 
 @end
