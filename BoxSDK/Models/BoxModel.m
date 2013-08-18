@@ -44,7 +44,10 @@
     }
 
     NSDate *returnDate = nil;
-    returnDate = [dateFormatter dateFromString:timestamp];
+    if (timestamp != nil)
+    {
+        returnDate = [dateFormatter dateFromString:timestamp];
+    }
 
     return returnDate;
 }
