@@ -31,8 +31,12 @@
 
 #define kDisabledAlpha 0.3
 
-// @TODO: change this #define to NSLineBreakByTruncatingMiddle once iOS 7 SDK is released.
-#define BOX_LINE_BREAK_MODE (5) // UILineBreakModeMiddleTruncation and NSLineBreakByTruncatingMiddle
+// @NOTE: This enum was renamed in iOS 6
+#ifdef __IPHONE_6_0
+#   define BOX_LINE_BREAK_MODE (NSLineBreakByTruncatingMiddle)
+#else
+#   define BOX_LINE_BREAK_MODE (UILineBreakModeMiddleTruncation)
+#endif
 
 @interface BoxFolderPickerCell ()
 
