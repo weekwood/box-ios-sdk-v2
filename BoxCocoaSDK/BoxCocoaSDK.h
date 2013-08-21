@@ -56,9 +56,9 @@
 extern NSString *const BoxAPIBaseURL;
 
 /**
- * The BoxSDK class is a class that exposes a [Box V2 API Rest Client](http://developers.box.com/docs/).
+ * The BoxCocoaSDK class is a class that exposes a [Box V2 API Rest Client](http://developers.box.com/docs/).
  *
- * Access to this class and all other components of the BoxSDK can be granted by including `<BoxCocoaSDK/BoxCocoaSDK.h>`
+ * Access to this class and all other components of the BoxCocoaSDK can be granted by including `<BoxCocoaSDK/BoxCocoaSDK.h>`
  * in your source code.
  *
  * This class provides a class method sharedSDK which provides a preconfigured SDK client,
@@ -73,7 +73,7 @@ extern NSString *const BoxAPIBaseURL;
  * BoxAPIQueueManager to the BoxAPIResourceManager instances in this case.
  *
  * @warning If you wish to support multiple BoxOAuth2Session instances (multi-account support),
- * the recommended approach is to instantiate multiple instances of BoxSDK. Each BoxSDK instance's
+ * the recommended approach is to instantiate multiple instances of BoxCocoaSDK. Each BoxCocoaSDK instance's
  * OAuth2Session and queueManager hold references to each other to enable automatic token refresh.
  */
 
@@ -84,13 +84,13 @@ extern NSString *const BoxAPIBaseURL;
 @property (nonatomic, readwrite, strong) NSString *APIBaseURL;
 
 /**
- * The BoxSDK's OAuth2 session. This session is shared with the queueManager,
+ * The BoxCocoaSDK's OAuth2 session. This session is shared with the queueManager,
  * filesManager, and foldersManager.
  */
 @property (nonatomic, readwrite, strong) BoxOAuth2Session *OAuth2Session;
 
 /**
- * The BoxSDK's queue manager. All API calls are scheduled by this queue manager.
+ * The BoxCocoaSDK's queue manager. All API calls are scheduled by this queue manager.
  * The queueManager is shared with the OAuth2Session (for making authorization and refresh
  * calls) and the filesManager and foldersManager (for making API calls).
  */
@@ -116,7 +116,7 @@ extern NSString *const BoxAPIBaseURL;
 /** @name Shared SDK client */
 
 /**
- * Returns the BoxSDK's default SDK client
+ * Returns the BoxCocoaSDK's default SDK client
  *
  * This method is guaranteed to only instantiate one sharedSDK over the lifetime of an app.
  *
@@ -125,10 +125,10 @@ extern NSString *const BoxAPIBaseURL;
  * configure the SDK in your application's App Delegate like so:
  *
  * <pre><code>// somewhere in your application delegate's - (BOOL)application:didFinishLaunchingWithOptions:
- * [BoxSDK sharedSDK].OAuth2Session.clientID = @"your_client_ID";
- * [BoxSDK sharedSDK].OAuth2Session.clientSecret = @"your_client_secret";</pre></code>
+ * [BoxCocoaSDK sharedSDK].OAuth2Session.clientID = @"your_client_ID";
+ * [BoxCocoaSDK sharedSDK].OAuth2Session.clientSecret = @"your_client_secret";</pre></code>
  *
- * *Note*: sharedSDK returns a BoxSDK configured with a BoxParallelOAuth2Session and a BoxParallelAPIQueueManager.
+ * *Note*: sharedSDK returns a BoxCocoaSDK configured with a BoxParallelOAuth2Session and a BoxParallelAPIQueueManager.
  *   These allow for up to 10 parallel uploads and 10 parallel downloads, while still providing threadsafe
  *   OAuth2 tokens.
  * @return a preconfigured SDK client
@@ -146,10 +146,6 @@ extern NSString *const BoxAPIBaseURL;
  *   https://api.box.com. This String should not include the API Version
  */
 - (void)setAPIBaseURL:(NSString *)APIBaseURL;
-
-
-#pragma mark - Folder Picker
-/* Folder picker is currently iOS dependent */
 
 #pragma mark - Ressources Bundle
 /** @name Ressources Bundle */

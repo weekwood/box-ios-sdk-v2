@@ -12,7 +12,7 @@
 
 /**
  * The BoxAdditions category on NSImage provides a method for loading
- * images from the BoxSDK resources bundle.
+ * images from the BoxCocoaSDK resources bundle.
  */
 @interface NSImage (BoxAdditions)
 

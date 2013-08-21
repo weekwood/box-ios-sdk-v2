@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "BoxAPIResourceManager.h"
 #import "BoxAPIJSONOperation.h" // imported for BoxAPIJSONFailureBlock typedef
 #import "BoxAPIMultipartToJSONOperation.h"
