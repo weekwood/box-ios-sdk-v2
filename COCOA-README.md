@@ -15,13 +15,13 @@ The easiest way to add the Box Cocoa SDK to your project is as a dependent XCode
 2. Open your project in XCode.
 3. Drag BoxSDK.xcodeproj into the root of your project explorer.<br />![Dependent project](http://box.github.io/box-ios-sdk-v2/readme-images/dependent-project.png)
 
-4. Add the BoxCocoaSDK target as a target dependency.<br />![Target dependency](../../gh-pages/readme-images/cocoa-target-dependency.png)
+4. Add the BoxCocoaSDK target as a target dependency.<br />![Target dependency](https://raw.github.com/rknottsbox/box-ios-sdk-v2/gh-pages/readme-images/cocoa-target-dependency.png)
 
-5. Link with BoxCocoaSDK.framework<br />![Link with binary](../../gh-pages//readme-images/cocoa-link-with-binary.png)
+5. Link with BoxCocoaSDK.framework<br />![Link with binary](https://raw.github.com/rknottsbox/box-ios-sdk-v2/gh-pages/readme-images/cocoa-link-with-binary.png)
 
 6. Add the `-ObjC` linker flag. This is needed to load categories defined in the SDK.<br />![Add linker flag](http://box.github.io/box-ios-sdk-v2/readme-images/linker-flag.png)
 
-7. Create a build phase to copy the compiled framework into a 'Frameworks' directory in your application bundle.<br />![Copy to bundle](../../gh-pages/readme-images/cocoa-copy-to-bundle.png)
+7. Create a build phase to copy the compiled framework into a 'Frameworks' directory in your application bundle.<br />![Copy to bundle](https://raw.github.com/rknottsbox/box-ios-sdk-v2/gh-pages/readme-images/cocoa-copy-to-bundle.png)
 
 **Note**: steps 2-7 are covered in [Apple's documentation on using frameworks](https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPFrameworks/Tasks/CreatingFrameworks.html#//apple_ref/doc/uid/20002258-SW1).
 
