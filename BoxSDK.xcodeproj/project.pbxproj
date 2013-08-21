@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF153B1317C346D6008D636C /* NSJSONSerialization+BoxAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AF153B1117C346D6008D636C /* NSJSONSerialization+BoxAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF153B1417C346D6008D636C /* NSJSONSerialization+BoxAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AF153B1217C346D6008D636C /* NSJSONSerialization+BoxAdditions.m */; };
+		AF153B1717C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF153B1617C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.m */; };
 		AF6E06A817AE66AF0039F17D /* BoxModelComparators.h in Headers */ = {isa = PBXBuildFile; fileRef = AF6E06A617AE66AF0039F17D /* BoxModelComparators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF6E06A917AE66AF0039F17D /* BoxModelComparators.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E06A717AE66AF0039F17D /* BoxModelComparators.m */; };
 		AF6E06AC17AE6C240039F17D /* BoxModelComparatorsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E06AB17AE6C240039F17D /* BoxModelComparatorsTest.m */; };
@@ -220,6 +223,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF153B1117C346D6008D636C /* NSJSONSerialization+BoxAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+BoxAdditions.h"; sourceTree = "<group>"; };
+		AF153B1217C346D6008D636C /* NSJSONSerialization+BoxAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+BoxAdditions.m"; sourceTree = "<group>"; };
+		AF153B1517C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+BoxAdditionsTests.h"; sourceTree = "<group>"; };
+		AF153B1617C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+BoxAdditionsTests.m"; sourceTree = "<group>"; };
 		AF6E06A617AE66AF0039F17D /* BoxModelComparators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxModelComparators.h; sourceTree = "<group>"; };
 		AF6E06A717AE66AF0039F17D /* BoxModelComparators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxModelComparators.m; sourceTree = "<group>"; };
 		AF6E06AA17AE6C240039F17D /* BoxModelComparatorsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxModelComparatorsTest.h; sourceTree = "<group>"; };
@@ -705,6 +712,8 @@
 				C5C11A43175DACCE0001EC88 /* UIImage+BoxAdditions.m */,
 				C58BC260175EDD670071BF37 /* BoxItem+BoxAdditions.h */,
 				C58BC261175EDD670071BF37 /* BoxItem+BoxAdditions.m */,
+				AF153B1117C346D6008D636C /* NSJSONSerialization+BoxAdditions.h */,
+				AF153B1217C346D6008D636C /* NSJSONSerialization+BoxAdditions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -837,6 +846,8 @@
 				E4FAD9FC172CE2DF0052AD11 /* NSString+BoxURLHelperTests.m */,
 				E4FAD9FD172CE2DF0052AD11 /* NSURL+BoxURLHelperTests.h */,
 				E4FAD9FE172CE2DF0052AD11 /* NSURL+BoxURLHelperTests.m */,
+				AF153B1517C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.h */,
+				AF153B1617C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -954,6 +965,7 @@
 				C58BC262175EDD670071BF37 /* BoxItem+BoxAdditions.h in Headers */,
 				C58BC268175EDF7C0071BF37 /* BoxODRefreshControl.h in Headers */,
 				AF6E06A817AE66AF0039F17D /* BoxModelComparators.h in Headers */,
+				AF153B1317C346D6008D636C /* NSJSONSerialization+BoxAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,6 +1212,7 @@
 				C58BC263175EDD670071BF37 /* BoxItem+BoxAdditions.m in Sources */,
 				C58BC269175EDF7C0071BF37 /* BoxODRefreshControl.m in Sources */,
 				AF6E06A917AE66AF0039F17D /* BoxModelComparators.m in Sources */,
+				AF153B1417C346D6008D636C /* NSJSONSerialization+BoxAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1224,6 +1237,7 @@
 				E4FADA28172CE2DF0052AD11 /* BoxFilesResourceManagerTests.m in Sources */,
 				E4FADA29172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.m in Sources */,
 				AF6E06AC17AE6C240039F17D /* BoxModelComparatorsTest.m in Sources */,
+				AF153B1717C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
