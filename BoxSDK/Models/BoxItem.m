@@ -19,63 +19,96 @@
 
 - (NSString *)sequenceID
 {
-    return extract_key_from_json_and_cast_to_type(BoxAPIObjectKeySequenceID, NSString);
+    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeySequenceID
+                                      inDictionary:self.rawResponseJSON
+                                   hasExpectedType:[NSString class]
+                                       nullAllowed:NO];
 }
 
 - (NSString *)ETag
 {
-    return extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyETag, NSString);
+    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyETag
+                                      inDictionary:self.rawResponseJSON
+                                   hasExpectedType:[NSString class]
+                                       nullAllowed:NO];
 }
 
 - (NSString *)name
 {
-    return extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyName, NSString);
+    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyName
+                                      inDictionary:self.rawResponseJSON
+                                   hasExpectedType:[NSString class]
+                                       nullAllowed:NO];
 }
 
 - (NSDate *)createdAt
 {
-    NSString *timestamp = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyCreatedAt, NSString);
+    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyCreatedAt
+                                      inDictionary:self.rawResponseJSON
+                                   hasExpectedType:[NSString class]
+                                       nullAllowed:NO];
     return [self dateWithISO8601String:timestamp];
 }
 
 - (NSDate *)modifiedAt
 {
-    NSString *timestamp = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyModifiedAt, NSString);
+    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyModifiedAt
+                                                     inDictionary:self.rawResponseJSON
+                                                  hasExpectedType:[NSString class]
+                                                      nullAllowed:NO];
     return [self dateWithISO8601String:timestamp];
 }
 
 - (NSDate *)contentCreatedAt
 {
-    NSString *timestamp = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyContentCreatedAt, NSString);
+    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyContentCreatedAt
+                                                     inDictionary:self.rawResponseJSON
+                                                  hasExpectedType:[NSString class]
+                                                      nullAllowed:NO];
     return [self dateWithISO8601String:timestamp];
 }
 
 - (NSDate *)contentModifiedAt
 {
-    NSString *timestamp = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyContentModifiedAt, NSString);
+    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyContentModifiedAt
+                                                     inDictionary:self.rawResponseJSON
+                                                  hasExpectedType:[NSString class]
+                                                      nullAllowed:NO];
     return [self dateWithISO8601String:timestamp];
 }
 
 - (NSDate *)trashedAt
 {
-    NSString *timestamp = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyTrashedAt, NSString);
+    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyTrashedAt
+                                                     inDictionary:self.rawResponseJSON
+                                                  hasExpectedType:[NSString class]
+                                                      nullAllowed:NO];
     return [self dateWithISO8601String:timestamp];
 }
 
 - (NSDate *)purgedAt
 {
-    NSString *timestamp = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyPurgedAt, NSString);
+    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyPurgedAt
+                                                     inDictionary:self.rawResponseJSON
+                                                  hasExpectedType:[NSString class]
+                                                      nullAllowed:NO];
     return [self dateWithISO8601String:timestamp];
 }
 
 - (NSString *)description
 {
-    return extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyDescription, NSString);
+    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyDescription
+                                      inDictionary:self.rawResponseJSON
+                                   hasExpectedType:[NSString class]
+                                       nullAllowed:NO];
 }
 
 - (NSNumber *)size
 {
-    NSNumber *size = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeySize, NSNumber);
+    NSNumber *size = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeySize
+                                                inDictionary:self.rawResponseJSON
+                                             hasExpectedType:[NSNumber class]
+                                                 nullAllowed:NO];
     if (size != nil)
     {
         size = [NSNumber numberWithDouble:[size doubleValue]];
@@ -85,7 +118,10 @@
 
 - (BoxCollection *)pathCollection
 {
-    NSDictionary *pathCollectionJSON = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyPathCollection, NSDictionary);
+    NSDictionary *pathCollectionJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyPathCollection
+                                                                  inDictionary:self.rawResponseJSON
+                                                               hasExpectedType:[NSDictionary class]
+                                                                   nullAllowed:NO];
 
     BoxCollection *pathCollection = nil;
     if (pathCollectionJSON != nil)
@@ -97,7 +133,10 @@
 
 - (BoxUser *)createdBy
 {
-    NSDictionary *userJSON = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyCreatedBy, NSDictionary);
+    NSDictionary *userJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyCreatedBy
+                                                        inDictionary:self.rawResponseJSON
+                                                     hasExpectedType:[NSDictionary class]
+                                                         nullAllowed:NO];
 
     BoxUser *user = nil;
     if (userJSON != nil)
@@ -109,7 +148,10 @@
 
 - (BoxUser *)modifiedBy
 {
-    NSDictionary *userJSON = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyModifiedBy, NSDictionary);
+    NSDictionary *userJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyModifiedBy
+                                                        inDictionary:self.rawResponseJSON
+                                                     hasExpectedType:[NSDictionary class]
+                                                         nullAllowed:NO];
 
     BoxUser *user = nil;
     if (userJSON != nil)
@@ -121,7 +163,10 @@
 
 - (BoxUser *)ownedBy
 {
-    NSDictionary *userJSON = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyOwnedBy, NSDictionary);
+    NSDictionary *userJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyOwnedBy
+                                                        inDictionary:self.rawResponseJSON
+                                                     hasExpectedType:[NSDictionary class]
+                                                         nullAllowed:NO];
 
     BoxUser *user = nil;
     if (userJSON != nil)
@@ -133,12 +178,18 @@
 
 - (id)sharedLink
 {
-    return extract_nullable_key_from_json_and_cast_to_type(BoxAPIObjectKeySharedLink, NSDictionary);
+    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeySharedLink
+                                      inDictionary:self.rawResponseJSON
+                                   hasExpectedType:[NSDictionary class]
+                                       nullAllowed:YES];
 }
 
 - (BoxFolder *)parent
 {
-    NSDictionary *parentJSON = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyParent, NSDictionary);
+    NSDictionary *parentJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyParent
+                                                          inDictionary:self.rawResponseJSON
+                                                       hasExpectedType:[NSDictionary class]
+                                                           nullAllowed:NO];
 
     BoxFolder *parent = nil;
     if (parentJSON != nil)
@@ -150,7 +201,10 @@
 
 - (NSString *)itemStatus
 {
-    return extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyItemStatus, NSString);
+    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyItemStatus
+                                      inDictionary:self.rawResponseJSON
+                                   hasExpectedType:[NSString class]
+                                       nullAllowed:NO];
 }
 
 

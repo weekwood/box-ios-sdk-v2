@@ -15,7 +15,10 @@
 
 - (NSString *)SHA1
 {
-    return extract_key_from_json_and_cast_to_type(BoxAPIObjectKeySHA1, NSString);
+    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeySHA1
+                                      inDictionary:self.rawResponseJSON
+                                   hasExpectedType:[NSString class]
+                                       nullAllowed:NO];
 }
 
 @end

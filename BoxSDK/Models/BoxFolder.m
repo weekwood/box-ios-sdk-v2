@@ -16,12 +16,18 @@
 
 - (id)folderUploadEmail
 {
-    return extract_nullable_key_from_json_and_cast_to_type(BoxAPIObjectKeyFolderUploadEmail, NSDictionary);
+    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyFolderUploadEmail
+                                      inDictionary:self.rawResponseJSON
+                                   hasExpectedType:[NSDictionary class]
+                                       nullAllowed:YES];
 }
 
 - (BoxCollection *)itemCollection
 {
-    NSDictionary *itemCollectionJSON = extract_key_from_json_and_cast_to_type(BoxAPIObjectKeyItemCollection, NSDictionary);
+    NSDictionary *itemCollectionJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyItemCollection
+                                                                  inDictionary:self.rawResponseJSON
+                                                               hasExpectedType:[NSDictionary class]
+                                                                   nullAllowed:NO];
 
     BoxCollection *itemCollection = nil;
     if (itemCollectionJSON != nil)
@@ -33,7 +39,10 @@
 
 - (NSString *)syncState
 {
-    return extract_key_from_json_and_cast_to_type(BoxAPIObjectKeySyncState, NSString);
+    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeySyncState
+                                      inDictionary:self.rawResponseJSON
+                                   hasExpectedType:[NSString class]
+                                       nullAllowed:NO];
 }
 
 @end

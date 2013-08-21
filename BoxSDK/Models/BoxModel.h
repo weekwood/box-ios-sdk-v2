@@ -12,36 +12,6 @@
 #import "NSJSONSerialization+BoxAdditions.h"
 
 /**
- * extract_key_from_json_and_cast_to_type is a macro that enables BoxModel instances
- * to enforce that the values in decoded JSON have an expected type and are not instances
- * of `[NSNull null]`.
- *
- * Type expectations are backed by asserts in Debug mode and will safely return `nil` in
- * release configuration. Callers can safely assume that all non-`nil` references returned
- * by this macro are of type `TYPE`.
- */
-#define extract_key_from_json_and_cast_to_type(key, TYPE) \
-        [NSJSONSerialization ensureObjectForKey:key \
-                                   inDictionary:self.rawResponseJSON \
-                                hasExpectedType:[TYPE class] \
-                                    nullAllowed:NO];
-
-/**
- * extract_nullable_key_from_json_and_cast_to_type is a macro that enables BoxModel instances
- * to enforce that the values in decoded JSON have an expected type that may also be instances
- * of `[NSNull null]`.
- *
- * Type expectations are backed by asserts in Debug mode and will safely return `nil` in
- * release configuration. Callers can safely assume that all non-`nil` references returned
- * by this macro are of type `TYPE` or type `NSNull`.
- */
-#define extract_nullable_key_from_json_and_cast_to_type(key, TYPE) \
-        [NSJSONSerialization ensureObjectForKey:key \
-                                   inDictionary:self.rawResponseJSON \
-                                hasExpectedType:[TYPE class] \
-                                    nullAllowed:YES];
-
-/**
  * BoxModel is the base class for all objects that may be returned by the Box API.
  * It exposes two fields that every object has: a `type` and `modelID`.
  *
