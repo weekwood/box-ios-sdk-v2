@@ -20,4 +20,15 @@
     return [UIImage imageWithContentsOfFile:[str stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", string]]];
 }
 
+- (UIImage *)imageWith2XScaleIfRetina;
+{
+    UIImage *image = self;
+    if ([UIScreen mainScreen].scale == 2.0)
+    {
+        image = [UIImage imageWithCGImage:image.CGImage scale:2.0f orientation:image.imageOrientation];
+    }
+
+    return image;
+}
+
 @end

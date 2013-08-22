@@ -23,4 +23,12 @@
  */
 + (UIImage *)imageFromBoxSDKResourcesBundleWithName:(NSString *)string;
 
+/**
+ * Returns an image with the appropriate scale factor given the device.
+ *
+ * @return An image with the appropriate scale.
+ */
+- (UIImage *)imageWith2XScaleIfRetina;
+
+
 @end
