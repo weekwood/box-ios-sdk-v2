@@ -1276,6 +1276,7 @@
 				E470433816D41DC500FED29A /* Frameworks */,
 				E470433916D41DC500FED29A /* CopyFiles */,
 				E44A95D016E221A500356ADA /* Headers */,
+				E4D8DAF017D008E3003DC44E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1501,6 +1502,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		E4D8DAF017D008E3003DC44E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Symlinkling ${TARGET_BUILD_DIR}/include/BoxSDK to ${BUILT_PRODUCTS_DIR}/BoxSDK\"\n\nln -fs $TARGET_BUILD_DIR/include/BoxSDK $BUILT_PRODUCTS_DIR/BoxSDK";
 		};
 /* End PBXShellScriptBuildPhase section */
 
