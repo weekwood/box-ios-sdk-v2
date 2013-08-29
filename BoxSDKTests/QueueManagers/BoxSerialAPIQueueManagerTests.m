@@ -7,7 +7,12 @@
 //
 
 #import "BoxSerialAPIQueueManagerTests.h"
-#import "BoxSDK.h"
+
+#import "BoxAPIOAuth2ToJSONOperation.h"
+#import "BoxSerialAPIQueueManager.h"
+#import "BoxAPIJSONOperation.h"
+#import "BoxAPIMultipartToJSONOperation.h"
+#import "BoxAPIDataOperation.h"
 
 #import <OCMock/OCMock.h>
 
@@ -87,7 +92,7 @@
 - (void)testThatSerialQueueOnlyAllowsOneConcurrentOperation
 {
     BoxSerialAPIQueueManager *queueManager = [[BoxSerialAPIQueueManager alloc] init];
-    STAssertEquals(1, queueManager.globalQueue.maxConcurrentOperationCount, @"Queue's maxConcurrentOperationCount should == 1");
+    STAssertEquals((NSInteger)1, queueManager.globalQueue.maxConcurrentOperationCount, @"Queue's maxConcurrentOperationCount should == 1");
 }
 
 @end

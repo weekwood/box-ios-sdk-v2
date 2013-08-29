@@ -5,10 +5,11 @@
 //  Created on 6/3/13.
 //  Copyright (c) 2013 Box. All rights reserved.
 //
+//  NOTE: this file is a mirror of BoxCocoaSDK/Categories/NSImage+BoxAdditions.m. Changes made here should be reflected there.
+//
 
 #import "UIImage+BoxAdditions.h"
 #import "BoxSDK.h"
-#import <UIKit/UIKit.h>
 
 @implementation UIImage (BoxAdditions)
 

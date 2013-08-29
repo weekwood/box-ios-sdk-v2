@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
-#import <BoxSDK/BoxSDK.h>
+#import "BoxOAuth2Session.h"
 
 /**
  * BoxParallelOAuth2Session is an implementation of the abstract class BoxOAuth2Session.

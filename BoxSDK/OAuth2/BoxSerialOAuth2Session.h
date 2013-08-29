@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "BoxOAuth2Session.h"
 
 /**

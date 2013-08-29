@@ -8,7 +8,6 @@
 
 #import "BoxSerialOAuth2Session.h"
 #import "BoxAPIOAuth2ToJSONOperation.h"
-#import "BoxAuthorizationViewController.h"
 #import "BoxLog.h"
 #import "BoxSDKConstants.h"
 

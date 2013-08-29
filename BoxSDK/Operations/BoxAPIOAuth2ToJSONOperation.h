@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 #import "BoxAPIOperation.h"
 
 // This notification is sent when a BoxAPIOAuth2ToJSONOperation completes with either success or failure

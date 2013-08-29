@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 USAGE="
-$0 [iOS SDK Version] [Configuration]
+$0 [iOS/OSX SDK Version] [Configuration]
 
 Valid versions are
   6.1
   6.0
   5.1
   5.0
+ 10.8
   all
 
 Valid configurations are
@@ -28,6 +29,9 @@ configuration="Debug"
 [ "$2" == "Release" ] && configuration="Release"
 
 case "$1" in
+  "10.8")
+    xcodebuild -project BoxSDK.xcodeproj/ -target BoxCocoaSDKTests -sdk macosx10.8 -configuration $configuration clean build
+    ;;
   "5.0")
     xcodebuild -project BoxSDK.xcodeproj/ -target BoxSDKTests -sdk iphonesimulator5.0 -configuration $configuration clean build
     ;;
@@ -49,16 +53,21 @@ case "$1" in
     build_status_60=$?
     xcodebuild -project BoxSDK.xcodeproj/ -target BoxSDKTests -sdk iphonesimulator6.1 -configuration $configuration clean build
     build_status_61=$?
+    xcodebuild -project BoxSDK.xcodeproj/ -target BoxCocoaSDKTests -sdk macosx10.8 -configuration $configuration clean build
+    build_status_108=$?
 
     print_build_status "$build_status_50" "iOS 5.0"
     print_build_status "$build_status_51" "iOS 5.1"
     print_build_status "$build_status_60" "iOS 6.0"
     print_build_status "$build_status_61" "iOS 6.1"
+    print_build_status "$build_status_108" "OSX 10.8"
 
     [ "$build_status_50" == "0" ] || exit 1
     [ "$build_status_51" == "0" ] || exit 1
     [ "$build_status_60" == "0" ] || exit 1
     [ "$build_status_61" == "0" ] || exit 1
+    [ "$build_status_61" == "0" ] || exit 1
+    [ "$build_status_108" == "0" ] || exit 1
 
     echo "ALL SYSTEMS GO! LAUNCH!! LAUNCH!! LAUNCH!!"
 

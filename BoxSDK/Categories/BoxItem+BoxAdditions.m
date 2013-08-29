@@ -5,9 +5,12 @@
 //  Created on 6/4/13.
 //  Copyright (c) 2013 Box. All rights reserved.
 //
+//  NOTE: this file is a mirror of BoxCocoaSDK/Categories/BoxItem+BoxCocoaAdditions.m. Changes made here should be reflected there.
+//
 
 #import "BoxItem+BoxAdditions.h"
 #import "UIImage+BoxAdditions.h"
+#import "BoxFolder.h"
 
 @implementation BoxItem (BoxAdditions)
 
