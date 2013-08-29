@@ -10,6 +10,12 @@
 		AF153B1317C346D6008D636C /* NSJSONSerialization+BoxAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AF153B1117C346D6008D636C /* NSJSONSerialization+BoxAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF153B1417C346D6008D636C /* NSJSONSerialization+BoxAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AF153B1217C346D6008D636C /* NSJSONSerialization+BoxAdditions.m */; };
 		AF153B1717C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF153B1617C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.m */; };
+		AF6534B217CF27DB00C27DFD /* NSJSONSerialization+BoxAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AF153B1217C346D6008D636C /* NSJSONSerialization+BoxAdditions.m */; };
+		AF6534B317CF27E200C27DFD /* NSJSONSerialization+BoxAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AF153B1117C346D6008D636C /* NSJSONSerialization+BoxAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF6534B417CF27EE00C27DFD /* BoxModelComparators.h in Headers */ = {isa = PBXBuildFile; fileRef = AF6E06A617AE66AF0039F17D /* BoxModelComparators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF6534B517CF280000C27DFD /* BoxModelComparators.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E06A717AE66AF0039F17D /* BoxModelComparators.m */; };
+		AF6534B617CF281600C27DFD /* NSJSONSerialization+BoxAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF153B1617C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.m */; };
+		AF6534B717CF281600C27DFD /* BoxModelComparatorsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E06AB17AE6C240039F17D /* BoxModelComparatorsTest.m */; };
 		AF6E06A817AE66AF0039F17D /* BoxModelComparators.h in Headers */ = {isa = PBXBuildFile; fileRef = AF6E06A617AE66AF0039F17D /* BoxModelComparators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF6E06A917AE66AF0039F17D /* BoxModelComparators.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E06A717AE66AF0039F17D /* BoxModelComparators.m */; };
 		AF6E06AC17AE6C240039F17D /* BoxModelComparatorsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E06AB17AE6C240039F17D /* BoxModelComparatorsTest.m */; };
@@ -1237,6 +1243,8 @@
 				F0E5E35D17A78D9100153646 /* BoxCocoaSDK.h in Headers */,
 				F0E5E33617A78C9B00153646 /* BoxItem+BoxCocoaAdditions.h in Headers */,
 				F0E5E33817A78C9B00153646 /* NSImage+BoxAdditions.h in Headers */,
+				AF6534B317CF27E200C27DFD /* NSJSONSerialization+BoxAdditions.h in Headers */,
+				AF6534B417CF27EE00C27DFD /* BoxModelComparators.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1584,6 +1592,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF6534B517CF280000C27DFD /* BoxModelComparators.m in Sources */,
+				AF6534B217CF27DB00C27DFD /* NSJSONSerialization+BoxAdditions.m in Sources */,
 				F0E5E2F717A78AEF00153646 /* BoxCocoaSDK.m in Sources */,
 				F0E5E33117A78C6800153646 /* BoxSDKConstants.m in Sources */,
 				F0E5E33717A78C9B00153646 /* BoxItem+BoxCocoaAdditions.m in Sources */,
@@ -1626,6 +1636,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF6534B617CF281600C27DFD /* NSJSONSerialization+BoxAdditionsTests.m in Sources */,
+				AF6534B717CF281600C27DFD /* BoxModelComparatorsTest.m in Sources */,
 				F05F80FD17B40850001182FB /* BoxFoldersResourceManagerTests.m in Sources */,
 				F0E5E30B17A78AEF00153646 /* BoxCocoaSDKTests.m in Sources */,
 				F042767217A8839600EB3419 /* BoxSDKTestsHelpers.m in Sources */,
