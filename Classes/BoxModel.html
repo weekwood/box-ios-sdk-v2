@@ -4,6 +4,7 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>BoxModel Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.1 (build 840)" />
@@ -11,7 +12,7 @@
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">BoxSDK </a></h1>
+				<h1><a id="libraryTitle" href="../index.html">BoxSDK and BoxCocoaSDK </a></h1>
 				<a id="developerHome" href="../index.html">Box</a>
 			</div>
 			
@@ -54,6 +55,8 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
+	<option value="//api/name/compare:usingComparator:">&nbsp;&nbsp;&nbsp;&nbsp;- compare:usingComparator:</option>
+	
 	<option value="//api/name/dateWithISO8601String:">&nbsp;&nbsp;&nbsp;&nbsp;- dateWithISO8601String:</option>
 	
 	<option value="//api/name/initWithResponseJSON:mini:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithResponseJSON:mini:</option>
@@ -80,6 +83,10 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initialization">Initialization</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Decode to native types">Decode to native types</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Comparison">Comparison</a></span></li>
+	
 </ul></li>
 
 
@@ -103,6 +110,8 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/compare:usingComparator:">compare:usingComparator:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dateWithISO8601String:">dateWithISO8601String:</a></span></li>
 	
@@ -237,11 +246,35 @@ not be unique across model types.</p></span>
 	</span>
 	
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Decode to native types" name="task_Decode to native types"></a>
+						<h3 class="subsubtitle task-title">Decode to native types</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/dateWithISO8601String:">&ndash;&nbsp;dateWithISO8601String:</a></code>
 		<span class="tooltip"><p>Convert an ISO 8601 date string to a native <code>NSDate</code>. ISO 8601 strings are
 the Box API&rsquo;s on-the-wire representation for dates</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Comparison" name="task_Comparison"></a>
+						<h3 class="subsubtitle task-title">Comparison</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/compare:usingComparator:">&ndash;&nbsp;compare:usingComparator:</a></code>
+		<span class="tooltip"><p>Compare this model to another model object using the supplied comparator.
+Several comparators are provided in <a href="../Classes/BoxModelComparators.html">BoxModelComparators</a></p></span>
 	</span>
 	
 	
@@ -437,6 +470,69 @@ not be unique across model types.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/compare:usingComparator:" title="compare:usingComparator:"></a>
+	<h3 class="subsubtitle method-title">compare:usingComparator:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Compare this model to another model object using the supplied comparator.
+Several comparators are provided in <a href="../Classes/BoxModelComparators.html">BoxModelComparators</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSComparisonResult)compare:(BoxModel *)<em>model</em> usingComparator:(NSComparator)<em>comparator</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>model</em></dt>
+			<dd><p>Model object to compare to this one.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>comparator</em></dt>
+			<dd><p>Comparator to use for the comparison.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>NSComparisonResult</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Compare this model to another model object using the supplied comparator.
+Several comparators are provided in <a href="../Classes/BoxModelComparators.html">BoxModelComparators</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxModel.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/dateWithISO8601String:" title="dateWithISO8601String:"></a>
 	<h3 class="subsubtitle method-title">dateWithISO8601String:</h3>
 	
@@ -569,7 +665,7 @@ in <a href="#//api/name/mini">mini</a> representation.</p></dd>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-07-31)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-08-29)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

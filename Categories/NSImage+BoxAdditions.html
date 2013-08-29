@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>BoxSerialOAuth2Session Class Reference</title>
+		<title>NSImage(BoxAdditions) Category Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">BoxSerialOAuth2Session Class Reference</h1>
+				<h1 class="hideInXcode">NSImage(BoxAdditions) Category Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -40,11 +40,11 @@
 	
 	
 	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/imageFromBoxSDKResourcesBundleWithName:">&nbsp;&nbsp;&nbsp;&nbsp;+ imageFromBoxSDKResourcesBundleWithName:</option>
 	
 	
-	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/performRefreshTokenGrant:">&nbsp;&nbsp;&nbsp;&nbsp;- performRefreshTokenGrant:</option>
 	
 	
 	
@@ -70,20 +70,20 @@
 
 
 
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performRefreshTokenGrant:">performRefreshTokenGrant:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageFromBoxSDKResourcesBundleWithName:">imageFromBoxSDKResourcesBundleWithName:</a></span></li>
 	
 </ul></li>
+
+
 
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="BoxSerialOAuth2Session Class Reference" name="top"></a>
+				<a title="NSImage(BoxAdditions) Category Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -92,18 +92,15 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">BoxSerialOAuth2Session Class Reference</h1>
+						<h1 class="title title-header">NSImage(BoxAdditions) Category Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Inherits from</td>
-	<td class="specification-value"><a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a> : NSObject</td>
-</tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">BoxSerialOAuth2Session.h<br />BoxSerialOAuth2Session.m</td>
+	<td class="specification-value">NSImage+BoxAdditions.h<br />NSImage+BoxAdditions.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -113,15 +110,8 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>BoxSerialOAuth2Session is an implementation of the abstract class <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a>.
-This OAuth2 session assumes there is only one concurrent operation at a time. This means
-that at any given time, only one API call will be in progress.</p>
-
-<p>This class is intended to be used in conjunction with a <a href="../Classes/BoxSerialAPIQueueManager.html">BoxSerialAPIQueueManager</a>. Both classes
-assume one concurrent <a href="../Classes/BoxAPIOperation.html">BoxAPIOperation</a>. This assumption enables the locking strategy with regard
-to OAuth2 token refresh to be simplified. Whenever this class enqueues a <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperation</a>,
-the queue adds it as a dependency to all currently enqueued operations as well as operations enqueued
-before the OAuth2 operation completes.</p>
+						<p>The BoxAdditions category on NSImage provides a method for loading
+images from the <a href="../Classes/BoxCocoaSDK.html">BoxCocoaSDK</a> resources bundle.</p>
 					</div>
 					
 					
@@ -139,8 +129,8 @@ before the OAuth2 operation completes.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/performRefreshTokenGrant:">&ndash;&nbsp;performRefreshTokenGrant:</a></code>
-		<span class="tooltip"><p>This method exchanges a refresh token for a new access token and refresh token.</p></span>
+		<code><a href="#//api/name/imageFromBoxSDKResourcesBundleWithName:">+&nbsp;imageFromBoxSDKResourcesBundleWithName:</a></code>
+		<span class="tooltip"><p>Retrieves assets embedded in the ressource bundle.</p></span>
 	</span>
 	
 	
@@ -155,25 +145,23 @@ before the OAuth2 operation completes.</p>
 					
 					
 					
-					
-					
 					<div class="section section-methods">
-						<a title="Instance Methods" name="instance_methods"></a>
-						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/performRefreshTokenGrant:" title="performRefreshTokenGrant:"></a>
-	<h3 class="subsubtitle method-title">performRefreshTokenGrant:</h3>
+	<a name="//api/name/imageFromBoxSDKResourcesBundleWithName:" title="imageFromBoxSDKResourcesBundleWithName:"></a>
+	<h3 class="subsubtitle method-title">imageFromBoxSDKResourcesBundleWithName:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>This method exchanges a refresh token for a new access token and refresh token.</p>
+		<p>Retrieves assets embedded in the ressource bundle.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)performRefreshTokenGrant:(NSString *)<em>expiredAccessToken</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (NSImage *)imageFromBoxSDKResourcesBundleWithName:(NSString *)<em>string</em></code></div>
 
     
 	
@@ -181,8 +169,8 @@ before the OAuth2 operation completes.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>expiredAccessToken</em></dt>
-			<dd><p>The access token that expired.</p></dd>
+			<dt><em>string</em></dt>
+			<dd><p>Image name.</p></dd>
 		</dl>
 		
 	</div>
@@ -195,15 +183,7 @@ before the OAuth2 operation completes.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>This method exchanges a refresh token for a new access token and refresh token.</p>
-
-<p>This method may be called automatically by the SDK framework upon a failed API call.</p>
-
-<p>This method should send the <code>BoxOAuth2SessionDidRefreshTokensNotification</code> notification upon successfully
-exchanging a refresh token for a new access token and refresh token.</p>
-
-<p>This method should send the <code>BoxOAuth2SessionDidReceiveRefreshErrorNotification</code> notification if a refresh
-token cannot be exchanged for a new set of tokens (for example if it has been revoked or is expired)</p>
+		<p>Retrieves assets embedded in the ressource bundle.</p>
 	</div>
 	
 	
@@ -214,13 +194,15 @@ token cannot be exchanged for a new set of tokens (for example if it has been re
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxOAuth2Session.h</code><br />
+		<code class="declared-in-ref">NSImage+BoxAdditions.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 					</div>
+					
+					
 					
 					
 				</div>
