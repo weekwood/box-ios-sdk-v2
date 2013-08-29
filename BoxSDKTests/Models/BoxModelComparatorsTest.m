@@ -13,6 +13,7 @@
 #import "BoxFile.h"
 #import "BoxFolder.h"
 #import "BoxWebLink.h"
+#import "BoxSDKConstants.h"
 
 @implementation BoxModelComparatorsTest
 
