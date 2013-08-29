@@ -58,7 +58,6 @@ extern NSString *const BoxAPICollectionKeyTotalCount;
 
 // API object keys
 extern NSString *const BoxAPIObjectKeyID;
-extern NSString *const BoxAPIObjectKeyName;
 extern NSString *const BoxAPIObjectKeyType;
 extern NSString *const BoxAPIObjectKeySequenceID;
 extern NSString *const BoxAPIObjectKeyETag;

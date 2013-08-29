@@ -56,11 +56,11 @@ NSString *const BoxAPICollectionKeyTotalCount = @"total_count";
 
 // API object keys
 NSString *const BoxAPIObjectKeyID = @"id";
-NSString *const BoxAPIObjectKeyName = @"name";
 NSString *const BoxAPIObjectKeyType = @"type";
 NSString *const BoxAPIObjectKeySequenceID = @"sequence_id";
 NSString *const BoxAPIObjectKeyETag = @"etag";
 NSString *const BoxAPIObjectKeySHA1 = @"sha1";
+NSString *const BoxAPIObjectKeyName = @"name";
 NSString *const BoxAPIObjectKeyCreatedAt = @"created_at";
 NSString *const BoxAPIObjectKeyModifiedAt = @"modified_at";
 NSString *const BoxAPIObjectKeyContentCreatedAt = @"content_created_at";
