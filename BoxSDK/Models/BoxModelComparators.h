@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * BoxModelComparators defines several comparators for comparing BoxModel, BoxItem, and
+ * BoxFile objects.
+ *
+ * Comparators are lazily created and each comparator block is only created once.
+ *
+ * Comparators are exposed as class methods. To add more comparators, you can either
+ * extend this class or define a category.
+ */
 @interface BoxModelComparators : NSObject
 
 #pragma mark - Comparators
