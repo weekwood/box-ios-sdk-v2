@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Box Inc. All rights reserved.
 //
 
-#import "BoxFolderPickerHelper.h"
-#import "BoxSDK.h"
-#import "BoxLog.h"
-#import "BoxItem+BoxAdditions.h"
+#import <BoxSDK/BoxFolderPickerHelper.h>
+#import <BoxSDK/BoxSDK.h>
+#import <BoxSDK/BoxLog.h>
+#import <BoxSDK/BoxItem+BoxAdditions.h>
 
 #define B0X_FAILED_OPERATION_MODEL (@"failedOperationModel")
 #define B0X_FAILED_OPERATION_REFRESHED_BLOCK (@"failedOperationRefreshedBlock")
@@ -19,8 +19,7 @@
 
 @interface BoxFolderPickerHelper () 
 
-@property (nonatomic, readwrite, strong) NSMutableDictionary *datesStrings;
-@property (nonatomic, readwrite, strong) NSDateFormatter *updateDateFormatter;
+@property (nonatomic, readwrite, strong) NSMutableDictionary *datesStringsCache;
 @property (nonatomic, readwrite, strong) NSMutableDictionary *currentOperations;
 
 // Dictionnary only used when the user does not want to store thumbnails on the hard drive, in order no to request several times a thumbnail.
@@ -33,8 +32,7 @@
 
 @synthesize SDK = _SDK;
 
-@synthesize datesStrings = _datesStrings;
-@synthesize updateDateFormatter = _updateDateFormatter;
+@synthesize datesStringsCache = _datesStringsCache;
 @synthesize currentOperations = _currentOperations;
 
 @synthesize inMemoryCache = _inMemoryCache;
@@ -42,23 +40,14 @@
 
 - (id)initWithSDK:(BoxSDK *)SDK
 {
-    static dispatch_once_t pred;
-    static NSDateFormatter *dateFormatter;
-
     self = [super init];
     if (self != nil)
     {
         _SDK = SDK;
-        _datesStrings = [NSMutableDictionary dictionary];
+        _datesStringsCache = [NSMutableDictionary dictionary];
         _currentOperations = [NSMutableDictionary dictionary];
         _failedOperationsArguments = [NSMutableArray array];
         _inMemoryCache = [NSMutableDictionary dictionary];
-
-        dispatch_once(&pred, ^{
-            dateFormatter = [[NSDateFormatter alloc] init];
-            dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
-        });
-        _updateDateFormatter = dateFormatter;
     }
 
     return self;
@@ -70,14 +59,16 @@
 - (NSString *)dateStringForItem:(BoxItem *)item
 {
     // Caching the dates string to avoid performance drop while formatting dates.
-    NSString *tmp = [self.datesStrings objectForKey:item.modelID];
-    if (!tmp)
+    NSString *dateString = [self.datesStringsCache objectForKey:item.modelID];
+    if (dateString == nil)
     {
-        tmp = [self.updateDateFormatter stringFromDate:item.modifiedAt];
-        [self.datesStrings setObject:tmp forKey:item.modelID];
+        dateString = [NSDateFormatter localizedStringFromDate:item.modifiedAt
+                                                    dateStyle:NSDateFormatterShortStyle
+                                                    timeStyle:NSDateFormatterShortStyle];
+        [self.datesStringsCache setObject:dateString forKey:item.modelID];
     }
     
-    return tmp;    
+    return dateString;    
 }
 
 - (BOOL)shouldDiplayThumbnailForItem:(BoxItem *)item
