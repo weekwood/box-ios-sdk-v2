@@ -46,7 +46,7 @@ long long const BOX_TERABYTE = BOX_GIGABYTE * 1024;
     }
 	else
 	{
-		result_str = @"Empty";
+		result_str = NSLocalizedString(@"Empty", @"File size 0 bytes");
 	}
     
     return result_str;
