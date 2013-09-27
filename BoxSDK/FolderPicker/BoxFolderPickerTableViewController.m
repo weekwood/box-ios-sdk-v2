@@ -8,10 +8,10 @@
 
 #define kCellHeight 58.0
 
-#import "BoxFolderPickerTableViewController.h"
-#import "BoxSDK.h"
-#import "BoxOAuth2Session.h"
-#import "BoxFolderPickerCell.h"
+#import <BoxSDK/BoxFolderPickerTableViewController.h>
+#import <BoxSDK/BoxSDK.h>
+#import <BoxSDK/BoxOAuth2Session.h>
+#import <BoxSDK/BoxFolderPickerCell.h>
 
 
 @implementation BoxFolderPickerTableViewController
@@ -100,6 +100,7 @@
         
         if (![self.delegate fileSelectionEnabled] && ![item isKindOfClass:[BoxFolder class]]) {
             cell.enabled = NO;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         else {
             cell.enabled = YES;

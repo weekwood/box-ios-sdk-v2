@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
-#import "UIImage+BoxAdditions.h"
-#import "NSString+BoxAdditions.h"
+#import <BoxSDK/UIImage+BoxAdditions.h>
+#import <BoxSDK/NSString+BoxAdditions.h>
 
-#import "BoxFolderPickerCell.h"
-#import "BoxItem.h"
-#import "BoxFolder.h"
-#import "BoxFolderPickerHelper.h"
-#import "BoxSDK.h"
+#import <BoxSDK/BoxFolderPickerCell.h>
+#import <BoxSDK/BoxItem.h>
+#import <BoxSDK/BoxFolder.h>
+#import <BoxSDK/BoxFolderPickerHelper.h>
+#import <BoxSDK/BoxSDK.h>
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -81,6 +81,18 @@
     r.origin.y = (kCellHeight / 2) - (kImageViewSide / 2) - 1;
     r.origin.x = kImageViewOffsetX;
     return r;
+}
+
+- (void)setEnabled:(BOOL)enabled
+{
+    if (enabled != _enabled)
+    {
+        _enabled = enabled;
+        CGFloat alpha = _enabled ? 1.0 : kDisabledAlpha;
+        self.textLabel.alpha = alpha;
+        self.detailTextLabel.alpha = alpha;
+        self.imageView.alpha = alpha;
+    }
 }
 
 - (void)renderCell

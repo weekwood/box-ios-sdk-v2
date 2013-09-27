@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
-#import "BoxFolderPickerNavigationController.h"
+#import <BoxSDK/BoxFolderPickerNavigationController.h>
 
 @implementation BoxFolderPickerNavigationController
 
