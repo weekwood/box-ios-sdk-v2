@@ -8,10 +8,10 @@
 
 #define kCellHeight 58.0
 
-#import "BoxFolderPickerTableViewController.h"
-#import "BoxSDK.h"
-#import "BoxOAuth2Session.h"
-#import "BoxFolderPickerCell.h"
+#import <BoxSDK/BoxFolderPickerTableViewController.h>
+#import <BoxSDK/BoxSDK.h>
+#import <BoxSDK/BoxOAuth2Session.h>
+#import <BoxSDK/BoxFolderPickerCell.h>
 
 
 @implementation BoxFolderPickerTableViewController
@@ -41,6 +41,7 @@
     self.tableView.rowHeight = kCellHeight;
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 }
@@ -89,7 +90,7 @@
     {
         cell = [[BoxFolderPickerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.helper = self.helper;
     
     if (indexPath.row < [self.delegate currentNumberOfItems])
@@ -99,6 +100,7 @@
         
         if (![self.delegate fileSelectionEnabled] && ![item isKindOfClass:[BoxFolder class]]) {
             cell.enabled = NO;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         else {
             cell.enabled = YES;
