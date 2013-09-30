@@ -230,20 +230,27 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
         boxAPIOperationNewtorkRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(globalAPIOperationNetworkThreadEntryPoint:) object:nil];
+        boxAPIOperationNewtorkRequestThread.name = @"Box API Operation Thread";
         [boxAPIOperationNewtorkRequestThread start];
+        BOXLog(@"%@ started", boxAPIOperationNewtorkRequestThread);
     });
     return boxAPIOperationNewtorkRequestThread;
 }
 
 + (void)globalAPIOperationNetworkThreadEntryPoint:(id)sender
 {
-    [NSThread currentThread].name = @"Box API Operation Thread";
-    BOXLog(@"%@ started", [NSThread currentThread]);
-
     // Run this thread forever
     while (YES)
     {
-        [[NSRunLoop currentRunLoop] run];
+        // Create an autorelease pool around each iteration of the runloop
+        // API call completion blocks are run on this runloop which may
+        // create autoreleased objects.
+        //
+        // See Apple documentation on using autorelease pool blocks
+        // https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmAutoreleasePools.html#//apple_ref/doc/uid/20000047-CJBFBEDI
+        @autoreleasepool {
+            [[NSRunLoop currentRunLoop] run];
+        }
     }
 }
 
