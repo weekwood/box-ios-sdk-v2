@@ -58,7 +58,7 @@
                 // requests do not depend on each other
                 if (![enqueuedOperation isKindOfClass:[BoxAPIOAuth2ToJSONOperation class]])
                 {
-                    [enqueuedOperation addDependency:operation];
+                    [self addDependency:operation toOperation:enqueuedOperation];
                 }
             }
         }
@@ -70,7 +70,8 @@
             // successfully.
             for (NSOperation *pendingOAuth2Operation in self.enqueuedOAuth2Operations)
             {
-                [operation addDependency:pendingOAuth2Operation];
+                [self addDependency:pendingOAuth2Operation toOperation:operation];
+
             }
         }
 

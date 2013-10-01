@@ -272,7 +272,9 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 
 - (void)start
 {
-    [self performSelector:@selector(executeOperation) onThread:[[self class] globalAPIOperationNetworkThread] withObject:nil waitUntilDone:NO];
+    [[BoxAPIOperation APIOperationGlobalLock] lock];
+    [self performSelector:@selector(executeOperation) onThread:[[self class] globalAPIOperationNetworkThread] withObject:nil waitUntilDone:YES];
+    [[BoxAPIOperation APIOperationGlobalLock] unlock];
 }
 
 - (void)executeOperation
@@ -421,6 +423,19 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
     BOXLog(@"BoxAPIOperation %@ did finsh loading", self);
     [self processResponseData:self.responseData];
     [self finish];
+}
+
+#pragma mark - Lock
++ (NSRecursiveLock *)APIOperationGlobalLock
+{
+    static NSRecursiveLock *boxAPIOperationLock = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        boxAPIOperationLock = [[NSRecursiveLock alloc] init];
+        boxAPIOperationLock.name = @"Box API Operation Lock";
+    });
+
+    return boxAPIOperationLock;
 }
 
 @end

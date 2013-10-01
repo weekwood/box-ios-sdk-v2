@@ -80,4 +80,26 @@
     }
 }
 
+- (BOOL)addDependency:(NSOperation *)dependency toOperation:(NSOperation *)operation
+{
+    BOOL dependencyAdded = NO;
+
+    // acquire the global API Operation lock before adding dependencies to
+    // ensure operation cannot be started before adding dependency.
+    [[BoxAPIOperation APIOperationGlobalLock] lock];
+
+    // operation may have started before acquiring the lock. Now that we have the lock,
+    // no other operations can start. Only add the dependency if operation has not
+    // started executing.
+    if (!operation.isExecuting)
+    {
+        [operation addDependency:dependency];
+        dependencyAdded = YES;
+    }
+
+    [[BoxAPIOperation APIOperationGlobalLock] unlock];
+
+    return dependencyAdded;
+}
+
 @end

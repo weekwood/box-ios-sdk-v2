@@ -1,5 +1,5 @@
 //
-//  BoxAPIOAuth2Operation.h
+//  BoxAPIOAuth2ToJSONOperation.h
 //  BoxSDK
 //
 //  Created on 2/27/13.
