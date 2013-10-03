@@ -69,4 +69,16 @@
  */
 - (BOOL)enqueueOperation:(BoxAPIOperation *)operation;
 
+/**
+ * Add an operation as a dependency to another operation. This method should acquire
+ * [BoxAPIOperation APIOperationGlobalLock] and ensure operation is not executing before
+ * adding the dependency.
+ *
+ * @param dependency The operation to add as a dependency.
+ * @param operation The operation to add the dependency to.
+ *
+ * @return YES if dependency was added, NO if the dependency was not added.
+ */
+- (BOOL)addDependency:(NSOperation *)dependency toOperation:(NSOperation *)operation;
+
 @end

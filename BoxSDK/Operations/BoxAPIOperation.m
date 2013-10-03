@@ -272,7 +272,16 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 
 - (void)start
 {
+    [[BoxAPIOperation APIOperationGlobalLock] lock];
+
+    // Set state = executing once we have the lock
+    // BoxAPIQueueManagers check to ensure that operations are not executing when
+    // they grab the lock and are adding dependencies.
+    self.state = BoxAPIOperationStateExecuting;
+
     [self performSelector:@selector(executeOperation) onThread:[[self class] globalAPIOperationNetworkThread] withObject:nil waitUntilDone:NO];
+
+    [[BoxAPIOperation APIOperationGlobalLock] unlock];
 }
 
 - (void)executeOperation
@@ -280,8 +289,6 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
     BOXLog(@"BoxAPIOperation %@ was started", self);
     if ([self isReady] && ![self isCancelled])
     {
-        self.state = BoxAPIOperationStateExecuting;
-
         @synchronized(self.OAuth2Session)
         {
             [self prepareAPIRequest];
@@ -304,7 +311,6 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
     else if ([self isReady] && [self isCancelled])
     {
         BOXLog(@"BoxAPIOperation %@ was cancelled -- short circuiting and not making API call", self);
-        self.state = BoxAPIOperationStateExecuting;
         [self finish];
     }
     else
@@ -421,6 +427,19 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
     BOXLog(@"BoxAPIOperation %@ did finsh loading", self);
     [self processResponseData:self.responseData];
     [self finish];
+}
+
+#pragma mark - Lock
++ (NSRecursiveLock *)APIOperationGlobalLock
+{
+    static NSRecursiveLock *boxAPIOperationLock = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        boxAPIOperationLock = [[NSRecursiveLock alloc] init];
+        boxAPIOperationLock.name = @"Box API Operation Lock";
+    });
+
+    return boxAPIOperationLock;
 }
 
 @end

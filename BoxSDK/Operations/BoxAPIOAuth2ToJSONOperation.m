@@ -1,5 +1,5 @@
 //
-//  BoxAPIOAuth2Operation.m
+//  BoxAPIOAuth2ToJSONOperation.m
 //  BoxSDK
 //
 //  Created on 2/27/13.

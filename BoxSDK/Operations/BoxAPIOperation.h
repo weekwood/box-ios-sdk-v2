@@ -247,4 +247,18 @@ typedef void (^BoxAPIDataFailureBlock)(NSURLRequest *request, NSHTTPURLResponse 
  */
 - (void)performCompletionCallback;
 
+#pragma mark - Lock
+/** @name Lock */
+
+/**
+ * A global lock to use when enqueuing operations and adding dependencies. This lock ensures that
+ * all operation starts and dependency additions are serialized.
+ *
+ * BoxAPIQueueManagers depend on this serialization to ensure they do not add a BoxAPIOAuth2ToJSONOperation
+ * as a dependency to an already-executing or soon-to-be-executing operation.
+ *
+ * @return A global lock for API operations to use.
+ */
++ (NSRecursiveLock *)APIOperationGlobalLock;
+
 @end
