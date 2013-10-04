@@ -274,12 +274,19 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 {
     [[BoxAPIOperation APIOperationGlobalLock] lock];
 
-    // Set state = executing once we have the lock
-    // BoxAPIQueueManagers check to ensure that operations are not executing when
-    // they grab the lock and are adding dependencies.
-    self.state = BoxAPIOperationStateExecuting;
+    if ([self isReady])
+    {
+        // Set state = executing once we have the lock
+        // BoxAPIQueueManagers check to ensure that operations are not executing when
+        // they grab the lock and are adding dependencies.
+        self.state = BoxAPIOperationStateExecuting;
 
-    [self performSelector:@selector(executeOperation) onThread:[[self class] globalAPIOperationNetworkThread] withObject:nil waitUntilDone:NO];
+        [self performSelector:@selector(executeOperation) onThread:[[self class] globalAPIOperationNetworkThread] withObject:nil waitUntilDone:NO];
+    }
+    else
+    {
+        BOXAssertFail(@"Operation was not ready but start was called");
+    }
 
     [[BoxAPIOperation APIOperationGlobalLock] unlock];
 }
@@ -287,7 +294,7 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
 - (void)executeOperation
 {
     BOXLog(@"BoxAPIOperation %@ was started", self);
-    if ([self isReady] && ![self isCancelled])
+    if (![self isCancelled])
     {
         @synchronized(self.OAuth2Session)
         {
@@ -308,14 +315,10 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
             [self finish];
         }
     }
-    else if ([self isReady] && [self isCancelled])
+    else
     {
         BOXLog(@"BoxAPIOperation %@ was cancelled -- short circuiting and not making API call", self);
         [self finish];
-    }
-    else
-    {
-        BOXAssertFail(@"Operation was not ready but start was called");
     }
 }
 
