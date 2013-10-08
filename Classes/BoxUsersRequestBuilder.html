@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>BoxUser Class Reference</title>
+		<title>BoxUsersRequestBuilder Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">BoxUser Class Reference</h1>
+				<h1 class="hideInXcode">BoxUsersRequestBuilder Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -41,17 +41,7 @@
 	
 	<option value="//api/name/address">&nbsp;&nbsp;&nbsp;&nbsp;address</option>
 	
-	<option value="//api/name/avatarURL">&nbsp;&nbsp;&nbsp;&nbsp;avatarURL</option>
-	
 	<option value="//api/name/canSeeManagedUsers">&nbsp;&nbsp;&nbsp;&nbsp;canSeeManagedUsers</option>
-	
-	<option value="//api/name/createdAt">&nbsp;&nbsp;&nbsp;&nbsp;createdAt</option>
-	
-	<option value="//api/name/deactivatedReason">&nbsp;&nbsp;&nbsp;&nbsp;deactivatedReason</option>
-	
-	<option value="//api/name/hasCustomAvatar">&nbsp;&nbsp;&nbsp;&nbsp;hasCustomAvatar</option>
-	
-	<option value="//api/name/isDeactivated">&nbsp;&nbsp;&nbsp;&nbsp;isDeactivated</option>
 	
 	<option value="//api/name/isExemptFromDeviceLimits">&nbsp;&nbsp;&nbsp;&nbsp;isExemptFromDeviceLimits</option>
 	
@@ -67,10 +57,6 @@
 	
 	<option value="//api/name/login">&nbsp;&nbsp;&nbsp;&nbsp;login</option>
 	
-	<option value="//api/name/maxUploadSize">&nbsp;&nbsp;&nbsp;&nbsp;maxUploadSize</option>
-	
-	<option value="//api/name/modifiedAt">&nbsp;&nbsp;&nbsp;&nbsp;modifiedAt</option>
-	
 	<option value="//api/name/name">&nbsp;&nbsp;&nbsp;&nbsp;name</option>
 	
 	<option value="//api/name/phone">&nbsp;&nbsp;&nbsp;&nbsp;phone</option>
@@ -79,8 +65,6 @@
 	
 	<option value="//api/name/spaceAmount">&nbsp;&nbsp;&nbsp;&nbsp;spaceAmount</option>
 	
-	<option value="//api/name/spaceUsed">&nbsp;&nbsp;&nbsp;&nbsp;spaceUsed</option>
-	
 	<option value="//api/name/status">&nbsp;&nbsp;&nbsp;&nbsp;status</option>
 	
 	<option value="//api/name/trackingCodes">&nbsp;&nbsp;&nbsp;&nbsp;trackingCodes</option>
@@ -88,6 +72,13 @@
 	
 	
 	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/bodyParameters">&nbsp;&nbsp;&nbsp;&nbsp;- bodyParameters</option>
+	
+	<option value="//api/name/initWithQueryStringParameters:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithQueryStringParameters:</option>
 	
 	
 	
@@ -105,6 +96,8 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Settable fields">Settable fields</a></span></li>
+	
 </ul></li>
 
 
@@ -115,17 +108,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/address">address</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/avatarURL">avatarURL</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canSeeManagedUsers">canSeeManagedUsers</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createdAt">createdAt</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deactivatedReason">deactivatedReason</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasCustomAvatar">hasCustomAvatar</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isDeactivated">isDeactivated</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isExemptFromDeviceLimits">isExemptFromDeviceLimits</a></span></li>
 	
@@ -141,10 +124,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/login">login</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/maxUploadSize">maxUploadSize</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/modifiedAt">modifiedAt</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/name">name</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/phone">phone</a></span></li>
@@ -152,8 +131,6 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/role">role</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/spaceAmount">spaceAmount</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/spaceUsed">spaceUsed</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/status">status</a></span></li>
 	
@@ -165,12 +142,20 @@
 
 
 
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bodyParameters">bodyParameters</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithQueryStringParameters:">initWithQueryStringParameters:</a></span></li>
+	
+</ul></li>
+
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="BoxUser Class Reference" name="top"></a>
+				<a title="BoxUsersRequestBuilder Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -179,7 +164,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">BoxUser Class Reference</h1>
+						<h1 class="title title-header">BoxUsersRequestBuilder Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -187,10 +172,10 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value"><a href="../Classes/BoxModel.html">BoxModel</a> : NSObject</td>
+	<td class="specification-value"><a href="../Classes/BoxAPIRequestBuilder.html">BoxAPIRequestBuilder</a> : NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">BoxUser.h<br />BoxUser.m</td>
+	<td class="specification-value">BoxUsersRequestBuilder.h<br />BoxUsersRequestBuilder.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -200,7 +185,11 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>BoxUser represents users on Box.</p>
+						<p>BoxUsersRequestBuilder is the class for building API requests relating
+to <a href="../Classes/BoxUser.html">BoxUser</a>.</p>
+
+<p>This class allows constructing of the HTTP body for <code>POST</code> and &lsquo;PUT` requests as well
+as setting query string parameters on the request.</p>
 					</div>
 					
 					
@@ -212,170 +201,144 @@
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						
-						
+						<a title="Settable fields" name="task_Settable fields"></a>
+						<h3 class="subsubtitle task-title">Settable fields</h3>
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
-		<span class="tooltip"><p>An user&rsquo;s name.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/login">&nbsp;&nbsp;login</a></code>
-		<span class="tooltip"><p>An user&rsquo;s login.</p></span>
+		<span class="tooltip"><p>The login of the user.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/createdAt">&nbsp;&nbsp;createdAt</a></code>
-		<span class="tooltip"><p>The date this user was first created on Box.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/modifiedAt">&nbsp;&nbsp;modifiedAt</a></code>
-		<span class="tooltip"><p>The date this item was last updated on Box.</p></span>
+		<code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
+		<span class="tooltip"><p>The name of the user.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/role">&nbsp;&nbsp;role</a></code>
-		<span class="tooltip"><p>The user&rsquo;s role.</p></span>
+		<span class="tooltip"><p>The role of the user.
+Can be <code>coadmin</code> or <code>user</code>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/language">&nbsp;&nbsp;language</a></code>
-		<span class="tooltip"><p>The user&rsquo;s language.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/spaceAmount">&nbsp;&nbsp;spaceAmount</a></code>
-		<span class="tooltip"><p>The user&rsquo;s space amount.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/spaceUsed">&nbsp;&nbsp;spaceUsed</a></code>
-		<span class="tooltip"><p>The amount of space the user has consumed.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/maxUploadSize">&nbsp;&nbsp;maxUploadSize</a></code>
-		<span class="tooltip"><p>The largest file size a user can upload at once.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/trackingCodes">&nbsp;&nbsp;trackingCodes</a></code>
-		<span class="tooltip"><p>The tracking codes set for this user.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/canSeeManagedUsers">&nbsp;&nbsp;canSeeManagedUsers</a></code>
-		<span class="tooltip"><p>Whether this user can see other users within his enterprise.</p></span>
+		<span class="tooltip"><p>The language that will be displayed for localization for this user.
+The language to pass in will follow the <a href="http://en.wikipedia.org/wiki/ISO_639-1">http://en.wikipedia.org/wiki/ISO_639-1</a>
+standard.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/isSyncEnabled">&nbsp;&nbsp;isSyncEnabled</a></code>
-		<span class="tooltip"><p>Whether sync is enabled for this user.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/status">&nbsp;&nbsp;status</a></code>
-		<span class="tooltip"><p>The status of this user. It can either be active or inactive.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/jobTitle">&nbsp;&nbsp;jobTitle</a></code>
-		<span class="tooltip"><p>The user&rsquo;s job title.</p></span>
+		<span class="tooltip"><p>A boolean representing whether a user can use Box Sync.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/phone">&nbsp;&nbsp;phone</a></code>
-		<span class="tooltip"><p>The user&rsquo;s phone number.</p></span>
+		<span class="tooltip"><p>The phone number of this user.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/address">&nbsp;&nbsp;address</a></code>
-		<span class="tooltip"><p>The user&rsquo;s <a href="#//api/name/phone">phone</a> number.</p></span>
+		<span class="tooltip"><p>The address of this user.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/avatarURL">&nbsp;&nbsp;avatarURL</a></code>
-		<span class="tooltip"><p>The url to this user&rsquo;s avatar.</p></span>
+		<code><a href="#//api/name/jobTitle">&nbsp;&nbsp;jobTitle</a></code>
+		<span class="tooltip"><p>The job title of this user.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/spaceAmount">&nbsp;&nbsp;spaceAmount</a></code>
+		<span class="tooltip"><p>A number representing the user&rsquo;s total allotted space.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/trackingCodes">&nbsp;&nbsp;trackingCodes</a></code>
+		<span class="tooltip"><p>The tracking code for this user.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/canSeeManagedUsers">&nbsp;&nbsp;canSeeManagedUsers</a></code>
+		<span class="tooltip"><p>A boolean representing whether the user can see other users in his enterprise.
+This only applies for users who have an enterprise account.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/status">&nbsp;&nbsp;status</a></code>
+		<span class="tooltip"><p>A number representing the user&rsquo;s active status.
+May only be <code>active</code> or <code>inactive</code>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/isExemptFromDeviceLimits">&nbsp;&nbsp;isExemptFromDeviceLimits</a></code>
-		<span class="tooltip"><p>Whether this user is exempt from device limits.</p></span>
+		<span class="tooltip"><p>A boolean representing whether the user is exempt from enterprise device limits.
+This only applies for users who have an enterprise account.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/isExemptFromLoginVerification">&nbsp;&nbsp;isExemptFromLoginVerification</a></code>
-		<span class="tooltip"><p>Whether this user is exempt from <a href="#//api/name/login">login</a> verification.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/isDeactivated">&nbsp;&nbsp;isDeactivated</a></code>
-		<span class="tooltip"><p>Whether this user&rsquo;s account has been deactivated.</p></span>
+		<span class="tooltip"><p>A boolean representing whether the user is exempt from two factor authentication.
+This only applies for users who have an enterprise account.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/isPasswordResetRequired">&nbsp;&nbsp;isPasswordResetRequired</a></code>
-		<span class="tooltip"><p>Whether this user&rsquo;s needs to reset his/her password.</p></span>
+		<span class="tooltip"><p>A boolean representing whether the user is required to reset his password.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/deactivatedReason">&nbsp;&nbsp;deactivatedReason</a></code>
-		<span class="tooltip"><p>The reason why the user&rsquo;s account was deactivated.</p></span>
+		<code><a href="#//api/name/initWithQueryStringParameters:">&ndash;&nbsp;initWithQueryStringParameters:</a></code>
+		<span class="tooltip"><p>Designated initializer.</p></span>
 	</span>
-	<span class="task-item-suffix">property</span>
+	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/hasCustomAvatar">&nbsp;&nbsp;hasCustomAvatar</a></code>
-		<span class="tooltip"><p>Whether this user has a custom avatar.</p></span>
+		<code><a href="#//api/name/bodyParameters">&ndash;&nbsp;bodyParameters</a></code>
+		<span class="tooltip"><p>Return an <code>NSDictionary</code> containing all of the properties set on this builder. These properties
+should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.</p></span>
 	</span>
-	<span class="task-item-suffix">property</span>
+	
 	
 </li>
 						</ul>
@@ -397,12 +360,12 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The user&rsquo;s <a href="#//api/name/phone">phone</a> number.</p>
+		<p>The address of this user.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *address</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *address</code></div>
 
     
 	
@@ -414,7 +377,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The user&rsquo;s <a href="#//api/name/phone">phone</a> number.</p>
+		<p>The address of this user.</p>
 	</div>
 	
 	
@@ -425,48 +388,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/avatarURL" title="avatarURL"></a>
-	<h3 class="subsubtitle method-title">avatarURL</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The url to this user&rsquo;s avatar.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSURL *avatarURL</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The url to this user&rsquo;s avatar.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -479,12 +401,13 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Whether this user can see other users within his enterprise.</p>
+		<p>A boolean representing whether the user can see other users in his enterprise.
+This only applies for users who have an enterprise account.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *canSeeManagedUsers</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSNumber *canSeeManagedUsers</code></div>
 
     
 	
@@ -496,7 +419,8 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether this user can see other users within his enterprise.</p>
+		<p>A boolean representing whether the user can see other users in his enterprise.
+This only applies for users who have an enterprise account.</p>
 	</div>
 	
 	
@@ -507,171 +431,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/createdAt" title="createdAt"></a>
-	<h3 class="subsubtitle method-title">createdAt</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The date this user was first created on Box.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSDate *createdAt</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The date this user was first created on Box.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/deactivatedReason" title="deactivatedReason"></a>
-	<h3 class="subsubtitle method-title">deactivatedReason</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The reason why the user&rsquo;s account was deactivated.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *deactivatedReason</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The reason why the user&rsquo;s account was deactivated.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/hasCustomAvatar" title="hasCustomAvatar"></a>
-	<h3 class="subsubtitle method-title">hasCustomAvatar</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Whether this user has a custom avatar.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *hasCustomAvatar</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether this user has a custom avatar.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/isDeactivated" title="isDeactivated"></a>
-	<h3 class="subsubtitle method-title">isDeactivated</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Whether this user&rsquo;s account has been deactivated.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *isDeactivated</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether this user&rsquo;s account has been deactivated.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -684,12 +444,13 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Whether this user is exempt from device limits.</p>
+		<p>A boolean representing whether the user is exempt from enterprise device limits.
+This only applies for users who have an enterprise account.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *isExemptFromDeviceLimits</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSNumber *isExemptFromDeviceLimits</code></div>
 
     
 	
@@ -701,7 +462,8 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether this user is exempt from device limits.</p>
+		<p>A boolean representing whether the user is exempt from enterprise device limits.
+This only applies for users who have an enterprise account.</p>
 	</div>
 	
 	
@@ -712,7 +474,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -725,12 +487,13 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Whether this user is exempt from <a href="#//api/name/login">login</a> verification.</p>
+		<p>A boolean representing whether the user is exempt from two factor authentication.
+This only applies for users who have an enterprise account.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *isExemptFromLoginVerification</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSNumber *isExemptFromLoginVerification</code></div>
 
     
 	
@@ -742,7 +505,8 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether this user is exempt from <a href="#//api/name/login">login</a> verification.</p>
+		<p>A boolean representing whether the user is exempt from two factor authentication.
+This only applies for users who have an enterprise account.</p>
 	</div>
 	
 	
@@ -753,7 +517,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -766,12 +530,12 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Whether this user&rsquo;s needs to reset his/her password.</p>
+		<p>A boolean representing whether the user is required to reset his password.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *isPasswordResetRequired</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSNumber *isPasswordResetRequired</code></div>
 
     
 	
@@ -783,7 +547,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether this user&rsquo;s needs to reset his/her password.</p>
+		<p>A boolean representing whether the user is required to reset his password.</p>
 	</div>
 	
 	
@@ -794,7 +558,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -807,12 +571,12 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Whether sync is enabled for this user.</p>
+		<p>A boolean representing whether a user can use Box Sync.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *isSyncEnabled</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSNumber *isSyncEnabled</code></div>
 
     
 	
@@ -824,7 +588,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether sync is enabled for this user.</p>
+		<p>A boolean representing whether a user can use Box Sync.</p>
 	</div>
 	
 	
@@ -835,7 +599,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -848,12 +612,12 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The user&rsquo;s job title.</p>
+		<p>The job title of this user.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *jobTitle</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *jobTitle</code></div>
 
     
 	
@@ -865,7 +629,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The user&rsquo;s job title.</p>
+		<p>The job title of this user.</p>
 	</div>
 	
 	
@@ -876,7 +640,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -889,12 +653,14 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The user&rsquo;s language.</p>
+		<p>The language that will be displayed for localization for this user.
+The language to pass in will follow the <a href="http://en.wikipedia.org/wiki/ISO_639-1">http://en.wikipedia.org/wiki/ISO_639-1</a>
+standard.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *language</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *language</code></div>
 
     
 	
@@ -906,7 +672,9 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The user&rsquo;s language.</p>
+		<p>The language that will be displayed for localization for this user.
+The language to pass in will follow the <a href="http://en.wikipedia.org/wiki/ISO_639-1">http://en.wikipedia.org/wiki/ISO_639-1</a>
+standard.</p>
 	</div>
 	
 	
@@ -917,7 +685,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -930,12 +698,12 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>An user&rsquo;s login.</p>
+		<p>The login of the user.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *login</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *login</code></div>
 
     
 	
@@ -947,7 +715,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>An user&rsquo;s login.</p>
+		<p>The login of the user.</p>
 	</div>
 	
 	
@@ -958,89 +726,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/maxUploadSize" title="maxUploadSize"></a>
-	<h3 class="subsubtitle method-title">maxUploadSize</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The largest file size a user can upload at once.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *maxUploadSize</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The largest file size a user can upload at once.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/modifiedAt" title="modifiedAt"></a>
-	<h3 class="subsubtitle method-title">modifiedAt</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The date this item was last updated on Box.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSDate *modifiedAt</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The date this item was last updated on Box.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -1053,12 +739,12 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>An user&rsquo;s name.</p>
+		<p>The name of the user.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *name</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *name</code></div>
 
     
 	
@@ -1070,7 +756,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>An user&rsquo;s name.</p>
+		<p>The name of the user.</p>
 	</div>
 	
 	
@@ -1081,7 +767,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -1094,12 +780,12 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The user&rsquo;s phone number.</p>
+		<p>The phone number of this user.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *phone</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *phone</code></div>
 
     
 	
@@ -1111,7 +797,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The user&rsquo;s phone number.</p>
+		<p>The phone number of this user.</p>
 	</div>
 	
 	
@@ -1122,7 +808,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -1135,12 +821,13 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The user&rsquo;s role.</p>
+		<p>The role of the user.
+Can be <code>coadmin</code> or <code>user</code>.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *role</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *role</code></div>
 
     
 	
@@ -1152,7 +839,8 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The user&rsquo;s role.</p>
+		<p>The role of the user.
+Can be <code>coadmin</code> or <code>user</code>.</p>
 	</div>
 	
 	
@@ -1163,7 +851,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -1176,12 +864,12 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The user&rsquo;s space amount.</p>
+		<p>A number representing the user&rsquo;s total allotted space.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *spaceAmount</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSNumber *spaceAmount</code></div>
 
     
 	
@@ -1193,7 +881,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The user&rsquo;s space amount.</p>
+		<p>A number representing the user&rsquo;s total allotted space.</p>
 	</div>
 	
 	
@@ -1204,48 +892,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/spaceUsed" title="spaceUsed"></a>
-	<h3 class="subsubtitle method-title">spaceUsed</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The amount of space the user has consumed.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *spaceUsed</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The amount of space the user has consumed.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -1258,12 +905,13 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The status of this user. It can either be active or inactive.</p>
+		<p>A number representing the user&rsquo;s active status.
+May only be <code>active</code> or <code>inactive</code>.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *status</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *status</code></div>
 
     
 	
@@ -1275,7 +923,8 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The status of this user. It can either be active or inactive.</p>
+		<p>A number representing the user&rsquo;s active status.
+May only be <code>active</code> or <code>inactive</code>.</p>
 	</div>
 	
 	
@@ -1286,7 +935,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -1299,12 +948,12 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The tracking codes set for this user.</p>
+		<p>The tracking code for this user.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSDictionary *trackingCodes</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSDictionary *trackingCodes</code></div>
 
     
 	
@@ -1316,7 +965,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The tracking codes set for this user.</p>
+		<p>The tracking code for this user.</p>
 	</div>
 	
 	
@@ -1327,7 +976,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxUser.h</code><br />
+		<code class="declared-in-ref">BoxUsersRequestBuilder.h</code><br />
 	</div>				
 	
 	
@@ -1338,6 +987,116 @@
 					
 					
 					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/bodyParameters" title="bodyParameters"></a>
+	<h3 class="subsubtitle method-title">bodyParameters</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Return an <code>NSDictionary</code> containing all of the properties set on this builder. These properties
+should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSDictionary *)bodyParameters</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A dictionary containing all properties set on this builder.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Return an <code>NSDictionary</code> containing all of the properties set on this builder. These properties
+should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIRequestBuilder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithQueryStringParameters:" title="initWithQueryStringParameters:"></a>
+	<h3 class="subsubtitle method-title">initWithQueryStringParameters:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Designated initializer.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithQueryStringParameters:(NSDictionary *)<em>queryStringParameters</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>queryStringParameters</em></dt>
+			<dd><p>Key value pairs to include in the query string of the API request.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An initialized BoxAPIRequestBuilder.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Designated initializer.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIRequestBuilder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
 					
 				</div>

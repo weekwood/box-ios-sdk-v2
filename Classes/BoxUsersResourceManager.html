@@ -1,0 +1,715 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>BoxUsersResourceManager Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 858)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">BoxSDK and BoxCocoaSDK </a></h1>
+				<a id="developerHome" href="../index.html">Box</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BoxUsersResourceManager Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/createUserWithRequestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- createUserWithRequestBuilder:success:failure:</option>
+	
+	<option value="//api/name/deleteUserWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- deleteUserWithID:requestBuilder:success:failure:</option>
+	
+	<option value="//api/name/editUserWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- editUserWithID:requestBuilder:success:failure:</option>
+	
+	<option value="//api/name/userInfoWithID:requestBuilder:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- userInfoWithID:requestBuilder:success:failure:</option>
+	
+	<option value="//api/name/userInfos:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;- userInfos:success:failure:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_API calls">API calls</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createUserWithRequestBuilder:success:failure:">createUserWithRequestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteUserWithID:requestBuilder:success:failure:">deleteUserWithID:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/editUserWithID:requestBuilder:success:failure:">editUserWithID:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/userInfoWithID:requestBuilder:success:failure:">userInfoWithID:requestBuilder:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/userInfos:success:failure:">userInfos:success:failure:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="BoxUsersResourceManager Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BoxUsersResourceManager Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value"><a href="../Classes/BoxAPIResourceManager.html">BoxAPIResourceManager</a> : NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">BoxUsersResourceManager.h<br />BoxUsersResourceManager.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>BoxUsersResourceManager allows you to access and manipulate users via the Box API. This class is
+a concrete subclass of <a href="../Classes/BoxAPIResourceManager.html">BoxAPIResourceManager</a>. This class allows you to manipulate <a href="[BoxUser]">BoxUsers</a>
+referred to by their <code>modelID</code>, which is an <code>NSString</code>.</p>
+
+<p>This class enables the following operations:
+(Besides most operations on the user himself, /users/me, all these operations requires the user to be
+an enterprise administrator)</p>
+
+<ul>
+<li><a href="http://developers.box.com/docs/#users-get-the-current-users-information">Get a user&rsquo;s information</a></li>
+<li><a href="http://developers.box.com/docs/#users-get-all-the-users-in-an-enterprise">Get All Users in an Enterprise</a></li>
+<li><a href="http://developers.box.com/docs/#users-create-an-enterprise-user">Create an Enterprise User</a></li>
+<li><a href="http://developers.box.com/docs/#users-update-a-users-information">Update a User’s Information</a></li>
+<li><a href="http://developers.box.com/docs/#users-delete-an-enterprise-user">Delete an Enterprise User</a></li>
+</ul>
+
+
+<h1>Callbacks and typedefs</h1>
+
+<p>This class defines the <code>BoxUserBlock</code> type for successful API calls that return a <a href="../Classes/BoxUser.html">BoxUser</a> object:</p>
+
+<pre><code>typedef void (^BoxUserBlock)(BoxUser *user);</code></pre>
+
+
+<h1>Constants</h1>
+
+<p>This class exposes one additional constant:</p>
+
+<ul>
+<li><code>BoxAPIUserIDMe</code>, for referring to the current user.</li>
+</ul>
+
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="API calls" name="task_API calls"></a>
+						
+<h3 class="subsubtitle task-title">API calls</h3>
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/userInfoWithID:requestBuilder:success:failure:">&ndash;&nbsp;userInfoWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch the current user&rsquo;s information.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/userInfos:success:failure:">&ndash;&nbsp;userInfos:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch all users in the current enterprise.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createUserWithRequestBuilder:success:failure:">&ndash;&nbsp;createUserWithRequestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to create a new user.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/editUserWithID:requestBuilder:success:failure:">&ndash;&nbsp;editUserWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to edit a user&rsquo;s information.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deleteUserWithID:requestBuilder:success:failure:">&ndash;&nbsp;deleteUserWithID:requestBuilder:success:failure:</a></code>
+		<span class="tooltip"><p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to delete an enterprise user.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/createUserWithRequestBuilder:success:failure:" title="createUserWithRequestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">createUserWithRequestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to create a new user.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)createUserWithRequestBuilder:(BoxUsersRequestBuilder *)<em>builder</em> success:(BoxUserBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxUsersRequestBuilder.html">BoxUsersRequestBuilder</a> instance that contains query parameters and body data for the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to create a new user.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#users-create-an-enterprise-user">Create an Enterprise User</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxUsersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deleteUserWithID:requestBuilder:success:failure:" title="deleteUserWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">deleteUserWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to delete an enterprise user.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)deleteUserWithID:(NSString *)<em>userID</em> requestBuilder:(BoxUsersRequestBuilder *)<em>builder</em> success:(BoxSuccessfulDeleteBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>userID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxUser.html">BoxUser</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxUsersRequestBuilder.html">BoxUsersRequestBuilder</a> instance that contains query parameters and body data for the request.
+<strong>Note</strong>: Since this is a <code>DELETE</code> request, the builder&rsquo;s body will be ignored.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to delete an enterprise user.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#users-delete-an-enterprise-user">deleting a user</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxUsersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/editUserWithID:requestBuilder:success:failure:" title="editUserWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">editUserWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to edit a user&rsquo;s information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)editUserWithID:(NSString *)<em>userID</em> requestBuilder:(BoxUsersRequestBuilder *)<em>builder</em> success:(BoxUserBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>userID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxUser.html">BoxUser</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxUsersRequestBuilder.html">BoxUsersRequestBuilder</a> instance that contains query parameters and body data for the request.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to edit a user&rsquo;s information.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#users-update-a-users-information">editing a user&rsquo;s information</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxUsersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/userInfoWithID:requestBuilder:success:failure:" title="userInfoWithID:requestBuilder:success:failure:"></a>
+	<h3 class="subsubtitle method-title">userInfoWithID:requestBuilder:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch the current user&rsquo;s information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)userInfoWithID:(NSString *)<em>userID</em> requestBuilder:(BoxUsersRequestBuilder *)<em>builder</em> success:(BoxUserBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>userID</em></dt>
+			<dd><p>The <code>modelID</code> of a <a href="../Classes/BoxUser.html">BoxUser</a> you wish to fetch information for.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxUsersRequestBuilder.html">BoxUsersRequestBuilder</a> instance that contains query parameters and body data for the request.
+<strong>Note</strong>: Since this is a <code>GET</code> request, the builder&rsquo;s body will be ignored.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch the current user&rsquo;s information.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#users-get-the-current-users-information">getting a user&rsquo;s information</a></p>
+
+<p>Using <code>BoxAPIUserIDMe</code> as userId allows viewing information about the current user.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxUsersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/userInfos:success:failure:" title="userInfos:success:failure:"></a>
+	<h3 class="subsubtitle method-title">userInfos:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch all users in the current enterprise.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BoxAPIJSONOperation *)userInfos:(BoxUsersRequestBuilder *)<em>builder</em> success:(BoxCollectionBlock)<em>successBlock</em> failure:(BoxAPIJSONFailureBlock)<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>builder</em></dt>
+			<dd><p>A <a href="../Classes/BoxUsersRequestBuilder.html">BoxUsersRequestBuilder</a> instance that contains query parameters and body data for the request.
+<strong>Note</strong>: Since this is a <code>GET</code> request, the builder&rsquo;s body will be ignored.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call completes successfully.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>A callback that is triggered if the API call fails to complete successfully, This may include
+A connection failure, or an API related error. Refer to <code>BoxSDKErrors.h</code> for error codes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BoxAPIJSONOperation configured to make the requested API call. This operation is already enqueued on
+<a href="../Classes/BoxAPIResourceManager.html#//api/name/queueManager">self.queueManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create and enqueue a <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to fetch all users in the current enterprise.</p>
+
+<p>See the Box documentation for <a href="http://developers.box.com/docs/#users-get-all-the-users-in-an-enterprise">getting all users' informations in an enterprise</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxUsersResourceManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-10-08)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

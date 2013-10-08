@@ -4,10 +4,9 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>BoxAPIQueueManager Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.1 (build 840)" />
+		<meta name="generator" content="appledoc 2.1 (build 858)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -52,6 +51,8 @@
 	<option value="instance_methods">Instance Methods</option>
 	
 	<option value="//api/name/OAuth2OperationDidComplete:">&nbsp;&nbsp;&nbsp;&nbsp;- OAuth2OperationDidComplete:</option>
+	
+	<option value="//api/name/addDependency:toOperation:">&nbsp;&nbsp;&nbsp;&nbsp;- addDependency:toOperation:</option>
 	
 	<option value="//api/name/enqueueOperation:">&nbsp;&nbsp;&nbsp;&nbsp;- enqueueOperation:</option>
 	
@@ -98,6 +99,8 @@
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/OAuth2OperationDidComplete:">OAuth2OperationDidComplete:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addDependency:toOperation:">addDependency:toOperation:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/enqueueOperation:">enqueueOperation:</a></span></li>
 	
@@ -221,6 +224,15 @@ Subclasses should add these operations as dependencies of other, non-OAuth2 oper
 		<span class="tooltip"><p>Set up this instance as an observer for notifications on operation if thew operation is a
 <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperation</a> instance. Subclasses should enqueue operations received via this
 method on an NSOperationQueue to be executed.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addDependency:toOperation:">&ndash;&nbsp;addDependency:toOperation:</a></code>
+		<span class="tooltip"><p>Add an operation as a dependency to another operation. This method should acquire
+<a href="../Classes/BoxAPIOperation.html#//api/name/APIOperationGlobalLock">[BoxAPIOperation APIOperationGlobalLock]</a> and ensure operation is not executing before
+adding the dependency.</p></span>
 	</span>
 	
 	
@@ -414,6 +426,71 @@ be dependent upon this <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">Box
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/addDependency:toOperation:" title="addDependency:toOperation:"></a>
+	<h3 class="subsubtitle method-title">addDependency:toOperation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Add an operation as a dependency to another operation. This method should acquire
+<a href="../Classes/BoxAPIOperation.html#//api/name/APIOperationGlobalLock">[BoxAPIOperation APIOperationGlobalLock]</a> and ensure operation is not executing before
+adding the dependency.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)addDependency:(NSOperation *)<em>dependency</em> toOperation:(NSOperation *)<em>operation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>dependency</em></dt>
+			<dd><p>The operation to add as a dependency.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>operation</em></dt>
+			<dd><p>The operation to add the dependency to.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>YES if dependency was added, NO if the dependency was not added.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Add an operation as a dependency to another operation. This method should acquire
+<a href="../Classes/BoxAPIOperation.html#//api/name/APIOperationGlobalLock">[BoxAPIOperation APIOperationGlobalLock]</a> and ensure operation is not executing before
+adding the dependency.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIQueueManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/enqueueOperation:" title="enqueueOperation:"></a>
 	<h3 class="subsubtitle method-title">enqueueOperation:</h3>
 	
@@ -534,9 +611,9 @@ method on an NSOperationQueue to be executed.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-08-29)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-10-08)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						
 					</div>
 				</div>

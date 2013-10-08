@@ -4,10 +4,9 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>BoxAPIOperation Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.1 (build 840)" />
+		<meta name="generator" content="appledoc 2.1 (build 858)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -61,6 +60,11 @@
 	<option value="//api/name/responseData">&nbsp;&nbsp;&nbsp;&nbsp;responseData</option>
 	
 	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/APIOperationGlobalLock">&nbsp;&nbsp;&nbsp;&nbsp;+ APIOperationGlobalLock</option>
 	
 	
 	
@@ -119,6 +123,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Callbacks">Callbacks</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Lock">Lock</a></span></li>
+	
 </ul></li>
 
 
@@ -150,6 +156,12 @@
 </ul></li>
 
 
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/APIOperationGlobalLock">APIOperationGlobalLock</a></span></li>
+	
+</ul></li>
 
 
 
@@ -492,6 +504,22 @@ in <a href="#//api/name/performCompletionCallback">performCompletionCallback</a>
 		<code><a href="#//api/name/performCompletionCallback">&ndash;&nbsp;performCompletionCallback</a></code>
 		<span class="tooltip"><p>Call either a success or failure callback depending on whether or not an <a href="#//api/name/error">error</a> occured during the
 request.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Lock" name="task_Lock"></a>
+						<h3 class="subsubtitle task-title">Lock</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/APIOperationGlobalLock">+&nbsp;APIOperationGlobalLock</a></code>
+		<span class="tooltip"><p>A global lock to use when enqueuing operations and adding dependencies. This lock ensures that
+all operation starts and dependency additions are serialized.</p></span>
 	</span>
 	
 	
@@ -861,7 +889,7 @@ failure callback.</p>
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/performCompletionCallback">&ndash; performCompletionCallback</a></p></code></li>
+			<li><code><p><a href="#//api/name/performCompletionCallback">- performCompletionCallback</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -965,7 +993,7 @@ will be URL encoded.</p>
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/processResponseData:">&ndash; processResponseData:</a></p></code></li>
+			<li><code><p><a href="#//api/name/processResponseData:">- processResponseData:</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -983,6 +1011,63 @@ will be URL encoded.</p>
 					</div>
 					
 					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/APIOperationGlobalLock" title="APIOperationGlobalLock"></a>
+	<h3 class="subsubtitle method-title">APIOperationGlobalLock</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A global lock to use when enqueuing operations and adding dependencies. This lock ensures that
+all operation starts and dependency additions are serialized.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSRecursiveLock *)APIOperationGlobalLock</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A global lock for API operations to use.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A global lock to use when enqueuing operations and adding dependencies. This lock ensures that
+all operation starts and dependency additions are serialized.</p>
+
+<p>BoxAPIQueueManagers depend on this serialization to ensure they do not add a <a href="../Classes/BoxAPIOAuth2ToJSONOperation.html">BoxAPIOAuth2ToJSONOperation</a>
+as a dependency to an already-executing or soon-to-be-executing operation.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxAPIOperation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
 					
 					
@@ -1437,9 +1522,9 @@ in <a href="#//api/name/performCompletionCallback">performCompletionCallback</a>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-08-29)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-10-08)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						
 					</div>
 				</div>
