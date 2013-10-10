@@ -20,7 +20,7 @@
 
 /**
  * The number of comments that have been made on the file.
- * This will be null unless you explicitly request it through "?fields=comment_count".
+ * This will be nil unless you explicitly request it through "?fields=comment_count".
  */
 @property (nonatomic, readonly) NSNumber *commentCount;
 
