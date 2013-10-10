@@ -70,6 +70,7 @@ NSString *const BoxAPIObjectKeyTrashedAt = @"trashed_at";
 NSString *const BoxAPIObjectKeyPurgedAt = @"purged_at";
 NSString *const BoxAPIObjectKeyDescription = @"description";
 NSString *const BoxAPIObjectKeySize = @"size";
+NSString *const BoxAPIObjectKeyCommentCount = @"comment_count";
 NSString *const BoxAPIObjectKeyPathCollection = @"path_collection";
 NSString *const BoxAPIObjectKeyCreatedBy = @"created_by";
 NSString *const BoxAPIObjectKeyModifiedBy = @"modified_by";

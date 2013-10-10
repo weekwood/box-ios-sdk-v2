@@ -72,6 +72,7 @@ extern NSString *const BoxAPIObjectKeyTrashedAt;
 extern NSString *const BoxAPIObjectKeyPurgedAt;
 extern NSString *const BoxAPIObjectKeyDescription;
 extern NSString *const BoxAPIObjectKeySize;
+extern NSString *const BoxAPIObjectKeyCommentCount;
 extern NSString *const BoxAPIObjectKeyPathCollection;
 extern NSString *const BoxAPIObjectKeyCreatedBy;
 extern NSString *const BoxAPIObjectKeyModifiedBy;
