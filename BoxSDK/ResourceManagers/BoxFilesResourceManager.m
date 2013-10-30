@@ -26,7 +26,7 @@
 
 - (BoxAPIJSONOperation *)JSONOperationWithURL:(NSURL *)URL HTTPMethod:(BoxAPIHTTPMethod *)HTTPMethod queryStringParameters:(NSDictionary *)queryParameters bodyDictionary:(NSDictionary *)bodyDictionary fileSuccessBlock:(BoxFileBlock)success failureBlock:(BoxAPIJSONFailureBlock)failure mini:(BOOL)mini;
 
-- (NSString *)transformNilOrEmptyFilename:(NSString *)filename toDefault:(NSString *)defaultValue withDate:(BOOL)withDate;
+- (NSString *)nonEmptyFilename:(NSString *)filename;
 
 @end
 
@@ -73,23 +73,16 @@
     return [[NSURL alloc] initWithString:URLString];
 }
 
-- (NSString *)transformNilOrEmptyFilename:(NSString *)filename toDefault:(NSString *)defaultValue withDate:(BOOL)withDate
+- (NSString *)nonEmptyFilename:(NSString *)filename
 {
     NSString *transformedFilename = filename;
     if ([filename length] == 0)
     {
-        if (withDate)
-        {
-            NSDate *now = [NSDate dateWithTimeIntervalSinceNow:0];
-            NSString *nowString = [NSDateFormatter localizedStringFromDate:now
-                                                                 dateStyle:NSDateFormatterShortStyle
-                                                           timeStyle:NSDateFormatterShortStyle];
-            transformedFilename = [defaultValue stringByAppendingFormat:@" %@", nowString];
-        }
-        else
-        {
-            transformedFilename = defaultValue;
-        }
+        NSDate *now = [NSDate date];
+        NSString *nowString = [NSDateFormatter localizedStringFromDate:now
+                                                             dateStyle:NSDateFormatterShortStyle
+                                                             timeStyle:NSDateFormatterShortStyle];
+        transformedFilename = [BOX_API_MULTIPART_FILENAME_DEFAULT stringByAppendingFormat:@" %@", nowString];
     }
     return transformedFilename;
 }
@@ -216,9 +209,7 @@
                                                                                         queryParams:builder.queryStringParameters
                                                                                       OAuth2Session:self.OAuth2Session];
 
-    NSString *filename = [self transformNilOrEmptyFilename:builder.name
-                                                 toDefault:BOX_API_MULTIPART_FILENAME_DEFAULT
-                                                  withDate:YES];
+    NSString *filename = [self nonEmptyFilename:builder.name];
     [operation appendMultipartPieceWithData:data
                                   fieldName:BOX_API_MULTIPART_FILENAME_FIELD
                                    filename:filename
@@ -265,9 +256,7 @@
                                                                                         queryParams:builder.queryStringParameters
                                                                                       OAuth2Session:self.OAuth2Session];
 
-    NSString *filename = [self transformNilOrEmptyFilename:builder.name
-                                                 toDefault:BOX_API_MULTIPART_FILENAME_DEFAULT
-                                                  withDate:YES];
+    NSString *filename = [self nonEmptyFilename:builder.name];
     [operation appendMultipartPieceWithInputStream:inputStream
                                      contentLength:contentLength
                                          fieldName:BOX_API_MULTIPART_FILENAME_FIELD
@@ -315,9 +304,7 @@
                                                                                         queryParams:builder.queryStringParameters
                                                                                       OAuth2Session:self.OAuth2Session];
 
-    NSString *filename = [self transformNilOrEmptyFilename:builder.name
-                                                 toDefault:BOX_API_MULTIPART_FILENAME_DEFAULT
-                                                  withDate:YES];
+    NSString *filename = [self nonEmptyFilename:builder.name];
     [operation appendMultipartPieceWithData:data
                                   fieldName:BOX_API_MULTIPART_FILENAME_FIELD
                                    filename:filename
@@ -364,9 +351,7 @@
                                                                                         queryParams:builder.queryStringParameters
                                                                                       OAuth2Session:self.OAuth2Session];
 
-    NSString *filename = [self transformNilOrEmptyFilename:builder.name
-                                                 toDefault:BOX_API_MULTIPART_FILENAME_DEFAULT
-                                                  withDate:YES];
+    NSString *filename = [self nonEmptyFilename:builder.name];
     [operation appendMultipartPieceWithInputStream:inputStream
                                      contentLength:contentLength
                                          fieldName:BOX_API_MULTIPART_FILENAME_FIELD
