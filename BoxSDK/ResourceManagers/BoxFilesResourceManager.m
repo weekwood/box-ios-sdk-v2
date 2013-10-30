@@ -75,16 +75,15 @@
 
 - (NSString *)nonEmptyFilename:(NSString *)filename
 {
-    NSString *transformedFilename = filename;
     if ([filename length] == 0)
     {
         NSDate *now = [NSDate date];
         NSString *nowString = [NSDateFormatter localizedStringFromDate:now
                                                              dateStyle:NSDateFormatterShortStyle
                                                              timeStyle:NSDateFormatterShortStyle];
-        transformedFilename = [BOX_API_MULTIPART_FILENAME_DEFAULT stringByAppendingFormat:@" %@", nowString];
+        filename = [BOX_API_MULTIPART_FILENAME_DEFAULT stringByAppendingFormat:@" %@", nowString];
     }
-    return transformedFilename;
+    return filename;
 }
 
 - (BoxAPIJSONOperation *)JSONOperationWithURL:(NSURL *)URL HTTPMethod:(BoxAPIHTTPMethod *)HTTPMethod queryStringParameters:(NSDictionary *)queryParameters bodyDictionary:(NSDictionary *)bodyDictionary fileSuccessBlock:(BoxFileBlock)success failureBlock:(BoxAPIJSONFailureBlock)failure mini:(BOOL)mini
