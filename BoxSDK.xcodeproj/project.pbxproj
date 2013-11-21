@@ -43,6 +43,18 @@
 		C5C11A40175DA92E0001EC88 /* NSString+BoxAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C11A3E175DA92E0001EC88 /* NSString+BoxAdditions.m */; };
 		C5C11A44175DACCE0001EC88 /* UIImage+BoxAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C5C11A42175DACCE0001EC88 /* UIImage+BoxAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5C11A45175DACCE0001EC88 /* UIImage+BoxAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C11A43175DACCE0001EC88 /* UIImage+BoxAdditions.m */; };
+		CA0F91EC183E881F0090696B /* BoxComment.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91EA183E881F0090696B /* BoxComment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA0F91ED183E881F0090696B /* BoxComment.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F91EB183E881F0090696B /* BoxComment.m */; };
+		CA0F91F0183E93BA0090696B /* BoxCommentableItem.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91EE183E93BA0090696B /* BoxCommentableItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA0F91F4183EA1890090696B /* BoxCommentsRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91F2183EA1890090696B /* BoxCommentsRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA0F91F5183EA1890090696B /* BoxCommentsRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F91F3183EA1890090696B /* BoxCommentsRequestBuilder.m */; };
+		CA0F91F8183EA1AF0090696B /* BoxCommentsResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91F6183EA1AF0090696B /* BoxCommentsResourceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA0F91F9183EA1AF0090696B /* BoxCommentsResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F91F7183EA1AF0090696B /* BoxCommentsResourceManager.m */; };
+		CA0F91FD183EA5430090696B /* BoxModelBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91FB183EA5430090696B /* BoxModelBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA0F91FE183EA5430090696B /* BoxModelBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F91FC183EA5430090696B /* BoxModelBuilder.m */; };
+		CA0F9201183EBAA50090696B /* BoxCommentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F9200183EBAA50090696B /* BoxCommentTests.m */; };
+		CA0F9204183EC3720090696B /* BoxCommentsResourceManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F9203183EC3720090696B /* BoxCommentsResourceManagerTests.m */; };
+		CA0F9207183EC3A40090696B /* BoxCommentsRequestBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F9206183EC3A40090696B /* BoxCommentsRequestBuilderTests.m */; };
 		E4081D8F1758728900F6D6AA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4081D8E1758728900F6D6AA /* CoreFoundation.framework */; };
 		E4081D951758728900F6D6AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4081D931758728900F6D6AA /* InfoPlist.strings */; };
 		E4081DE01758732800F6D6AA /* action-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E4081D9B1758732800F6D6AA /* action-normal.png */; };
@@ -392,6 +404,21 @@
 		C5C11A3E175DA92E0001EC88 /* NSString+BoxAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BoxAdditions.m"; sourceTree = "<group>"; };
 		C5C11A42175DACCE0001EC88 /* UIImage+BoxAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxAdditions.h"; sourceTree = "<group>"; };
 		C5C11A43175DACCE0001EC88 /* UIImage+BoxAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxAdditions.m"; sourceTree = "<group>"; };
+		CA0F91EA183E881F0090696B /* BoxComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxComment.h; sourceTree = "<group>"; };
+		CA0F91EB183E881F0090696B /* BoxComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxComment.m; sourceTree = "<group>"; };
+		CA0F91EE183E93BA0090696B /* BoxCommentableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxCommentableItem.h; sourceTree = "<group>"; };
+		CA0F91F2183EA1890090696B /* BoxCommentsRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxCommentsRequestBuilder.h; sourceTree = "<group>"; };
+		CA0F91F3183EA1890090696B /* BoxCommentsRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxCommentsRequestBuilder.m; sourceTree = "<group>"; };
+		CA0F91F6183EA1AF0090696B /* BoxCommentsResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxCommentsResourceManager.h; sourceTree = "<group>"; };
+		CA0F91F7183EA1AF0090696B /* BoxCommentsResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxCommentsResourceManager.m; sourceTree = "<group>"; };
+		CA0F91FB183EA5430090696B /* BoxModelBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxModelBuilder.h; sourceTree = "<group>"; };
+		CA0F91FC183EA5430090696B /* BoxModelBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxModelBuilder.m; sourceTree = "<group>"; };
+		CA0F91FF183EBAA50090696B /* BoxCommentTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxCommentTests.h; sourceTree = "<group>"; };
+		CA0F9200183EBAA50090696B /* BoxCommentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxCommentTests.m; sourceTree = "<group>"; };
+		CA0F9202183EC3720090696B /* BoxCommentsResourceManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxCommentsResourceManagerTests.h; sourceTree = "<group>"; };
+		CA0F9203183EC3720090696B /* BoxCommentsResourceManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxCommentsResourceManagerTests.m; sourceTree = "<group>"; };
+		CA0F9205183EC3A40090696B /* BoxCommentsRequestBuilderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxCommentsRequestBuilderTests.h; sourceTree = "<group>"; };
+		CA0F9206183EC3A40090696B /* BoxCommentsRequestBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxCommentsRequestBuilderTests.m; sourceTree = "<group>"; };
 		E4081D8D1758728900F6D6AA /* BoxSDKResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoxSDKResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4081D8E1758728900F6D6AA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E4081D921758728900F6D6AA /* BoxSDKResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BoxSDKResources-Info.plist"; sourceTree = "<group>"; };
@@ -940,6 +967,9 @@
 				E4FAD994172CE2C50052AD11 /* BoxWebLink.m */,
 				AF6E06A617AE66AF0039F17D /* BoxModelComparators.h */,
 				AF6E06A717AE66AF0039F17D /* BoxModelComparators.m */,
+				CA0F91EA183E881F0090696B /* BoxComment.h */,
+				CA0F91EB183E881F0090696B /* BoxComment.m */,
+				CA0F91EE183E93BA0090696B /* BoxCommentableItem.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1006,6 +1036,10 @@
 				E4FAD9B6172CE2C50052AD11 /* BoxItemsRequestBuilder.m */,
 				E4FAD9B7172CE2C50052AD11 /* BoxSharedObjectBuilder.h */,
 				E4FAD9B8172CE2C50052AD11 /* BoxSharedObjectBuilder.m */,
+				CA0F91F2183EA1890090696B /* BoxCommentsRequestBuilder.h */,
+				CA0F91F3183EA1890090696B /* BoxCommentsRequestBuilder.m */,
+				CA0F91FB183EA5430090696B /* BoxModelBuilder.h */,
+				CA0F91FC183EA5430090696B /* BoxModelBuilder.m */,
 			);
 			path = RequestBuilders;
 			sourceTree = "<group>";
@@ -1021,6 +1055,8 @@
 				E4FAD9BD172CE2C50052AD11 /* BoxFilesResourceManager.m */,
 				E4FAD9BE172CE2C50052AD11 /* BoxFoldersResourceManager.h */,
 				E4FAD9BF172CE2C50052AD11 /* BoxFoldersResourceManager.m */,
+				CA0F91F6183EA1AF0090696B /* BoxCommentsResourceManager.h */,
+				CA0F91F7183EA1AF0090696B /* BoxCommentsResourceManager.m */,
 			);
 			path = ResourceManagers;
 			sourceTree = "<group>";
@@ -1055,6 +1091,8 @@
 				E4FADA09172CE2DF0052AD11 /* BoxWebLinkTests.m */,
 				AF6E06AA17AE6C240039F17D /* BoxModelComparatorsTest.h */,
 				AF6E06AB17AE6C240039F17D /* BoxModelComparatorsTest.m */,
+				CA0F91FF183EBAA50090696B /* BoxCommentTests.h */,
+				CA0F9200183EBAA50090696B /* BoxCommentTests.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1088,6 +1126,8 @@
 				E4FADA14172CE2DF0052AD11 /* BoxFilesRequestBuilderTests.m */,
 				E4FADA15172CE2DF0052AD11 /* BoxFoldersRequestBuilderTests.h */,
 				E4FADA16172CE2DF0052AD11 /* BoxFoldersRequestBuilderTests.m */,
+				CA0F9205183EC3A40090696B /* BoxCommentsRequestBuilderTests.h */,
+				CA0F9206183EC3A40090696B /* BoxCommentsRequestBuilderTests.m */,
 			);
 			path = RequestBuilders;
 			sourceTree = "<group>";
@@ -1101,6 +1141,8 @@
 				E4FADA19172CE2DF0052AD11 /* BoxFilesResourceManagerTests.m */,
 				E4FADA1A172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.h */,
 				E4FADA1B172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.m */,
+				CA0F9202183EC3720090696B /* BoxCommentsResourceManagerTests.h */,
+				CA0F9203183EC3720090696B /* BoxCommentsResourceManagerTests.m */,
 			);
 			path = ResourceManagers;
 			sourceTree = "<group>";
@@ -1230,6 +1272,11 @@
 				C5C11A3F175DA92E0001EC88 /* NSString+BoxAdditions.h in Headers */,
 				C5C11A44175DACCE0001EC88 /* UIImage+BoxAdditions.h in Headers */,
 				C58BC262175EDD670071BF37 /* BoxItem+BoxAdditions.h in Headers */,
+				CA0F91FD183EA5430090696B /* BoxModelBuilder.h in Headers */,
+				CA0F91F8183EA1AF0090696B /* BoxCommentsResourceManager.h in Headers */,
+				CA0F91EC183E881F0090696B /* BoxComment.h in Headers */,
+				CA0F91F0183E93BA0090696B /* BoxCommentableItem.h in Headers */,
+				CA0F91F4183EA1890090696B /* BoxCommentsRequestBuilder.h in Headers */,
 				C58BC268175EDF7C0071BF37 /* BoxODRefreshControl.h in Headers */,
 				AF6E06A817AE66AF0039F17D /* BoxModelComparators.h in Headers */,
 				AF153B1317C346D6008D636C /* NSJSONSerialization+BoxAdditions.h in Headers */,
@@ -1540,6 +1587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA0F91ED183E881F0090696B /* BoxComment.m in Sources */,
 				E470434616D41DC500FED29A /* BoxSDK.m in Sources */,
 				E44A95B116E21C5100356ADA /* BoxSDKConstants.m in Sources */,
 				E4FAD9C1172CE2C50052AD11 /* NSString+BoxURLHelper.m in Sources */,
@@ -1552,6 +1600,7 @@
 				E4FAD9CF172CE2C50052AD11 /* BoxModel.m in Sources */,
 				E4FAD9D1172CE2C50052AD11 /* BoxUser.m in Sources */,
 				E4FAD9D3172CE2C50052AD11 /* BoxWebLink.m in Sources */,
+				CA0F91FE183EA5430090696B /* BoxModelBuilder.m in Sources */,
 				E4FAD9D5172CE2C50052AD11 /* BoxAuthorizationViewController.m in Sources */,
 				E4FAD9D7172CE2C50052AD11 /* BoxOAuth2Session.m in Sources */,
 				E4FAD9D9172CE2C50052AD11 /* BoxSerialOAuth2Session.m in Sources */,
@@ -1560,6 +1609,7 @@
 				E4FAD9DF172CE2C50052AD11 /* BoxAPIJSONOperation.m in Sources */,
 				E4FAD9E1172CE2C50052AD11 /* BoxAPIMultipartToJSONOperation.m in Sources */,
 				E4FAD9E3172CE2C50052AD11 /* BoxAPIOAuth2ToJSONOperation.m in Sources */,
+				CA0F91F5183EA1890090696B /* BoxCommentsRequestBuilder.m in Sources */,
 				E4FAD9E5172CE2C50052AD11 /* BoxAPIOperation.m in Sources */,
 				E4FAD9E7172CE2C50052AD11 /* BoxAPIQueueManager.m in Sources */,
 				E4FAD9E9172CE2C50052AD11 /* BoxSerialAPIQueueManager.m in Sources */,
@@ -1573,6 +1623,7 @@
 				E4FAD9F9172CE2C50052AD11 /* BoxFoldersResourceManager.m in Sources */,
 				E4CA6F57173F13C10089680F /* BoxParallelAPIQueueManager.m in Sources */,
 				E4CA6F5F173F1C750089680F /* BoxParallelOAuth2Session.m in Sources */,
+				CA0F91F9183EA1AF0090696B /* BoxCommentsResourceManager.m in Sources */,
 				C5152CFF17541B66007A5C0A /* BoxFolderPickerHelper.m in Sources */,
 				C5152D0117541B66007A5C0A /* BoxFolderPickerTableViewController.m in Sources */,
 				C5152D0317541B66007A5C0A /* BoxFolderPickerViewController.m in Sources */,
@@ -1598,10 +1649,12 @@
 				E4FADA1C172CE2DF0052AD11 /* NSString+BoxURLHelperTests.m in Sources */,
 				E4FADA1D172CE2DF0052AD11 /* NSURL+BoxURLHelperTests.m in Sources */,
 				E4FADA1E172CE2DF0052AD11 /* BoxCollectionTests.m in Sources */,
+				CA0F9204183EC3720090696B /* BoxCommentsResourceManagerTests.m in Sources */,
 				E4FADA1F172CE2DF0052AD11 /* BoxFileTests.m in Sources */,
 				E4FADA20172CE2DF0052AD11 /* BoxFolderTests.m in Sources */,
 				E4FADA21172CE2DF0052AD11 /* BoxModelTests.m in Sources */,
 				E4FADA22172CE2DF0052AD11 /* BoxWebLinkTests.m in Sources */,
+				CA0F9201183EBAA50090696B /* BoxCommentTests.m in Sources */,
 				E4FADA23172CE2DF0052AD11 /* BoxOAuth2SessionTests.m in Sources */,
 				E4FADA24172CE2DF0052AD11 /* BoxSerialOAuth2SessionTests.m in Sources */,
 				E4FADA25172CE2DF0052AD11 /* BoxSerialAPIQueueManagerTests.m in Sources */,
@@ -1609,6 +1662,7 @@
 				E4FADA27172CE2DF0052AD11 /* BoxFoldersRequestBuilderTests.m in Sources */,
 				E4FADA28172CE2DF0052AD11 /* BoxFilesResourceManagerTests.m in Sources */,
 				E4FADA29172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.m in Sources */,
+				CA0F9207183EC3A40090696B /* BoxCommentsRequestBuilderTests.m in Sources */,
 				AF6E06AC17AE6C240039F17D /* BoxModelComparatorsTest.m in Sources */,
 				AF153B1717C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.m in Sources */,
 				9400B0C317FB8C470077D4E7 /* BoxUsersRequestBuilderTests.m in Sources */,

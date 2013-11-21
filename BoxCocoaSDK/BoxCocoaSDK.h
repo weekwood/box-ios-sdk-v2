@@ -39,12 +39,14 @@
 #import <BoxCocoaSDK/BoxFoldersRequestBuilder.h>
 #import <BoxCocoaSDK/BoxSharedObjectBuilder.h>
 #import <BoxCocoaSDK/BoxUsersRequestBuilder.h>
+#import <BoxCocoaSDK/BoxCommentsRequestBuilder.h>
 
 // API Resource Managers
 #import <BoxCocoaSDK/BoxAPIResourceManager.h>
 #import <BoxCocoaSDK/BoxFilesResourceManager.h>
 #import <BoxCocoaSDK/BoxFoldersResourceManager.h>
 #import <BoxCocoaSDK/BoxUsersResourceManager.h>
+#import <BoxCocoaSDK/BoxCommentsResourceManager.h>
 
 // API models
 #import <BoxCocoaSDK/BoxModel.h>
@@ -54,6 +56,7 @@
 #import <BoxCocoaSDK/BoxFolder.h>
 #import <BoxCocoaSDK/BoxUser.h>
 #import <BoxCocoaSDK/BoxWebLink.h>
+#import <BoxCocoaSDK/BoxComment.h>
 
 extern NSString *const BoxAPIBaseURL;
 
@@ -120,6 +123,12 @@ extern NSString *const BoxAPIBaseURL;
  * user's information, and admin user management.
  */
 @property (nonatomic, readwrite, strong) BoxUsersResourceManager *usersManager;
+
+/**
+ * The usersManager grants the ability to make API calls related to users on Box.
+ * These API calls include getting comment information, editing, adding and deleting a comment
+ */
+@property (nonatomic, readwrite, strong) BoxCommentsResourceManager *commentsManager;
 
 #pragma mark - Globally accessible API singleton instance
 /** @name Shared SDK client */

@@ -21,6 +21,7 @@
 @synthesize foldersManager = _foldersManager;
 @synthesize filesManager = _filesManager;
 @synthesize usersManager = _usersManager;
+@synthesize commentsManager = _commentsManager;
 
 #pragma mark - Globally accessible API singleton instance
 + (BoxCocoaSDK *)sharedSDK
@@ -51,7 +52,8 @@
         sharedBoxSDK.foldersManager = [[BoxFoldersResourceManager alloc] initWithAPIBaseURL:BoxAPIBaseURL OAuth2Session:sharedBoxSDK.OAuth2Session queueManager:sharedBoxSDK.queueManager];
 
         sharedBoxSDK.usersManager = [[BoxUsersResourceManager alloc] initWithAPIBaseURL:BoxAPIBaseURL OAuth2Session:sharedBoxSDK.OAuth2Session queueManager:sharedBoxSDK.queueManager];
-
+        
+        sharedBoxSDK.commentsManager = [[BoxCommentsResourceManager alloc] initWithAPIBaseURL:BoxAPIBaseURL OAuth2Session:sharedBoxSDK.OAuth2Session queueManager:sharedBoxSDK.queueManager];
     });
     
     return sharedBoxSDK;
@@ -66,17 +68,8 @@
     self.filesManager.APIBaseURL = APIBaseURL;
     self.foldersManager.APIBaseURL = APIBaseURL;
     self.usersManager.APIBaseURL = APIBaseURL;
+    self.commentsManager.APIBaseURL = APIBaseURL;
 }
-
-/*
-- (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)rootFolderID
-                                              thumbnailsEnabled:(BOOL)thumbnailsEnabled
-                                           cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
-                                           fileSelectionEnabled:(BOOL)fileSelectionEnabled;
-{
-    return [[BoxFolderPickerViewController alloc] initWithSDK:self rootFolderID:rootFolderID thumbnailsEnabled:thumbnailsEnabled cachedThumbnailsPath:cachedThumbnailsPath fileSelectionEnabled:fileSelectionEnabled];
-}
-*/
 
 // Load the resources bundle.
 + (NSBundle *)resourcesBundle

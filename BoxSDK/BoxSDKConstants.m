@@ -51,6 +51,7 @@ BoxAPIItemType *const BoxAPIItemTypeFile = @"file";
 BoxAPIItemType *const BoxAPIItemTypeFolder = @"folder";
 BoxAPIItemType *const BoxAPIItemTypeWebLink = @"web_link";
 BoxAPIItemType *const BoxAPIItemTypeUser = @"user";
+BoxAPIItemType *const BoxAPIItemTypeComment = @"comment";
 
 // Collection keys
 NSString *const BoxAPICollectionKeyEntries = @"entries";
@@ -79,6 +80,7 @@ NSString *const BoxAPIObjectKeyOwnedBy = @"owned_by";
 NSString *const BoxAPIObjectKeySharedLink = @"shared_link";
 NSString *const BoxAPIObjectKeyFolderUploadEmail = @"folder_upload_email";
 NSString *const BoxAPIObjectKeyParent = @"parent";
+NSString *const BoxAPIObjectKeyItem = @"item";
 NSString *const BoxAPIObjectKeyItemStatus = @"item_status";
 NSString *const BoxAPIObjectKeyItemCollection = @"item_collection";
 NSString *const BoxAPIObjectKeySyncState = @"sync_state";
@@ -102,6 +104,10 @@ NSString *const BoxAPIObjectKeyIsExemptFromLoginVerification = @"is_exempt_from_
 NSString *const BoxAPIObjectKeyIsDeactivated = @"is_deactivated";
 NSString *const BoxAPIObjectKeyHasCustomAvatar = @"has_custom_avatar";
 NSString *const BoxAPIObjectKeyIsPasswordResetRequired = @"is_password_reset_required";
+NSString *const BoxAPIObjectKeyMessage = @"message";
+NSString *const BoxAPIObjectKeyTaggedMessage = @"tagged_message";
+NSString *const BoxAPIObjectKeyIsReplyComment = @"is_reply_comment";
+
 
 // errors
 NSString *const BoxSDKErrorDomain = @"com.box.sdk.errordomain";

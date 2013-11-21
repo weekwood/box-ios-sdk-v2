@@ -53,6 +53,7 @@ extern BoxAPIItemType *const BoxAPIItemTypeFile;
 extern BoxAPIItemType *const BoxAPIItemTypeFolder;
 extern BoxAPIItemType *const BoxAPIItemTypeWebLink;
 extern BoxAPIItemType *const BoxAPIItemTypeUser;
+extern BoxAPIItemType *const BoxAPIItemTypeComment;
 
 // Collection keys
 extern NSString *const BoxAPICollectionKeyEntries;
@@ -81,6 +82,7 @@ extern NSString *const BoxAPIObjectKeyOwnedBy;
 extern NSString *const BoxAPIObjectKeySharedLink;
 extern NSString *const BoxAPIObjectKeyFolderUploadEmail;
 extern NSString *const BoxAPIObjectKeyParent;
+extern NSString *const BoxAPIObjectKeyItem;
 extern NSString *const BoxAPIObjectKeyItemStatus;
 extern NSString *const BoxAPIObjectKeyItemCollection;
 extern NSString *const BoxAPIObjectKeySyncState;
@@ -104,4 +106,7 @@ extern NSString *const BoxAPIObjectKeyIsExemptFromLoginVerification;
 extern NSString *const BoxAPIObjectKeyIsDeactivated;
 extern NSString *const BoxAPIObjectKeyIsPasswordResetRequired;
 extern NSString *const BoxAPIObjectKeyHasCustomAvatar;
+extern NSString *const BoxAPIObjectKeyMessage;
+extern NSString *const BoxAPIObjectKeyTaggedMessage;
+extern NSString *const BoxAPIObjectKeyIsReplyComment;
 
