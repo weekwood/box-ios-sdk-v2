@@ -45,6 +45,7 @@
 #import <BoxSDK/BoxAPIResourceManager.h>
 #import <BoxSDK/BoxFilesResourceManager.h>
 #import <BoxSDK/BoxFoldersResourceManager.h>
+#import <BoxSDK/BoxSearchResourceManager.h>
 #import <BoxSDK/BoxUsersResourceManager.h>
 
 // API models
@@ -124,12 +125,16 @@ extern NSString *const BoxAPIBaseURL;
 @property (nonatomic, readwrite, strong) BoxFoldersResourceManager *foldersManager;
 
 /**
+ * The searchManager grants the ability to search a user's Box account.
+ */
+@property (nonatomic, readwrite, strong) BoxSearchResourceManager *searchManager;
+
+/**
  * The usersManager grants the ability to make API calls related to users on Box.
  * These API calls include getting user information, getting the currently authorized
  * user's information, and admin user management.
  */
 @property (nonatomic, readwrite, strong) BoxUsersResourceManager *usersManager;
-
 
 #pragma mark - Globally accessible API singleton instance
 /** @name Shared SDK client */

@@ -119,6 +119,12 @@
 		E4081E4E175EF1B900F6D6AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4081E4D175EF1B900F6D6AA /* CoreGraphics.framework */; };
 		E40C7A49174BFDB500477760 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40C7A48174BFDB500477760 /* Security.framework */; };
 		E40C7A4A174BFDE400477760 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40C7A48174BFDB500477760 /* Security.framework */; };
+		E4362756183E939A00C608E1 /* BoxSearchResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E4362754183E939A00C608E1 /* BoxSearchResourceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4362757183E939A00C608E1 /* BoxSearchResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4362755183E939A00C608E1 /* BoxSearchResourceManager.m */; };
+		E4362758183E95AA00C608E1 /* BoxSearchResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4362755183E939A00C608E1 /* BoxSearchResourceManager.m */; };
+		E4362759183E95B500C608E1 /* BoxSearchResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E4362754183E939A00C608E1 /* BoxSearchResourceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E436275C183E970E00C608E1 /* BoxSearchResourceManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E436275B183E970E00C608E1 /* BoxSearchResourceManagerTests.m */; };
+		E436275D183E9D1400C608E1 /* BoxSearchResourceManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E436275B183E970E00C608E1 /* BoxSearchResourceManagerTests.m */; };
 		E44A95B116E21C5100356ADA /* BoxSDKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E44A95B016E21C5100356ADA /* BoxSDKConstants.m */; };
 		E44A95D116E221B400356ADA /* BoxSDKConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = E4CF273516DC4A5100F5979E /* BoxSDKConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E44A95D216E221B400356ADA /* BoxSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E470434316D41DC500FED29A /* BoxSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -469,6 +475,10 @@
 		E4081E321758832C00F6D6AA /* BoxFolderPickerNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFolderPickerNavigationController.m; sourceTree = "<group>"; };
 		E4081E4D175EF1B900F6D6AA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E40C7A48174BFDB500477760 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E4362754183E939A00C608E1 /* BoxSearchResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxSearchResourceManager.h; sourceTree = "<group>"; };
+		E4362755183E939A00C608E1 /* BoxSearchResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxSearchResourceManager.m; sourceTree = "<group>"; };
+		E436275A183E970E00C608E1 /* BoxSearchResourceManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxSearchResourceManagerTests.h; sourceTree = "<group>"; };
+		E436275B183E970E00C608E1 /* BoxSearchResourceManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxSearchResourceManagerTests.m; sourceTree = "<group>"; };
 		E44A95B016E21C5100356ADA /* BoxSDKConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxSDKConstants.m; sourceTree = "<group>"; };
 		E470433B16D41DC500FED29A /* libBoxSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBoxSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E470433E16D41DC500FED29A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1013,6 +1023,8 @@
 		E4FAD9B9172CE2C50052AD11 /* ResourceManagers */ = {
 			isa = PBXGroup;
 			children = (
+				E4362754183E939A00C608E1 /* BoxSearchResourceManager.h */,
+				E4362755183E939A00C608E1 /* BoxSearchResourceManager.m */,
 				9400B0BD17FB8BEA0077D4E7 /* BoxUsersResourceManager.h */,
 				9400B0BE17FB8BEA0077D4E7 /* BoxUsersResourceManager.m */,
 				E4FAD9BA172CE2C50052AD11 /* BoxAPIResourceManager.h */,
@@ -1101,6 +1113,8 @@
 				E4FADA19172CE2DF0052AD11 /* BoxFilesResourceManagerTests.m */,
 				E4FADA1A172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.h */,
 				E4FADA1B172CE2DF0052AD11 /* BoxFoldersResourceManagerTests.m */,
+				E436275A183E970E00C608E1 /* BoxSearchResourceManagerTests.h */,
+				E436275B183E970E00C608E1 /* BoxSearchResourceManagerTests.m */,
 			);
 			path = ResourceManagers;
 			sourceTree = "<group>";
@@ -1234,6 +1248,7 @@
 				AF6E06A817AE66AF0039F17D /* BoxModelComparators.h in Headers */,
 				AF153B1317C346D6008D636C /* NSJSONSerialization+BoxAdditions.h in Headers */,
 				9400B0BB17FB8BE00077D4E7 /* BoxUsersRequestBuilder.h in Headers */,
+				E4362756183E939A00C608E1 /* BoxSearchResourceManager.h in Headers */,
 				9400B0BF17FB8BEA0077D4E7 /* BoxUsersResourceManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1283,6 +1298,7 @@
 				AF6534B417CF27EE00C27DFD /* BoxModelComparators.h in Headers */,
 				E479B2941804C02F00F8D79C /* BoxUsersRequestBuilder.h in Headers */,
 				E479B2951804C02F00F8D79C /* BoxUsersResourceManager.h in Headers */,
+				E4362759183E95B500C608E1 /* BoxSearchResourceManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1540,6 +1556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4362757183E939A00C608E1 /* BoxSearchResourceManager.m in Sources */,
 				E470434616D41DC500FED29A /* BoxSDK.m in Sources */,
 				E44A95B116E21C5100356ADA /* BoxSDKConstants.m in Sources */,
 				E4FAD9C1172CE2C50052AD11 /* NSString+BoxURLHelper.m in Sources */,
@@ -1612,6 +1629,7 @@
 				AF6E06AC17AE6C240039F17D /* BoxModelComparatorsTest.m in Sources */,
 				AF153B1717C34D84008D636C /* NSJSONSerialization+BoxAdditionsTests.m in Sources */,
 				9400B0C317FB8C470077D4E7 /* BoxUsersRequestBuilderTests.m in Sources */,
+				E436275C183E970E00C608E1 /* BoxSearchResourceManagerTests.m in Sources */,
 				9400B0C617FB8C600077D4E7 /* BoxUserTests.m in Sources */,
 				9400B0C917FB8C6F0077D4E7 /* BoxUsersResourceManagerTests.m in Sources */,
 			);
@@ -1621,6 +1639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4362758183E95AA00C608E1 /* BoxSearchResourceManager.m in Sources */,
 				E479B2921804C01E00F8D79C /* BoxUsersRequestBuilder.m in Sources */,
 				E479B2931804C01E00F8D79C /* BoxUsersResourceManager.m in Sources */,
 				AF6534B517CF280000C27DFD /* BoxModelComparators.m in Sources */,
@@ -1667,6 +1686,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E436275D183E9D1400C608E1 /* BoxSearchResourceManagerTests.m in Sources */,
 				E479B2961804C06800F8D79C /* BoxUserTests.m in Sources */,
 				E479B2971804C06800F8D79C /* BoxUsersRequestBuilderTests.m in Sources */,
 				E479B2981804C06800F8D79C /* BoxUsersResourceManagerTests.m in Sources */,

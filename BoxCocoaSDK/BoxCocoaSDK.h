@@ -44,6 +44,7 @@
 #import <BoxCocoaSDK/BoxAPIResourceManager.h>
 #import <BoxCocoaSDK/BoxFilesResourceManager.h>
 #import <BoxCocoaSDK/BoxFoldersResourceManager.h>
+#import <BoxCocoaSDK/BoxSearchResourceManager.h>
 #import <BoxCocoaSDK/BoxUsersResourceManager.h>
 
 // API models
@@ -113,6 +114,11 @@ extern NSString *const BoxAPIBaseURL;
  * and managing the trash.
  */
 @property (nonatomic, readwrite, strong) BoxFoldersResourceManager *foldersManager;
+
+/**
+ * The searchManager grants the ability to search a user's Box account.
+ */
+@property (nonatomic, readwrite, strong) BoxSearchResourceManager *searchManager;
 
 /**
  * The usersManager grants the ability to make API calls related to users on Box.

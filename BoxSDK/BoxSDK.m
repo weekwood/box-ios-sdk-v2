@@ -21,6 +21,7 @@
 @synthesize queueManager = _queueManager;
 @synthesize foldersManager = _foldersManager;
 @synthesize filesManager = _filesManager;
+@synthesize searchManager = _searchManager;
 @synthesize usersManager = _usersManager;
 
 #pragma mark - Globally accessible API singleton instance
@@ -51,6 +52,8 @@
 
         sharedBoxSDK.foldersManager = [[BoxFoldersResourceManager alloc] initWithAPIBaseURL:BoxAPIBaseURL OAuth2Session:sharedBoxSDK.OAuth2Session queueManager:sharedBoxSDK.queueManager];
 
+        sharedBoxSDK.searchManager = [[BoxSearchResourceManager alloc] initWithAPIBaseURL:BoxAPIBaseURL OAuth2Session:sharedBoxSDK.OAuth2Session queueManager:sharedBoxSDK.queueManager];
+
         sharedBoxSDK.usersManager = [[BoxUsersResourceManager alloc] initWithAPIBaseURL:BoxAPIBaseURL OAuth2Session:sharedBoxSDK.OAuth2Session queueManager:sharedBoxSDK.queueManager];
     });
 
@@ -65,6 +68,7 @@
     // managers
     self.filesManager.APIBaseURL = APIBaseURL;
     self.foldersManager.APIBaseURL = APIBaseURL;
+    self.searchManager.APIBaseURL = APIBaseURL;
     self.usersManager.APIBaseURL = APIBaseURL;
 }
 
