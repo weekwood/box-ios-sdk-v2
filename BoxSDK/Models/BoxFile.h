@@ -7,11 +7,12 @@
 //
 
 #import "BoxItem.h"
+#import "BoxCommentableItem.h"
 
 /**
  * BoxFile represents files on Box.
  */
-@interface BoxFile : BoxItem
+@interface BoxFile : BoxItem <BoxCommentableItem>
 
 /**
  * The SHA1 of the file's content.
