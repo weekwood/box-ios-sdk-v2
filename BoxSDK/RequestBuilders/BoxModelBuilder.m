@@ -27,7 +27,10 @@
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:2];
     BOXAssert(self.modelID != nil, @"modelID is a required parameter for the model object");
 
-    [dictionary setObject:self.modelID forKey:BoxAPIObjectKeyID];
+    if (self.modelID != nil)
+    {
+        [dictionary setObject:self.modelID forKey:BoxAPIObjectKeyID];
+    }
     
     if (self.type != nil)
     {

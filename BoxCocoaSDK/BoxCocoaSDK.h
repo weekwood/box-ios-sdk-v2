@@ -125,7 +125,7 @@ extern NSString *const BoxAPIBaseURL;
 @property (nonatomic, readwrite, strong) BoxUsersResourceManager *usersManager;
 
 /**
- * The usersManager grants the ability to make API calls related to users on Box.
+ * The commentsManager grants the ability to make API calls related to users on Box.
  * These API calls include getting comment information, editing, adding and deleting a comment
  */
 @property (nonatomic, readwrite, strong) BoxCommentsResourceManager *commentsManager;

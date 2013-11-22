@@ -7,6 +7,7 @@
 //
 
 #import "BoxCommentsRequestBuilder.h"
+#import "BoxModelBuilder.h"
 #import "BoxSDKConstants.h"
 
 @implementation BoxCommentsRequestBuilder
@@ -27,7 +28,7 @@
     
     if (self.item != nil)
     {
-        [dictionary setObject:self.item forKey:BoxAPIObjectKeyItem];
+        [dictionary setObject:[self.item bodyParameters] forKey:BoxAPIObjectKeyItem];
     }
     
     if (self.message != nil)

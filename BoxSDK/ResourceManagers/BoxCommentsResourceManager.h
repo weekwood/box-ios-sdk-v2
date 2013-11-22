@@ -13,10 +13,26 @@
 
 @class BoxCommentsRequestBuilder;
 
-extern NSString *const BoxAPICommentIDMe;
-
 typedef void (^BoxCommentBlock)(BoxComment *comment);
 
+/**
+ * BoxCommentsResourceManager allows you to access and manipulate comments via the Box API. This class is
+ * a concrete subclass of BoxAPIResourceManager. This class allows you to manipulate [BoxComment]s
+ * referred to by their `modelID`, which is an `NSString`.
+ *
+ * This class enables the following operations:
+ *
+ * - [Get Information About a Comment](http://developers.box.com/docs/#comments-get-information-about-a-comment )
+ * - [Add a Comment to an Item](http://developers.box.com/docs/#comments-add-a-comment-to-an-item )
+ * - [Change a Comment’s Message](http://developers.box.com/docs/#comments-change-a-comments-message )
+ * - [Delete a Comment](http://developers.box.com/docs/#comments-delete-a-comment )
+ *
+ * Callbacks and typedefs
+ * ======================
+ * This class defines the `BoxCommentBlock` type for successful API calls that return a BoxComment object:
+ *
+ * <pre><code>typedef void (^BoxCommentBlock)(BoxComment *comment);</code></pre>
+ */
 @interface BoxCommentsResourceManager : BoxAPIResourceManager
 
 /** @name API calls */

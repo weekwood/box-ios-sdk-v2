@@ -2,7 +2,7 @@
 //  BoxCommentsRequestBuilderTests.m
 //  BoxSDK
 //
-//  Created by Boxuser on 11/21/13.
+//  Created on 11/21/13.
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
@@ -28,9 +28,14 @@
     BoxModelBuilder * item = [[BoxModelBuilder alloc] init];
     item.type = BoxAPIItemTypeFile;
     item.modelID = @"12345";
-    
     builder.item = item;
-    STAssertEqualObjects(@{BoxAPIObjectKeyItem : item}, builder.bodyParameters, @"item should be included in body dictionary when set");
+    
+    NSDictionary * expectedItem = @{
+        BoxAPIObjectKeyType: BoxAPIItemTypeFile,
+        BoxAPIObjectKeyID: @"12345",
+    };
+    
+    STAssertEqualObjects(@{BoxAPIObjectKeyItem : expectedItem}, builder.bodyParameters, @"item should be included in body dictionary when set");
 }
 
 - (void)testThatMessageInBodyDictionaryWhenPropertyIsSet

@@ -1,8 +1,8 @@
 //
-//  BoxUserTests.m
+//  BoxCommentTests.m
 //  BoxSDK
 //
-//  Created on 8/14/13.
+//  Created on 11/21/13.
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 

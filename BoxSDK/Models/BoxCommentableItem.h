@@ -2,7 +2,7 @@
 //  BoxCommentableItem.h
 //  BoxSDK
 //
-//  Created by Boxuser on 11/21/13.
+//  Created on 11/21/13.
 //  Copyright (c) 2013 Box. All rights reserved.
 //
 
