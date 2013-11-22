@@ -13,6 +13,7 @@
 #import "BoxSerialOAuth2Session.h"
 #import "BoxSerialAPIQueueManager.h"
 #import "NSURL+BoxURLHelper.h"
+#import "BoxSearchRequestBuilder.h"
 
 #import "BoxSDKTestsHelpers.h"
 #import <OCMock/OCMock.h>
@@ -41,7 +42,8 @@
 
 - (void)testThatSearchReturnsOperationWithHTTPGETMethod
 {
-    BoxAPIJSONOperation *operation = [searchManager searchWithQuery:TEST_QUERY successBlock:nil failureBlock:nil];
+    BoxSearchRequestBuilder *builder = [[BoxSearchRequestBuilder alloc] initWithSearch:TEST_QUERY queryStringParameters:nil];
+    BoxAPIJSONOperation *operation = [searchManager searchWithBuilder:builder successBlock:nil failureBlock:nil];
 
     STAssertEqualObjects(BoxAPIHTTPMethodGET, operation.APIRequest.HTTPMethod, @"search should be a GET request");
 }
@@ -49,7 +51,8 @@
 // @see developers.box.com/docs/
 - (void)testThatSearchReturnsOperationWithDocumentedURL
 {
-    BoxAPIJSONOperation *operation = [searchManager searchWithQuery:TEST_QUERY successBlock:nil failureBlock:nil];
+    BoxSearchRequestBuilder *builder = [[BoxSearchRequestBuilder alloc] initWithSearch:TEST_QUERY queryStringParameters:nil];
+    BoxAPIJSONOperation *operation = [searchManager searchWithBuilder:builder successBlock:nil failureBlock:nil];
 
     NSString *expectedURLString = [NSString stringWithFormat:@"%@/%@/%@?query=%@", APIBaseURL, APIVersion, SEARCH_RESOURCE, TEST_QUERY_ENCODED];
 
@@ -59,7 +62,8 @@
 - (void)testThatSearchIncludesQueryStringParametersFromRequestBuilder
 {
     NSDictionary *const queryParametersDictionary = @{@"query" : TEST_QUERY_ENCODED};
-    BoxAPIJSONOperation *operation = [searchManager searchWithQuery:TEST_QUERY successBlock:nil failureBlock:nil];
+    BoxSearchRequestBuilder *builder = [[BoxSearchRequestBuilder alloc] initWithSearch:TEST_QUERY queryStringParameters:nil];
+    BoxAPIJSONOperation *operation = [searchManager searchWithBuilder:builder successBlock:nil failureBlock:nil];
 
     STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
 }
@@ -67,7 +71,8 @@
 // GET request should have no body
 - (void)testThatSearchDoesNotIncludeBodyDictionaryFromRequestBuilder
 {
-    BoxAPIJSONOperation *operation = [searchManager searchWithQuery:TEST_QUERY successBlock:nil failureBlock:nil];
+    BoxSearchRequestBuilder *builder = [[BoxSearchRequestBuilder alloc] initWithSearch:TEST_QUERY queryStringParameters:nil];
+    BoxAPIJSONOperation *operation = [searchManager searchWithBuilder:builder successBlock:nil failureBlock:nil];
 
     STAssertNil(operation.APIRequest.HTTPBody, @"body parameters from builder should not be included with the request");
 }
@@ -79,7 +84,8 @@
     {
         blockCalled = YES;
     };
-    BoxAPIJSONOperation *operation = [searchManager searchWithQuery:TEST_QUERY successBlock:successBlock failureBlock:nil];
+    BoxSearchRequestBuilder *builder = [[BoxSearchRequestBuilder alloc] initWithSearch:TEST_QUERY queryStringParameters:nil];
+    BoxAPIJSONOperation *operation = [searchManager searchWithBuilder:builder successBlock:successBlock failureBlock:nil];
 
     operation.success(nil, nil, nil);
 
@@ -92,7 +98,8 @@
     {
         STAssertTrue([results isMemberOfClass:[BoxCollection class]], @"success block should be passed a BoxCollection");
     };
-    BoxAPIJSONOperation *operation = [searchManager searchWithQuery:TEST_QUERY successBlock:successBlock failureBlock:nil];
+    BoxSearchRequestBuilder *builder = [[BoxSearchRequestBuilder alloc] initWithSearch:TEST_QUERY queryStringParameters:nil];
+    BoxAPIJSONOperation *operation = [searchManager searchWithBuilder:builder successBlock:successBlock failureBlock:nil];
 
     operation.success(nil, nil, nil);
 }
@@ -104,7 +111,8 @@
     {
         blockCalled = YES;
     };
-    BoxAPIJSONOperation *operation = [searchManager searchWithQuery:TEST_QUERY successBlock:nil failureBlock:failureBlock];
+    BoxSearchRequestBuilder *builder = [[BoxSearchRequestBuilder alloc] initWithSearch:TEST_QUERY queryStringParameters:nil];
+    BoxAPIJSONOperation *operation = [searchManager searchWithBuilder:builder successBlock:nil failureBlock:failureBlock];
 
     operation.failure(nil, nil, nil, nil);
 
@@ -117,13 +125,15 @@
     [[queueManagerMock expect] enqueueOperation:OCMOCK_ANY];
     searchManager.queueManager = queueManagerMock;
 
-    __unused BoxAPIJSONOperation *operation = [searchManager searchWithQuery:TEST_QUERY successBlock:nil failureBlock:nil];
+    BoxSearchRequestBuilder *builder = [[BoxSearchRequestBuilder alloc] initWithSearch:TEST_QUERY queryStringParameters:nil];
+    __unused BoxAPIJSONOperation *operation = [searchManager searchWithBuilder:builder successBlock:nil failureBlock:nil];
     [queueManagerMock verify];
 }
 
 - (void)testThatSearchPassesOAuth2SessionToOperation
 {
-    BoxAPIJSONOperation *operation = [searchManager searchWithQuery:TEST_QUERY successBlock:nil failureBlock:nil];
+    BoxSearchRequestBuilder *builder = [[BoxSearchRequestBuilder alloc] initWithSearch:TEST_QUERY queryStringParameters:nil];
+    BoxAPIJSONOperation *operation = [searchManager searchWithBuilder:builder successBlock:nil failureBlock:nil];
     STAssertEquals(OAuth2Session, operation.OAuth2Session, @"operation should have the same OAuth2Session as the users manager");
 }
 

@@ -10,18 +10,14 @@
 
 #import "BoxCollection.h"
 #import "BoxAPIRequestBuilder.h"
-
-NSString *const BoxAPISearchQueryParameter = @"query";
+#import "BoxSearchRequestBuilder.h"
 
 #define BOX_API_SEARCH_RESOURCE  (@"search")
 
 @implementation BoxSearchResourceManager
 
-- (BoxAPIJSONOperation *)searchWithQuery:(NSString *)query successBlock:(BoxCollectionBlock)successBlock failureBlock:(BoxAPIJSONFailureBlock)failureBlock
+- (BoxAPIJSONOperation *)searchWithBuilder:(BoxSearchRequestBuilder *)builder successBlock:(BoxCollectionBlock)successBlock failureBlock:(BoxAPIJSONFailureBlock)failureBlock
 {
-    NSDictionary *queryString = @{BoxAPISearchQueryParameter : query};
-    BoxAPIRequestBuilder *builder = [[BoxAPIRequestBuilder alloc] initWithQueryStringParameters:queryString];
-
     NSURL *URL = [self URLWithResource:BOX_API_SEARCH_RESOURCE ID:nil subresource:nil subID:nil];
     BoxAPIJSONOperation *operation = [self JSONOperationWithURL:URL
                                                      HTTPMethod:BoxAPIHTTPMethodGET
