@@ -166,6 +166,18 @@
 		E4CA6F5E173F1C750089680F /* BoxParallelOAuth2Session.h in Headers */ = {isa = PBXBuildFile; fileRef = E4CA6F5C173F1C750089680F /* BoxParallelOAuth2Session.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4CA6F5F173F1C750089680F /* BoxParallelOAuth2Session.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CA6F5D173F1C750089680F /* BoxParallelOAuth2Session.m */; };
 		E4D5085816E80A2A001CE50A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D5085616E80667001CE50A /* libOCMock.a */; };
+		E4F06BFF183EE6EC006AFB83 /* BoxComment.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91EA183E881F0090696B /* BoxComment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4F06C00183EE6EC006AFB83 /* BoxCommentableItem.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91EE183E93BA0090696B /* BoxCommentableItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4F06C01183EE6EC006AFB83 /* BoxCommentsRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91F2183EA1890090696B /* BoxCommentsRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4F06C02183EE6EC006AFB83 /* BoxModelBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91FB183EA5430090696B /* BoxModelBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4F06C03183EE6EC006AFB83 /* BoxCommentsResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91F6183EA1AF0090696B /* BoxCommentsResourceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4F06C04183EE705006AFB83 /* BoxComment.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F91EB183E881F0090696B /* BoxComment.m */; };
+		E4F06C05183EE705006AFB83 /* BoxCommentsRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F91F3183EA1890090696B /* BoxCommentsRequestBuilder.m */; };
+		E4F06C06183EE705006AFB83 /* BoxModelBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F91FC183EA5430090696B /* BoxModelBuilder.m */; };
+		E4F06C07183EE776006AFB83 /* BoxCommentsResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F91F7183EA1AF0090696B /* BoxCommentsResourceManager.m */; };
+		E4F06C08183EE793006AFB83 /* BoxCommentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F9200183EBAA50090696B /* BoxCommentTests.m */; };
+		E4F06C09183EE793006AFB83 /* BoxCommentsRequestBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F9206183EC3A40090696B /* BoxCommentsRequestBuilderTests.m */; };
+		E4F06C0A183EE793006AFB83 /* BoxCommentsResourceManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F9203183EC3720090696B /* BoxCommentsResourceManagerTests.m */; };
 		E4F4693617264EBE000CAD86 /* BoxSDKErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = E4F4693517264439000CAD86 /* BoxSDKErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4F4693B17268023000CAD86 /* BoxSDKTestsHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F4693A17268023000CAD86 /* BoxSDKTestsHelpers.m */; };
 		E4FAD9C0172CE2C50052AD11 /* NSString+BoxURLHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E4FAD97C172CE2C50052AD11 /* NSString+BoxURLHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1362,6 +1374,11 @@
 				E479B2951804C02F00F8D79C /* BoxUsersResourceManager.h in Headers */,
 				E436276D183EDCA000C608E1 /* BoxSearchRequestBuilder.h in Headers */,
 				E4362759183E95B500C608E1 /* BoxSearchResourceManager.h in Headers */,
+				E4F06BFF183EE6EC006AFB83 /* BoxComment.h in Headers */,
+				E4F06C00183EE6EC006AFB83 /* BoxCommentableItem.h in Headers */,
+				E4F06C01183EE6EC006AFB83 /* BoxCommentsRequestBuilder.h in Headers */,
+				E4F06C02183EE6EC006AFB83 /* BoxModelBuilder.h in Headers */,
+				E4F06C03183EE6EC006AFB83 /* BoxCommentsResourceManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1711,6 +1728,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F06C07183EE776006AFB83 /* BoxCommentsResourceManager.m in Sources */,
+				E4F06C04183EE705006AFB83 /* BoxComment.m in Sources */,
+				E4F06C05183EE705006AFB83 /* BoxCommentsRequestBuilder.m in Sources */,
+				E4F06C06183EE705006AFB83 /* BoxModelBuilder.m in Sources */,
 				E4362758183E95AA00C608E1 /* BoxSearchResourceManager.m in Sources */,
 				E479B2921804C01E00F8D79C /* BoxUsersRequestBuilder.m in Sources */,
 				E479B2931804C01E00F8D79C /* BoxUsersResourceManager.m in Sources */,
@@ -1759,6 +1780,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F06C08183EE793006AFB83 /* BoxCommentTests.m in Sources */,
+				E4F06C09183EE793006AFB83 /* BoxCommentsRequestBuilderTests.m in Sources */,
+				E4F06C0A183EE793006AFB83 /* BoxCommentsResourceManagerTests.m in Sources */,
 				E4362773183EE1DA00C608E1 /* BoxSearchRequestBuilderTests.m in Sources */,
 				E436275D183E9D1400C608E1 /* BoxSearchResourceManagerTests.m in Sources */,
 				E479B2961804C06800F8D79C /* BoxUserTests.m in Sources */,
