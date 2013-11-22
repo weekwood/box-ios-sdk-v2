@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>BoxFilesRequestBuilder Class Reference</title>
+		<title>BoxSearchRequestBuilder Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">BoxFilesRequestBuilder Class Reference</h1>
+				<h1 class="hideInXcode">BoxSearchRequestBuilder Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -37,13 +37,20 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/query">&nbsp;&nbsp;&nbsp;&nbsp;query</option>
+	
+	
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/multipartBodyParameters">&nbsp;&nbsp;&nbsp;&nbsp;- multipartBodyParameters</option>
+	<option value="//api/name/initWithQueryStringParameters:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithQueryStringParameters:</option>
+	
+	<option value="//api/name/initWithSearch:queryStringParameters:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithSearch:queryStringParameters:</option>
 	
 	
 	
@@ -67,13 +74,21 @@
 
 
 
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/query">query</a></span></li>
+	
+</ul></li>
+
 
 
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/multipartBodyParameters">multipartBodyParameters</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithQueryStringParameters:">initWithQueryStringParameters:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithSearch:queryStringParameters:">initWithSearch:queryStringParameters:</a></span></li>
 	
 </ul></li>
 
@@ -82,7 +97,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="BoxFilesRequestBuilder Class Reference" name="top"></a>
+				<a title="BoxSearchRequestBuilder Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -91,7 +106,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">BoxFilesRequestBuilder Class Reference</h1>
+						<h1 class="title title-header">BoxSearchRequestBuilder Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -99,10 +114,10 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value"><a href="../Classes/BoxItemsRequestBuilder.html">BoxItemsRequestBuilder</a> : <a href="../Classes/BoxAPIRequestBuilder.html">BoxAPIRequestBuilder</a> : NSObject</td>
+	<td class="specification-value"><a href="../Classes/BoxAPIRequestBuilder.html">BoxAPIRequestBuilder</a> : NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">BoxFilesRequestBuilder.h<br />BoxFilesRequestBuilder.m</td>
+	<td class="specification-value">BoxSearchRequestBuilder.h<br />BoxSearchRequestBuilder.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -112,10 +127,15 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>BoxFilesRequestBuilder is an request builder for file operations.</p>
+						<p>BoxSearchRequestBuilder allows callers to build the on-the-wire representation
+for searching a user&rsquo;s Box account.</p>
 
-<p>This class allows constructing of the HTTP body for <code>POST</code> and &lsquo;PUT` requests as well
-as setting query string parameters on the request.</p>
+<h1>Constants</h1>
+
+<ul>
+<li><code>BoxAPISearchQueryParameter</code> The name of the search <a href="#//api/name/query">query</a> string parameter.</li>
+</ul>
+
 					</div>
 					
 					
@@ -128,14 +148,35 @@ as setting query string parameters on the request.</p>
 						
 						
 						
-						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/multipartBodyParameters">&ndash;&nbsp;multipartBodyParameters</a></code>
-		<span class="tooltip"><p>Encode the subset of body parameters that are supported for file
-uploads which utilize <a href="../Classes/BoxAPIMultipartToJSONOperation.html">BoxAPIMultipartToJSONOperation</a>.</p></span>
+		<code><a href="#//api/name/query">&nbsp;&nbsp;query</a></code>
+		<span class="tooltip"><p>The query to search for via the API. Sets the value in the query string parameters.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithSearch:queryStringParameters:">&ndash;&nbsp;initWithSearch:queryStringParameters:</a></code>
+		<span class="tooltip"><p>Create a builder with the specified search <a href="#//api/name/query">query</a></p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithQueryStringParameters:">&ndash;&nbsp;initWithQueryStringParameters:</a></code>
+		<span class="tooltip"><p>Designated initializer.</p></span>
 	</span>
 	
 	
@@ -148,6 +189,53 @@ uploads which utilize <a href="../Classes/BoxAPIMultipartToJSONOperation.html">B
 					
 					
 					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/query" title="query"></a>
+	<h3 class="subsubtitle method-title">query</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The query to search for via the API. Sets the value in the query string parameters.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSString *query</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The query to search for via the API. Sets the value in the query string parameters.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxSearchRequestBuilder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
 					
 					
 					
@@ -157,27 +245,36 @@ uploads which utilize <a href="../Classes/BoxAPIMultipartToJSONOperation.html">B
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/multipartBodyParameters" title="multipartBodyParameters"></a>
-	<h3 class="subsubtitle method-title">multipartBodyParameters</h3>
+	<a name="//api/name/initWithQueryStringParameters:" title="initWithQueryStringParameters:"></a>
+	<h3 class="subsubtitle method-title">initWithQueryStringParameters:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Encode the subset of body parameters that are supported for file
-uploads which utilize <a href="../Classes/BoxAPIMultipartToJSONOperation.html">BoxAPIMultipartToJSONOperation</a>.</p>
+		<p>Designated initializer.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (NSDictionary *)multipartBodyParameters</code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithQueryStringParameters:(NSDictionary *)<em>queryStringParameters</em></code></div>
 
     
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>queryStringParameters</em></dt>
+			<dd><p>Key value pairs to include in the query string of the API request.</p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A dictionary representing the encoded multipart parameters.</p>
+		<p>An initialized BoxAPIRequestBuilder.</p>
 	</div>
 	
 	
@@ -186,28 +283,79 @@ uploads which utilize <a href="../Classes/BoxAPIMultipartToJSONOperation.html">B
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Encode the subset of body parameters that are supported for file
-uploads which utilize <a href="../Classes/BoxAPIMultipartToJSONOperation.html">BoxAPIMultipartToJSONOperation</a>.</p>
+		<p>Designated initializer.</p>
 	</div>
 	
 	
 	
 	
-	
-	<div class="method-subsection see-also-section">
-		<h4 class="method-subtitle">See Also</h4>
-		<ul>
-			
-			<li><code><p><a href="../Classes/BoxAPIRequestBuilder.html#//api/name/bodyParameters">[BoxAPIRequestBuilder bodyParameters]</a></p></code></li>
-			
-		</ul>
-	</div>
 	
 	
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxFilesRequestBuilder.h</code><br />
+		<code class="declared-in-ref">BoxAPIRequestBuilder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithSearch:queryStringParameters:" title="initWithSearch:queryStringParameters:"></a>
+	<h3 class="subsubtitle method-title">initWithSearch:queryStringParameters:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a builder with the specified search <a href="#//api/name/query">query</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithSearch:(NSString *)<em>query</em> queryStringParameters:(NSDictionary *)<em>queryStringParameters</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>query</em></dt>
+			<dd><p>Search <a href="#//api/name/query">query</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>queryStringParameters</em></dt>
+			<dd><p>Additional <a href="#//api/name/query">query</a> string parameters such as limit and offset</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A request builder configured with search and <a href="#//api/name/query">query</a> params.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create a builder with the specified search <a href="#//api/name/query">query</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxSearchRequestBuilder.h</code><br />
 	</div>				
 	
 	

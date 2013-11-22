@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>69304D41-A49E-4BD7-B524-7CEB0DF07F81</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BoxSDK</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>93516B79-A3C1-4FA3-8829-B7157A8FF7FC</key>
+		<string>ssh://github.com/box/box-ios-sdk-private.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BoxSDK.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>93516B79-A3C1-4FA3-8829-B7157A8FF7FC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/box/box-ios-sdk-private.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>93516B79-A3C1-4FA3-8829-B7157A8FF7FC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>93516B79-A3C1-4FA3-8829-B7157A8FF7FC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>box-ios-sdk-private</string>
+		</dict>
+	</array>
+</dict>
+</plist>

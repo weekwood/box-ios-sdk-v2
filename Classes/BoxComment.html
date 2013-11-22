@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>BoxSharedObjectBuilder Class Reference</title>
+		<title>BoxComment Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">BoxSharedObjectBuilder Class Reference</h1>
+				<h1 class="hideInXcode">BoxComment Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -39,22 +39,23 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/access">&nbsp;&nbsp;&nbsp;&nbsp;access</option>
+	<option value="//api/name/createdAt">&nbsp;&nbsp;&nbsp;&nbsp;createdAt</option>
 	
-	<option value="//api/name/canDownload">&nbsp;&nbsp;&nbsp;&nbsp;canDownload</option>
+	<option value="//api/name/createdBy">&nbsp;&nbsp;&nbsp;&nbsp;createdBy</option>
 	
-	<option value="//api/name/canPreview">&nbsp;&nbsp;&nbsp;&nbsp;canPreview</option>
+	<option value="//api/name/isReplyComment">&nbsp;&nbsp;&nbsp;&nbsp;isReplyComment</option>
 	
-	<option value="//api/name/unsharedAt">&nbsp;&nbsp;&nbsp;&nbsp;unsharedAt</option>
+	<option value="//api/name/item">&nbsp;&nbsp;&nbsp;&nbsp;item</option>
+	
+	<option value="//api/name/message">&nbsp;&nbsp;&nbsp;&nbsp;message</option>
+	
+	<option value="//api/name/modifiedAt">&nbsp;&nbsp;&nbsp;&nbsp;modifiedAt</option>
+	
+	<option value="//api/name/taggedMessage">&nbsp;&nbsp;&nbsp;&nbsp;taggedMessage</option>
 	
 	
 	
 	
-	
-	
-	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/bodyParameters">&nbsp;&nbsp;&nbsp;&nbsp;- bodyParameters</option>
 	
 	
 	
@@ -80,32 +81,32 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/access">access</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createdAt">createdAt</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canDownload">canDownload</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createdBy">createdBy</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canPreview">canPreview</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isReplyComment">isReplyComment</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unsharedAt">unsharedAt</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/item">item</a></span></li>
 	
-</ul></li>
-
-
-
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/message">message</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bodyParameters">bodyParameters</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/modifiedAt">modifiedAt</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/taggedMessage">taggedMessage</a></span></li>
 	
 </ul></li>
+
+
+
+
 
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="BoxSharedObjectBuilder Class Reference" name="top"></a>
+				<a title="BoxComment Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -114,7 +115,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">BoxSharedObjectBuilder Class Reference</h1>
+						<h1 class="title title-header">BoxComment Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -122,10 +123,13 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value"><a href="../Classes/BoxAPIRequestBuilder.html">BoxAPIRequestBuilder</a> : NSObject</td>
+	<td class="specification-value"><a href="../Classes/BoxModel.html">BoxModel</a> : NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value"><a href="../Protocols/BoxCommentableItem.html">BoxCommentableItem</a></td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">BoxSharedObjectBuilder.h<br />BoxSharedObjectBuilder.m</td>
+	<td class="specification-value">BoxComment.h<br />BoxComment.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -135,30 +139,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>BoxSharedObjectBuilder allows callers to build the on-the-wire representation
-for setting and unsetting shared links on subclasses of <a href="../Classes/BoxItem.html">BoxItem</a>.</p>
-
-<h1>Constants</h1>
-
-<p>This class exposes several constants to set the state of a shared link.</p>
-
-<p>For setting <a href="#//api/name/access">access</a> levels:</p>
-
-<ul>
-<li><code>BoxAPISharedObjectAccessOpen</code></li>
-<li><code>BoxAPISharedObjectAccessCompany</code></li>
-<li><code>BoxAPISharedObjectAccessCollaborators</code></li>
-</ul>
-
-
-<p>For setting permission levels:</p>
-
-<ul>
-<li><code>BoxAPISharedObjectPermissionStateEnabled</code></li>
-<li><code>BoxAPISharedObjectPermissionStateDisabled</code></li>
-<li><code>BoxAPISharedObjectPermissionStateUnset</code></li>
-</ul>
-
+						<p>BoxComment represents comments on Box.</p>
 					</div>
 					
 					
@@ -171,55 +152,57 @@ for setting and unsetting shared links on subclasses of <a href="../Classes/BoxI
 						
 						
 						
-						<h3 class="subsubtitle task-title">Other Methods</h3>
+						
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/access">&nbsp;&nbsp;access</a></code>
-		<span class="tooltip"><p>Access level of the shared link. Determines link visibility. This property is required.</p></span>
+		<code><a href="#//api/name/message">&nbsp;&nbsp;message</a></code>
+		<span class="tooltip"><p>The message represented by this comment</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/unsharedAt">&nbsp;&nbsp;unsharedAt</a></code>
-		<span class="tooltip"><p>The date at which the link should be diasbled. Leave unset for links
-that should not expire.</p></span>
+		<code><a href="#//api/name/taggedMessage">&nbsp;&nbsp;taggedMessage</a></code>
+		<span class="tooltip"><p>The tagged <a href="#//api/name/message">message</a> represented by this comment.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/canDownload">&nbsp;&nbsp;canDownload</a></code>
-		<span class="tooltip"><p>Whether this link allows downloads. Can only be used with <a href="#//api/name/access">access</a> levels
-<code>BoxAPISharedObjectAccessOpen</code> and <code>BoxAPISharedObjectAccessCompany</code>.</p></span>
+		<code><a href="#//api/name/createdBy">&nbsp;&nbsp;createdBy</a></code>
+		<span class="tooltip"><p>The <a href="../Classes/BoxUser.html">BoxUser</a> who created this comment.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/canPreview">&nbsp;&nbsp;canPreview</a></code>
-		<span class="tooltip"><p>Whether this link allows previewing. Can only be used with <a href="#//api/name/access">access</a> levels
-<code>BoxAPISharedObjectAccessOpen</code> and <code>BoxAPISharedObjectAccessCompany</code>.</p></span>
+		<code><a href="#//api/name/createdAt">&nbsp;&nbsp;createdAt</a></code>
+		<span class="tooltip"><p>The date this user was first created on Box.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
-</li>
-						</ul>
-						
-						
-						
-						<h3 class="subsubtitle task-title">Other Methods</h3>
-
-						<ul class="task-list">
-							<li>
+</li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/bodyParameters">&ndash;&nbsp;bodyParameters</a></code>
-		<span class="tooltip"><p>Return an <code>NSDictionary</code> containing all of the properties set on this builder. These properties
-should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.</p></span>
+		<code><a href="#//api/name/modifiedAt">&nbsp;&nbsp;modifiedAt</a></code>
+		<span class="tooltip"><p>The date this <a href="#//api/name/item">item</a> was last updated on Box.</p></span>
 	</span>
+	<span class="task-item-suffix">property</span>
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isReplyComment">&nbsp;&nbsp;isReplyComment</a></code>
+		<span class="tooltip"><p>Whether this comment is a reply to another comment</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/item">&nbsp;&nbsp;item</a></code>
+		<span class="tooltip"><p>The item this comment was made on</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
 	
 </li>
 						</ul>
@@ -235,18 +218,18 @@ should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/access" title="access"></a>
-	<h3 class="subsubtitle method-title">access</h3>
+	<a name="//api/name/createdAt" title="createdAt"></a>
+	<h3 class="subsubtitle method-title">createdAt</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Access level of the shared link. Determines link visibility. This property is required.</p>
+		<p>The date this user was first created on Box.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) BoxAPISharedObjectAccess *access</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSDate *createdAt</code></div>
 
     
 	
@@ -258,7 +241,7 @@ should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Access level of the shared link. Determines link visibility. This property is required.</p>
+		<p>The date this user was first created on Box.</p>
 	</div>
 	
 	
@@ -269,26 +252,25 @@ should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSharedObjectBuilder.h</code><br />
+		<code class="declared-in-ref">BoxComment.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/canDownload" title="canDownload"></a>
-	<h3 class="subsubtitle method-title">canDownload</h3>
+	<a name="//api/name/createdBy" title="createdBy"></a>
+	<h3 class="subsubtitle method-title">createdBy</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Whether this link allows downloads. Can only be used with <a href="#//api/name/access">access</a> levels
-<code>BoxAPISharedObjectAccessOpen</code> and <code>BoxAPISharedObjectAccessCompany</code>.</p>
+		<p>The <a href="../Classes/BoxUser.html">BoxUser</a> who created this comment.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) BoxAPISharedObjectPermissionState canDownload</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BoxUser *createdBy</code></div>
 
     
 	
@@ -300,8 +282,7 @@ should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether this link allows downloads. Can only be used with <a href="#//api/name/access">access</a> levels
-<code>BoxAPISharedObjectAccessOpen</code> and <code>BoxAPISharedObjectAccessCompany</code>.</p>
+		<p>The <a href="../Classes/BoxUser.html">BoxUser</a> who created this comment.</p>
 	</div>
 	
 	
@@ -312,26 +293,25 @@ should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSharedObjectBuilder.h</code><br />
+		<code class="declared-in-ref">BoxComment.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/canPreview" title="canPreview"></a>
-	<h3 class="subsubtitle method-title">canPreview</h3>
+	<a name="//api/name/isReplyComment" title="isReplyComment"></a>
+	<h3 class="subsubtitle method-title">isReplyComment</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Whether this link allows previewing. Can only be used with <a href="#//api/name/access">access</a> levels
-<code>BoxAPISharedObjectAccessOpen</code> and <code>BoxAPISharedObjectAccessCompany</code>.</p>
+		<p>Whether this comment is a reply to another comment</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) BoxAPISharedObjectPermissionState canPreview</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSNumber *isReplyComment</code></div>
 
     
 	
@@ -343,8 +323,7 @@ should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether this link allows previewing. Can only be used with <a href="#//api/name/access">access</a> levels
-<code>BoxAPISharedObjectAccessOpen</code> and <code>BoxAPISharedObjectAccessCompany</code>.</p>
+		<p>Whether this comment is a reply to another comment</p>
 	</div>
 	
 	
@@ -355,26 +334,25 @@ should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSharedObjectBuilder.h</code><br />
+		<code class="declared-in-ref">BoxComment.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/unsharedAt" title="unsharedAt"></a>
-	<h3 class="subsubtitle method-title">unsharedAt</h3>
+	<a name="//api/name/item" title="item"></a>
+	<h3 class="subsubtitle method-title">item</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The date at which the link should be diasbled. Leave unset for links
-that should not expire.</p>
+		<p>The item this comment was made on</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSDate *unsharedAt</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BoxModel&lt;BoxCommentableItem&gt; *item</code></div>
 
     
 	
@@ -386,8 +364,7 @@ that should not expire.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The date at which the link should be diasbled. Leave unset for links
-that should not expire.</p>
+		<p>The item this comment was made on</p>
 	</div>
 	
 	
@@ -398,7 +375,133 @@ that should not expire.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxSharedObjectBuilder.h</code><br />
+		<code class="declared-in-ref">BoxComment.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/message" title="message"></a>
+	<h3 class="subsubtitle method-title">message</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The message represented by this comment</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *message</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The message represented by this comment</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxComment.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/modifiedAt" title="modifiedAt"></a>
+	<h3 class="subsubtitle method-title">modifiedAt</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The date this <a href="#//api/name/item">item</a> was last updated on Box.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSDate *modifiedAt</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The date this <a href="#//api/name/item">item</a> was last updated on Box.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxComment.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/taggedMessage" title="taggedMessage"></a>
+	<h3 class="subsubtitle method-title">taggedMessage</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The tagged <a href="#//api/name/message">message</a> represented by this comment.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *taggedMessage</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The tagged <a href="#//api/name/message">message</a> represented by this comment.</p>
+
+<p>The difference between this and the <a href="#//api/name/message">message</a> is that this contains
+any user that was mentioned in the <a href="#//api/name/message">message</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxComment.h</code><br />
 	</div>				
 	
 	
@@ -409,60 +512,6 @@ that should not expire.</p>
 					
 					
 					
-					
-					<div class="section section-methods">
-						<a title="Instance Methods" name="instance_methods"></a>
-						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/bodyParameters" title="bodyParameters"></a>
-	<h3 class="subsubtitle method-title">bodyParameters</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Return an <code>NSDictionary</code> containing all of the properties set on this builder. These properties
-should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (NSDictionary *)bodyParameters</code></div>
-
-    
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A dictionary containing all properties set on this builder.</p>
-	</div>
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Return an <code>NSDictionary</code> containing all of the properties set on this builder. These properties
-should be encoded in the &ldquo;on-the-wire&rdquo; represention the API expects.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BoxAPIRequestBuilder.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
 					
 					
 				</div>

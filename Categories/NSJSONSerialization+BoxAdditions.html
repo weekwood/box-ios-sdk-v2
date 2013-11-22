@@ -43,6 +43,8 @@
 	
 	<option value="//api/name/ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:">&nbsp;&nbsp;&nbsp;&nbsp;+ ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:</option>
 	
+	<option value="//api/name/ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:suppressNullAsNil:">&nbsp;&nbsp;&nbsp;&nbsp;+ ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:suppressNullAsNil:</option>
+	
 	
 	
 	
@@ -74,6 +76,8 @@
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:">ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:suppressNullAsNil:">ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:suppressNullAsNil:</a></span></li>
 	
 </ul></li>
 
@@ -135,6 +139,15 @@ that an object extracted from a decoded JSON object is of the expected type.</p>
 		<code><a href="#//api/name/ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:">+&nbsp;ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:</a></code>
 		<span class="tooltip"><p>Ensure that the object at <code>key</code> in <code>dictionary</code> is a member of the expected class.
 <code>NSNull</code> may be specified as an allowable value. This method may return nil if <code>key</code>
+is not present in <code>dictionary</code>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:suppressNullAsNil:">+&nbsp;ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:suppressNullAsNil:</a></code>
+		<span class="tooltip"><p>Ensure that the object at <code>key</code> in <code>dictionary</code> is a member of the expected class.
+<code>NSNull</code> may be converted to nil. This method may return nil if <code>key</code>
 is not present in <code>dictionary</code>.</p></span>
 	</span>
 	
@@ -230,6 +243,87 @@ is not present in <code>dictionary</code>.</p>
 	
 </div>
 						
+						<div class="section-method">
+	<a name="//api/name/ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:suppressNullAsNil:" title="ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:suppressNullAsNil:"></a>
+	<h3 class="subsubtitle method-title">ensureObjectForKey:inDictionary:hasExpectedType:nullAllowed:suppressNullAsNil:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Ensure that the object at <code>key</code> in <code>dictionary</code> is a member of the expected class.
+<code>NSNull</code> may be converted to nil. This method may return nil if <code>key</code>
+is not present in <code>dictionary</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)ensureObjectForKey:(NSString *)<em>key</em> inDictionary:(NSDictionary *)<em>dictionary</em> hasExpectedType:(Class)<em>cls</em> nullAllowed:(BOOL)<em>nullAllowed</em> suppressNullAsNil:(BOOL)<em>suppressNullAsNil</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The key to lookup in <code>dictionary</code>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>dictionary</em></dt>
+			<dd><p>A dictionary resulting from deserializing a JSON object.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>cls</em></dt>
+			<dd><p>The expected class of the value at key.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nullAllowed</em></dt>
+			<dd><p>If true, <code>NSNull</code> is an allowable value. Property getters that pass
+<code>YES</code> for this parameter should have the return type of <code>id</code>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>suppressNullAsNil</em></dt>
+			<dd><p>If true and nullAllowed is true, <code>NSNull</code> will be converted to <code>nil</code>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The object at <code>key</code> in <code>dictionary</code> if expectations are satisfied; <code>nil</code> otherwise.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Ensure that the object at <code>key</code> in <code>dictionary</code> is a member of the expected class.
+<code>NSNull</code> may be converted to nil. This method may return nil if <code>key</code>
+is not present in <code>dictionary</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">NSJSONSerialization+BoxAdditions.h</code><br />
+	</div>				
+	
+	
+</div>
+						
 					</div>
 					
 					
@@ -245,7 +339,7 @@ is not present in <code>dictionary</code>.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-10-08)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-11-21)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						

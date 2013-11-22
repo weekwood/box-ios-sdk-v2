@@ -43,11 +43,15 @@
 	
 	<option value="//api/name/OAuth2Session">&nbsp;&nbsp;&nbsp;&nbsp;OAuth2Session</option>
 	
+	<option value="//api/name/commentsManager">&nbsp;&nbsp;&nbsp;&nbsp;commentsManager</option>
+	
 	<option value="//api/name/filesManager">&nbsp;&nbsp;&nbsp;&nbsp;filesManager</option>
 	
 	<option value="//api/name/foldersManager">&nbsp;&nbsp;&nbsp;&nbsp;foldersManager</option>
 	
 	<option value="//api/name/queueManager">&nbsp;&nbsp;&nbsp;&nbsp;queueManager</option>
+	
+	<option value="//api/name/searchManager">&nbsp;&nbsp;&nbsp;&nbsp;searchManager</option>
 	
 	<option value="//api/name/usersManager">&nbsp;&nbsp;&nbsp;&nbsp;usersManager</option>
 	
@@ -109,11 +113,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/OAuth2Session">OAuth2Session</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/commentsManager">commentsManager</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/filesManager">filesManager</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/foldersManager">foldersManager</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queueManager">queueManager</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/searchManager">searchManager</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/usersManager">usersManager</a></span></li>
 	
@@ -261,10 +269,25 @@ and managing the trash.</p></span>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/searchManager">&nbsp;&nbsp;searchManager</a></code>
+		<span class="tooltip"><p>The searchManager grants the ability to search a user&rsquo;s Box account.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/usersManager">&nbsp;&nbsp;usersManager</a></code>
 		<span class="tooltip"><p>The usersManager grants the ability to make API calls related to users on Box.
 These API calls include getting user information, getting the currently authorized
 user&rsquo;s information, and admin user management.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/commentsManager">&nbsp;&nbsp;commentsManager</a></code>
+		<span class="tooltip"><p>The commentsManager grants the ability to make API calls related to comments on Box.
+These API calls include getting comment information, creating a comment, and modifying a comment</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -426,6 +449,49 @@ user&rsquo;s information, and admin user management.</p></span>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/commentsManager" title="commentsManager"></a>
+	<h3 class="subsubtitle method-title">commentsManager</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The commentsManager grants the ability to make API calls related to comments on Box.
+These API calls include getting comment information, creating a comment, and modifying a comment</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) BoxCommentsResourceManager *commentsManager</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The commentsManager grants the ability to make API calls related to comments on Box.
+These API calls include getting comment information, creating a comment, and modifying a comment</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxSDK.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/filesManager" title="filesManager"></a>
 	<h3 class="subsubtitle method-title">filesManager</h3>
 	
@@ -544,6 +610,47 @@ calls) and the <a href="#//api/name/filesManager">filesManager</a> and <a href="
 		<p>The BoxSDK&rsquo;s queue manager. All API calls are scheduled by this queue manager.
 The queueManager is shared with the <a href="#//api/name/OAuth2Session">OAuth2Session</a> (for making authorization and refresh
 calls) and the <a href="#//api/name/filesManager">filesManager</a> and <a href="#//api/name/foldersManager">foldersManager</a> (for making API calls).</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BoxSDK.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/searchManager" title="searchManager"></a>
+	<h3 class="subsubtitle method-title">searchManager</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The searchManager grants the ability to search a user&rsquo;s Box account.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) BoxSearchResourceManager *searchManager</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The searchManager grants the ability to search a user&rsquo;s Box account.</p>
 	</div>
 	
 	
@@ -866,7 +973,7 @@ this path. Not used if thumbnailsEnabled set to NO.</p></dd>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-10-08)</span><br />
+						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-11-21)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						
