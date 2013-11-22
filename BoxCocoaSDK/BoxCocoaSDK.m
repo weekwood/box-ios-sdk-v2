@@ -20,6 +20,7 @@
 @synthesize queueManager = _queueManager;
 @synthesize foldersManager = _foldersManager;
 @synthesize filesManager = _filesManager;
+@synthesize searchManager = _searchManager;
 @synthesize usersManager = _usersManager;
 @synthesize commentsManager = _commentsManager;
 
@@ -51,6 +52,8 @@
         
         sharedBoxSDK.foldersManager = [[BoxFoldersResourceManager alloc] initWithAPIBaseURL:BoxAPIBaseURL OAuth2Session:sharedBoxSDK.OAuth2Session queueManager:sharedBoxSDK.queueManager];
 
+        sharedBoxSDK.searchManager = [[BoxSearchResourceManager alloc] initWithAPIBaseURL:BoxAPIBaseURL OAuth2Session:sharedBoxSDK.OAuth2Session queueManager:sharedBoxSDK.queueManager];
+
         sharedBoxSDK.usersManager = [[BoxUsersResourceManager alloc] initWithAPIBaseURL:BoxAPIBaseURL OAuth2Session:sharedBoxSDK.OAuth2Session queueManager:sharedBoxSDK.queueManager];
         
         sharedBoxSDK.commentsManager = [[BoxCommentsResourceManager alloc] initWithAPIBaseURL:BoxAPIBaseURL OAuth2Session:sharedBoxSDK.OAuth2Session queueManager:sharedBoxSDK.queueManager];
@@ -67,6 +70,7 @@
     // managers
     self.filesManager.APIBaseURL = APIBaseURL;
     self.foldersManager.APIBaseURL = APIBaseURL;
+    self.searchManager.APIBaseURL = APIBaseURL;
     self.usersManager.APIBaseURL = APIBaseURL;
     self.commentsManager.APIBaseURL = APIBaseURL;
 }

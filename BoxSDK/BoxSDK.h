@@ -46,6 +46,7 @@
 #import <BoxSDK/BoxAPIResourceManager.h>
 #import <BoxSDK/BoxFilesResourceManager.h>
 #import <BoxSDK/BoxFoldersResourceManager.h>
+#import <BoxSDK/BoxSearchResourceManager.h>
 #import <BoxSDK/BoxUsersResourceManager.h>
 #import <BoxSDK/BoxCommentsResourceManager.h>
 
@@ -127,6 +128,11 @@ extern NSString *const BoxAPIBaseURL;
 @property (nonatomic, readwrite, strong) BoxFoldersResourceManager *foldersManager;
 
 /**
+ * The searchManager grants the ability to search a user's Box account.
+ */
+@property (nonatomic, readwrite, strong) BoxSearchResourceManager *searchManager;
+
+/**
  * The usersManager grants the ability to make API calls related to users on Box.
  * These API calls include getting user information, getting the currently authorized
  * user's information, and admin user management.
@@ -146,11 +152,11 @@ extern NSString *const BoxAPIBaseURL;
  * Returns the BoxSDK's default SDK client
  *
  * This method is guaranteed to only instantiate one sharedSDK over the lifetime of an app.
- * 
+ *
  * This client must be configured with your client ID and client secret (see the
  * [Box OAuth2 documentation](http://developers.box.com/oauth/)). One possibility is to
  * configure the SDK in your application's App Delegate like so:
- * 
+ *
  * <pre><code>// somewhere in your application delegate's - (BOOL)application:didFinishLaunchingWithOptions:
  * [BoxSDK sharedSDK].OAuth2Session.clientID = @"your_client_ID";
  * [BoxSDK sharedSDK].OAuth2Session.clientSecret = @"your_client_secret";</pre></code>
@@ -191,8 +197,8 @@ extern NSString *const BoxAPIBaseURL;
  *   this path. Not used if thumbnailsEnabled set to NO.
  * @return A BoxFolderPickerViewController.
  */
-- (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)rootFolderID 
-                                               thumbnailsEnabled:(BOOL)thumbnailsEnabled 
+- (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)rootFolderID
+                                               thumbnailsEnabled:(BOOL)thumbnailsEnabled
                                            cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
                                            fileSelectionEnabled:(BOOL)fileSelectionEnabled;
 
