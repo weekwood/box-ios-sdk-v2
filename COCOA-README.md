@@ -2,7 +2,7 @@ BoxCocoaSDK: Box API V2 OSX SDK
 ==========================
 
 This SDK provides access to the [Box V2 API](https://developers.box.com/docs/).
-It currently supports file, folder, and user operations.
+It currently supports file, folder, user, comment, and search operations.
 
 Sample applications are forthcoming.
 
@@ -224,5 +224,9 @@ Pull requests will not be accepted unless they include documentation.
 ## Known issues
 
 * There is no support for manipulating files in the trash.
-* Only the files, folders, an users endpoints are supported.
+* Missing support for the following endpoints:
+  * Collaborations
+  * Events
+  * Groups
+  * Tasks
 
