@@ -8,7 +8,20 @@ We have built [several sample applications with the V2 SDK](https://github.com/b
 
 ## Add to your project
 
-The easiest way to add the Box SDK to your project is as a dependent XCode project.
+### CocoaPods
+
+The easiest way to add this Box SDK to your project is with [CocoaPods](http://cocoapods.org).
+
+Add the following to your Podfile:
+
+```
+pod 'box-ios-sdk-v2', '~> 1.2'
+```
+
+### Dependent XCode Project
+
+An alternative (and more difficult) way to add the Box SDK to your project is as a
+dependent XCode project.
 
 1. Clone this repository into your project's directory. You can use git submodules
    if you want.
