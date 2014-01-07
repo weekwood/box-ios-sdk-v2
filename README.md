@@ -1,6 +1,8 @@
 BoxSDK: Box API V2 iOS SDK
 ==========================
 
+[![Build Status](https://travis-ci.org/box/box-ios-sdk-v2.png?branch=master)](https://travis-ci.org/box/box-ios-sdk-v2)
+
 This SDK provides access to the [Box V2 API](https://developers.box.com/docs/).
 It currently supports file, folder, user, comment, and search operations.
 
