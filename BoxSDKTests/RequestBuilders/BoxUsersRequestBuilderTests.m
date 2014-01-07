@@ -54,7 +54,7 @@
 
 - (void)testThatIsSyncEnabledInBodyDictionaryWhenPropertyIsSet
 {
-    NSNumber *const isSyncEnabled = @NO;
+    NSNumber *const isSyncEnabled = @(NO);
     builder.isSyncEnabled = isSyncEnabled;
     STAssertEqualObjects(@{BoxAPIObjectKeyIsSyncEnabled : isSyncEnabled}, builder.bodyParameters, @"isSyncEnabled should be included in body dictionary when set");
 }

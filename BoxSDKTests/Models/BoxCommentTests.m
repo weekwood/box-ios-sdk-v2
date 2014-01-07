@@ -27,7 +27,7 @@
             BoxAPIObjectKeyType : BoxAPIItemTypeUser,
             BoxAPIObjectKeyID : @"1235"
         },
-        BoxAPIObjectKeyIsReplyComment : @NO,
+        BoxAPIObjectKeyIsReplyComment : @(NO),
         BoxAPIObjectKeyItem : @{
             BoxAPIObjectKeyType: BoxAPIItemTypeFile,
             BoxAPIObjectKeyID : @"6789"
@@ -39,7 +39,7 @@
         BoxAPIObjectKeyType : BoxAPIItemTypeComment,
         BoxAPIObjectKeyID : @"6000000000",
     };
-    
+
     comment = [[BoxComment alloc] initWithResponseJSON:JSONDictionaryFull mini:NO];
     miniComment = [[BoxComment alloc] initWithResponseJSON:JSONDictionaryMini mini:YES];
 }
@@ -120,7 +120,7 @@
 
 - (void)testThatIsReplyCommentIsParsedCorrectlyIntoABooleanFromFullFormat
 {
-    STAssertEquals(@NO, comment.isReplyComment, @"expected is_reply_comment should be set to False");
+    STAssertEquals(@(NO), comment.isReplyComment, @"expected is_reply_comment should be set to False");
 }
 
 - (void)testThatIsReplyCommentIsSetAsNilIfUnsetFromMiniFormat

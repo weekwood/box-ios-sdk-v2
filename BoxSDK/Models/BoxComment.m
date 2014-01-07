@@ -37,7 +37,7 @@
                                                         inDictionary:self.rawResponseJSON
                                                      hasExpectedType:[NSDictionary class]
                                                          nullAllowed:NO];
-    
+
     BoxUser *user = nil;
     if (userJSON != nil)
     {
@@ -83,11 +83,11 @@
                                                         inDictionary:self.rawResponseJSON
                                                      hasExpectedType:[NSDictionary class]
                                                          nullAllowed:NO];
-    
+
     if (itemJSON != nil)
     {
-        NSString *type = itemJSON[BoxAPIObjectKeyType];
-        
+        NSString *type = [itemJSON objectForKey:BoxAPIObjectKeyType];
+
         if ([type isEqualToString:BoxAPIItemTypeFile])
         {
             return [[BoxFile alloc] initWithResponseJSON:itemJSON mini:YES];

@@ -32,21 +32,21 @@
             @"never" : @"gonna",
             @"give" : @"you",
         },
-        BoxAPIObjectKeyCanSeeManagedUsers: @YES,
-        BoxAPIObjectKeyIsSyncEnabled: @NO,
+        BoxAPIObjectKeyCanSeeManagedUsers: @(YES),
+        BoxAPIObjectKeyIsSyncEnabled: @(NO),
         BoxAPIObjectKeyStatus: @"active",
         BoxAPIObjectKeyJobTitle: @"Singer",
         BoxAPIObjectKeyPhone: @"1234567890",
         BoxAPIObjectKeyAddress: @"Never Gonna Let You Down Blvd",
-        BoxAPIObjectKeyIsExemptFromDeviceLimits: @YES,
-        BoxAPIObjectKeyIsExemptFromLoginVerification: @NO,
+        BoxAPIObjectKeyIsExemptFromDeviceLimits: @(YES),
+        BoxAPIObjectKeyIsExemptFromLoginVerification: @(NO),
         BoxAPIObjectKeyAvatarURL : @"https://www.box.com/avatar.jpg",
     };
     JSONDictionaryMini = @{
         BoxAPIObjectKeyType : BoxAPIItemTypeUser,
         BoxAPIObjectKeyID : @"6000000000", // 6 billion > 2**32
     };
-    
+
     user = [[BoxUser alloc] initWithResponseJSON:JSONDictionaryFull mini:NO];
     miniUser = [[BoxUser alloc] initWithResponseJSON:JSONDictionaryMini mini:YES];
 }
@@ -171,7 +171,7 @@
 
 - (void)testThatCanSeeManagedUsersIsParsedCorrectlyIntoABooleanFromFullFormat
 {
-    STAssertEquals(@YES, user.canSeeManagedUsers, @"expected can_see_managed_users should be set to True");
+    STAssertEquals(@(YES), user.canSeeManagedUsers, @"expected can_see_managed_users should be set to True");
 }
 
 - (void)testThatCanSeeManagedUsersIsSetAsNilIfUnsetFromMiniFormat
@@ -181,7 +181,7 @@
 
 - (void)testThatIsSyncEnabledIsParsedCorrectlyIntoABooleanFromFullFormat
 {
-    STAssertEquals(@NO, user.isSyncEnabled, @"expected is_sync_enabled should be set to False");
+    STAssertEquals(@(NO), user.isSyncEnabled, @"expected is_sync_enabled should be set to False");
 }
 
 - (void)testThatIsSyncEnabledIsSetAsNilIfUnsetFromMiniFormat
@@ -231,7 +231,7 @@
 
 - (void)testThatIsExemptFromDeviceLimitsIsParsedCorrectlyIntoABooleanFromFullFormat
 {
-    STAssertEquals(@YES, user.isExemptFromDeviceLimits, @"expected is_exempt_from_device_limits should be set to True");
+    STAssertEquals(@(YES), user.isExemptFromDeviceLimits, @"expected is_exempt_from_device_limits should be set to True");
 }
 
 - (void)testThatIsExemptFromDeviceLimitsIsSetAsNilIfUnsetFromMiniFormat
@@ -241,7 +241,7 @@
 
 - (void)testThatIsExemptFromLoginVerificationIsParsedCorrectlyIntoABooleanFromFullFormat
 {
-    STAssertEquals(@NO, user.isExemptFromLoginVerification, @"expected is_exempt_from_login_verification should be set to False");
+    STAssertEquals(@(NO), user.isExemptFromLoginVerification, @"expected is_exempt_from_login_verification should be set to False");
 }
 
 - (void)testThatIsExemptFromLoginVerificationIsSetAsNilIfUnsetFromMiniFormat

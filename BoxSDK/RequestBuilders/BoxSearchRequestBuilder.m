@@ -37,7 +37,7 @@ NSString *const BoxAPISearchQueryParameter = @"query";
     NSMutableDictionary *qsp = [NSMutableDictionary dictionaryWithDictionary:queryStringParameters];
     if (query != nil)
     {
-        qsp[BoxAPISearchQueryParameter] = query;
+        [qsp setObject:query forKey:BoxAPISearchQueryParameter];
     }
 
     self = [self initWithQueryStringParameters:qsp];
@@ -54,7 +54,7 @@ NSString *const BoxAPISearchQueryParameter = @"query";
     if (query != nil)
     {
         _query = query;
-        self.queryStringParameters[BoxAPISearchQueryParameter] = query;
+        [self.queryStringParameters setObject:query forKey:BoxAPISearchQueryParameter];
     }
     else
     {
