@@ -34,7 +34,7 @@ case "$1" in
     xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxCocoaSDK -sdk macosx10.8 -configuration $configuration clean build test
     ;;
   "7.0")
-    xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxSDK -sdk iphonesimulator7.0 -destination OS=7.0,name='iPhone Retina (4-inch 64-bit)' -configuration $configuration clean build test
+    xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxSDK -sdk iphonesimulator7.0 -destination OS=7.0,name='iPhone Retina (4-inch)' -configuration $configuration clean build test
     ;;
   "5.0")
     xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxSDK -sdk iphonesimulator5.0 -destination OS=6.1,name=iPhone -configuration $configuration clean build test
@@ -57,7 +57,7 @@ case "$1" in
     build_status_60=$?
     xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxSDK -sdk iphonesimulator6.1 -destination OS=6.1,name=iPhone -configuration $configuration clean build test
     build_status_61=$?
-    xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxSDK -sdk iphonesimulator7.0 -destination OS=7.0,name='iPhone Retina (4-inch 64-bit)' -configuration $configuration clean build test
+    xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxSDK -sdk iphonesimulator7.0 -destination OS=7.0,name='iPhone Retina (4-inch)' -configuration $configuration clean build test
     build_status_70=$?
     xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxCocoaSDK -sdk macosx10.8 -configuration $configuration clean build test
     build_status_108=$?
