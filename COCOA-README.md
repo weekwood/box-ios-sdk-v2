@@ -96,6 +96,11 @@ the custom URL scheme you registered earlier. In your app delegate:
 You can listen to notifications on `[BoxCocoaSDK sharedSDK].OAuth2Session` to be notified
 when a user becomes successfully authenticated.
 
+**Note**: The SDK does not store tokens. We recommend storing the refresh token in
+the keychain and listening to notifications sent by the OAuth2Session. For more
+information, see
+[the documetation for BoxOAuth2Session](http://box.github.io/box-ios-sdk-v2/Classes/BoxOAuth2Session.html).
+
 ### Making API calls
 
 All SDK API calls are asynchronous. They are scheduled by the SDK on an `NSOperationQueue`.
