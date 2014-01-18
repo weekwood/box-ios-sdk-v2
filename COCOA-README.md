@@ -2,8 +2,8 @@ BoxCocoaSDK: Box API V2 OSX SDK
 ==========================
 
 [![Build Status](https://travis-ci.org/box/box-ios-sdk-v2.png?branch=master)](https://travis-ci.org/box/box-ios-sdk-v2)
-[![Version](http://cocoapod-badges.herokuapp.com/v/box-ios-sdk-v2/badge.png)](http://cocoadocs.org/docsets/box-ios-sdk-v2)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/box-ios-sdk-v2/badge.png)](http://cocoadocs.org/docsets/box-ios-sdk-v2)
+[![Version](https://cocoapod-badges.herokuapp.com/v/box-ios-sdk-v2/badge.png)](http://cocoadocs.org/docsets/box-ios-sdk-v2)
+[![Platform](https://cocoapod-badges.herokuapp.com/p/box-ios-sdk-v2/badge.png)](http://cocoadocs.org/docsets/box-ios-sdk-v2)
 
 This SDK provides access to the [Box V2 API](https://developers.box.com/docs/).
 It currently supports file, folder, user, comment, and search operations.
