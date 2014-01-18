@@ -6,7 +6,7 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.1 (build 858)" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -153,8 +153,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -194,14 +194,12 @@ they should only enqueue subclasses of <a href="../Classes/BoxAPIAuthenticatedOp
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/APIBaseURL">&nbsp;&nbsp;APIBaseURL</a></code>
-		<span class="tooltip"><p>The base URL for all API calls. This should be set on initialization.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/APIVersion">&nbsp;&nbsp;APIVersion</a></code>
-		<span class="tooltip"><p>The API version for all API calls. This should be set on initialization.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -216,15 +214,12 @@ they should only enqueue subclasses of <a href="../Classes/BoxAPIAuthenticatedOp
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/OAuth2Session">&nbsp;&nbsp;OAuth2Session</a></code>
-		<span class="tooltip"><p>The <a href="../Classes/BoxOAuth2Session.html">BoxOAuth2Session</a> to use to sign requests. This session is attached to
-all operations the resource manager enqueues.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/queueManager">&nbsp;&nbsp;queueManager</a></code>
-		<span class="tooltip"><p>The queue on which to enqueue API operations.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -239,7 +234,6 @@ all operations the resource manager enqueues.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/initWithAPIBaseURL:OAuth2Session:queueManager:">&ndash;&nbsp;initWithAPIBaseURL:OAuth2Session:queueManager:</a></code>
-		<span class="tooltip"><p>Designated initializer.</p></span>
 	</span>
 	
 	
@@ -254,33 +248,24 @@ all operations the resource manager enqueues.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/URLWithResource:ID:subresource:subID:">&ndash;&nbsp;URLWithResource:ID:subresource:subID:</a></code>
-		<span class="tooltip"><p>Returns a canonical URL for an API request given its components. Box API URLs are made up of four components.
-This helper uses <a href="#//api/name/APIBaseURL">APIBaseURL</a> and <a href="#//api/name/APIVersion">APIVersion</a> to construct the URL.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">&ndash;&nbsp;JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></code>
-		<span class="tooltip"><p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:">&ndash;&nbsp;JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:collectionSuccessBlock:failureBlock:</a></code>
-		<span class="tooltip"><p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with. This wraps successBlock
-in a <code>BoxAPIJSONSuccessBlock</code> and delegates to
-<a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:">&ndash;&nbsp;JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:deleteSuccessBlock:failureBlock:modelID:</a></code>
-		<span class="tooltip"><p>Return a configured <a href="../Classes/BoxAPIJSONOperation.html">BoxAPIJSONOperation</a> to make an API request with. This wraps successBlock
-in a <code>BoxAPIJSONSuccessBlock</code> and delegates to
-<a href="#//api/name/JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:">JSONOperationWithURL:HTTPMethod:queryStringParameters:bodyDictionary:JSONSuccessBlock:failureBlock:</a></p></span>
 	</span>
 	
 	
@@ -929,6 +914,8 @@ This helper uses APIBaseURL and APIVersion to construct the URL.</p>
 					</div>
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -939,9 +926,9 @@ This helper uses APIBaseURL and APIVersion to construct the URL.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-11-21)</span><br />
+						<p><span class="copyright">&copy; 2014 Box. All rights reserved. (Last updated: 2014-01-18)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						
 					</div>
 				</div>

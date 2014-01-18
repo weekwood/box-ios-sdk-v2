@@ -6,7 +6,7 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.1 (build 858)" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -217,8 +217,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -303,16 +303,12 @@ in a callback, do so inside of a <code>dispatch_sync</code> block on the main th
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/OAuth2Session">&nbsp;&nbsp;OAuth2Session</a></code>
-		<span class="tooltip"><p>The OAuth2 session is used to sign requests with an Authorization header including a Bearer token</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/OAuth2AccessToken">&nbsp;&nbsp;OAuth2AccessToken</a></code>
-		<span class="tooltip"><p>The OAuth2 access token this request was made with. This token is used to determine
-whether this operation failing due to an expired token should cause the tokens to
-be refreshed.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -327,38 +323,30 @@ be refreshed.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/baseRequestURL">&nbsp;&nbsp;baseRequestURL</a></code>
-		<span class="tooltip"><p>The canonical URL of the API resource being accessed. This URL does not include query string parameters</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/body">&nbsp;&nbsp;body</a></code>
-		<span class="tooltip"><p>Key value pairs to be sent as part of the request body. This body may be encoded in different
-ways depending on the operation.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/queryStringParameters">&nbsp;&nbsp;queryStringParameters</a></code>
-		<span class="tooltip"><p>Key value pairs to be appended to <a href="#//api/name/baseRequestURL">baseRequestURL</a> as part of the query string. Keys and values
-will be URL encoded.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/APIRequest">&nbsp;&nbsp;APIRequest</a></code>
-		<span class="tooltip"><p>The API request. This request is signed by <a href="#//api/name/OAuth2Session">OAuth2Session</a> and is initialized in BoxAPIOperation&rsquo;s
-designated initializer.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/connection">&nbsp;&nbsp;connection</a></code>
-		<span class="tooltip"><p>The URL connection is lazily instantiated when the BoxAPIOperation begins executing.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -373,15 +361,12 @@ designated initializer.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/responseData">&nbsp;&nbsp;responseData</a></code>
-		<span class="tooltip"><p>A buffer that stores incoming data from <a href="#//api/name/connection">connection</a>. This data is later processed once the
-<a href="#//api/name/connection">connection</a> has terminated.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/HTTPResponse">&nbsp;&nbsp;HTTPResponse</a></code>
-		<span class="tooltip"><p>The HTTP response. Includes headers and status code. This object is received before any <a href="#//api/name/responseData">responseData</a>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -396,7 +381,6 @@ designated initializer.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/error">&nbsp;&nbsp;error</a></code>
-		<span class="tooltip"><p>Stores an error that may occur at one of several phases of the operation lifecycle.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -411,7 +395,6 @@ designated initializer.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/initWithURL:HTTPMethod:body:queryParams:OAuth2Session:">&ndash;&nbsp;initWithURL:HTTPMethod:body:queryParams:OAuth2Session:</a></code>
-		<span class="tooltip"><p>Designated initializer. This initializer sets up <a href="../Classes/BoxAPIOperation.html#//api/name/APIRequest">APIRequest</a> based on its input parameters</p></span>
 	</span>
 	
 	
@@ -426,7 +409,6 @@ designated initializer.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/HTTPMethod">&ndash;&nbsp;HTTPMethod</a></code>
-		<span class="tooltip"><p>The HTTP method of the API request. One of GET, POST, PUT, DELETE, OPTIONS.</p></span>
 	</span>
 	
 	
@@ -441,15 +423,12 @@ designated initializer.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/encodeBody:">&ndash;&nbsp;encodeBody:</a></code>
-		<span class="tooltip"><p>Encode a dictionary representing the <a href="#//api/name/body">body</a> of the request to the appropriate on-the-wire representation.
-Such representations may include JSON, multipart form data, or form urlencoded data.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/requestURLWithURL:queryStringParameters:">&ndash;&nbsp;requestURLWithURL:queryStringParameters:</a></code>
-		<span class="tooltip"><p>Builds the full request URL including the canonical URL and query string parameters</p></span>
 	</span>
 	
 	
@@ -464,14 +443,12 @@ Such representations may include JSON, multipart form data, or form urlencoded d
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/prepareAPIRequest">&ndash;&nbsp;prepareAPIRequest</a></code>
-		<span class="tooltip"><p>Overriding this method allows subclasses to mutate the <a href="#//api/name/APIRequest">APIRequest</a> before issuing it.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/startURLConnection">&ndash;&nbsp;startURLConnection</a></code>
-		<span class="tooltip"><p>Prepare the BoxAPIOperation to receive delegate callbacks for <a href="#//api/name/connection">connection</a> and <a href="#//api/name/start">start</a> <a href="#//api/name/connection">connection</a>.</p></span>
 	</span>
 	
 	
@@ -486,8 +463,6 @@ Such representations may include JSON, multipart form data, or form urlencoded d
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/processResponseData:">&ndash;&nbsp;processResponseData:</a></code>
-		<span class="tooltip"><p>Process the received data from the request and create a response that may be used
-in <a href="#//api/name/performCompletionCallback">performCompletionCallback</a></p></span>
 	</span>
 	
 	
@@ -502,8 +477,6 @@ in <a href="#//api/name/performCompletionCallback">performCompletionCallback</a>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/performCompletionCallback">&ndash;&nbsp;performCompletionCallback</a></code>
-		<span class="tooltip"><p>Call either a success or failure callback depending on whether or not an <a href="#//api/name/error">error</a> occured during the
-request.</p></span>
 	</span>
 	
 	
@@ -518,8 +491,6 @@ request.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/APIOperationGlobalLock">+&nbsp;APIOperationGlobalLock</a></code>
-		<span class="tooltip"><p>A global lock to use when enqueuing operations and adding dependencies. This lock ensures that
-all operation starts and dependency additions are serialized.</p></span>
 	</span>
 	
 	
@@ -1187,61 +1158,17 @@ Such representations may include JSON, multipart form data, or form urlencoded d
 	
 	
 	
-	<div class="method-subsection brief-description">
-		<p>Designated initializer. This initializer sets up <a href="../Classes/BoxAPIOperation.html#//api/name/APIRequest">APIRequest</a> based on its input parameters</p>
-	</div>		
-	
     
 
 	<div class="method-subsection method-declaration"><code>- (id)initWithURL:(NSURL *)<em>URL</em> HTTPMethod:(BoxAPIHTTPMethod *)<em>HTTPMethod</em> body:(NSDictionary *)<em>body</em> queryParams:(NSDictionary *)<em>queryParams</em> OAuth2Session:(BoxOAuth2Session *)<em>OAuth2Session</em></code></div>
 
     
 	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>URL</em></dt>
-			<dd><p>the <a href="../Classes/BoxAPIOperation.html#//api/name/baseRequestURL">baseRequestURL</a></p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>HTTPMethod</em></dt>
-			<dd><p>one of GET, POST, PUT, DELETE, OPTIONS. Used to configure <a href="../Classes/BoxAPIOperation.html#//api/name/APIRequest">APIRequest</a></p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>body</em></dt>
-			<dd><p>Key value pairs to be encoded as the request <a href="../Classes/BoxAPIOperation.html#//api/name/body">body</a></p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>queryParams</em></dt>
-			<dd><p>Key value pairs to be encoded as part of the query string</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>OAuth2Session</em></dt>
-			<dd><p>used for signing requests</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>An initialized BoxAPIOperation</p>
-	</div>
 	
 	
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Designated initializer. This initializer sets up <a href="../Classes/BoxAPIOperation.html#//api/name/APIRequest">APIRequest</a> based on its input parameters</p>
-	</div>
 	
 	
 	
@@ -1512,6 +1439,8 @@ in <a href="#//api/name/performCompletionCallback">performCompletionCallback</a>
 					</div>
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -1522,9 +1451,9 @@ in <a href="#//api/name/performCompletionCallback">performCompletionCallback</a>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-11-21)</span><br />
+						<p><span class="copyright">&copy; 2014 Box. All rights reserved. (Last updated: 2014-01-18)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						
 					</div>
 				</div>

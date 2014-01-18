@@ -6,7 +6,7 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.1 (build 858)" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -187,8 +187,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -226,134 +226,108 @@ that you can include in your project. This category is used by the folder picker
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/sequenceID">&nbsp;&nbsp;sequenceID</a></code>
-		<span class="tooltip"><p>An item&rsquo;s sequence ID. This field monotonically increases when
-an item&rsquo;s core properties change.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/ETag">&nbsp;&nbsp;ETag</a></code>
-		<span class="tooltip"><p>An item&rsquo;s ETag. This string is guaranteed to be unique across all versions
-of an item, but not across items. This should be treated as an opaque string.
-ETags have no meaning other than that they are ETags.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
-		<span class="tooltip"><p>An item&rsquo;s name.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/createdAt">&nbsp;&nbsp;createdAt</a></code>
-		<span class="tooltip"><p>The date this item was first created on Box.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/modifiedAt">&nbsp;&nbsp;modifiedAt</a></code>
-		<span class="tooltip"><p>The date this item was last updated on Box.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/contentCreatedAt">&nbsp;&nbsp;contentCreatedAt</a></code>
-		<span class="tooltip"><p>The date the content of this item was created on some client machine.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/contentModifiedAt">&nbsp;&nbsp;contentModifiedAt</a></code>
-		<span class="tooltip"><p>The date the content of this item was modified on some client machine.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/trashedAt">&nbsp;&nbsp;trashedAt</a></code>
-		<span class="tooltip"><p>The date this item was moved to the trash.
-This field will only be set for items in the trash.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/purgedAt">&nbsp;&nbsp;purgedAt</a></code>
-		<span class="tooltip"><p>The date this item will be automatically deleted from the trash.
-This field will only be set for items in the trash.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/description">&nbsp;&nbsp;description</a></code>
-		<span class="tooltip"><p>An item&rsquo;s description.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/size">&nbsp;&nbsp;size</a></code>
-		<span class="tooltip"><p>An item&rsquo;s size in bytes.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pathCollection">&nbsp;&nbsp;pathCollection</a></code>
-		<span class="tooltip"><p>Breadcrumbs of the file system path to this item. This collection is
-always returned from the point of view of the caller.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/createdBy">&nbsp;&nbsp;createdBy</a></code>
-		<span class="tooltip"><p>The <a href="../Classes/BoxUser.html">BoxUser</a> who created this item.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/modifiedBy">&nbsp;&nbsp;modifiedBy</a></code>
-		<span class="tooltip"><p>The <a href="../Classes/BoxUser.html">BoxUser</a> who last modified this item.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/ownedBy">&nbsp;&nbsp;ownedBy</a></code>
-		<span class="tooltip"><p>The BoxUSer who owns this item.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/sharedLink">&nbsp;&nbsp;sharedLink</a></code>
-		<span class="tooltip"><p>A dictionary containing information about an item&rsquo;s shared link.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/parent">&nbsp;&nbsp;parent</a></code>
-		<span class="tooltip"><p>The <a href="../Classes/BoxFolder.html">BoxFolder</a> where this item is located. This field is always given
-in terms of the owner&rsquo;s view. If this item does not live in the current
-user&rsquo;s tree or is the root of a tree, this field will be <code>NSNull</code>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/itemStatus">&nbsp;&nbsp;itemStatus</a></code>
-		<span class="tooltip"><p>Whether this item is deleted or not.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -368,7 +342,6 @@ user&rsquo;s tree or is the root of a tree, this field will be <code>NSNull</cod
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/icon">&ndash;&nbsp;icon</a></code>
-		<span class="tooltip"><p>The icon representing the type of the item</p></span>
 	</span>
 	
 	
@@ -1199,6 +1172,8 @@ This field will only be set for items in the trash.</p>
 					</div>
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -1209,9 +1184,9 @@ This field will only be set for items in the trash.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Box. All rights reserved. (Last updated: 2013-11-21)</span><br />
+						<p><span class="copyright">&copy; 2014 Box. All rights reserved. (Last updated: 2014-01-18)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						
 					</div>
 				</div>
