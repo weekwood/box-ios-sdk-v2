@@ -227,7 +227,7 @@ The BoxCocoaSDK framework MUST be built with the OSX 10.8 SDK. It targets the 10
 
 ## Tests
 
-This SDK contains unit tests that are runnable with `./bin/test.sh`.
+This SDK contains unit tests that are runnable with `./bin/test.sh` or alternatively `rake spec`.
 
 To run tests specifically for the OS X platform, run tests with `./bin/test.sh 10.8`. This will compile
 BoxCocoaSDK and tests with the OS X 10.8 SDK.

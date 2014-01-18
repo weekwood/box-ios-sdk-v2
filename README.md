@@ -241,7 +241,7 @@ include the folder picker assets and icons in your app.
 
 ## Tests
 
-This SDK contains unit tests that are runnable with `./bin/test.sh`.
+This SDK contains unit tests that are runnable with `./bin/test.sh` or alternatively `rake spec`.
 
 Pull requests will not be accepted unless they include test coverage.
 

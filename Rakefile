@@ -1,6 +1,6 @@
-desc "Runs the specs [EMPTY]"
+desc "Runs the tests for all platforms in Release configuration (see ./bin/test.sh)"
 task :spec do
-  # Provide your own implementation
+  sh "./bin/test.sh all Release"
 end
 
 task :version do
