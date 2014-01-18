@@ -87,6 +87,19 @@ extern NSString *const BoxAPIBaseURL;
  * This class may be instantiated directly. It is up to the caller to connect the BoxOAuth2Session and
  * BoxAPIQueueManager to the BoxAPIResourceManager instances in this case.
  *
+ * Logging and Assertions
+ * ======================
+ * When compiling a `DEBUG` build of the SDK, logging and assertions are enabled.
+ *
+ * The Box SDK has fairly verbose logging in `DEBUG` builds that relays internal SDK state,
+ * particularly during network activity. These logs are always compiled out in Release builds
+ * and they can be disabled in `DEBUG` builds by defining the `BOX_DISABLE_DEBUG_LOGGING`
+ * macro when compiling the SDK. See `BoxLog.h`.
+ *
+ * Assertions are always enabled in `DEBUG` builds; in Release builds, assertions are compiled
+ * out. The Box SDK makes assertions about internal invariants, for example, when performing
+ * network operations or parsing model classes.
+ *
  * @warning If you wish to support multiple BoxOAuth2Session instances (multi-account support),
  * the recommended approach is to instantiate multiple instances of BoxSDK. Each BoxSDK instance's
  * OAuth2Session and queueManager hold references to each other to enable automatic token refresh.
