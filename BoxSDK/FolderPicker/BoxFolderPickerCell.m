@@ -97,7 +97,7 @@
 
 - (void)renderCell
 {
-    CGRect r;
+    CGRect r = CGRectZero;
     CGRect rect = self.bounds;
 
     NSString *cachedThumbnailPath = [self.cachePath stringByAppendingPathComponent:self.item.modelID];

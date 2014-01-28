@@ -488,19 +488,31 @@ typedef enum {
         {
             case BoxAPIMultipartPieceStateInitialBoundary:
                 BOXLog(@"failed to read from input stream for multipart piece %@ during phase %@", self, @"initial boundary");
-                *error = [self.startBoundaryInputStream streamError];
+                if (error != NULL)
+                {
+                    *error = [self.startBoundaryInputStream streamError];
+                }
                 break;
             case BoxAPIMultipartPieceStateHeaders:
                 BOXLog(@"failed to read from input stream for multipart piece %@ during phase %@", self, @"headers");
-                *error = [self.headersInputStream streamError];
+                if (error != NULL)
+                {
+                    *error = [self.headersInputStream streamError];
+                }
                 break;
             case BoxAPIMultipartPieceStateBodyData:
                 BOXLog(@"failed to read from input stream for multipart piece %@ during phase %@", self, @"body data");
-                *error = [self.bodyInputStream streamError];
+                if (error != NULL)
+                {
+                    *error = [self.bodyInputStream streamError];
+                }
                 break;
             case BoxAPIMultipartPieceStateFinalBoundary:
                 BOXLog(@"failed to read from input stream for multipart piece %@ during phase %@", self, @"final boundary");
-                *error = [self.endBoundaryInputStream streamError];
+                if (error != NULL)
+                {
+                    *error = [self.endBoundaryInputStream streamError];
+                }
                 break;
             case BoxAPIMultipartPieceStateClosed:
                 // fall through
