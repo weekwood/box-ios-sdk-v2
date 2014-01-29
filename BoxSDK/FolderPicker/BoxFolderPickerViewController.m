@@ -1,6 +1,6 @@
 //
 //  BoxFolderPickerViewController.m
-//  FolderPickerSampleApp
+//  BoxSDK
 //
 //  Created on 5/1/13.
 //  Copyright (c) 2013 Box Inc. All rights reserved.
@@ -12,7 +12,6 @@
 #import <BoxSDK/BoxFolderPickerViewController.h>
 #import <BoxSDK/BoxSDK.h>
 #import <BoxSDK/BoxLog.h>
-#import <BoxSDK/BoxODRefreshControl.h>
 
 #define kStrechWidthOffset 9.0
 #define kStrechHeightOffset 16.0
@@ -21,11 +20,17 @@
 #define kStretchBackButtonRightOffset 13
 #define kStretchNavBarHeight 20.0
 
+typedef enum {
+    BoxFolderPickerStateAuthenticate = 1,
+    BoxFolderPickerStateBrowse
+} BoxFolderPickerState;
+
 @interface BoxFolderPickerViewController ()
 
 @property (nonatomic, readwrite, strong) BoxFolderPickerTableViewController *tableViewPicker;
-
 @property (nonatomic, readwrite, strong) UINavigationController *authorizationViewController;
+@property (nonatomic, readwrite, assign) BoxFolderPickerState folderPickerState;
+
 @property (nonatomic, readwrite, weak) BoxSDK *sdk;
 
 @property (nonatomic, readwrite, strong) NSString *folderID;
@@ -44,8 +49,6 @@
 
 @property (nonatomic, readwrite, strong) NSMutableArray *interuptedAPIOperations;
 
-@property (nonatomic, readwrite, strong) BoxODRefreshControl *customRefreshControl;
-
 @property (nonatomic, readwrite, strong) BoxFolderPickerHelper *helper;
 
 - (void)populateFolderPicker;
@@ -59,6 +62,7 @@
 
 @synthesize tableViewPicker = _tableViewPicker;
 @synthesize authorizationViewController = _authorizationViewController;
+@synthesize folderPickerState = _folderPickerState;
 @synthesize sdk = _sdk;
 @synthesize folderID = _folderID;
 @synthesize folder = _folder;
@@ -71,7 +75,6 @@
 @synthesize thumbnailsEnabled = _thumbnailsEnabled;
 @synthesize fileSelectionEnabled = _fileSelectionEnabled;
 @synthesize interuptedAPIOperations = _interuptedAPIOperations;
-@synthesize customRefreshControl = _customRefreshControl;
 @synthesize helper = _helper;
 
 
@@ -80,11 +83,6 @@
     self = [super init];
     if (self != nil)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(boxSessionsDidRefreshToken:)
-                                                     name:BoxOAuth2SessionDidRefreshTokensNotification
-                                                   object:sdk.OAuth2Session];
-
         _folderID = rootFolderID;
         _currentPage = 1;
         _totalCount = 0;
@@ -186,31 +184,43 @@
             }
         }
     }
+
+    // Content View Controller
+    [self addChildViewController:self.tableViewPicker];
+    self.tableViewPicker.view.frame = self.view.bounds;
+    [self.view addSubview:self.tableViewPicker.view];
+    [self.tableViewPicker didMoveToParentViewController:self];
+    self.folderPickerState = BoxFolderPickerStateBrowse;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    // ensure the folder picker has no child view controllers
-    for (UIViewController *vc in [self childViewControllers])
+
+    // when the folder picker is visible, we may need to retry operations in the event of a refresh
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(boxSessionsDidRefreshToken:)
+                                                 name:BoxOAuth2SessionDidRefreshTokensNotification
+                                               object:self.sdk.OAuth2Session];
+
+    if (self.folderPickerState == BoxFolderPickerStateBrowse)
     {
-//        [vc removeFromParentViewController];
+        // when the folder picker is visible, we may need to reauthenticate the user if they are logged out
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(boxAuthenticationDidFailed:)
+                                                     name:BoxOAuth2SessionDidReceiveRefreshErrorNotification
+                                                   object:self.sdk.OAuth2Session];
     }
-    // Initialize the folder picker with the content view controller
-    [self addChildViewController:self.tableViewPicker];
-    self.tableViewPicker.view.frame = self.view.bounds;
-    [self.view addSubview:self.tableViewPicker.view];
-    [self.tableViewPicker didMoveToParentViewController:self];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(boxSessionDidBecameAuthenticated:)
-                                                 name:BoxOAuth2SessionDidBecomeAuthenticatedNotification
-                                               object:self.sdk.OAuth2Session];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(boxAuthenticationDidFailed:)
-                                                 name:BoxOAuth2SessionDidReceiveAuthenticationErrorNotification
-                                               object:self.sdk.OAuth2Session];
+    else if (self.folderPickerState == BoxFolderPickerStateAuthenticate)
+    {
+        // If the folder picker is responsible for presenting the authorization view controller,
+        // register for authentication notifications so we can appropriately transition the view
+        // hierarchy.
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(boxSessionDidBecameAuthenticated:)
+                                                     name:BoxOAuth2SessionDidBecomeAuthenticatedNotification
+                                                   object:self.sdk.OAuth2Session];
+    }
 
     // UI Setup
     self.view.backgroundColor = [UIColor whiteColor];
@@ -241,12 +251,16 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:BoxOAuth2SessionDidBecomeAuthenticatedNotification
-                                                  object:self.sdk.OAuth2Session];
+                                                    name:BoxOAuth2SessionDidRefreshTokensNotification
+                                                  object:nil];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:BoxOAuth2SessionDidReceiveAuthenticationErrorNotification
-                                                  object:self.sdk.OAuth2Session];
+                                                    name:BoxOAuth2SessionDidReceiveRefreshErrorNotification
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:BoxOAuth2SessionDidBecomeAuthenticatedNotification
+                                                  object:nil];
 
     [super viewWillDisappear:animated];
 }
@@ -278,8 +292,13 @@
             self.folder = folder;
             self.navigationItem.prompt = nil;
 
-            self.customRefreshControl = [[BoxODRefreshControl alloc] initInScrollView:self.tableViewPicker.tableView];
-            [self.customRefreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+            if ([self.tableViewPicker respondsToSelector:@selector(refreshControl)])
+            {
+                self.tableViewPicker.refreshControl = [[UIRefreshControl alloc] init];
+                [self.tableViewPicker.refreshControl addTarget:self
+                                                        action:@selector(refreshData)
+                                              forControlEvents:UIControlEventValueChanged];
+            }
         });
     };
 
@@ -317,32 +336,34 @@
 
 - (void)refreshData
 {
-    [self.customRefreshControl beginRefreshing];
+    BOOL supportsRefreshControl = [self.tableViewPicker respondsToSelector:@selector(refreshControl)];
+    if (supportsRefreshControl)
+    {
+        [self.tableViewPicker.refreshControl beginRefreshing];
+    }
 
     BoxAPIJSONFailureBlock infoFailure = ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, NSDictionary *JSONDictionary)
     {
-        [self.customRefreshControl endRefreshing];
-
-        // If any of these error code are returned, the user has to login.
-        if (error.code == BoxSDKOAuth2ErrorAccessTokenExpiredOperationReachedMaxReenqueueLimit || error.code == BoxSDKOAuth2ErrorAccessTokenExpired || error.code == BoxSDKOAuth2ErrorAccessTokenExpiredOperationCannotBeReenqueued)
-        {
-            dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (supportsRefreshControl)
+            {
+                [self.tableViewPicker.refreshControl endRefreshing];
+            }
+            // If any of these error code are returned, the user has to login.
+            if (error.code == BoxSDKOAuth2ErrorAccessTokenExpiredOperationReachedMaxReenqueueLimit || error.code == BoxSDKOAuth2ErrorAccessTokenExpired || error.code == BoxSDKOAuth2ErrorAccessTokenExpiredOperationCannotBeReenqueued)
+            {
                 [self boxAuthenticationDidFailed:nil];
-            });
-        }
-        else {
-            dispatch_async(dispatch_get_main_queue(), ^{
+            }
+            else {
                 self.navigationController.navigationBar.tintColor = [UIColor redColor];
                 self.navigationItem.prompt = NSLocalizedString(@"An error occured while retrieving data", @"Desciptive : Prompt explaining that an error occured during an API call") ;
-            });
-        }
+            }
+        });
     };
 
     //Getting the folder's childrens
     BoxCollectionBlock listSuccess = ^(BoxCollection *collection)
     {
-        [self.customRefreshControl endRefreshing];
-
         self.totalCount = [[collection totalCount] integerValue];
 
         if (self.totalCount > self.items.count) {
@@ -354,8 +375,11 @@
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
+            if (supportsRefreshControl)
+            {
+                [self.tableViewPicker.refreshControl endRefreshing];
+            }
             self.navigationItem.prompt = nil;
-
             [self.tableViewPicker refreshData];
         });
     };
@@ -445,25 +469,35 @@
 
 - (void)boxSessionDidBecameAuthenticated:(NSNotification *)notification
 {
-    [self.view endEditing:YES];
-    [self addChildViewController:self.tableViewPicker];
-    self.tableViewPicker.view.frame = self.view.bounds;
-    [self.authorizationViewController willMoveToParentViewController:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.view endEditing:YES];
+        [self addChildViewController:self.tableViewPicker];
+        self.tableViewPicker.view.frame = self.view.bounds;
+        [self.authorizationViewController willMoveToParentViewController:nil];
 
-    [self transitionFromViewController:self.authorizationViewController
-                      toViewController:self.tableViewPicker
-                              duration:0.3f
-                               options:UIViewAnimationOptionTransitionCrossDissolve
-                            animations:nil
-                            completion:^(BOOL finished)
-     {
-         [self.authorizationViewController removeFromParentViewController];
-         [self.tableViewPicker didMoveToParentViewController:self];
-         // do not hold a reference to the authorization view controller. It should
-         // be discarded when it is no longer needed.
-         _authorizationViewController = nil;
-         [self populateFolderPicker];
-     }];
+        [self transitionFromViewController:self.authorizationViewController
+                          toViewController:self.tableViewPicker
+                                  duration:0.3f
+                                   options:UIViewAnimationOptionTransitionCrossDissolve
+                                animations:nil
+                                completion:^(BOOL finished)
+         {
+             [self.authorizationViewController removeFromParentViewController];
+             [self.tableViewPicker didMoveToParentViewController:self];
+             // do not hold a reference to the authorization view controller. It should
+             // be discarded when it is no longer needed.
+             _authorizationViewController = nil;
+             [self populateFolderPicker];
+             [[NSNotificationCenter defaultCenter] addObserver:self
+                                                      selector:@selector(boxAuthenticationDidFailed:)
+                                                          name:BoxOAuth2SessionDidReceiveRefreshErrorNotification
+                                                        object:self.sdk.OAuth2Session];
+             [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                             name:BoxOAuth2SessionDidBecomeAuthenticatedNotification
+                                                           object:nil];
+             self.folderPickerState = BoxFolderPickerStateBrowse;
+         }];
+    });
 }
 
 - (void)boxSessionsDidRefreshToken:(NSNotification *)notification
@@ -473,28 +507,39 @@
 
 - (void)boxAuthenticationDidFailed:(NSNotification *)notification
 {
-
     // This method can be called twice when a folder picker loads : when the get item info fails and when the get folder children fails
     // We only want to do the transition once.
     if (self.tableViewPicker.parentViewController) {
-        self.navigationController.title = nil;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.navigationController.title = nil;
 
-        [self addChildViewController:self.authorizationViewController];
-        self.authorizationViewController.view.frame = self.view.bounds;
-        [self.tableViewPicker willMoveToParentViewController:nil];
+            [self addChildViewController:self.authorizationViewController];
+            self.authorizationViewController.view.frame = self.view.bounds;
+            [self.tableViewPicker willMoveToParentViewController:nil];
 
-        [self transitionFromViewController:self.tableViewPicker
-                          toViewController:self.authorizationViewController
-                                  duration:0.3f
-                                   options:UIViewAnimationOptionTransitionCrossDissolve
-                                animations:nil
-                                completion:^(BOOL finished)
-         {
-             [self.tableViewPicker removeFromParentViewController];
-             [self.authorizationViewController didMoveToParentViewController:self];
-         }];
+            [self transitionFromViewController:self.tableViewPicker
+                              toViewController:self.authorizationViewController
+                                      duration:0.3f
+                                       options:UIViewAnimationOptionTransitionCrossDissolve
+                                    animations:nil
+                                    completion:^(BOOL finished)
+             {
+                 [self.tableViewPicker removeFromParentViewController];
+                 [self.authorizationViewController didMoveToParentViewController:self];
+                 // If the folder picker is responsible for presenting the authorization view controller,
+                 // register for authentication notifications so we can appropriately transition the view
+                 // hierarchy.
+                 [[NSNotificationCenter defaultCenter] addObserver:self
+                                                          selector:@selector(boxSessionDidBecameAuthenticated:)
+                                                              name:BoxOAuth2SessionDidBecomeAuthenticatedNotification
+                                                            object:self.sdk.OAuth2Session];
+                 [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                                 name:BoxOAuth2SessionDidReceiveRefreshErrorNotification
+                                                               object:nil];
+                 self.folderPickerState = BoxFolderPickerStateAuthenticate;
+             }];
+        });
     }
-
 }
 
 
