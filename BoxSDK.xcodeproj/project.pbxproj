@@ -1469,6 +1469,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Box;
+				TargetAttributes = {
+					F0E5E2FC17A78AEF00153646 = {
+						TestTargetID = E470433A16D41DC500FED29A;
+					};
+				};
 			};
 			buildConfigurationList = E470433616D41DC500FED29A /* Build configuration list for PBXProject "BoxSDK" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1932,6 +1937,7 @@
 				DSTROOT = /tmp/BoxSDK.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BoxSDK/BoxSDK-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = include/BoxSDK;
@@ -1945,6 +1951,7 @@
 				DSTROOT = /tmp/BoxSDK.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BoxSDK/BoxSDK-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = include/BoxSDK;
@@ -1966,6 +1973,7 @@
 					"\"$(SRCROOT)/vendor/iOS/include\"",
 				);
 				INFOPLIST_FILE = "BoxSDKTests/BoxSDKTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor/iOS/lib/OCMock\"",
@@ -1991,6 +1999,7 @@
 					"\"$(SRCROOT)/vendor/iOS/include\"",
 				);
 				INFOPLIST_FILE = "BoxSDKTests/BoxSDKTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor/iOS/lib/OCMock\"",

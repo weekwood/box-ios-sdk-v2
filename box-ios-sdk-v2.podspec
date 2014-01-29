@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
 # Platform
 
-  s.ios.deployment_target = "5.0"
+  s.ios.deployment_target = "6.0"
   s.osx.deployment_target = "10.7"
 
 # File patterns
@@ -26,7 +26,6 @@ Pod::Spec.new do |s|
                               "BoxSDK/Categories/UIImage+BoxAdditions.{h,m}",
                               "BoxSDK/Categories/BoxItem+BoxAdditions.{h,m}",
                               "BoxSDK/External/ISO8601DateFormatter/BoxISO8601DateFormatter.{h,m}",
-                              "BoxSDK/External/ODRefreshControl/*.{h,m}",
                               "BoxSDK/FolderPicker/*.{h,m}",
                               "BoxSDK/OAuth2/BoxAuthorizationViewController.{h,m}"
 
