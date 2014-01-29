@@ -1,6 +1,6 @@
 //
 //  BoxFolderPickerHelper.m
-//  FolderPickerSampleApp
+//  BoxSDK
 //
 //  Created on 5/1/13.
 //  Copyright (c) 2013 Box Inc. All rights reserved.
