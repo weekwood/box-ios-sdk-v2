@@ -265,11 +265,6 @@ typedef enum {
     [super viewWillDisappear:animated];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    return (toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
 #pragma mark - Data management
 
 - (void)populateFolderPicker
