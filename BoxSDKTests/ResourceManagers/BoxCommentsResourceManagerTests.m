@@ -62,7 +62,7 @@
     BoxCommentsRequestBuilder *builder = [[BoxCommentsRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [commentsManager commentInfoWithID:commentID requestBuilder:builder success:nil failure:nil];
     
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 // GET request should have no body
@@ -155,7 +155,7 @@
     BoxCommentsRequestBuilder *builder = [[BoxCommentsRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [commentsManager createCommentWithRequestBuilder:builder success:nil failure:nil];
     
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatCreateCommentDoesIncludeBodyDictionaryFromRequestBuilder
@@ -249,7 +249,7 @@
     BoxCommentsRequestBuilder *builder = [[BoxCommentsRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [commentsManager editCommentWithID:commentID requestBuilder:builder success:nil failure:nil];
     
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatEditCommentDoesIncludeBodyDictionaryFromRequestBuilder
@@ -343,7 +343,7 @@
     BoxCommentsRequestBuilder *builder = [[BoxCommentsRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [commentsManager deleteCommentWithID:commentID requestBuilder:builder success:nil failure:nil];
     
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatDeleteCommentDoesNotIncludeBodyDictionaryFromRequestBuilder

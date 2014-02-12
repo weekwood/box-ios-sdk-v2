@@ -68,7 +68,7 @@
     BoxFilesRequestBuilder *builder = [[BoxFilesRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [filesManager fileInfoWithID:fileID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatFileInfoDoesNotIncludeBodyDictionaryFromRequestBuilder
@@ -160,7 +160,7 @@
     BoxFilesRequestBuilder *builder = [[BoxFilesRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [filesManager editFileWithID:fileID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatEditFileDoesIncludeBodyDictionaryFromRequestBuilder
@@ -254,7 +254,7 @@
     BoxFilesRequestBuilder *builder = [[BoxFilesRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [filesManager copyFileWithID:fileID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatCopyFileDoesIncludeBodyDictionaryFromRequestBuilder
@@ -348,7 +348,7 @@
     BoxFilesRequestBuilder *builder = [[BoxFilesRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [filesManager deleteFileWithID:fileID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatDeleteFileDoesNotIncludeBodyDictionaryFromRequestBuilder
@@ -440,7 +440,7 @@
     BoxFilesRequestBuilder *builder = [[BoxFilesRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIMultipartToJSONOperation *operation = [filesManager uploadFileWithData:[NSData data] MIMEType:nil requestBuilder:builder success:nil failure:nil progress:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 // the HTTP body is encoded as multipart pieces
@@ -533,7 +533,7 @@
     BoxFilesRequestBuilder *builder = [[BoxFilesRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIMultipartToJSONOperation *operation = [filesManager uploadFileWithInputStream:[NSInputStream inputStreamWithData:[NSData data]] contentLength:0 MIMEType:nil requestBuilder:builder success:nil failure:nil progress:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 // the HTTP body is encoded as multipart pieces
@@ -627,7 +627,7 @@
     BoxFilesRequestBuilder *builder = [[BoxFilesRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIMultipartToJSONOperation *operation = [filesManager overwriteFileWithID:fileID data:[NSData data] MIMEType:nil requestBuilder:builder success:nil failure:nil progress:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 // the HTTP body is encoded as multipart pieces
@@ -720,7 +720,7 @@
     BoxFilesRequestBuilder *builder = [[BoxFilesRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIMultipartToJSONOperation *operation = [filesManager overwriteFileWithID:fileID inputStream:[NSInputStream inputStreamWithData:[NSData data]] contentLength:0 MIMEType:nil requestBuilder:builder success:nil failure:nil progress:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 // the HTTP body is encoded as multipart pieces
@@ -814,7 +814,7 @@
     BoxFilesRequestBuilder *builder = [[BoxFilesRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIDataOperation *operation = [filesManager downloadFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] requestBuilder:builder success:nil failure:nil progress:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatDownloadFileDoesNotIncludeBodyDictionaryFromRequestBuilder
@@ -897,7 +897,7 @@
     NSDictionary *const queryParametersDictionary = @{@"min_width" : @"256", @"min_height" : @"256"};
     BoxAPIDataOperation *operation = [filesManager thumbnailForFileWithID:fileID outputStream:[NSOutputStream outputStreamToMemory] thumbnailSize:BoxThumbnailSize256 success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from thumbnail size should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from thumbnail size should be appended to the URL");
 }
 
 - (void)testThatDownloadFileDoesNotIncludeBodyDictionary

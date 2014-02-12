@@ -280,9 +280,9 @@
     NSDictionary *expectedQueryDictionary = @{ @"response_type" : @"code",
                                                @"client_id" : clientID,
                                                @"state" : @"ok",
-                                               @"redirect_uri" : [NSString stringWithString:redirectURLString URLEncoded:YES], };
+                                               @"redirect_uri" : [NSString box_stringWithString:redirectURLString URLEncoded:YES], };
 
-    STAssertEqualObjects(expectedQueryDictionary, [actualURL queryDictionary], @"Expected query params did not match actual authorize query params");
+    STAssertEqualObjects(expectedQueryDictionary, [actualURL box_queryDictionary], @"Expected query params did not match actual authorize query params");
 }
 
 

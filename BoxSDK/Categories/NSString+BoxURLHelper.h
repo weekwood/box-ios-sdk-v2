@@ -21,6 +21,6 @@
  *
  * @return A string that may or may not be URL encoded.
  */
-+ (NSString *)stringWithString:(NSString *)string URLEncoded:(BOOL)encoded;
++ (NSString *)box_stringWithString:(NSString *)string URLEncoded:(BOOL)encoded;
 
 @end

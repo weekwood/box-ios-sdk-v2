@@ -147,7 +147,7 @@
 
     r.origin.y += kPaddingNameDescription;
 
-    NSString * desc = [NSString stringWithFormat:NSLocalizedString(@"%@ - Last update : %@", @"Title: File size and last modified timestamp (example: 5MB - Last Update : 2013-09-06 03:55)"), [NSString humanReadableStringForByteSize:self.item.size], [self.helper dateStringForItem:self.item]];
+    NSString * desc = [NSString stringWithFormat:NSLocalizedString(@"%@ - Last update : %@", @"Title: File size and last modified timestamp (example: 5MB - Last Update : 2013-09-06 03:55)"), [NSString box_humanReadableStringForByteSize:self.item.size], [self.helper dateStringForItem:self.item]];
     self.detailTextLabel.frame = r;
     self.detailTextLabel.text = desc;
     self.detailTextLabel.font = [UIFont boldSystemFontOfSize:12.0];

@@ -15,7 +15,7 @@ long long const BOX_TERABYTE = BOX_GIGABYTE * 1024;
 
 @implementation NSString (BoxAdditions)
 
-+ (NSString *)humanReadableStringForByteSize:(NSNumber *)size
++ (NSString *)box_humanReadableStringForByteSize:(NSNumber *)size
 {
     NSString * result_str = nil;
 	long long fileSize = [size longLongValue];

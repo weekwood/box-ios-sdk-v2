@@ -29,7 +29,7 @@
  *
  * @return The object at `key` in `dictionary` if expectations are satisfied; `nil` otherwise.
  */
-+ (id)ensureObjectForKey:(NSString *)key inDictionary:(NSDictionary *)dictionary hasExpectedType:(Class)cls nullAllowed:(BOOL)nullAllowed;
++ (id)box_ensureObjectForKey:(NSString *)key inDictionary:(NSDictionary *)dictionary hasExpectedType:(Class)cls nullAllowed:(BOOL)nullAllowed;
 
 /**
  * Ensure that the object at `key` in `dictionary` is a member of the expected class.
@@ -45,6 +45,6 @@
  *
  * @return The object at `key` in `dictionary` if expectations are satisfied; `nil` otherwise.
  */
-+ (id)ensureObjectForKey:(NSString *)key inDictionary:(NSDictionary *)dictionary hasExpectedType:(Class)cls nullAllowed:(BOOL)nullAllowed suppressNullAsNil:(BOOL)suppressNullAsNil;
++ (id)box_ensureObjectForKey:(NSString *)key inDictionary:(NSDictionary *)dictionary hasExpectedType:(Class)cls nullAllowed:(BOOL)nullAllowed suppressNullAsNil:(BOOL)suppressNullAsNil;
 
 @end

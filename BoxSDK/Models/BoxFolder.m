@@ -16,7 +16,7 @@
 
 - (id)folderUploadEmail
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyFolderUploadEmail
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyFolderUploadEmail
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSDictionary class]
                                        nullAllowed:YES];
@@ -24,7 +24,7 @@
 
 - (BoxCollection *)itemCollection
 {
-    NSDictionary *itemCollectionJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyItemCollection
+    NSDictionary *itemCollectionJSON = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyItemCollection
                                                                   inDictionary:self.rawResponseJSON
                                                                hasExpectedType:[NSDictionary class]
                                                                    nullAllowed:NO];
@@ -39,7 +39,7 @@
 
 - (NSString *)syncState
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeySyncState
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeySyncState
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSString class]
                                        nullAllowed:NO];

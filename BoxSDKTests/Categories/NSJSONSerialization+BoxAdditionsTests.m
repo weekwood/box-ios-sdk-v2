@@ -36,53 +36,53 @@
 
 - (void)testThatNullValueIsReturnedWhenNullAllowed
 {
-    id result = [NSJSONSerialization ensureObjectForKey:JSON_NULL_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:YES];
+    id result = [NSJSONSerialization box_ensureObjectForKey:JSON_NULL_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:YES];
     STAssertEqualObjects([NSNull null], result, @"Should return NSNull for null values when nullAllowed = YES");
 }
 
 - (void)testThatNullNotReturnedOrThrowsWhenNullNotAllowed
 {
-    BoxAssertThrowsInDebugOrAssertNilInRelease([NSJSONSerialization ensureObjectForKey:JSON_NULL_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:NO], @"Should return nil or throw when nullAllowed = NO");
+    BoxAssertThrowsInDebugOrAssertNilInRelease([NSJSONSerialization box_ensureObjectForKey:JSON_NULL_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:NO], @"Should return nil or throw when nullAllowed = NO");
 }
 
 - (void)testThatNullConvertedToNilWhenNullNotAllowedAndNullSuppressed
 {
-    id result = [NSJSONSerialization ensureObjectForKey:JSON_NULL_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:YES suppressNullAsNil:YES];
+    id result = [NSJSONSerialization box_ensureObjectForKey:JSON_NULL_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:YES suppressNullAsNil:YES];
     STAssertNil(result, @"Should return nil for null values when nullAllowed = YES and suppressNullAsNil = YES");
 }
 
 - (void)testThatObjectIsReturnedIfNullAllowedAndNonNullAndExpectedType
 {
-    id result = [NSJSONSerialization ensureObjectForKey:JSON_NULLABLE_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:YES];
+    id result = [NSJSONSerialization box_ensureObjectForKey:JSON_NULLABLE_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:YES];
     STAssertEqualObjects(JSON_NULLABLE_VALUE, result, @"Should return object for non-null values when nullAllowed = YES");
 }
 
 - (void)testThatObjectNotReturnedOrThrowsWhenNullAllowedAndClassMismatch
 {
-    BoxAssertThrowsInDebugOrAssertNilInRelease([NSJSONSerialization ensureObjectForKey:JSON_NULLABLE_KEY inDictionary:decodedJSONObject hasExpectedType:[NSNumber class] nullAllowed:YES], @"Should return nil or throw when nullAllowed = YES and expected type mismatch");
+    BoxAssertThrowsInDebugOrAssertNilInRelease([NSJSONSerialization box_ensureObjectForKey:JSON_NULLABLE_KEY inDictionary:decodedJSONObject hasExpectedType:[NSNumber class] nullAllowed:YES], @"Should return nil or throw when nullAllowed = YES and expected type mismatch");
 }
 
 - (void)testThatObjectIsReturnedIfNullNotAllowedAndNonNullAndExpectedType
 {
-    id result = [NSJSONSerialization ensureObjectForKey:JSON_NULLABLE_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:NO];
+    id result = [NSJSONSerialization box_ensureObjectForKey:JSON_NULLABLE_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:NO];
     STAssertEqualObjects(JSON_NULLABLE_VALUE, result, @"Should return object for non-null values when nullAllowed = NO");
 }
 
 - (void)testThatObjectNotReturnedOrThrowsWhenNullNotAllowedAndClassMismatch
 {
-    BoxAssertThrowsInDebugOrAssertNilInRelease([NSJSONSerialization ensureObjectForKey:JSON_NULLABLE_KEY inDictionary:decodedJSONObject hasExpectedType:[NSNumber class] nullAllowed:NO], @"Should return nil or throw when nullAllowed = NO and expected type mismatch");
+    BoxAssertThrowsInDebugOrAssertNilInRelease([NSJSONSerialization box_ensureObjectForKey:JSON_NULLABLE_KEY inDictionary:decodedJSONObject hasExpectedType:[NSNumber class] nullAllowed:NO], @"Should return nil or throw when nullAllowed = NO and expected type mismatch");
 }
 
 - (void)testThatStringIsReturned
 {
-    id result = [NSJSONSerialization ensureObjectForKey:JSON_STRING_VALUED_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:NO];
+    id result = [NSJSONSerialization box_ensureObjectForKey:JSON_STRING_VALUED_KEY inDictionary:decodedJSONObject hasExpectedType:[NSString class] nullAllowed:NO];
     STAssertEqualObjects(JSON_STRING_VALUE, result, @"Should return NSString object");
     STAssertTrue([result isKindOfClass:[NSString class]], @"Should return NSString object");
 }
 
 - (void)testThatNumberIsReturned
 {
-    id result = [NSJSONSerialization ensureObjectForKey:JSON_BOOLEAN_TRUE_KEY inDictionary:decodedJSONObject hasExpectedType:[NSNumber class] nullAllowed:NO];
+    id result = [NSJSONSerialization box_ensureObjectForKey:JSON_BOOLEAN_TRUE_KEY inDictionary:decodedJSONObject hasExpectedType:[NSNumber class] nullAllowed:NO];
     STAssertEqualObjects(JSON_BOOLEAN_VALUE, result, @"Should return NSNumber object");
     STAssertTrue([result isKindOfClass:[NSNumber class]], @"Should return NSNumber object");
 }

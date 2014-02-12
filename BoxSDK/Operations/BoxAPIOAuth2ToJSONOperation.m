@@ -28,8 +28,8 @@ NSString *const BoxOAuth2OperationDidCompleteNotification = @"BoxOAuth2Operation
     for (id key in bodyDictionary)
     {
         id value = [bodyDictionary objectForKey:key];
-        NSString *keyString = [NSString stringWithString:[key description] URLEncoded:YES];
-        NSString *valueString = [NSString stringWithString:[value description] URLEncoded:YES];
+        NSString *keyString = [NSString box_stringWithString:[key description] URLEncoded:YES];
+        NSString *valueString = [NSString box_stringWithString:[value description] URLEncoded:YES];
 
         [multipartParamsParts addObject:[NSString stringWithFormat:@"%@=%@", keyString, valueString]];
     }

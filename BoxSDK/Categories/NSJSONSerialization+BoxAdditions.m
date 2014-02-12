@@ -12,7 +12,7 @@
 
 @implementation NSJSONSerialization (BoxAdditions)
 
-+ (id)ensureObjectForKey:(NSString *)key inDictionary:(NSDictionary *)dictionary hasExpectedType:(Class)cls nullAllowed:(BOOL)nullAllowed
++ (id)box_ensureObjectForKey:(NSString *)key inDictionary:(NSDictionary *)dictionary hasExpectedType:(Class)cls nullAllowed:(BOOL)nullAllowed
 {
     id object = [dictionary objectForKey:key];
     id extractedObject = object;
@@ -40,9 +40,9 @@
     return extractedObject;
 }
 
-+ (id)ensureObjectForKey:(NSString *)key inDictionary:(NSDictionary *)dictionary hasExpectedType:(Class)cls nullAllowed:(BOOL)nullAllowed suppressNullAsNil:(BOOL)suppressNullAsNil
++ (id)box_ensureObjectForKey:(NSString *)key inDictionary:(NSDictionary *)dictionary hasExpectedType:(Class)cls nullAllowed:(BOOL)nullAllowed suppressNullAsNil:(BOOL)suppressNullAsNil
 {
-    id extractedObject = [self ensureObjectForKey:key
+    id extractedObject = [self box_ensureObjectForKey:key
                                      inDictionary:dictionary
                                   hasExpectedType:cls
                                       nullAllowed:nullAllowed];
