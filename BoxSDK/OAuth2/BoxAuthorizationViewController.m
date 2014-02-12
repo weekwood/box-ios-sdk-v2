@@ -106,16 +106,6 @@
 	[self.connection cancel];
 }
 
-// This method was deprecated in iOS 6. We will remove it as soon as we drop support for iOS 5.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-	// Support all orientations for iPad, all but upside-down portrait for iPhone.
-	if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
-		return( YES );
-	else
-		return (toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
 #pragma mark - Actions
 
 - (void)cancel:(id)sender
