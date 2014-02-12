@@ -19,6 +19,6 @@
  *
  * @param size File size in bytes.
  */
-+ (NSString *)humanReadableStringForByteSize:(NSNumber *)size;
++ (NSString *)box_humanReadableStringForByteSize:(NSNumber *)size;
 
 @end

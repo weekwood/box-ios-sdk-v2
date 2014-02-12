@@ -15,7 +15,7 @@
 
 - (NSString *)SHA1
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeySHA1
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeySHA1
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSString class]
                                        nullAllowed:NO];
@@ -23,7 +23,7 @@
 
 - (NSNumber *)commentCount
 {
-    NSNumber *commentCount = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyCommentCount
+    NSNumber *commentCount = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyCommentCount
                                                         inDictionary:self.rawResponseJSON
                                                      hasExpectedType:[NSNumber class]
                                                          nullAllowed:NO];

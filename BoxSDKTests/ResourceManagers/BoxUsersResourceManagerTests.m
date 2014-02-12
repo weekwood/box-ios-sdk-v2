@@ -62,7 +62,7 @@
     BoxUsersRequestBuilder *builder = [[BoxUsersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [usersManager userInfoWithID:userID requestBuilder:builder success:nil failure:nil];
     
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 // GET request should have no body
@@ -155,7 +155,7 @@
     BoxUsersRequestBuilder *builder = [[BoxUsersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [usersManager userInfos:builder success:nil failure:nil];
     
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 // GET request should have no body
@@ -249,7 +249,7 @@
     BoxUsersRequestBuilder *builder = [[BoxUsersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [usersManager createUserWithRequestBuilder:builder success:nil failure:nil];
     
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatCreateUserDoesIncludeBodyDictionaryFromRequestBuilder
@@ -343,7 +343,7 @@
     BoxUsersRequestBuilder *builder = [[BoxUsersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [usersManager editUserWithID:userID requestBuilder:builder success:nil failure:nil];
     
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatEditUserDoesIncludeBodyDictionaryFromRequestBuilder
@@ -437,7 +437,7 @@
     BoxUsersRequestBuilder *builder = [[BoxUsersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [usersManager deleteUserWithID:userID requestBuilder:builder success:nil failure:nil];
     
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatDeleteUserDoesNotIncludeBodyDictionaryFromRequestBuilder

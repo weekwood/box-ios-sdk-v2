@@ -15,7 +15,7 @@
 - (void)testThatURLWithOnlySchemeAndDomainReturnsEmptyDictionary
 {
     NSURL *urlWithNoQueryStringParameters = [NSURL URLWithString:@"https://dick.in.a.box"];
-    NSDictionary *actualQueryDictionary = [urlWithNoQueryStringParameters queryDictionary];
+    NSDictionary *actualQueryDictionary = [urlWithNoQueryStringParameters box_queryDictionary];
 
     STAssertTrue(0 == [actualQueryDictionary count], @"Query dictionary should be empty");
 }
@@ -23,7 +23,7 @@
 - (void)testThatURLWithNoQueryStringReturnsEmptyDictionary
 {
     NSURL *urlWithNoQueryStringParameters = [NSURL URLWithString:@"https://dick.in.a.box/index.php"];
-    NSDictionary *actualQueryDictionary = [urlWithNoQueryStringParameters queryDictionary];
+    NSDictionary *actualQueryDictionary = [urlWithNoQueryStringParameters box_queryDictionary];
 
     STAssertTrue(0 == [actualQueryDictionary count], @"Query dictionary should be empty");
 }
@@ -32,7 +32,7 @@
 {
     NSURL *urlWithOneQueryStringParameter = [NSURL URLWithString:@"https://dick.in.a.box/index.php?danger=zone"];
     NSDictionary *expectedDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"zone", @"danger", nil];
-    NSDictionary *actualQueryDictionary = [urlWithOneQueryStringParameter queryDictionary];
+    NSDictionary *actualQueryDictionary = [urlWithOneQueryStringParameter box_queryDictionary];
 
     STAssertEqualObjects(expectedDictionary, actualQueryDictionary, @"Expected dictionary differs from actual");
 }
@@ -41,7 +41,7 @@
 {
     NSURL *urlWithOneQueryStringParameter = [NSURL URLWithString:@"https://dick.in.a.box/index.php?danger=zone&top=gun&maverick=awesome"];
     NSDictionary *expectedDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"zone", @"danger", @"gun", @"top", @"awesome", @"maverick", nil];
-    NSDictionary *actualQueryDictionary = [urlWithOneQueryStringParameter queryDictionary];
+    NSDictionary *actualQueryDictionary = [urlWithOneQueryStringParameter box_queryDictionary];
 
     STAssertEqualObjects(expectedDictionary, actualQueryDictionary, @"Expected dictionary differs from actual");
 }

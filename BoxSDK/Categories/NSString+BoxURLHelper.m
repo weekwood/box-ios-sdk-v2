@@ -10,7 +10,7 @@
 
 @implementation NSString (BoxURLHelper)
 
-+ (NSString *)stringWithString:(NSString *)string URLEncoded:(BOOL)encoded
++ (NSString *)box_stringWithString:(NSString *)string URLEncoded:(BOOL)encoded
 {
     if (encoded)
     {

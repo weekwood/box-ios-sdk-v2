@@ -47,7 +47,7 @@ NSString *const BoxOAuth2AuthenticationErrorKey = @"BoxOAuth2AuthenticationError
 #pragma mark - Authorization
 - (void)performAuthorizationCodeGrantWithReceivedURL:(NSURL *)URL
 {
-    NSDictionary *URLQueryParams = [URL queryDictionary];
+    NSDictionary *URLQueryParams = [URL box_queryDictionary];
     NSString *authorizationCode = [URLQueryParams valueForKey:BoxOAuth2URLParameterAuthorizationCodeKey];
     NSString *authorizationError = [URLQueryParams valueForKey:BoxOAuth2URLParameterErrorCodeKey];
 
@@ -103,7 +103,7 @@ NSString *const BoxOAuth2AuthenticationErrorKey = @"BoxOAuth2AuthenticationError
 
 - (NSURL *)authorizeURL
 {
-    NSString *encodedRedirectURI = [NSString stringWithString:self.redirectURIString URLEncoded:YES];
+    NSString *encodedRedirectURI = [NSString box_stringWithString:self.redirectURIString URLEncoded:YES];
     NSString *authorizeURLString = [NSString stringWithFormat:
                                     @"%@/oauth2/authorize?response_type=code&client_id=%@&state=ok&redirect_uri=%@",
                                     self.APIBaseURLString, self.clientID, encodedRedirectURI];

@@ -64,7 +64,7 @@
     BoxFoldersRequestBuilder *builder = [[BoxFoldersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [foldersManager folderInfoWithID:folderID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 // GET request should have no body
@@ -157,7 +157,7 @@
     BoxFoldersRequestBuilder *builder = [[BoxFoldersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [foldersManager createFolderWithRequestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatCreateFolderDoesIncludeBodyDictionaryFromRequestBuilder
@@ -251,7 +251,7 @@
     BoxFoldersRequestBuilder *builder = [[BoxFoldersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [foldersManager folderItemsWithID:folderID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 // GET request should have no body
@@ -344,7 +344,7 @@
     BoxFoldersRequestBuilder *builder = [[BoxFoldersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [foldersManager editFolderWithID:folderID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatEditFolderDoesIncludeBodyDictionaryFromRequestBuilder
@@ -438,7 +438,7 @@
     BoxFoldersRequestBuilder *builder = [[BoxFoldersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [foldersManager deleteFolderWithID:folderID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatDeleteFolderDoesNotIncludeBodyDictionaryFromRequestBuilder
@@ -531,7 +531,7 @@
     BoxFoldersRequestBuilder *builder = [[BoxFoldersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [foldersManager copyFolderWithID:folderID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatCopyFolderDoesIncludeBodyDictionaryFromRequestBuilder
@@ -625,7 +625,7 @@
     BoxFoldersRequestBuilder *builder = [[BoxFoldersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [foldersManager folderInfoFromTrashWithID:folderID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 // GET request should have no body
@@ -718,7 +718,7 @@
     BoxFoldersRequestBuilder *builder = [[BoxFoldersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [foldersManager restoreFolderFromTrashWithID:folderID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatRestoreFolderFromTrashDoesIncludeBodyDictionaryFromRequestBuilder
@@ -812,7 +812,7 @@
     BoxFoldersRequestBuilder *builder = [[BoxFoldersRequestBuilder alloc] initWithQueryStringParameters:queryParametersDictionary];
     BoxAPIJSONOperation *operation = [foldersManager deleteFolderFromTrashWithID:folderID requestBuilder:builder success:nil failure:nil];
 
-    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.queryDictionary, @"query parameters from builder should be appended to the URL");
+    STAssertEqualObjects(queryParametersDictionary, operation.APIRequest.URL.box_queryDictionary, @"query parameters from builder should be appended to the URL");
 }
 
 - (void)testThatDeleteFolderFromTrashDoesNotIncludeBodyDictionaryFromRequestBuilder

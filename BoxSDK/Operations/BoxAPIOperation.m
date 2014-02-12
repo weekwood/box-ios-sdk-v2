@@ -174,8 +174,8 @@ static BOOL BoxOperationStateTransitionIsValid(BoxAPIOperationState fromState, B
     for (id key in queryDictionary)
     {
         id value = [queryDictionary objectForKey:key];
-        NSString *keyString = [NSString stringWithString:[key description] URLEncoded:YES];
-        NSString *valueString = [NSString stringWithString:[value description] URLEncoded:YES];
+        NSString *keyString = [NSString box_stringWithString:[key description] URLEncoded:YES];
+        NSString *valueString = [NSString box_stringWithString:[value description] URLEncoded:YES];
 
         [queryParts addObject:[NSString stringWithFormat:@"%@=%@", keyString, valueString]];
     }

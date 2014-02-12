@@ -17,7 +17,7 @@
 
 - (NSString *)message
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyMessage
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyMessage
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSString class]
                                        nullAllowed:NO];
@@ -25,7 +25,7 @@
 
 - (NSString *)taggedMessage
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyTaggedMessage
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyTaggedMessage
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSString class]
                                        nullAllowed:NO];
@@ -33,7 +33,7 @@
 
 - (BoxUser *)createdBy
 {
-    NSDictionary *userJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyCreatedBy
+    NSDictionary *userJSON = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyCreatedBy
                                                         inDictionary:self.rawResponseJSON
                                                      hasExpectedType:[NSDictionary class]
                                                          nullAllowed:NO];
@@ -48,7 +48,7 @@
 
 - (NSDate *)createdAt
 {
-    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyCreatedAt
+    NSString *timestamp = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyCreatedAt
                                                      inDictionary:self.rawResponseJSON
                                                   hasExpectedType:[NSString class]
                                                       nullAllowed:NO];
@@ -57,7 +57,7 @@
 
 - (NSDate *)modifiedAt
 {
-    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyModifiedAt
+    NSString *timestamp = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyModifiedAt
                                                      inDictionary:self.rawResponseJSON
                                                   hasExpectedType:[NSString class]
                                                       nullAllowed:NO];
@@ -66,7 +66,7 @@
 
 - (NSNumber *) isReplyComment
 {
-    NSNumber *isReplyComment = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyIsReplyComment
+    NSNumber *isReplyComment = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyIsReplyComment
                                                               inDictionary:self.rawResponseJSON
                                                            hasExpectedType:[NSNumber class]
                                                                nullAllowed:NO];
@@ -79,7 +79,7 @@
 
 - (BoxModel<BoxCommentableItem> *) item
 {
-    NSDictionary *itemJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyItem
+    NSDictionary *itemJSON = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyItem
                                                         inDictionary:self.rawResponseJSON
                                                      hasExpectedType:[NSDictionary class]
                                                          nullAllowed:NO];

@@ -19,7 +19,7 @@
 
 - (NSString *)sequenceID
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeySequenceID
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeySequenceID
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSString class]
                                        nullAllowed:YES // root folders have no sequence id
@@ -28,7 +28,7 @@
 
 - (NSString *)ETag
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyETag
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyETag
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSString class]
                                        nullAllowed:YES // root folders have no ETags
@@ -37,7 +37,7 @@
 
 - (NSString *)name
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyName
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyName
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSString class]
                                        nullAllowed:NO];
@@ -45,7 +45,7 @@
 
 - (NSDate *)createdAt
 {
-    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyCreatedAt
+    NSString *timestamp = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyCreatedAt
                                                      inDictionary:self.rawResponseJSON
                                                   hasExpectedType:[NSString class]
                                                       nullAllowed:YES // root folders have no timestamps
@@ -55,7 +55,7 @@
 
 - (NSDate *)modifiedAt
 {
-    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyModifiedAt
+    NSString *timestamp = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyModifiedAt
                                                      inDictionary:self.rawResponseJSON
                                                   hasExpectedType:[NSString class]
                                                       nullAllowed:YES // root folders have no timestamps
@@ -65,7 +65,7 @@
 
 - (NSDate *)contentCreatedAt
 {
-    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyContentCreatedAt
+    NSString *timestamp = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyContentCreatedAt
                                                      inDictionary:self.rawResponseJSON
                                                   hasExpectedType:[NSString class]
                                                       nullAllowed:YES // root folders have no timestamps
@@ -75,7 +75,7 @@
 
 - (NSDate *)contentModifiedAt
 {
-    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyContentModifiedAt
+    NSString *timestamp = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyContentModifiedAt
                                                      inDictionary:self.rawResponseJSON
                                                   hasExpectedType:[NSString class]
                                                       nullAllowed:YES // root folders have no timestamps
@@ -85,7 +85,7 @@
 
 - (NSDate *)trashedAt
 {
-    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyTrashedAt
+    NSString *timestamp = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyTrashedAt
                                                      inDictionary:self.rawResponseJSON
                                                   hasExpectedType:[NSString class]
                                                       nullAllowed:YES // root folders have no timestamps
@@ -95,7 +95,7 @@
 
 - (NSDate *)purgedAt
 {
-    NSString *timestamp = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyPurgedAt
+    NSString *timestamp = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyPurgedAt
                                                      inDictionary:self.rawResponseJSON
                                                   hasExpectedType:[NSString class]
                                                       nullAllowed:YES // root folders have no timestamps
@@ -105,7 +105,7 @@
 
 - (NSString *)description
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyDescription
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyDescription
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSString class]
                                        nullAllowed:NO];
@@ -113,7 +113,7 @@
 
 - (NSNumber *)size
 {
-    NSNumber *size = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeySize
+    NSNumber *size = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeySize
                                                 inDictionary:self.rawResponseJSON
                                              hasExpectedType:[NSNumber class]
                                                  nullAllowed:NO];
@@ -126,7 +126,7 @@
 
 - (BoxCollection *)pathCollection
 {
-    NSDictionary *pathCollectionJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyPathCollection
+    NSDictionary *pathCollectionJSON = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyPathCollection
                                                                   inDictionary:self.rawResponseJSON
                                                                hasExpectedType:[NSDictionary class]
                                                                    nullAllowed:NO];
@@ -141,7 +141,7 @@
 
 - (BoxUser *)createdBy
 {
-    NSDictionary *userJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyCreatedBy
+    NSDictionary *userJSON = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyCreatedBy
                                                         inDictionary:self.rawResponseJSON
                                                      hasExpectedType:[NSDictionary class]
                                                          nullAllowed:NO];
@@ -156,7 +156,7 @@
 
 - (BoxUser *)modifiedBy
 {
-    NSDictionary *userJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyModifiedBy
+    NSDictionary *userJSON = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyModifiedBy
                                                         inDictionary:self.rawResponseJSON
                                                      hasExpectedType:[NSDictionary class]
                                                          nullAllowed:NO];
@@ -171,7 +171,7 @@
 
 - (BoxUser *)ownedBy
 {
-    NSDictionary *userJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyOwnedBy
+    NSDictionary *userJSON = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyOwnedBy
                                                         inDictionary:self.rawResponseJSON
                                                      hasExpectedType:[NSDictionary class]
                                                          nullAllowed:NO];
@@ -186,7 +186,7 @@
 
 - (id)sharedLink
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeySharedLink
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeySharedLink
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSDictionary class]
                                        nullAllowed:YES];
@@ -194,7 +194,7 @@
 
 - (id)parent
 {
-    id parentJSON = [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyParent
+    id parentJSON = [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyParent
                                                inDictionary:self.rawResponseJSON
                                             hasExpectedType:[NSDictionary class]
                                                 nullAllowed:YES];
@@ -217,7 +217,7 @@
 
 - (NSString *)itemStatus
 {
-    return [NSJSONSerialization ensureObjectForKey:BoxAPIObjectKeyItemStatus
+    return [NSJSONSerialization box_ensureObjectForKey:BoxAPIObjectKeyItemStatus
                                       inDictionary:self.rawResponseJSON
                                    hasExpectedType:[NSString class]
                                        nullAllowed:NO];

@@ -11,7 +11,7 @@
 
 @implementation NSURL (BoxURLHelper)
 
-- (NSDictionary *)queryDictionary
+- (NSDictionary *)box_queryDictionary
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     NSArray *keyValuePairs = [self.query componentsSeparatedByString:@"&"];

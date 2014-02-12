@@ -17,6 +17,6 @@
  * Returns the key value pairs in the URL's query string.
  * @return The key value pairs in the URL's query string.
  */
-- (NSDictionary *)queryDictionary;
+- (NSDictionary *)box_queryDictionary;
 
 @end
