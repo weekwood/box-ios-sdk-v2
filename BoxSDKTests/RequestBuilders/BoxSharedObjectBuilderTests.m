@@ -20,13 +20,13 @@
     BoxSharedObjectBuilder *builder = [[BoxSharedObjectBuilder alloc] init];
 
     builder.access = BoxAPISharedObjectAccessOpen;
-    STAssertEquals(@"open", [builder bodyParameters][@"access"], @"Shared link access property is not set correctly");
-    
+    STAssertEqualObjects(@"open", [builder bodyParameters][@"access"], @"Shared link access property is not set correctly");
+
     builder.access = BoxAPISharedObjectAccessCompany;
-    STAssertEquals(@"company", [builder bodyParameters][@"access"], @"Shared link access property is not set correctly");
+    STAssertEqualObjects(@"company", [builder bodyParameters][@"access"], @"Shared link access property is not set correctly");
 
     builder.access = BoxAPISharedObjectAccessCollaborators;
-    STAssertEquals(@"collaborators", [builder bodyParameters][@"access"], @"Shared link access property is not set correctly");
+    STAssertEqualObjects(@"collaborators", [builder bodyParameters][@"access"], @"Shared link access property is not set correctly");
 }
 
 - (void)testThatPreviewPermissionsAreProperlySet
@@ -37,16 +37,16 @@
                                                     BoxAPISharedObjectAccessCompany,
                                                     BoxAPISharedObjectAccessCollaborators,
                                                     nil];
-    
+
     for (BoxAPISharedObjectAccess *accessType in accessArray) {
         builder.access = accessType;
-        
+
         builder.canPreview = BoxAPISharedObjectPermissionStateEnabled;
         STAssertTrue([[builder bodyParameters][@"permissions"][@"can_preview"] boolValue], @"Can preview failed to set correctly");
-        
+
         builder.canPreview = BoxAPISharedObjectPermissionStateDisabled;
         STAssertFalse([[builder bodyParameters][@"permissions"][@"can_preview"] boolValue], @"Can preview failed to set correctly");
-        
+
         builder.canPreview = BoxAPISharedObjectPermissionStateUnset;
         STAssertFalse([[builder bodyParameters][@"permissions"][@"can_preview"] boolValue], @"Can preview failed to set correctly");
     }
@@ -55,22 +55,22 @@
 - (void)testThatDownloadPermissionsAreProperlySet
 {
     BoxSharedObjectBuilder *builder = [[BoxSharedObjectBuilder alloc] init];
-    
+
     NSArray *accessArray = [NSArray arrayWithObjects:BoxAPISharedObjectAccessOpen,
                             BoxAPISharedObjectAccessCompany,
                             BoxAPISharedObjectAccessCollaborators,
                             nil];
-    
+
     for (BoxAPISharedObjectAccess *accessType in accessArray) {
         builder.access = accessType;
-        
+
         builder.canDownload = BoxAPISharedObjectPermissionStateEnabled;
         STAssertTrue([[builder bodyParameters][@"permissions"][@"can_download"] boolValue], @"Can download failed to set correctly");
-        
+
         builder.canDownload = BoxAPISharedObjectPermissionStateDisabled;
         STAssertFalse([[builder bodyParameters][@"permissions"][@"can_download"] boolValue], @"Can download failed to set correctly");
-        
-        builder.canDownload = BoxAPISharedObjectPermissionStateUnset;        
+
+        builder.canDownload = BoxAPISharedObjectPermissionStateUnset;
         STAssertFalse([[builder bodyParameters][@"permissions"][@"can_download"] boolValue], @"Can download failed to set correctly");
     }
 }
