@@ -2,7 +2,7 @@
 //  BoxSharedObjectBuilderTests.m
 //  BoxSDK
 //
-//  Created by Boris Suvorov on 3/24/14.
+//  Created on 3/24/14.
 //  Copyright (c) 2014 Box. All rights reserved.
 //
 
