@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70B086F718E0DC0200EA2D8F /* BoxSharedObjectBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B086F618E0DC0200EA2D8F /* BoxSharedObjectBuilderTests.m */; };
+		70B086F818E0DC1300EA2D8F /* BoxSharedObjectBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B086F618E0DC0200EA2D8F /* BoxSharedObjectBuilderTests.m */; };
 		9400B0BB17FB8BE00077D4E7 /* BoxUsersRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9400B0B917FB8BE00077D4E7 /* BoxUsersRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9400B0BC17FB8BE00077D4E7 /* BoxUsersRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9400B0BA17FB8BE00077D4E7 /* BoxUsersRequestBuilder.m */; };
 		9400B0BF17FB8BEA0077D4E7 /* BoxUsersResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9400B0BD17FB8BEA0077D4E7 /* BoxUsersResourceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -391,6 +393,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		70B086F618E0DC0200EA2D8F /* BoxSharedObjectBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxSharedObjectBuilderTests.m; sourceTree = "<group>"; };
 		9400B0B917FB8BE00077D4E7 /* BoxUsersRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxUsersRequestBuilder.h; sourceTree = "<group>"; };
 		9400B0BA17FB8BE00077D4E7 /* BoxUsersRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxUsersRequestBuilder.m; sourceTree = "<group>"; };
 		9400B0BD17FB8BEA0077D4E7 /* BoxUsersResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxUsersResourceManager.h; sourceTree = "<group>"; };
@@ -1142,6 +1145,7 @@
 		E4FADA12172CE2DF0052AD11 /* RequestBuilders */ = {
 			isa = PBXGroup;
 			children = (
+				70B086F618E0DC0200EA2D8F /* BoxSharedObjectBuilderTests.m */,
 				9400B0C117FB8C470077D4E7 /* BoxUsersRequestBuilderTests.h */,
 				9400B0C217FB8C470077D4E7 /* BoxUsersRequestBuilderTests.m */,
 				E4FADA13172CE2DF0052AD11 /* BoxFilesRequestBuilderTests.h */,
@@ -1696,6 +1700,7 @@
 				E4362772183EE05800C608E1 /* BoxSearchRequestBuilderTests.m in Sources */,
 				E4FADA22172CE2DF0052AD11 /* BoxWebLinkTests.m in Sources */,
 				CA0F9201183EBAA50090696B /* BoxCommentTests.m in Sources */,
+				70B086F718E0DC0200EA2D8F /* BoxSharedObjectBuilderTests.m in Sources */,
 				E4FADA23172CE2DF0052AD11 /* BoxOAuth2SessionTests.m in Sources */,
 				E4FADA24172CE2DF0052AD11 /* BoxSerialOAuth2SessionTests.m in Sources */,
 				E4FADA25172CE2DF0052AD11 /* BoxSerialAPIQueueManagerTests.m in Sources */,
@@ -1781,6 +1786,7 @@
 				AF6534B717CF281600C27DFD /* BoxModelComparatorsTest.m in Sources */,
 				F05F80FD17B40850001182FB /* BoxFoldersResourceManagerTests.m in Sources */,
 				F0E5E30B17A78AEF00153646 /* BoxCocoaSDKTests.m in Sources */,
+				70B086F818E0DC1300EA2D8F /* BoxSharedObjectBuilderTests.m in Sources */,
 				F042767217A8839600EB3419 /* BoxSDKTestsHelpers.m in Sources */,
 				F05F80E917B3FE33001182FB /* NSString+BoxURLHelperTests.m in Sources */,
 				F05F80EA17B3FE33001182FB /* NSURL+BoxURLHelperTests.m in Sources */,

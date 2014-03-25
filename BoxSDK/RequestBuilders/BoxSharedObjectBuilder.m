@@ -51,7 +51,6 @@ BoxAPISharedObjectAccess *const BoxAPISharedObjectAccessCollaborators = @"collab
             // will look like this:
             // { "can_download" : false, "can_preview" : true }
             JSONStructures = @{
-                @"permissions" : @{
                     [NSNumber numberWithInt:BoxAPISharedObjectPermissionStateDisabled] : @{ // canDownload
                         [NSNumber numberWithInt:BoxAPISharedObjectPermissionStateDisabled] : @{ // canPreview
                             @"can_download": [NSNumber numberWithBool:NO],
@@ -86,7 +85,6 @@ BoxAPISharedObjectAccess *const BoxAPISharedObjectAccessCollaborators = @"collab
                             @"can_preview" : [NSNumber numberWithBool:YES],
                         },
                     },
-                },
             };
         });
         _JSONLookup = JSONStructures;
