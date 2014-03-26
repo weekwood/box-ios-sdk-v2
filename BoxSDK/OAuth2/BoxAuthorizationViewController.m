@@ -160,7 +160,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-	BOXLog(@"Web view should start request %@ with navigation type %d", request, navigationType);
+	BOXLog(@"Web view should start request %@ with navigation type %ld", request, (long)navigationType);
 	BOXLog(@"Request Headers \n%@", [request allHTTPHeaderFields]);
 
 	// Before we proceed with handling this request, check if it's about:blank - if it is, do not attempt to load it.
@@ -356,7 +356,7 @@
 		// (certificate-based, among other methods, is not currently supported)
 		if ([challenge previousFailureCount] > 0)
 		{
-			BOXLog(@"Have %d previous failures", [challenge previousFailureCount]);
+			BOXLog(@"Have %ld previous failures", (long)[challenge previousFailureCount]);
 			[[challenge sender] cancelAuthenticationChallenge:challenge];
 			self.connection = nil;
 			self.connectionIsTrusted = NO;
@@ -435,13 +435,13 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-	BOXLog(@"Connection %@ did receive %u bytes of data", connection, [data length]);
+	BOXLog(@"Connection %@ did receive %lu bytes of data", connection, (unsigned long)[data length]);
 	[self.connectionData appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-	BOXLog(@"Connection %@ did finish loading. Requesting that the webview load the data (%u bytes) with reponse %@", connection, [self.connectionData length], self.connectionResponse);
+	BOXLog(@"Connection %@ did finish loading. Requesting that the webview load the data (%lu bytes) with reponse %@", connection, (unsigned long)[self.connectionData length], self.connectionResponse);
 	self.connectionIsTrusted = YES;
 	[(UIWebView *)self.view loadData:self.connectionData
 							MIMEType:[self.connectionResponse MIMEType]
@@ -462,7 +462,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	BOXLog(@"Alert view with tag %d clicked button at index %d", alertView.tag, buttonIndex);
+	BOXLog(@"Alert view with tag %ld clicked button at index %ld", (long)alertView.tag, (long)buttonIndex);
 	if (alertView.tag == BOX_SSO_CREDENTIALS_ALERT_TAG)
 	{
 		if (buttonIndex == alertView.cancelButtonIndex)
