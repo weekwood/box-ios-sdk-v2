@@ -12,7 +12,7 @@
 #import "BoxAPIMultipartToJSONOperation.h"
 #import "BoxAPIDataOperation.h"
 
-@class BoxFile;
+@class BoxFile, BoxItem;
 @class BoxFilesRequestBuilder;
 
 typedef void (^BoxFileBlock)(BoxFile *file);
@@ -158,9 +158,29 @@ typedef enum {
  */
 - (BoxAPIJSONOperation *)deleteFileWithID:(NSString *)fileID requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxSuccessfulDeleteBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock;
 
+#pragma mark - uploadFileAtPath
+/**
+ * Returns and enqueues an upload operation for the file located at the given path.
+ *
+ *
+ * @param path The location of the file to upload.
+ * @param builder A BoxFilesRequestBuilder instance that contains query parameters and body data for the request.
+ *   Must include the `name` property, which is used as the name of the uploaded file.
+ *   **Note**: The builder will convert body data to multipart POST parameters.
+ * @param successBlock A callback that is triggered if the API call completes successfully.
+ * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
+ *   A connection failure, or an API related error. Refer to `BoxSDKErrors.h` for error codes.
+ * @param progressBlock A callback that is triggered when data is successfully written to the underlying `NSURLConnection`.
+ *
+ * @return A configured upload operation.
+ */
+- (BoxAPIMultipartToJSONOperation *)uploadFileAtPath:(NSString *)path requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock;
+
+
 #pragma mark - uploadFileWithData:
 /** @name Uploading a new file */
 
+
 /**
  * Returns and enqueues an upload operation for the given data.
  *
@@ -176,35 +196,12 @@ typedef enum {
  * @param successBlock A callback that is triggered if the API call completes successfully.
  * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
  *   A connection failure, or an API related error. Refer to `BoxSDKErrors.h` for error codes.
+ * @param progressBlock A callback that is triggered when data is successfully written to the underlying `NSURLConnection`.
  *
  * @return A configured upload operation.
  * @see uploadFileWithData:MIMEType:requestBuilder:success:failure:progress:
  */
-- (BoxAPIMultipartToJSONOperation *)uploadFileWithData:(NSData *)data requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock;
-
-
-/**
- * Returns and enqueues an upload operation for the given data.
- *
- * @warning Because NSData objects are fully buffered in memory, only use this method for small files. Prefer to use
- *   an NSInputStream whenever possible.
- *
- * @see uploadFileWithInputStream:contentLength:MIMEType:requestBuilder:success:failure:progress:
- *
- * @param data The file to upload as an NSData.
- * @param MIMEType The MIME type of the file being uploaded. This parameter is optional and may be nil.
- * @param builder A BoxFilesRequestBuilder instance that contains query parameters and body data for the request.
- *   Must include the `name` property, which is used as the name of the uploaded file.
- *   **Note**: The builder will convert body data to multipart POST parameters.
- * @param successBlock A callback that is triggered if the API call completes successfully.
- * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
- *   A connection failure, or an API related error. Refer to `BoxSDKErrors.h` for error codes.
- *
- * @return A configured upload operation.
- *
- * @see uploadFileWithData:MIMEType:requestBuilder:success:failure:progress:
- */
-- (BoxAPIMultipartToJSONOperation *)uploadFileWithData:(NSData *)data MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock;
+- (BoxAPIMultipartToJSONOperation *)uploadFileWithData:(NSData *)data requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock;
 
 /**
  * Returns and enqueues an upload operation for the given data.
@@ -251,29 +248,6 @@ typedef enum {
  * @see uploadFileWithInputStream:contentLength:MIMEType:requestBuilder:success:failure:progress:
  */
 - (BoxAPIMultipartToJSONOperation *)uploadFileWithInputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock;
-
-/**
- * Returns and enqueues an upload operation for the given stream.
- *
- * To stream an upload from disk, create an input stream as follows:
- *
- * <pre><code>NSInputStream *inputStream = [NSInputStream inputStreamWithFileAtPath:path];</code></pre>
- *
- * @param inputStream The file to upload as an NSInputStream.
- * @param contentLength The length in bytes of the data served by inputStream.
- * @param MIMEType The MIME type of the file being uploaded. This parameter is optional and may be nil.
- * @param builder A BoxFilesRequestBuilder instance that contains query parameters and body data for the request.
- *   Must include the `name` property, which is used as the name of the uploaded file.
- *   **Note**: The builder will convert body data to multipart POST parameters.
- * @param successBlock A callback that is triggered if the API call completes successfully.
- * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
- *   A connection failure, or an API related error. Refer to `BoxSDKErrors.h` for error codes.
- *
- * @return A configured upload operation.
- *
- * @see uploadFileWithInputStream:contentLength:MIMEType:requestBuilder:success:failure:progress:
- */
-- (BoxAPIMultipartToJSONOperation *)uploadFileWithInputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock;
 
 /**
  * Returns and enqueues an upload operation for the given stream.
@@ -338,29 +312,6 @@ typedef enum {
  * @param successBlock A callback that is triggered if the API call completes successfully.
  * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
  *   A connection failure, or an API related error. Refer to `BoxSDKErrors.h` for error codes.
- *
- * @return A configured overwrite operation.
- *
- * @see overwriteFileWithID:data:MIMEType:requestBuilder:success:failure:progress:
- */
-- (BoxAPIMultipartToJSONOperation *)overwriteFileWithID:(NSString *)fileID data:(NSData *)data MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock;
-
-/**
- * Returns and enqueues an overwrite operation for the given data.
- *
- * @warning Because NSData objects are fully buffered in memory, only use this method for small files. Prefer to use
- *   an NSInputStream whenever possible.
- *
- * @see overwriteFileWithID:inputStream:contentLength:MIMEType:requestBuilder:success:failure:progress:
- *
- * @param fileID The modelID of the file to overwrite.
- * @param data The file to upload as an NSData.
- * @param MIMEType The MIME type of the file being uploaded. This parameter is optional and may be nil.
- * @param builder A BoxFilesRequestBuilder instance that contains query parameters and body data for the request.
- *   **Note**: The builder will convert body data to multipart POST parameters.
- * @param successBlock A callback that is triggered if the API call completes successfully.
- * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
- *   A connection failure, or an API related error. Refer to `BoxSDKErrors.h` for error codes.
  * @param progressBlock A callback that is triggered when data is successfully written to the underlying `NSURLConnection`.
  *
  * @return A configured overwrite operation.
@@ -407,27 +358,6 @@ typedef enum {
  * @param successBlock A callback that is triggered if the API call completes successfully.
  * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
  *   A connection failure, or an API related error. Refer to `BoxSDKErrors.h` for error codes.
- *
- * @return A configured overwrite operation.
- */
-- (BoxAPIMultipartToJSONOperation *)overwriteFileWithID:(NSString *)fileID inputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock;
-
-/**
- * Returns and enqueues an overwrite operation for the given stream.
- *
- * To stream an upload from disk, create an input stream as follows:
- *
- * <pre><code>NSInputStream *inputStream = [NSInputStream inputStreamWithFileAtPath:path];</code></pre>
- *
- * @param fileID The modelID of the file to overwrite.
- * @param inputStream The file to upload as an NSInputStream.
- * @param contentLength The length in bytes of the data served by inputStream.
- * @param MIMEType The MIME type of the file being uploaded. This parameter is optional and may be nil.
- * @param builder A BoxFilesRequestBuilder instance that contains query parameters and body data for the request.
- *   **Note**: The builder will convert body data to multipart POST parameters.
- * @param successBlock A callback that is triggered if the API call completes successfully.
- * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
- *   A connection failure, or an API related error. Refer to `BoxSDKErrors.h` for error codes.
  * @param progressBlock A callback that is triggered when data is successfully written to the underlying `NSURLConnection`.
  *
  * @return A configured overwrite operation.
@@ -438,25 +368,20 @@ typedef enum {
 /** @name Download a file */
 
 /**
- * Return and enqueue an operation to download a file.
+ * Return and enqueue an operation to download a file to a specific path.
  *
- * To stream a download to disk, create an output stream as follows:
- *
- * <pre><code>NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];</code></pre>
- *
- * @param fileID The modelID of the file to download.
- * @param outputStream The output stream of to write the download to.
- * @param builder A BoxFilesRequestBuilder instance that contains query parameters and body data for the request.
- *   **Note**: Since this is a `GET` request, the builder's body will be ignored.
+ * @param file the file to download
+ * @param destinationPath  The path where the file content will be downloaded to.
  * @param successBlock A callback that is triggered if the API call completes successfully.
  * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
  *   A connection failure, or an API related error. Refer to `BoxSDKErrors.h` for error codes.
+ * @param progressBlock  A callback that is triggered when data is successfully received from the underlying `NSURLConnection`.
  *
  * @return An operation to download a file.
  *
  * @see downloadFileWithID:outputStream:requestBuilder:success:failure:progress:
  */
-- (BoxAPIDataOperation *)downloadFileWithID:(NSString *)fileID outputStream:(NSOutputStream *)outputStream requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock;
+- (BoxAPIDataOperation *)downloadFile:(BoxFile *)file destinationPath:(NSString *)destinationPath success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock progress:(BoxAPIDataProgressBlock)progressBlock;
 
 /**
  * Return and enqueue an operation to download a file.
@@ -503,5 +428,22 @@ typedef enum {
  * @return An operation to download a file.
  */
 - (BoxAPIDataOperation *)thumbnailForFileWithID:(NSString *)fileID outputStream:(NSOutputStream *)outputStream thumbnailSize:(BoxThumbnailSize)thumbnailSize success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock;
+
+
+#pragma mark - createSharedLinkForItem:
+
+/** @name Share a file */
+/**
+ * Return and enqueue an operation to share a file.
+ *
+ * @param item The BOXItem to share.
+ * @param builder A BOXFilesRequestBuilder instance that containts query parameter for the request.
+ *  **Note** : Since this is a share request, the 'sharedLink' property is required for the share to succeeed.
+ * @param successBlock A callback that is triggered if the API call completes successfully.
+ * @param failureBlock A callback that is triggered if the API call fails to complete successfully, This may include
+ *
+ * @return An operation to share a file.
+ */
+- (BoxAPIJSONOperation *)createSharedLinkForItem:(BoxItem *)item withBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock;
 
 @end

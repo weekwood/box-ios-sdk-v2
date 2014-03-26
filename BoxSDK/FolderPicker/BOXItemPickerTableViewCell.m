@@ -8,6 +8,7 @@
 #import "BOXItemPickerTableViewCell.h"
 #import "BoxItemPickerHelper.h"
 #import "UIImage+BoxAdditions.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation BOXItemPickerTableViewCell
 

@@ -186,14 +186,10 @@
 }
 
 #pragma mark - uploadFileWithData:
-- (BoxAPIMultipartToJSONOperation *)uploadFileWithData:(NSData *)data requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
-{
-    return [self uploadFileWithData:data MIMEType:nil requestBuilder:builder success:successBlock failure:failureBlock];
-}
 
-- (BoxAPIMultipartToJSONOperation *)uploadFileWithData:(NSData *)data MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
+- (BoxAPIMultipartToJSONOperation *)uploadFileWithData:(NSData *)data requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock
 {
-    return [self uploadFileWithData:data MIMEType:MIMEType requestBuilder:builder success:successBlock failure:failureBlock progress:nil];
+    return [self uploadFileWithData:data MIMEType:nil requestBuilder:builder success:successBlock failure:failureBlock progress:progressBlock];
 }
 
 - (BoxAPIMultipartToJSONOperation *)uploadFileWithData:(NSData *)data MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock
@@ -233,14 +229,19 @@
 }
 
 #pragma mark - uploadFileWithInputStream:
-- (BoxAPIMultipartToJSONOperation *)uploadFileWithInputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
+
+- (BoxAPIMultipartToJSONOperation *)uploadFileAtPath:(NSString *)path requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock
 {
-    return [self uploadFileWithInputStream:inputStream contentLength:contentLength MIMEType:nil requestBuilder:builder success:successBlock failure:failureBlock];
+    NSInputStream *inputStream = [NSInputStream inputStreamWithFileAtPath:path];
+    NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
+    long long contentLength = [[fileAttributes objectForKey:NSFileSize] longLongValue];
+    
+    return [self uploadFileWithInputStream:inputStream contentLength:contentLength MIMEType:nil requestBuilder:builder success:successBlock failure:failureBlock progress:progressBlock];
 }
 
-- (BoxAPIMultipartToJSONOperation *)uploadFileWithInputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
+- (BoxAPIMultipartToJSONOperation *)uploadFileWithInputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
 {
-    return [self uploadFileWithInputStream:inputStream contentLength:contentLength MIMEType:MIMEType requestBuilder:builder success:successBlock failure:failureBlock progress:nil];
+    return [self uploadFileWithInputStream:inputStream contentLength:contentLength MIMEType:nil requestBuilder:builder success:successBlock failure:failureBlock progress:nil];
 }
 
 - (BoxAPIMultipartToJSONOperation *)uploadFileWithInputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock
@@ -283,12 +284,7 @@
 #pragma mark - overwriteFileWithID:data:
 - (BoxAPIMultipartToJSONOperation *)overwriteFileWithID:(NSString *)fileID data:(NSData *)data requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
 {
-    return [self overwriteFileWithID:fileID data:data MIMEType:nil requestBuilder:builder success:successBlock failure:failureBlock];
-}
-
-- (BoxAPIMultipartToJSONOperation *)overwriteFileWithID:(NSString *)fileID data:(NSData *)data MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
-{
-    return [self overwriteFileWithID:fileID data:data MIMEType:MIMEType requestBuilder:builder success:successBlock failure:failureBlock progress:nil];
+    return [self overwriteFileWithID:fileID data:data MIMEType:nil requestBuilder:builder success:successBlock failure:failureBlock progress:nil];
 }
 
 - (BoxAPIMultipartToJSONOperation *)overwriteFileWithID:(NSString *)fileID data:(NSData *)data MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock
@@ -330,12 +326,7 @@
 #pragma mark - overwriteFileWithID:inputStream:
 - (BoxAPIMultipartToJSONOperation *)overwriteFileWithID:(NSString *)fileID inputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
 {
-    return [self overwriteFileWithID:fileID inputStream:inputStream contentLength:contentLength MIMEType:nil requestBuilder:builder success:successBlock failure:failureBlock];
-}
-
-- (BoxAPIMultipartToJSONOperation *)overwriteFileWithID:(NSString *)fileID inputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
-{
-    return [self overwriteFileWithID:fileID inputStream:inputStream contentLength:contentLength MIMEType:MIMEType requestBuilder:builder success:successBlock failure:failureBlock progress:nil];
+    return [self overwriteFileWithID:fileID inputStream:inputStream contentLength:contentLength MIMEType:nil requestBuilder:builder success:successBlock failure:failureBlock progress:nil];
 }
 
 - (BoxAPIMultipartToJSONOperation *)overwriteFileWithID:(NSString *)fileID inputStream:(NSInputStream *)inputStream contentLength:(unsigned long long)contentLength MIMEType:(NSString *)MIMEType requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock progress:(BoxAPIMultipartProgressBlock)progressBlock
@@ -376,10 +367,7 @@
 }
 
 #pragma mark - downloadFileWithID:
-- (BoxAPIDataOperation *)downloadFileWithID:(NSString *)fileID outputStream:(NSOutputStream *)outputStream requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock
-{
-    return [self downloadFileWithID:fileID outputStream:outputStream requestBuilder:builder success:successBlock failure:failureBlock progress:nil];
-}
+
 
 - (BoxAPIDataOperation *)downloadFileWithID:(NSString *)fileID outputStream:(NSOutputStream *)outputStream requestBuilder:(BoxFilesRequestBuilder *)builder success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock progress:(BoxAPIDataProgressBlock)progressBlock
 {
@@ -405,6 +393,13 @@
 
     return operation;
 }
+
+- (BoxAPIDataOperation *)downloadFile:(BoxFile *)file destinationPath:(NSString *)destinationPath success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock progress:(BoxAPIDataProgressBlock)progressBlock
+{
+    NSOutputStream *outputStream = [[NSOutputStream alloc] initToFileAtPath:destinationPath append:NO];
+    return  [self downloadFileWithID:file.modelID outputStream:outputStream requestBuilder:nil success:successBlock failure:failureBlock progress:progressBlock];
+}
+
 
 - (BoxAPIDataOperation *)thumbnailForFileWithID:(NSString *)fileID outputStream:(NSOutputStream *)outputStream thumbnailSize:(BoxThumbnailSize)thumbnailSize success:(BoxDownloadSuccessBlock)successBlock failure:(BoxDownloadFailureBlock)failureBlock;
 {
@@ -433,6 +428,13 @@
     [self.queueManager enqueueOperation:operation];
 
     return operation;
+}
+
+#pragma mark - share
+
+- (BoxAPIJSONOperation *)createSharedLinkForItem:(BoxItem *)item withBuilder:(BoxFilesRequestBuilder *)builder success:(BoxFileBlock)successBlock failure:(BoxAPIJSONFailureBlock)failureBlock
+{
+    return [self editFileWithID:item.modelID requestBuilder:builder success:successBlock failure:failureBlock];
 }
 
 @end
