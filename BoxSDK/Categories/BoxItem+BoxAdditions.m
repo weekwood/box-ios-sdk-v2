@@ -16,13 +16,12 @@
 
 - (UIImage *)icon
 {
-    
     UIImage *icon = nil;
 
     
     if ([self isKindOfClass:[BoxFolder class]])
     {
-        icon = [UIImage imageFromBoxSDKResourcesBundleWithName:@"folder"];
+        icon = [UIImage imageFromBoxSDKResourcesBundleWithName:@"icon-folder"];
         return icon;
     }
     
@@ -49,11 +48,12 @@
         extension = @"jpg";
     }
     
-    icon = [UIImage  imageFromBoxSDKResourcesBundleWithName:extension];
+    NSString *str = [NSString stringWithFormat:@"icon-file-%@", extension];
+    icon = [UIImage  imageFromBoxSDKResourcesBundleWithName:str];
     
     if (!icon)
     {
-        icon = [UIImage  imageFromBoxSDKResourcesBundleWithName:@"generic"];
+        icon = [UIImage  imageFromBoxSDKResourcesBundleWithName:@"icon-file-generic"];
     }
     
     return icon;

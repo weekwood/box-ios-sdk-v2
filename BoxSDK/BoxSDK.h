@@ -61,12 +61,13 @@
 #import <BoxSDK/BoxWebLink.h>
 #import <BoxSDK/BoxComment.h>
 
-// Folder Picker
-#import <BoxSDK/BoxFolderPickerHelper.h>
-#import <BoxSDK/BoxFolderPickerTableViewController.h>
-#import <BoxSDK/BoxFolderPickerViewController.h>
-#import <BoxSDK/BoxFolderPickerNavigationController.h>
+// Item Picker
+#import <BoxSDK/BoxItemPickerHelper.h>
+#import <BoxSDK/BoxItemPickerViewController.h>
+#import <BoxSDK/BoxItemPickerTableViewController.h>
+#import <BoxSDK/BoxItemPickerNavigationController.h>
 
+@protocol BOXItemPickerDelegate;
 
 extern NSString *const BoxAPIBaseURL;
 
@@ -198,22 +199,31 @@ extern NSString *const BoxAPIBaseURL;
 /** @name Folder Picker */
 
 /**
- * Initializes a folderPicker according to the caching options provided as parameters
+ * Initializes an itemPicker according to the caching options provided as parameters
  *
  * @param rootFolderID The root folder where to start browsing.
  * @param thumbnailsEnabled Enables/disables thumbnail management.
  *   If set to NO, only file icons will be displayed
  * @param cachedThumbnailsPath The absolute path for storing cached thumbnails.
  *   If set to nil, the folder picker will not cache thumbnails, only download them on the fly.
- * @param fileSelectionEnabled Whether the user will be able to select a file or not while
- *   browsing his account. If not set to nil, the folder picker will cache the thumbnails at
- *   this path. Not used if thumbnailsEnabled set to NO.
- * @return A BoxFolderPickerViewController.
+ * @param selectableObjectType The kind of selection the created itemPicker should perform.
+ * @return A BoxItemPickerViewController.
  */
-- (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)rootFolderID
+- (BoxItemPickerViewController *)itemPickerWithRootFolderID:(NSString *)rootFolderID
                                                thumbnailsEnabled:(BOOL)thumbnailsEnabled
                                            cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
-                                           fileSelectionEnabled:(BOOL)fileSelectionEnabled;
+                                           selectableObjectType:(BoxItemPickerObjectType)selectableObjectType;
+
+/**
+ * Initializes an itemPicker according to the caching options provided as parameters
+ *
+ * @param delegate The delegate of the picker we are going to initialize.
+ * @param selectableObjectType The kind of selection the created itemPicker should perform.
+ * @return A BoxItemPickerViewController.
+ */
+- (BoxItemPickerViewController *)itemPickerWithDelegate:(id <BOXItemPickerDelegate>)delegate 
+                                   selectableObjectType:(BoxItemPickerObjectType)selectableObjectType;
+
 
 #pragma mark - Ressources Bundle
 /** @name Ressources Bundle */
