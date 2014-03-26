@@ -28,14 +28,6 @@
 		AF6E06A817AE66AF0039F17D /* BoxModelComparators.h in Headers */ = {isa = PBXBuildFile; fileRef = AF6E06A617AE66AF0039F17D /* BoxModelComparators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF6E06A917AE66AF0039F17D /* BoxModelComparators.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E06A717AE66AF0039F17D /* BoxModelComparators.m */; };
 		AF6E06AC17AE6C240039F17D /* BoxModelComparatorsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E06AB17AE6C240039F17D /* BoxModelComparatorsTest.m */; };
-		C5152CFE17541B66007A5C0A /* BoxFolderPickerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C5152CF817541B66007A5C0A /* BoxFolderPickerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C5152CFF17541B66007A5C0A /* BoxFolderPickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5152CF917541B66007A5C0A /* BoxFolderPickerHelper.m */; };
-		C5152D0017541B66007A5C0A /* BoxFolderPickerTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C5152CFA17541B66007A5C0A /* BoxFolderPickerTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C5152D0117541B66007A5C0A /* BoxFolderPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5152CFB17541B66007A5C0A /* BoxFolderPickerTableViewController.m */; };
-		C5152D0217541B66007A5C0A /* BoxFolderPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C5152CFC17541B66007A5C0A /* BoxFolderPickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C5152D0317541B66007A5C0A /* BoxFolderPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5152CFD17541B66007A5C0A /* BoxFolderPickerViewController.m */; };
-		C54BBF6D17584F9300F5DAD8 /* BoxFolderPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C54BBF6B17584F9200F5DAD8 /* BoxFolderPickerCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C54BBF6E17584F9300F5DAD8 /* BoxFolderPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BBF6C17584F9200F5DAD8 /* BoxFolderPickerCell.m */; };
 		C54BBF701758539E00F5DAD8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54BBF6F1758539E00F5DAD8 /* QuartzCore.framework */; };
 		C58BC262175EDD670071BF37 /* BoxItem+BoxAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C58BC260175EDD670071BF37 /* BoxItem+BoxAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C58BC263175EDD670071BF37 /* BoxItem+BoxAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC261175EDD670071BF37 /* BoxItem+BoxAdditions.m */; };
@@ -43,6 +35,16 @@
 		C5C11A40175DA92E0001EC88 /* NSString+BoxAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C11A3E175DA92E0001EC88 /* NSString+BoxAdditions.m */; };
 		C5C11A44175DACCE0001EC88 /* UIImage+BoxAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C5C11A42175DACCE0001EC88 /* UIImage+BoxAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5C11A45175DACCE0001EC88 /* UIImage+BoxAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C11A43175DACCE0001EC88 /* UIImage+BoxAdditions.m */; };
+		C5E155CD18D7A4A600E3C302 /* BoxItemPickerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E155C118D7A4A600E3C302 /* BoxItemPickerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5E155CE18D7A4A600E3C302 /* BoxItemPickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E155C218D7A4A600E3C302 /* BoxItemPickerHelper.m */; };
+		C5E155CF18D7A4A600E3C302 /* BoxItemPickerNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E155C318D7A4A600E3C302 /* BoxItemPickerNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5E155D018D7A4A600E3C302 /* BoxItemPickerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E155C418D7A4A600E3C302 /* BoxItemPickerNavigationController.m */; };
+		C5E155D118D7A4A600E3C302 /* BOXItemPickerTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E155C518D7A4A600E3C302 /* BOXItemPickerTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5E155D218D7A4A600E3C302 /* BOXItemPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E155C618D7A4A600E3C302 /* BOXItemPickerTableViewCell.m */; };
+		C5E155D318D7A4A600E3C302 /* BoxItemPickerTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E155C718D7A4A600E3C302 /* BoxItemPickerTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5E155D418D7A4A600E3C302 /* BoxItemPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E155C818D7A4A600E3C302 /* BoxItemPickerTableViewController.m */; };
+		C5E155D518D7A4A600E3C302 /* BoxItemPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E155C918D7A4A600E3C302 /* BoxItemPickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5E155D618D7A4A600E3C302 /* BoxItemPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E155CA18D7A4A600E3C302 /* BoxItemPickerViewController.m */; };
 		CA0F91EC183E881F0090696B /* BoxComment.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91EA183E881F0090696B /* BoxComment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA0F91ED183E881F0090696B /* BoxComment.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0F91EB183E881F0090696B /* BoxComment.m */; };
 		CA0F91F0183E93BA0090696B /* BoxCommentableItem.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0F91EE183E93BA0090696B /* BoxCommentableItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -125,8 +127,6 @@
 		E4081E211758732800F6D6AA /* xlsx.png in Resources */ = {isa = PBXBuildFile; fileRef = E4081DDD1758732800F6D6AA /* xlsx.png */; };
 		E4081E221758732800F6D6AA /* xml.png in Resources */ = {isa = PBXBuildFile; fileRef = E4081DDE1758732800F6D6AA /* xml.png */; };
 		E4081E231758732800F6D6AA /* xml@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4081DDF1758732800F6D6AA /* xml@2x.png */; };
-		E4081E331758832C00F6D6AA /* BoxFolderPickerNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = E4081E311758832C00F6D6AA /* BoxFolderPickerNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E4081E341758832C00F6D6AA /* BoxFolderPickerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4081E321758832C00F6D6AA /* BoxFolderPickerNavigationController.m */; };
 		E4081E4C175EF18800F6D6AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54BBF6F1758539E00F5DAD8 /* QuartzCore.framework */; };
 		E4081E4E175EF1B900F6D6AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4081E4D175EF1B900F6D6AA /* CoreGraphics.framework */; };
 		E40C7A49174BFDB500477760 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40C7A48174BFDB500477760 /* Security.framework */; };
@@ -412,14 +412,6 @@
 		AF6E06A717AE66AF0039F17D /* BoxModelComparators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxModelComparators.m; sourceTree = "<group>"; };
 		AF6E06AA17AE6C240039F17D /* BoxModelComparatorsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxModelComparatorsTest.h; sourceTree = "<group>"; };
 		AF6E06AB17AE6C240039F17D /* BoxModelComparatorsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxModelComparatorsTest.m; sourceTree = "<group>"; };
-		C5152CF817541B66007A5C0A /* BoxFolderPickerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFolderPickerHelper.h; sourceTree = "<group>"; };
-		C5152CF917541B66007A5C0A /* BoxFolderPickerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFolderPickerHelper.m; sourceTree = "<group>"; };
-		C5152CFA17541B66007A5C0A /* BoxFolderPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFolderPickerTableViewController.h; sourceTree = "<group>"; };
-		C5152CFB17541B66007A5C0A /* BoxFolderPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFolderPickerTableViewController.m; sourceTree = "<group>"; };
-		C5152CFC17541B66007A5C0A /* BoxFolderPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFolderPickerViewController.h; sourceTree = "<group>"; };
-		C5152CFD17541B66007A5C0A /* BoxFolderPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFolderPickerViewController.m; sourceTree = "<group>"; };
-		C54BBF6B17584F9200F5DAD8 /* BoxFolderPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFolderPickerCell.h; sourceTree = "<group>"; };
-		C54BBF6C17584F9200F5DAD8 /* BoxFolderPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFolderPickerCell.m; sourceTree = "<group>"; };
 		C54BBF6F1758539E00F5DAD8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C58BC260175EDD670071BF37 /* BoxItem+BoxAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BoxItem+BoxAdditions.h"; sourceTree = "<group>"; };
 		C58BC261175EDD670071BF37 /* BoxItem+BoxAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BoxItem+BoxAdditions.m"; sourceTree = "<group>"; };
@@ -427,6 +419,16 @@
 		C5C11A3E175DA92E0001EC88 /* NSString+BoxAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BoxAdditions.m"; sourceTree = "<group>"; };
 		C5C11A42175DACCE0001EC88 /* UIImage+BoxAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxAdditions.h"; sourceTree = "<group>"; };
 		C5C11A43175DACCE0001EC88 /* UIImage+BoxAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxAdditions.m"; sourceTree = "<group>"; };
+		C5E155C118D7A4A600E3C302 /* BoxItemPickerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxItemPickerHelper.h; sourceTree = "<group>"; };
+		C5E155C218D7A4A600E3C302 /* BoxItemPickerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxItemPickerHelper.m; sourceTree = "<group>"; };
+		C5E155C318D7A4A600E3C302 /* BoxItemPickerNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxItemPickerNavigationController.h; sourceTree = "<group>"; };
+		C5E155C418D7A4A600E3C302 /* BoxItemPickerNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxItemPickerNavigationController.m; sourceTree = "<group>"; };
+		C5E155C518D7A4A600E3C302 /* BOXItemPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOXItemPickerTableViewCell.h; sourceTree = "<group>"; };
+		C5E155C618D7A4A600E3C302 /* BOXItemPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOXItemPickerTableViewCell.m; sourceTree = "<group>"; };
+		C5E155C718D7A4A600E3C302 /* BoxItemPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxItemPickerTableViewController.h; sourceTree = "<group>"; };
+		C5E155C818D7A4A600E3C302 /* BoxItemPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxItemPickerTableViewController.m; sourceTree = "<group>"; };
+		C5E155C918D7A4A600E3C302 /* BoxItemPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxItemPickerViewController.h; sourceTree = "<group>"; };
+		C5E155CA18D7A4A600E3C302 /* BoxItemPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxItemPickerViewController.m; sourceTree = "<group>"; };
 		CA0F91EA183E881F0090696B /* BoxComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxComment.h; sourceTree = "<group>"; };
 		CA0F91EB183E881F0090696B /* BoxComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxComment.m; sourceTree = "<group>"; };
 		CA0F91EE183E93BA0090696B /* BoxCommentableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxCommentableItem.h; sourceTree = "<group>"; };
@@ -515,8 +517,6 @@
 		E4081DDD1758732800F6D6AA /* xlsx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xlsx.png; sourceTree = "<group>"; };
 		E4081DDE1758732800F6D6AA /* xml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xml.png; sourceTree = "<group>"; };
 		E4081DDF1758732800F6D6AA /* xml@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xml@2x.png"; sourceTree = "<group>"; };
-		E4081E311758832C00F6D6AA /* BoxFolderPickerNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFolderPickerNavigationController.h; sourceTree = "<group>"; };
-		E4081E321758832C00F6D6AA /* BoxFolderPickerNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFolderPickerNavigationController.m; sourceTree = "<group>"; };
 		E4081E4D175EF1B900F6D6AA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E40C7A48174BFDB500477760 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E4362754183E939A00C608E1 /* BoxSearchResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxSearchResourceManager.h; sourceTree = "<group>"; };
@@ -718,20 +718,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C5152CF717541B66007A5C0A /* FolderPicker */ = {
+		C5E155BE18D7A4A600E3C302 /* ItemPicker */ = {
 			isa = PBXGroup;
 			children = (
-				C5152CF817541B66007A5C0A /* BoxFolderPickerHelper.h */,
-				C5152CF917541B66007A5C0A /* BoxFolderPickerHelper.m */,
-				C5152CFA17541B66007A5C0A /* BoxFolderPickerTableViewController.h */,
-				C5152CFB17541B66007A5C0A /* BoxFolderPickerTableViewController.m */,
-				C5152CFC17541B66007A5C0A /* BoxFolderPickerViewController.h */,
-				C5152CFD17541B66007A5C0A /* BoxFolderPickerViewController.m */,
-				C54BBF6B17584F9200F5DAD8 /* BoxFolderPickerCell.h */,
-				C54BBF6C17584F9200F5DAD8 /* BoxFolderPickerCell.m */,
-				E4081E311758832C00F6D6AA /* BoxFolderPickerNavigationController.h */,
-				E4081E321758832C00F6D6AA /* BoxFolderPickerNavigationController.m */,
+				C5E155C118D7A4A600E3C302 /* BoxItemPickerHelper.h */,
+				C5E155C218D7A4A600E3C302 /* BoxItemPickerHelper.m */,
+				C5E155C318D7A4A600E3C302 /* BoxItemPickerNavigationController.h */,
+				C5E155C418D7A4A600E3C302 /* BoxItemPickerNavigationController.m */,
+				C5E155C518D7A4A600E3C302 /* BOXItemPickerTableViewCell.h */,
+				C5E155C618D7A4A600E3C302 /* BOXItemPickerTableViewCell.m */,
+				C5E155C718D7A4A600E3C302 /* BoxItemPickerTableViewController.h */,
+				C5E155C818D7A4A600E3C302 /* BoxItemPickerTableViewController.m */,
+				C5E155C918D7A4A600E3C302 /* BoxItemPickerViewController.h */,
+				C5E155CA18D7A4A600E3C302 /* BoxItemPickerViewController.m */,
 			);
+			name = ItemPicker;
 			path = FolderPicker;
 			sourceTree = "<group>";
 		};
@@ -875,9 +876,9 @@
 		E470434016D41DC500FED29A /* BoxSDK */ = {
 			isa = PBXGroup;
 			children = (
+				C5E155BE18D7A4A600E3C302 /* ItemPicker */,
 				E4FAD97B172CE2C50052AD11 /* Categories */,
 				E4FAD980172CE2C50052AD11 /* External */,
-				C5152CF717541B66007A5C0A /* FolderPicker */,
 				E4FAD986172CE2C50052AD11 /* Models */,
 				E4FAD995172CE2C50052AD11 /* OAuth2 */,
 				E4FAD99C172CE2C50052AD11 /* Operations */,
@@ -1259,6 +1260,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E155D518D7A4A600E3C302 /* BoxItemPickerViewController.h in Headers */,
+				C5E155CD18D7A4A600E3C302 /* BoxItemPickerHelper.h in Headers */,
+				C5E155CF18D7A4A600E3C302 /* BoxItemPickerNavigationController.h in Headers */,
+				C5E155D118D7A4A600E3C302 /* BOXItemPickerTableViewCell.h in Headers */,
+				C5E155D318D7A4A600E3C302 /* BoxItemPickerTableViewController.h in Headers */,
 				E44A95D116E221B400356ADA /* BoxSDKConstants.h in Headers */,
 				E44A95D216E221B400356ADA /* BoxSDK.h in Headers */,
 				E44A95D616E221B400356ADA /* BoxLog.h in Headers */,
@@ -1290,15 +1296,10 @@
 				E4FAD9F0172CE2C50052AD11 /* BoxItemsRequestBuilder.h in Headers */,
 				E4FAD9F2172CE2C50052AD11 /* BoxSharedObjectBuilder.h in Headers */,
 				E4FAD9F4172CE2C50052AD11 /* BoxAPIResourceManager.h in Headers */,
-				C5152CFE17541B66007A5C0A /* BoxFolderPickerHelper.h in Headers */,
-				C5152D0017541B66007A5C0A /* BoxFolderPickerTableViewController.h in Headers */,
-				C5152D0217541B66007A5C0A /* BoxFolderPickerViewController.h in Headers */,
 				E4FAD9F6172CE2C50052AD11 /* BoxFilesResourceManager.h in Headers */,
 				E4FAD9F8172CE2C50052AD11 /* BoxFoldersResourceManager.h in Headers */,
 				E4CA6F56173F13C10089680F /* BoxParallelAPIQueueManager.h in Headers */,
 				E4CA6F5E173F1C750089680F /* BoxParallelOAuth2Session.h in Headers */,
-				C54BBF6D17584F9300F5DAD8 /* BoxFolderPickerCell.h in Headers */,
-				E4081E331758832C00F6D6AA /* BoxFolderPickerNavigationController.h in Headers */,
 				C5C11A3F175DA92E0001EC88 /* NSString+BoxAdditions.h in Headers */,
 				C5C11A44175DACCE0001EC88 /* UIImage+BoxAdditions.h in Headers */,
 				C58BC262175EDD670071BF37 /* BoxItem+BoxAdditions.h in Headers */,
@@ -1636,11 +1637,13 @@
 				E44A95B116E21C5100356ADA /* BoxSDKConstants.m in Sources */,
 				E4FAD9C1172CE2C50052AD11 /* NSString+BoxURLHelper.m in Sources */,
 				E4FAD9C3172CE2C50052AD11 /* NSURL+BoxURLHelper.m in Sources */,
+				C5E155CE18D7A4A600E3C302 /* BoxItemPickerHelper.m in Sources */,
 				E4FAD9C5172CE2C50052AD11 /* BoxISO8601DateFormatter.m in Sources */,
 				E4FAD9C7172CE2C50052AD11 /* BoxCollection.m in Sources */,
 				E4FAD9C9172CE2C50052AD11 /* BoxFile.m in Sources */,
 				E4FAD9CB172CE2C50052AD11 /* BoxFolder.m in Sources */,
 				E4FAD9CD172CE2C50052AD11 /* BoxItem.m in Sources */,
+				C5E155D218D7A4A600E3C302 /* BOXItemPickerTableViewCell.m in Sources */,
 				E4FAD9CF172CE2C50052AD11 /* BoxModel.m in Sources */,
 				E4FAD9D1172CE2C50052AD11 /* BoxUser.m in Sources */,
 				E4FAD9D3172CE2C50052AD11 /* BoxWebLink.m in Sources */,
@@ -1665,17 +1668,15 @@
 				E4FAD9F5172CE2C50052AD11 /* BoxAPIResourceManager.m in Sources */,
 				E4FAD9F7172CE2C50052AD11 /* BoxFilesResourceManager.m in Sources */,
 				E4FAD9F9172CE2C50052AD11 /* BoxFoldersResourceManager.m in Sources */,
+				C5E155D418D7A4A600E3C302 /* BoxItemPickerTableViewController.m in Sources */,
 				E4CA6F57173F13C10089680F /* BoxParallelAPIQueueManager.m in Sources */,
 				E4CA6F5F173F1C750089680F /* BoxParallelOAuth2Session.m in Sources */,
 				CA0F91F9183EA1AF0090696B /* BoxCommentsResourceManager.m in Sources */,
-				C5152CFF17541B66007A5C0A /* BoxFolderPickerHelper.m in Sources */,
 				E436276E183EDCA000C608E1 /* BoxSearchRequestBuilder.m in Sources */,
-				C5152D0117541B66007A5C0A /* BoxFolderPickerTableViewController.m in Sources */,
-				C5152D0317541B66007A5C0A /* BoxFolderPickerViewController.m in Sources */,
-				C54BBF6E17584F9300F5DAD8 /* BoxFolderPickerCell.m in Sources */,
-				E4081E341758832C00F6D6AA /* BoxFolderPickerNavigationController.m in Sources */,
 				C5C11A40175DA92E0001EC88 /* NSString+BoxAdditions.m in Sources */,
 				C5C11A45175DACCE0001EC88 /* UIImage+BoxAdditions.m in Sources */,
+				C5E155D618D7A4A600E3C302 /* BoxItemPickerViewController.m in Sources */,
+				C5E155D018D7A4A600E3C302 /* BoxItemPickerNavigationController.m in Sources */,
 				C58BC263175EDD670071BF37 /* BoxItem+BoxAdditions.m in Sources */,
 				AF6E06A917AE66AF0039F17D /* BoxModelComparators.m in Sources */,
 				AF153B1417C346D6008D636C /* NSJSONSerialization+BoxAdditions.m in Sources */,

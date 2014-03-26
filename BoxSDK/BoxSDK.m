@@ -76,17 +76,22 @@
     self.commentsManager.APIBaseURL = APIBaseURL;
 }
 
-- (BoxFolderPickerViewController *)folderPickerWithRootFolderID:(NSString *)rootFolderID 
-                                               thumbnailsEnabled:(BOOL)thumbnailsEnabled 
-                                           cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
-                                           fileSelectionEnabled:(BOOL)fileSelectionEnabled;
+- (BoxItemPickerViewController *)itemPickerWithRootFolderID:(NSString *)rootFolderID
+                                          thumbnailsEnabled:(BOOL)thumbnailsEnabled
+                                       cachedThumbnailsPath:(NSString *)cachedThumbnailsPath
+                                       selectableObjectType:(BoxItemPickerObjectType)selectableObjectType
 {
-    return [[BoxFolderPickerViewController alloc] initWithSDK:self rootFolderID:rootFolderID thumbnailsEnabled:thumbnailsEnabled cachedThumbnailsPath:cachedThumbnailsPath fileSelectionEnabled:fileSelectionEnabled];
+    return [[BoxItemPickerViewController alloc] 
+            initWithSDK:self 
+            rootFolderID:rootFolderID 
+            thumbnailsEnabled:thumbnailsEnabled 
+            cachedThumbnailsPath:cachedThumbnailsPath
+            selectableObjectType:selectableObjectType];
 }
 
 // Load the ressources bundle.
 + (NSBundle *)resourcesBundle
-{
+{    
     static NSBundle* frameworkBundle = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
@@ -95,6 +100,27 @@
         frameworkBundle = [NSBundle bundleWithPath:frameworkBundlePath];
     });
     return frameworkBundle;
+}
+
+- (BoxItemPickerViewController *)itemPickerWithDelegate:(id <BOXItemPickerDelegate>)delegate selectableObjectType:(BoxItemPickerObjectType)selectableObjectType
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    
+    if (basePath) {
+        NSString *thumbnailPath = [basePath stringByAppendingPathComponent:@"Box"];
+        
+        BoxItemPickerViewController *picker = [self itemPickerWithRootFolderID:@"0" 
+                                                             thumbnailsEnabled:YES
+                                                          cachedThumbnailsPath:thumbnailPath
+                                                          selectableObjectType:selectableObjectType];
+        picker.delegate = delegate;
+        
+        return picker;
+    } else {
+        BOXAssertFail(@"Could not retrieve the documents directory when initializing the folderpicker.");
+        return nil;
+    }
 }
 
 @end
