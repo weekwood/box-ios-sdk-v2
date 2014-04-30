@@ -20,6 +20,20 @@
                ReferencedContainer = "container:BoxSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E4081D8C1758728900F6D6AA"
+               BuildableName = "BoxSDKResources.bundle"
+               BlueprintName = "BoxSDKResources"
+               ReferencedContainer = "container:BoxSDK.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
