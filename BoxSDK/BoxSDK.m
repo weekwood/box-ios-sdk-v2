@@ -95,9 +95,8 @@
     static NSBundle* frameworkBundle = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
-        NSString* mainBundlePath = [[NSBundle mainBundle] resourcePath];
-        NSString* frameworkBundlePath = [mainBundlePath stringByAppendingPathComponent:@"BoxSDKResources.bundle"];
-        frameworkBundle = [NSBundle bundleWithPath:frameworkBundlePath];
+        NSURL* ressourcesBundleURL = [[NSBundle mainBundle] URLForResource:@"BoxSDKResources" withExtension:@"bundle"];
+        frameworkBundle = [NSBundle bundleWithURL:ressourcesBundleURL];
     });
     return frameworkBundle;
 }
