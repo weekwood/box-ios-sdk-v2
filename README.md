@@ -230,7 +230,7 @@ The folder picker looks like this:
 
 ![Folder picker](http://box.github.io/box-ios-sdk-v2/readme-images/folder-picker.png)
 
-See our [sample app that utilizes the folder picker](https://github.com/box/box-ios-sdk-sample-app/tree/master/FolderPicker-SampleApp).
+See our [sample app that utilizes the folder picker](https://github.com/box/box-ios-sdk-sample-app/tree/master/BOXContracts).
 
 #### Setup steps
 In addition to the installation steps above, you must do two more things in XCode to
