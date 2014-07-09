@@ -45,7 +45,7 @@ case "$1" in
     build_status_61=$?
     xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxSDK -sdk iphonesimulator7.0 -destination OS=7.0,name='iPhone Retina (4-inch)' -configuration $configuration clean build test
     build_status_70=$?
-    xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxSDK -sdk iphonesimulator7.1 -destination OS=7.1,name=iPhone -configuration $configuration clean build test
+    xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxSDK -sdk iphonesimulator7.1 -destination OS=7.1,name='iPhone Retina (4-inch)' -configuration $configuration clean build test
     build_status_71=$?
     xcodebuild -project BoxSDK.xcodeproj/ -scheme BoxCocoaSDK -sdk macosx10.8 -configuration $configuration clean build test
     build_status_108=$?
