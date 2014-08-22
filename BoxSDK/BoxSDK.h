@@ -49,6 +49,7 @@
 #import <BoxSDK/BoxSearchResourceManager.h>
 #import <BoxSDK/BoxUsersResourceManager.h>
 #import <BoxSDK/BoxCommentsResourceManager.h>
+#import <BoxSDK/BoxSearchRequestBuilder.h>
 
 // API models
 #import <BoxSDK/BoxModel.h>
