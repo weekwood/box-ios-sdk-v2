@@ -33,6 +33,10 @@ Pod::Spec.new do |s|
   s.osx.public_header_files = "BoxCocoaSDK/*.h", "BoxCocoaSDK/**/*.h",
                               "BoxSDK/*.h", "BoxSDK/**/*.h"
 
+  s.resource_bundle         = { "BoxSDKResources" => [ "BoxSDKResources/Icons/*",
+                                                       "BoxSDKResources/Assets/*",
+                                                       "BoxSDKResources/*.lproj/*" ] }
+
 # Build settings
 
   s.ios.frameworks        = "Security", "QuartzCore"
